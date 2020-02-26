@@ -1,0 +1,139 @@
+.boxs-1 {
+  -webkit-box-shadow: 0rem 0.0625rem 0.5rem 0rem rgba(0, 0, 0, 0.07);
+          box-shadow: 0rem 0.0625rem 0.5rem 0rem rgba(0, 0, 0, 0.07);
+}
+
+.boxs-2 {
+  -webkit-box-shadow: 0rem 1.5375rem 1.5375rem 0rem rgba(0, 0, 0, 0.07);
+          box-shadow: 0rem 1.5375rem 1.5375rem 0rem rgba(0, 0, 0, 0.07);
+}
+
+.boxs-3 {
+  -webkit-box-shadow: 0rem 1.6375rem 1.6375rem 0rem rgba(0, 0, 0, 0.07);
+          box-shadow: 0rem 1.6375rem 1.6375rem 0rem rgba(0, 0, 0, 0.07);
+}
+
+.boxs-4 {
+  -webkit-box-shadow: 0rem 1.7375rem 1.7375rem 0rem rgba(0, 0, 0, 0.07);
+          box-shadow: 0rem 1.7375rem 1.7375rem 0rem rgba(0, 0, 0, 0.07);
+}
+
+.boxs-5 {
+  -webkit-box-shadow: 0rem 1.8375rem 1.8375rem 0rem rgba(0, 0, 0, 0.07);
+          box-shadow: 0rem 1.8375rem 1.8375rem 0rem rgba(0, 0, 0, 0.07);
+}
+
+:host {
+  position: relative;
+}
+
+:host .call-to-action-01 {
+  overflow: hidden;
+  position: relative;
+  margin: 3rem 0 0 0;
+  padding: 5rem 0;
+  background: #1e63f8;
+  color: #ffffff;
+}
+
+:host .call-to-action-01 > div {
+  position: relative;
+  z-index: 1;
+}
+
+:host::before {
+  content: '';
+  width: 500px;
+  height: 500px;
+  background: #ffffff29;
+  display: block;
+  top: -200px;
+  left: -250px;
+  position: absolute;
+  z-index: 0;
+  border-radius: 50%;
+}
+
+:host::after {
+  content: '';
+  width: 500px;
+  height: 500px;
+  background: #ffffff29;
+  display: block;
+  bottom: -330px;
+  right: -250px;
+  position: absolute;
+  z-index: 0;
+  border-radius: 50%;
+}
+
+@media (max-width: 991px) {
+  :host {
+    padding: 3rem 0;
+  }
+}
+
+:host .call-to-action-01__title {
+  text-align: center;
+  margin: 0 4rem;
+  font-size: 46px;
+  font-size: 2.875rem;
+  line-height: 52px;
+  line-height: 3.25rem;
+}
+
+:host .call-to-action-02 {
+  border-radius: 16px;
+  overflow: hidden;
+  position: relative;
+  margin: 3rem 0 0 0;
+  padding: 5rem 0;
+  background: #1e63f8;
+  color: #ffffff;
+}
+
+:host .call-to-action-02 > div {
+  position: relative;
+  z-index: 1;
+}
+
+:host .call-to-action-03 {
+  border-radius: 16px;
+  overflow: hidden;
+  position: relative;
+  margin: 3rem 0 0 0;
+  padding: 5rem 0;
+  background: #042c5c;
+  color: #ffffff;
+  margin-bottom: 4rem;
+}
+
+:host .call-to-action-03 > div {
+  position: relative;
+  z-index: 1;
+}
+
+:host .call-to-action-02__title {
+  text-align: center;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+:host .call-to-action-03__title {
+  text-align: center;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+:host .call-to-action-02__subtitle {
+  text-align: center;
+  margin: 0 4rem;
+  font-size: 1.4rem;
+}
+
+:host .call-to-action-03__subtitle {
+  text-align: center;
+  margin: 0 4rem;
+  font-size: 1.4rem;
+}
+/*# sourceMappingURL=calltoaction.component.css.map */

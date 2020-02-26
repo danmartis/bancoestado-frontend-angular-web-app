@@ -1,0 +1,15 @@
+<div class="select-se" [ngClass]="[type, selected ? 'select-se--selected': '', disabled ? 'select-se--disabled' : '']">
+    <div class="select-se__default">
+        <p class="select-se__label">{{label}}<span *ngIf="sufix">{{sufix}}</span></p>
+        <span class="select-se__icon">
+            <img class="select-se__img" src="assets/imgs/svg/icon-select-arrow.svg" alt="icono del select">
+            <img class="select-se__img select-se__img--active" src="assets/imgs/svg/icon-select-arrow-active.svg" alt="icono del select">
+        </span>
+    </div>
+    <ul class="select-se__list">
+        <li class="select-se__item" *ngFor="let item of items" (click)="selectOption(item)">
+            {{item.label}}
+            <span *ngIf="item.sufix">{{item.sufix}}</span>
+        </li>
+    </ul>
+</div>

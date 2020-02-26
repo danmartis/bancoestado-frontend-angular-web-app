@@ -1,0 +1,23 @@
+@import '../../../../../scss/_vars';
+@import '../../../../../scss/_mixins';
+
+:host {
+    .non-registered__card {
+        position: relative;
+        background: $color-link;
+        padding: 0.9375rem;
+        border-radius: 0.9375rem;
+        color: #fff;
+
+        button.non-registered__card__close-button {
+            position: absolute;
+            right: 0.3125rem;
+            top: 0.3125rem;
+            border: none;
+            background: none;
+            height: 1.875rem;
+            width: 1.875rem;
+            z-index: 2;
+        }
+    }
+}

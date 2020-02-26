@@ -1,0 +1,206 @@
+.boxs-1 {
+  -webkit-box-shadow: 0rem 0.0625rem 0.5rem 0rem rgba(0, 0, 0, 0.07);
+          box-shadow: 0rem 0.0625rem 0.5rem 0rem rgba(0, 0, 0, 0.07);
+}
+
+.boxs-2 {
+  -webkit-box-shadow: 0rem 1.5375rem 1.5375rem 0rem rgba(0, 0, 0, 0.07);
+          box-shadow: 0rem 1.5375rem 1.5375rem 0rem rgba(0, 0, 0, 0.07);
+}
+
+.boxs-3 {
+  -webkit-box-shadow: 0rem 1.6375rem 1.6375rem 0rem rgba(0, 0, 0, 0.07);
+          box-shadow: 0rem 1.6375rem 1.6375rem 0rem rgba(0, 0, 0, 0.07);
+}
+
+.boxs-4 {
+  -webkit-box-shadow: 0rem 1.7375rem 1.7375rem 0rem rgba(0, 0, 0, 0.07);
+          box-shadow: 0rem 1.7375rem 1.7375rem 0rem rgba(0, 0, 0, 0.07);
+}
+
+.boxs-5 {
+  -webkit-box-shadow: 0rem 1.8375rem 1.8375rem 0rem rgba(0, 0, 0, 0.07);
+          box-shadow: 0rem 1.8375rem 1.8375rem 0rem rgba(0, 0, 0, 0.07);
+}
+
+/* Botones - Estados */
+:host {
+  /* 
+Esta clase se utiliza cuando el boton es al 100% 
+de su contenedor. 
+*/
+  /* 
+Ejemplos de como usar los botones en caso de necesitar que
+tengan un ancho determinado ... lo recomendado es
+utilizar dentro de un contendor. 
+
+.caja {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    &__hijo {
+        width: 48%;
+    }
+}
+
+.mi-boton-icon {
+    margin: 0 auto 0 auto;
+    width: 160px;
+}
+    
+*/
+}
+
+:host .button {
+  background-color: #1e63f8;
+  border: 1px solid #1e63f8;
+  border-radius: 1.5em;
+  -webkit-box-shadow: 0 21px 12px -15px rgba(4, 44, 92, 0.2);
+          box-shadow: 0 21px 12px -15px rgba(4, 44, 92, 0.2);
+  color: #fff;
+  cursor: pointer;
+  font-size: 16px;
+  font-size: 1rem;
+  line-height: 32px;
+  line-height: 2rem;
+  font-family: 'Circular Std';
+  font-weight: 600;
+  margin: .5em 0 .5em 0;
+  padding: .45em 2em .45em 2em;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+:host .button.button--small-padding {
+  padding: .45em 4em .45em 4em;
+}
+
+@media (max-width: 575.9999px) {
+  :host .button.button--small-padding {
+    padding: .45em 1.5em;
+  }
+}
+
+:host .button.button--hyper-small-padding {
+  padding: .45em 0.5em .45em 0.5em;
+}
+
+@media (max-width: 575.9999px) {
+  :host .button.button--hyper-small-padding {
+    padding: .45em 1.5em;
+  }
+}
+
+:host .button__icon {
+  display: inline-block;
+  margin: 0 .5em 0 0;
+  vertical-align: middle;
+  width: 20px;
+}
+
+:host .button:hover {
+  background-color: #2a6dff;
+  border: 1px solid #2a6dff;
+  -webkit-box-shadow: 0 26px 17px -15px rgba(4, 44, 92, 0.3);
+          box-shadow: 0 26px 17px -15px rgba(4, 44, 92, 0.3);
+}
+
+:host .button:disabled {
+  background-color: #DFE3EA;
+  border-color: #DFE3EA;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  color: #BFC5D2;
+  pointer-events: none;
+}
+
+:host .button--medium {
+  font-size: 14px;
+  font-size: 0.875rem;
+  line-height: 24px;
+  line-height: 1.5rem;
+  padding: .5em 3em .5em 3em;
+}
+
+:host .button--small {
+  font-size: 12px;
+  font-size: 0.75rem;
+  line-height: 16px;
+  line-height: 1rem;
+  padding: .6em 2.5em .6em 2.5em;
+}
+
+:host .button--white {
+  background-color: #fff;
+  border: 1px solid #fff;
+  color: #1e63f8;
+}
+
+:host .button--white:hover {
+  background-color: #fff;
+  border: 1px solid #fff;
+  color: #1e63f8;
+}
+
+:host .button--secundario,
+:host .button--terciario {
+  background-color: rgba(255, 255, 255, 0);
+  border: 1px solid #1e63f8;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  color: #1e63f8;
+  font-weight: 400;
+}
+
+:host .button--secundario:hover,
+:host .button--terciario:hover {
+  background-color: #F3F7FF;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+:host .button--secundario:disabled,
+:host .button--terciario:disabled {
+  background-color: transparent;
+  border-color: #DFE3EA;
+}
+
+:host .button--terciario {
+  border: 1px solid transparent;
+}
+
+:host .button--terciario:disabled {
+  border-color: transparent;
+}
+
+:host .button--terciario:hover {
+  border: 1px solid #F3F7FF;
+}
+
+:host .button--light {
+  background-color: transparent;
+  border: 1px solid #fff;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  color: #fff;
+  font-weight: 400;
+}
+
+:host .button--light:hover {
+  border: 1px solid #fff;
+  background-color: rgba(255, 255, 255, 0.05);
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+:host .button--light:disabled {
+  background-color: transparent;
+  border-color: #fff;
+  color: #fff;
+}
+
+:host .button--auto {
+  padding: .45em 8px .45em 8px;
+  width: 100%;
+}
+/*# sourceMappingURL=button2.component.css.map */

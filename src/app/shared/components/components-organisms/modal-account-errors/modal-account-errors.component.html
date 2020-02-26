@@ -1,0 +1,37 @@
+<!-- Error identificador no valido y error en servicio -->
+<app-modal-bottom name="modal-error-service" activateBack="true" (onBack)="closeListOpenSingle(['modal-error-service'],'modal-added-account')">
+    <div class="modal-bottom_section__body text-center">
+        <div class="my-4">
+            <app-icon [color]="errorColor" name="error" size="md-75"></app-icon>
+        </div>
+        <app-modal-title>Lo sentimos</app-modal-title>
+        <app-paragraph>Los servicios están presentando problemas, favor intente más tarde</app-paragraph>
+    </div>
+    <div class="modal-bottom_section__footer text-center">
+        <app-button2 auto="true" type="primario" (click)="closeListOpenSingle(['modal-error-service'],'modal-added-account')">Aceptar</app-button2>
+    </div>
+</app-modal-bottom>
+<app-modal-bottom name="modal-error-identifier" activateBack="true" (onBack)="closeListOpenSingle(['modal-error-identifier'],'modal-added-account')">
+    <div class="modal-bottom_section__body text-center">
+        <div class="my-4">
+            <app-icon [color]="errorColor" name="error" size="md-75"></app-icon>
+        </div>
+        <app-modal-title>Lo sentimos</app-modal-title>
+        <app-paragraph>El identificador ingresado no es correcto</app-paragraph>
+    </div>
+    <div class="modal-bottom_section__footer text-center">
+        <app-button2 auto="true" type="primario" (click)="closeListOpenSingle(['modal-error-identifier'],'modal-added-account')">Aceptar</app-button2>
+    </div>
+</app-modal-bottom>
+<app-modal-bottom name="modal-no-debt" activateBack="true" (onBack)="closeListOpenSingle(['modal-no-debt'],'modal-added-account')">
+    <div class="modal-bottom_section__body text-center">
+        <div class="my-4">
+            <app-icon [color]="primaryColor" name="error" size="md-75"></app-icon>
+        </div>
+        <app-modal-title>Sin deuda</app-modal-title>
+        <app-paragraph>La cuenta ingresada no tiene deuda pendiente a pagar</app-paragraph>
+    </div>
+    <div class="modal-bottom_section__footer text-center">
+        <app-button2 auto="true" type="primario" (click)="closeListOpenSingle(['modal-error-identifier'],'modal-added-account')">Aceptar</app-button2>
+    </div>
+</app-modal-bottom>

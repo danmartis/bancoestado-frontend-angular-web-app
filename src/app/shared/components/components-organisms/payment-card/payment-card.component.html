@@ -1,0 +1,38 @@
+<app-card-default>
+    <div class="pay">
+        <figure class="pay__icon">
+            <img [src]="getMethodImg()" [alt]="getMethod().type">
+        </figure>
+        <div class="pay__info">
+            <p class="pay__number">{{getMethod().number}}</p>
+            <p class="pay__bank">{{getMethod().bank}}</p>
+        </div>
+        <app-button2 size="small" type="secundario" (click)="closeListOpenSingle([],'modal-change-payment-method')">Cambiar</app-button2>
+    </div>
+</app-card-default>
+
+
+<app-modal-bottom name="modal-change-payment-method">
+    <div class="modal-bottom_section__header">
+        <app-modal-title>Medios de pago</app-modal-title>
+        <app-paragraph>Medios de pago</app-paragraph>
+    </div>
+    <div class="modal-bottom_section__body">
+        <div class="mb-4" *ngFor="let method of changePaymentMethodList">
+            <app-card-method-payment [method]="method" type="change"></app-card-method-payment>
+        </div>
+    </div>
+    <div class="modal-bottom_section__footer text-center">
+        <div class="row">
+            <div class="col-12">
+                <app-button (click)="closeListOpenSingle(['modal-change-payment-method'],'')" type="auto-block-secondary">
+                    Inscribir otro medio de pago
+                </app-button>
+            </div>
+            <div class="col-12 col-md-8 offset-md-2">
+                <app-button2 auto="true" (click)="closeListOpenSingle(['modal-change-payment-method'],'')">Seleccionar</app-button2>
+            </div>
+        </div>
+
+    </div>
+</app-modal-bottom>

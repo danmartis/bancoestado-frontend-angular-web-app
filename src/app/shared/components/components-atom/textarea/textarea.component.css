@@ -1,0 +1,47 @@
+.boxs-1 {
+  -webkit-box-shadow: 0rem 0.0625rem 0.5rem 0rem rgba(0, 0, 0, 0.07);
+          box-shadow: 0rem 0.0625rem 0.5rem 0rem rgba(0, 0, 0, 0.07);
+}
+
+.boxs-2 {
+  -webkit-box-shadow: 0rem 1.5375rem 1.5375rem 0rem rgba(0, 0, 0, 0.07);
+          box-shadow: 0rem 1.5375rem 1.5375rem 0rem rgba(0, 0, 0, 0.07);
+}
+
+.boxs-3 {
+  -webkit-box-shadow: 0rem 1.6375rem 1.6375rem 0rem rgba(0, 0, 0, 0.07);
+          box-shadow: 0rem 1.6375rem 1.6375rem 0rem rgba(0, 0, 0, 0.07);
+}
+
+.boxs-4 {
+  -webkit-box-shadow: 0rem 1.7375rem 1.7375rem 0rem rgba(0, 0, 0, 0.07);
+          box-shadow: 0rem 1.7375rem 1.7375rem 0rem rgba(0, 0, 0, 0.07);
+}
+
+.boxs-5 {
+  -webkit-box-shadow: 0rem 1.8375rem 1.8375rem 0rem rgba(0, 0, 0, 0.07);
+          box-shadow: 0rem 1.8375rem 1.8375rem 0rem rgba(0, 0, 0, 0.07);
+}
+
+:host textarea.textarea {
+  width: 100%;
+  min-height: 8rem;
+  border-radius: 0.5rem;
+  border: #f4f6f8 1px solid;
+  padding: 1rem;
+  font-size: 0.875rem;
+  color: #042c5c;
+  resize: none;
+}
+
+:host textarea.textarea:focus {
+  outline: none;
+  border-color: #1e63f8;
+}
+
+:host .textarea-counter {
+  text-align: right;
+  font-size: 1rem;
+  color: #77869e;
+}
+/*# sourceMappingURL=textarea.component.css.map */

@@ -1,0 +1,44 @@
+@import '../../../../scss/_vars';
+@import '../../../../scss/_mixins';
+:host {
+    text-align: center;
+    .value__title-desc {
+        color: $color-text;
+        font-size: 18px;
+        font-weight: 500;
+        letter-spacing: 0.1px;
+        line-height: 33.6px;
+        text-align: center;
+        margin-top: 16px;
+    }
+    .value__title {
+        color: rgb(1, 43, 93);
+        font-size: 40px;
+        font-weight: 900;
+        letter-spacing: 0px;
+        line-height: 56px;
+        text-align: center;
+        margin-bottom: 24px;
+    }
+    .value__total-account {
+        color: rgb(1, 43, 93);
+        font-size: 24px;
+        font-weight: bold;
+        text-align: center;
+        line-height: 24px;
+        margin-bottom: 16px;
+        @media (max-width: 767.9999px) {
+            display: none;
+        }
+    }
+    .value__total-account-desc {
+        color: $color-text;
+        font-size: 14px;
+        font-weight: 500;
+        letter-spacing: 0px;
+        line-height: 24px;
+        @media (max-width: 767.9999px) {
+            display: none;
+        }
+    }
+}

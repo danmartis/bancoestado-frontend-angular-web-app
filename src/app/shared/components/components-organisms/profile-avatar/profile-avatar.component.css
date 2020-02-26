@@ -1,0 +1,82 @@
+.boxs-1 {
+  -webkit-box-shadow: 0rem 0.0625rem 0.5rem 0rem rgba(0, 0, 0, 0.07);
+          box-shadow: 0rem 0.0625rem 0.5rem 0rem rgba(0, 0, 0, 0.07);
+}
+
+.boxs-2 {
+  -webkit-box-shadow: 0rem 1.5375rem 1.5375rem 0rem rgba(0, 0, 0, 0.07);
+          box-shadow: 0rem 1.5375rem 1.5375rem 0rem rgba(0, 0, 0, 0.07);
+}
+
+.boxs-3 {
+  -webkit-box-shadow: 0rem 1.6375rem 1.6375rem 0rem rgba(0, 0, 0, 0.07);
+          box-shadow: 0rem 1.6375rem 1.6375rem 0rem rgba(0, 0, 0, 0.07);
+}
+
+.boxs-4 {
+  -webkit-box-shadow: 0rem 1.7375rem 1.7375rem 0rem rgba(0, 0, 0, 0.07);
+          box-shadow: 0rem 1.7375rem 1.7375rem 0rem rgba(0, 0, 0, 0.07);
+}
+
+.boxs-5 {
+  -webkit-box-shadow: 0rem 1.8375rem 1.8375rem 0rem rgba(0, 0, 0, 0.07);
+          box-shadow: 0rem 1.8375rem 1.8375rem 0rem rgba(0, 0, 0, 0.07);
+}
+
+:host .profile-show {
+  display: block;
+}
+
+:host .profile-hide {
+  display: none;
+}
+
+:host .profile-avatar {
+  position: relative;
+  background-color: #ffffff;
+  color: #042c5c;
+  border-radius: 14px;
+  height: auto;
+  width: 100%;
+  min-height: 20.5rem;
+  padding: 4rem 1.5rem;
+  -webkit-box-shadow: 0px 15px 15px 0px rgba(0, 0, 0, 0.03);
+          box-shadow: 0px 15px 15px 0px rgba(0, 0, 0, 0.03);
+}
+
+@media (max-width: 991px) {
+  :host .profile-avatar {
+    border-radius: 0.875rem 0.875rem 0 0 !important;
+  }
+}
+
+:host .profile-avatar h2 {
+  color: #042c5c;
+  font-size: 18px;
+  font-weight: bold;
+  letter-spacing: 0.1px;
+  line-height: 24px;
+  text-align: center;
+  margin: 0;
+}
+
+:host .profile-avatar button.add-image {
+  width: 6rem;
+  border-radius: 50%;
+  height: 6rem;
+  padding: 0;
+  margin: 0;
+  font-size: 2.5rem;
+  line-height: 1;
+  vertical-align: top;
+  border: none;
+  background-color: #ffffff;
+  -webkit-box-shadow: 0px 12px 13px 0px rgba(0, 0, 0, 0.07);
+          box-shadow: 0px 12px 13px 0px rgba(0, 0, 0, 0.07);
+  color: #1e63f8;
+}
+
+:host .profile-avatar button.add-image img {
+  width: 30px;
+}
+/*# sourceMappingURL=profile-avatar.component.css.map */

@@ -1,0 +1,41 @@
+@import '../../../../scss/_vars';
+@import '../../../../scss/_mixins';
+:host {
+/* 
+Este es el menu de opciones que se tiene que mostrar
+en cada componente al presionar los tres puntos ( las opciones varian por componente )
+*/
+    .dropdown {
+        border-radius: 8px;
+        box-shadow: 0rem 1.4375rem 1.4375rem 0rem rgba(0, 0, 0, 0.07);
+        display: inline-block;
+        overflow: hidden;
+        padding: 0 0 0 0;
+        width: auto;
+        min-width: 150px; // revisar si esto no afecta las otras vistas
+        //margin: 0 .5em 0 0;
+        position: relative;
+        right: 15px;
+
+        &__item {
+            background-color: $color-primary-light;
+            color: #8391A9;
+            @include font-size(14);
+            @include line-height(16);
+            font-weight: 400;
+            padding: 1.1em 1.3em 1.1em 1.3em;
+            transition: all 0.3s ease !important;
+            &:hover {
+                background-color: #F4F7FA;
+            }
+            &--delete {
+                color: #FB6262;
+            }
+        }
+
+        @media (max-width: 320px) {
+            right: 10px;
+            transform: scale(.9);
+        }
+    }
+}

@@ -1,0 +1,44 @@
+$boxs-v-1: 0rem 0.0625rem 0.5rem 0rem rgba(0, 0, 0, 0.07);
+$boxs-v-2: 0rem 1.5375rem 1.5375rem 0rem rgba(0, 0, 0, 0.07);
+$boxs-v-3: 0rem 1.6375rem 1.6375rem 0rem rgba(0, 0, 0, 0.07);
+$boxs-v-4: 0rem 1.7375rem 1.7375rem 0rem rgba(0, 0, 0, 0.07);
+$boxs-v-5: 0rem 1.8375rem 1.8375rem 0rem rgba(0, 0, 0, 0.07);
+
+
+.boxs-1 {
+    box-shadow: $boxs-v-1;
+}
+
+.boxs-2 {
+    box-shadow: $boxs-v-2;
+}
+
+.boxs-3 {
+    box-shadow: $boxs-v-3;
+}
+
+.boxs-4 {
+    box-shadow: $boxs-v-4;
+}
+
+.boxs-5 {
+    box-shadow: $boxs-v-5;
+}
+
+@mixin boxs-x($n) {
+    @if $n==1 {
+        box-shadow: $boxs-v-1;
+    }
+    @if $n==2 {
+        box-shadow: $boxs-v-2;
+    }
+    @if $n==3 {
+        box-shadow: $boxs-v-3;
+    }
+    @if $n==4 {
+        box-shadow: $boxs-v-4;
+    }
+    @if $n==5 {
+        box-shadow: $boxs-v-5;
+    }
+}

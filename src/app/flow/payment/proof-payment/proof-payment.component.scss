@@ -1,0 +1,15 @@
+    @import '../../../../scss/_vars';
+    :host {
+        figure {
+            margin: 0;
+        }
+
+        .botones{
+            text-align: right;
+
+            @media (max-width: 767px) {
+                display: none;
+            }
+        }
+
+    }

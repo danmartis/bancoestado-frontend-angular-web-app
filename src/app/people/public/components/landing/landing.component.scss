@@ -1,0 +1,336 @@
+@import '../../../../../scss/_vars';
+@import '../../../../../scss/_mixins';
+@import '../../../../../scss/_public';
+
+.feature {
+    margin: 0 0 16em 0;
+    padding: 1em 1em 1em 1em;
+    transition: all 0.3s ease;
+
+    @media (max-width: 480px) {
+        padding: .5em .5em .5em .5em;
+    }
+
+    &:first-child {
+        margin: 6em 0 16em 0;
+
+        .hero-title {
+            margin: 0 0 .5em 0;
+        }
+    }
+
+    @media (max-width: 768px) {
+        margin: 0 0 12em 0;
+
+        &:first-child {
+            margin: 4em 0 12em 0;
+        }
+    }
+
+    @media (max-width: 480px) {
+        margin: 0 0 6em 0;
+
+        &:first-child {
+            margin: 0 0 6em 0;
+        }
+    }
+
+    &__action {
+        margin: 4.5em 0 0 0;
+
+        @media (max-width: 768px) {
+            margin: 1.5em 0 0 0;
+        }
+
+        @media (max-width: 480px) {
+            margin: 2.5em 0 0 0;
+        }
+    }
+
+    &__play {
+        background-color: $color-action;
+        border: 1px solid $color-action;
+        border-radius: 50%;
+        box-shadow: 0rem 1.3125rem 0.75rem -0.9375rem rgba(4, 44, 92, 0.19);
+        color: $color-primary-light;
+        display: inline-block;
+        height: 48px;
+        @include line-height(58);
+        margin: 0 1.2em 0 0;
+        text-align: center;
+        vertical-align: middle;
+        width: 48px;
+    }
+
+    &__concept {
+        margin: 0 0 0 0;
+        transition: all 0.3s ease;
+
+        @media (max-width: 480px) {
+            margin: 3em 0 0 0;
+        }
+    }
+
+    &__info {
+        position: relative;
+        top: 90px;
+
+        @media (max-width: 768px) {
+            top: 0;
+        }
+
+        &--first {
+            top: -20px;
+        }
+    }
+}
+
+
+/******
+Este modificador hace que 
+la imagen principal quede fuera del contenedor
+******/
+
+.feature__concept--out {
+
+    .feature__image {
+        position: absolute;
+        top: -350px;
+        left: 50px;
+        transition: all 0.3s ease;
+        width: 850px;
+
+        @media (max-width: 1280px) {
+            top: -300px;
+            left: 20px;
+            width: 700px;
+        }
+
+        @media (max-width: 1024px) {
+            top: -220px;
+            width: 600px;
+        }
+
+        @media (max-width: 768px) {
+            top: -180px;
+            left: 0;
+            width: 500px;
+        }
+
+        @media (max-width: 480px) {
+            position: relative;
+            top: -70px;
+            max-width: 100%;
+        }
+
+        @media (max-width: 320px) {
+            top: -50px;
+        }
+    }
+}
+
+.beneficios {
+    position: relative;
+
+    &:after,
+    &:before {
+        content: '';
+        background-color: #FFB842;
+        border-radius: 20px;
+        display: inline-block;
+        height: 80px;
+        position: absolute;
+        top: 45%;
+        left: 27%;
+        transition: all 0.3s ease;
+        width: 80px;
+        z-index: 0;
+    }
+    &:before {
+        background-color: #1E63F8;
+        content: '';
+        top: 57%;
+        left: 68%;
+    }
+    @media (max-width: 1440px) {
+        &:after {
+            left: 20%;
+        }
+        &:before {
+            left: 75%;
+        }
+    }
+    @media (max-width: 1280px) {
+        &:after {
+            left: 16%;
+        }
+        &:before {
+            left: 77%;
+        }
+    }
+    @media (max-width: 1200px) {
+        &:after {
+            left: 20%;
+        }
+        &:before {
+            left: 73%;
+        }
+    }
+    @media (max-width: 768px) {
+        &:after {
+            top: 35%;
+            left: 3%;
+        }
+        &:before {
+            top: 60%;
+            left: 87%;
+        }
+    }
+    @media (max-width: 480px) {
+        &:after {
+            display: none;
+        }
+        &:before {
+            display: none;
+        }
+    }
+}
+
+.title-section {
+    margin: 0 0 4em 0;
+    padding: 1em 1em 1em 1em;
+    text-align: center;
+}
+
+.action-button {
+    display: block;
+    margin: 1em 0 0 0;
+    text-align: center;
+    width: 100%;
+}
+
+.beneficio {
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 38px 0 rgba(0, 0, 0, 0.07);
+    margin: 0 0 1.5em 0;
+    text-align: left;
+    padding: 1.5em 1.5em 1.5em 1.5em;
+    position: relative;
+    z-index: 1;
+
+    &__header {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        margin: 0 0 1em 0;
+    }
+
+    &__icon {
+        background-color: #F4F6F9;
+        border: 1px solid #F4F6F9;
+        border-radius: 50%;
+        color: #114DCD;
+        display: inline-block;
+        height: 48px;
+        @include line-height(58);
+        text-align: center;
+        width: 48px;
+    }
+
+    &__title {
+        color: $color-primary;
+        @include font-size(18);
+        @include line-height(32);
+        font-weight: 600;
+        margin: 0 0 0 .8em;
+    }
+
+    &__text {
+        color: $color-paragraph;
+        @include font-size(16);
+        @include line-height(24);
+        font-weight: 400;
+        margin: 0 0 0 0;
+    }
+}
+
+.cta {
+    background-color: $color-action;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1em;
+    position: fixed;
+    top: 77px;
+    width: 100%;
+    z-index: 10;
+
+    @media (min-width: 480px) {
+        display: none;
+    }
+
+    &__boton-pagar {
+        color: $color-action;
+        border: 1px solid #fff;
+        background-color: #fff;
+        box-shadow: 0rem 1.3125rem 0.75rem -0.9375rem rgba(4, 44, 92, 0.19);
+        border-radius: 25px;
+        max-width: 130px;
+        padding: .7em 2em;
+        text-decoration: none;
+        text-align: center;
+    }
+    &__invitacion,
+    &__boton-pagar {
+        @include font-size(14);
+        @include line-height(16);
+    }
+}
+
+.biller {
+    margin-bottom: 150px;
+    &__title {
+        text-align: center;
+        margin-bottom: 2em;
+    }
+    &__concept {
+        margin-top: 1em;
+        position: relative;
+        @media (max-width: 767px) {
+            padding: 1em;
+        }
+        img {
+            @media (max-width: 767px) {
+                max-width: 50%;
+            }
+            @media (max-width: 480px) {
+                max-width: 70%;
+            }
+        }
+    }
+    
+    &__badge {
+        background-color: #6fe99d;
+        color: $color-primary-light;
+        border-radius: 10px;
+        padding: 0 0.6em;
+        @include font-size(12);
+        font-weight: 900;
+        line-height: 21px;
+        position: absolute;
+        top: -35px;
+        right: -38%;
+        text-align: center;
+
+        @media (max-width: 767px) {
+            top: -15px;
+            right: 0;
+        }
+    }
+
+    @media (max-width: 480px) {
+        margin-bottom: 110px;
+    }
+}

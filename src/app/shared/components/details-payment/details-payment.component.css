@@ -1,0 +1,50 @@
+.boxs-1 {
+  -webkit-box-shadow: 0rem 0.0625rem 0.5rem 0rem rgba(0, 0, 0, 0.07);
+          box-shadow: 0rem 0.0625rem 0.5rem 0rem rgba(0, 0, 0, 0.07);
+}
+
+.boxs-2 {
+  -webkit-box-shadow: 0rem 1.5375rem 1.5375rem 0rem rgba(0, 0, 0, 0.07);
+          box-shadow: 0rem 1.5375rem 1.5375rem 0rem rgba(0, 0, 0, 0.07);
+}
+
+.boxs-3 {
+  -webkit-box-shadow: 0rem 1.6375rem 1.6375rem 0rem rgba(0, 0, 0, 0.07);
+          box-shadow: 0rem 1.6375rem 1.6375rem 0rem rgba(0, 0, 0, 0.07);
+}
+
+.boxs-4 {
+  -webkit-box-shadow: 0rem 1.7375rem 1.7375rem 0rem rgba(0, 0, 0, 0.07);
+          box-shadow: 0rem 1.7375rem 1.7375rem 0rem rgba(0, 0, 0, 0.07);
+}
+
+.boxs-5 {
+  -webkit-box-shadow: 0rem 1.8375rem 1.8375rem 0rem rgba(0, 0, 0, 0.07);
+          box-shadow: 0rem 1.8375rem 1.8375rem 0rem rgba(0, 0, 0, 0.07);
+}
+
+:host .details-payment {
+  padding: 1.25rem 0;
+}
+
+:host .details-payment ::ng-deep .details-payment__item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: .3rem .75rem;
+}
+
+:host .details-payment ::ng-deep .details-payment__item ::ng-deep p {
+  color: #042c5c;
+  margin: 0;
+  font-size: 0.875rem;
+}
+
+:host .details-payment ::ng-deep .details-payment__item ::ng-deep span {
+  font-size: 0.875rem;
+  color: #77869e;
+}
+/*# sourceMappingURL=details-payment.component.css.map */

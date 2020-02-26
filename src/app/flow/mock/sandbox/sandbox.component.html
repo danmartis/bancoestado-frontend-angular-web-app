@@ -1,0 +1,1086 @@
+<!-- 
+    Vista para visualizar accesos a los flujos de ejemplo y componentes del proyecto
+-->
+
+<app-header-main></app-header-main>
+<app-page>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-12  mt-4">
+                <app-page-title>Botones de sesion</app-page-title>
+            </div>
+            <div class="col-6">
+                <app-button2 type="primario" auto="true" (click)="logout()">Logout</app-button2>
+            </div>
+            <div class="col-6">
+                <app-button2 type="secundario" auto="true" (click)="login()">Login</app-button2>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-12 mt-4"></div>
+            <div class="col-12">
+                <app-page-title>Flujos y accesos</app-page-title>
+            </div>
+            <div class="col-12">
+                <ul>
+                    <li>
+                        <app-icon name="link"></app-icon>
+                        <a routerLink="/home-account/home">Home</a>
+                    </li>
+                    <li>
+                        <app-icon name="link"></app-icon>
+                        <a routerLink="/payment/payment-method">Cómo quieres pagar "Metodo de pago"</a>
+                    </li>
+                    <li>
+                        <app-icon name="link"></app-icon>
+                        <a routerLink="payment/payment-enroll">Incribir medio de pago</a>
+                    </li>
+                    <li>
+                        <app-icon name="link"></app-icon>
+                        <a routerLink="/payment/proof-payment">Comprobante de pago "Voucher"</a>
+                    </li>
+                    <li>
+                        <app-icon name="link"></app-icon>
+                        <a routerLink="/payment/proof-payment-group">Comprobante de pago "Voucher grupal"</a>
+                    </li>
+                    <li>
+                        <app-icon name="link"></app-icon>
+                        <a routerLink="/profile/profile-detail">Sección Perfil</a>
+                    </li>
+                    <li>
+                        <app-icon name="link"></app-icon>
+                        <a routerLink="payment/payment-select">Mis medios de pago</a>
+                    </li>
+                    <li>
+                        <app-icon name="link"></app-icon>
+                        <a routerLink="login/login-se">Registro ServiEstado</a>
+                    </li>
+                    <li>
+                        <app-icon name="link"></app-icon>
+                        <a routerLink="login/login-be">Login BancoEstado</a>
+                    </li>
+                    <li>
+                        <app-icon name="link"></app-icon>
+                        <a routerLink="history/payment-voucher">Mis comprobantes</a>
+                    </li>
+                    <li>
+                        <app-icon name="link"></app-icon>
+                        <a routerLink="/history/payments">Historial de pagos</a>
+                    </li>
+                    <li>
+                        <app-icon name="link"></app-icon>
+                        <a routerLink="/home/splash">Splash "Onboarding"</a>
+                    </li>
+                    <li>
+                        <app-icon name="link"></app-icon>
+                        <a routerLink="/404">Pagina no encontrada "404"</a>
+                    </li>
+                    <li>
+                        <app-icon name="link"></app-icon>
+                        <a routerLink="/public/landing">Portal público "Landing"</a>
+                    </li>
+                    <li>
+                        <app-icon name="link"></app-icon>
+                        <a routerLink="/public/about">Portal público "Nosotros"</a>
+                    </li>
+                    <li>
+                        <app-icon name="link"></app-icon>
+                        <a routerLink="/public/what-we-do">Portal público "Qué hacemos"</a>
+                    </li>
+                    <li>
+                        <app-icon name="link"></app-icon>
+                        <a routerLink="/public/branch-offices">Portal público "Sucursales"</a>
+                    </li>
+                    <li>
+                        <app-icon name="link"></app-icon>
+                        <a routerLink="/public/help">Portal público "Ayuda"</a>
+                    </li>
+                    <li>
+                        <app-icon name="link"></app-icon>
+                        <a routerLink="/profile/contact">Portal público "Contacto"</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-12 mt-4"></div>
+            <div class="col-12">
+                <app-page-title>Zonas vacias</app-page-title>
+            </div>
+            <div class="col-12 mt-4">
+                <app-empty-areas></app-empty-areas>
+            </div>
+            <div class="col-12 mt-4">
+                <div class="empty">
+                    <figure class="empty__icon">
+                        <img class="empty__image" src="assets/imgs/svg/icon-zv-group.svg" alt="Icono de grupo de cuentas">
+                    </figure>
+                    <p class="empty__text">Para crear un grupo, necesitas tener inscritas un mínimo de 4 cuentas.</p>
+                </div>
+            </div>
+            <div class="col-12 mt-4">
+                <div class="empty">
+                    <figure class="empty__icon">
+                        <img class="empty__image" src="assets/imgs/svg/icon-zv-mp.svg" alt="Icono de tarjetas bancarias">
+                    </figure>
+                    <p class="empty__text">Aún no tienes medios de pago inscritos</p>
+                    <a class="empty__link" href="">Incribir medio de pago</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-12 mt-4"></div>
+            <div class="col-12 mt-4">
+                <app-page-title>Item de cuentas - componentes</app-page-title>
+            </div>
+            <div class="col-12 mt-4">
+                <app-card-account-type-a></app-card-account-type-a>
+                <app-card-account-type-b status="success"></app-card-account-type-b>
+                <app-card-account-type-b status="warning"></app-card-account-type-b>
+                <app-card-account-type-b status="danger"></app-card-account-type-b>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-12 mt-4"></div>
+            <div class="col-12 mt-4">
+                <app-page-title>Item de cuentas - Casos</app-page-title>
+                <app-paragraph>Aquí estan representados todos los casos que puede tener un item de cuenta</app-paragraph>
+            </div>
+            <div class="col-12 col-lg-6">
+
+                <!-- Inicio item cuenta // Item de cuenta destacada con opciones de montos -->
+                <div class="item-cuenta">
+                    <div class="item-cuenta__container item-cuenta__container--mobile">
+                        <div class="item-cuenta__check">
+                            <app-checkbox></app-checkbox>
+                        </div>
+                        <div class="item-cuenta__icon">
+                            <img src="assets/imgs/icons/call-answer-white.svg" alt="Icono del servicio a pagar">
+                        </div>
+                        <div class="item-cuenta__info">
+                            <div class="item-cuenta__nombre">Enel</div>
+                            <div class="item-cuenta__detalle">
+                                Vence el 21/09/19
+                            </div>
+                        </div>
+                        <div class="item-cuenta__monto">
+                            <div class="item-cuenta__valor">$1.120.000</div>
+                            <div class="item-cuenta__badge">+montos</div>
+                        </div>
+                        <div class="item-cuenta__action">
+                            <i class="material-icons">more_vert </i>
+                        </div>
+                    </div>
+                    <div class="item-cuenta__container item-cuenta__container--desktop">
+                        <div class="item-cuenta__check">
+                            <app-checkbox value="Seleccionar"></app-checkbox>
+                        </div>
+                        <div class="item-cuenta__options">
+                            <a href="/" class="item-cuenta__option">
+                                <i class="material-icons">edit</i>
+                            </a>
+                            <a href="/" class="item-cuenta__option">
+                                <i class="material-icons">delete</i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- FIN item cuenta -->
+
+
+                <!-- Inicio item cuenta // Item de Cuenta con texto informativo e icono-->
+                <div class="item-cuenta">
+                    <div class="item-cuenta__container item-cuenta__container--mobile">
+                        <div class="item-cuenta__check">
+                            <app-checkbox></app-checkbox>
+                        </div>
+                        <div class="item-cuenta__icon">
+                            <img src="assets/imgs/icons/call-answer-white.svg" alt="Icono del servicio a pagar">
+                        </div>
+                        <div class="item-cuenta__info">
+                            <div class="item-cuenta__nombre">Enel</div>
+                            <div class="item-cuenta__detalle item-cuenta__detalle--alert">
+                                No tienes deuda pendiente
+                                <i class="item-cuenta__detalle-icon material-icons">check_circle</i>
+                            </div>
+                        </div>
+                        <div class="item-cuenta__monto">
+                            <div class="item-cuenta__valor">$0</div>
+                        </div>
+                        <div class="item-cuenta__action">
+                            <i class="material-icons">more_vert </i>
+                        </div>
+                    </div>
+                    <div class="item-cuenta__container item-cuenta__container--desktop">
+                        <div class="item-cuenta__check">
+                            <app-checkbox value="Seleccionar"></app-checkbox>
+                        </div>
+                        <div class="item-cuenta__options">
+                            <a href="/" class="item-cuenta__option">
+                                <i class="material-icons">edit</i>
+                            </a>
+                            <a href="/" class="item-cuenta__option">
+                                <i class="material-icons">delete</i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- FIN item cuenta -->
+
+                <!-- Inicio item cuenta // Item de cuenta del historico -->
+                <div class="item-cuenta  item-cuenta--historico">
+                    <div class="item-cuenta__container item-cuenta__container--mobile">
+                        <div class="item-cuenta__icon">
+                            <img src="assets/imgs/icons/call-answer-white.svg" alt="Icono del servicio a pagar">
+                        </div>
+                        <div class="item-cuenta__info">
+                            <div class="item-cuenta__nombre">Enel</div>
+                            <div class="item-cuenta__detalle">
+                                Pagado el 21/09/19
+                            </div>
+                        </div>
+                        <div class="item-cuenta__monto">
+                            <div class="item-cuenta__valor">$480.500</div>
+                        </div>
+                        <div class="item-cuenta__action">
+                            <i class="material-icons">keyboard_arrow_right</i>
+                        </div>
+                    </div>
+                </div>
+                <!-- FIN item cuenta -->
+
+                <!-- Inicio item cuenta // Item de Cuenta del historico,  que fue pagada en BancoEstado y muestra un icon azul que muestra tooltip , esta cuenta no muestra el comprobante, por tal razón se oculta el arrow -->
+                <div class="item-cuenta  item-cuenta--historico-info">
+                    <div class="item-cuenta__info-comprobante">
+                        <i class="item-cuenta__detalle-icon material-icons">info</i>
+                    </div>
+                    <div class="item-cuenta__container item-cuenta__container--mobile">
+                        <div class="item-cuenta__icon">
+                            <img src="assets/imgs/icons/call-answer-white.svg" alt="Icono del servicio a pagar">
+                        </div>
+                        <div class="item-cuenta__info">
+                            <div class="item-cuenta__nombre">Enel</div>
+                            <div class="item-cuenta__detalle">
+                                Pagado el 21/09/19
+                            </div>
+                        </div>
+                        <div class="item-cuenta__monto">
+                            <div class="item-cuenta__valor">$480.500</div>
+                        </div>
+                        <div class="item-cuenta__action">
+                            <i class="material-icons">keyboard_arrow_right</i>
+                        </div>
+                    </div>
+                </div>
+                <!-- FIN item cuenta -->
+
+                <!-- Inicio item cuenta // ejemplo 02 - collapse ( Item de cuenta del historico de un grupo de pago ) -->
+                <div class="item-cuenta item-cuenta--historico-grupo">
+                    <div class="item-cuenta__container item-cuenta__container--mobile">
+                        <div class="item-cuenta__icon">
+                            <img src="assets/imgs/icons/icon-vacaciones.svg" alt="Icono del servicio a pagar">
+                        </div>
+                        <div class="item-cuenta__info">
+                            <div class="item-cuenta__nombre">Cuentas de mamá</div>
+                            <div class="item-cuenta__detalle">
+                                Pagado el 21/09/19
+                            </div>
+                        </div>
+                        <div class="item-cuenta__monto">
+                            <div class="item-cuenta__valor">$480.500</div>
+                        </div>
+                        <div class="item-cuenta__action">
+                            <i class="material-icons">keyboard_arrow_right</i>
+                        </div>
+                    </div>
+                    <div class="item-cuenta__container item-cuenta__container--collapse">
+                        <ul class="item-cuenta__historico item-cuenta__historico--hidden">
+                            <li class="item-cuenta__historico-detalle">
+                                <p class="item-cuenta__historico-biller">Enel</p>
+                                <p class="item-cuenta__historico-valor">$79.000</p>
+                            </li>
+                            <li class="item-cuenta__historico-detalle">
+                                <p class="item-cuenta__historico-biller">Aguas Andinas</p>
+                                <p class="item-cuenta__historico-valor">$400.500</p>
+                            </li>
+                            <li class="item-cuenta__historico-detalle">
+                                <p class="item-cuenta__historico-biller">VTR</p>
+                                <p class="item-cuenta__historico-valor">$1.000</p>
+                            </li>
+                        </ul>
+                        <a href="/" class="item-cuenta__link">Ver detalle</a>
+                    </div>
+                </div>
+                <!-- FIN item cuenta -->
+
+                <!-- Inicio item cuenta // ejemplo 02 - collapse active ( Item de cuenta del historico de un grupo de pago abierto ) -->
+                <div class="item-cuenta item-cuenta--historico-grupo">
+                    <div class="item-cuenta__container item-cuenta__container--mobile">
+                        <div class="item-cuenta__icon">
+                            <img src="assets/imgs/icons/icon-vacaciones.svg" alt="Icono del servicio a pagar">
+                        </div>
+                        <div class="item-cuenta__info">
+                            <div class="item-cuenta__nombre">Cuentas de mamá</div>
+                            <div class="item-cuenta__detalle">
+                                Pagado el 21/09/19
+                            </div>
+                        </div>
+                        <div class="item-cuenta__monto">
+                            <div class="item-cuenta__valor">$480.500</div>
+                        </div>
+                        <div class="item-cuenta__action">
+                            <i class="material-icons">keyboard_arrow_right</i>
+                        </div>
+                    </div>
+                    <div class="item-cuenta__container item-cuenta__container--collapse">
+                        <ul class="item-cuenta__historico">
+                            <li class="item-cuenta__historico-detalle">
+                                <p class="item-cuenta__historico-biller">Enel</p>
+                                <p class="item-cuenta__historico-valor">$79.000</p>
+                            </li>
+                            <li class="item-cuenta__historico-detalle">
+                                <p class="item-cuenta__historico-biller">Aguas Andinas</p>
+                                <p class="item-cuenta__historico-valor">$400.500</p>
+                            </li>
+                            <li class="item-cuenta__historico-detalle">
+                                <p class="item-cuenta__historico-biller">VTR</p>
+                                <p class="item-cuenta__historico-valor">$1.000</p>
+                            </li>
+                        </ul>
+                        <a href="/" class="item-cuenta__link">Ver detalle</a>
+                    </div>
+                </div>
+                <!-- FIN item cuenta -->
+
+
+                <!-- Inicio item cuenta // ejemplo 02-b "cuenta con logotipo en desktop" -->
+                <div class="item-cuenta item-cuenta--logotipo">
+                    <div class="item-cuenta__container item-cuenta__container--mobile">
+                        <div class="item-cuenta__check">
+                            <app-checkbox></app-checkbox>
+                        </div>
+                        <div class="item-cuenta__icon">
+                            <img src="assets/imgs/logotipo-entel.png" alt="Icono del servicio a pagar">
+                        </div>
+                        <div class="item-cuenta__info">
+                            <div class="item-cuenta__nombre">Enel</div>
+                            <div class="item-cuenta__detalle">
+                                Vence el 23/12/2019
+                            </div>
+                        </div>
+                        <div class="item-cuenta__monto">
+                            <div class="item-cuenta__valor">$0</div>
+                        </div>
+                        <div class="item-cuenta__action">
+                            <i class="material-icons">more_vert </i>
+                        </div>
+                    </div>
+                    <div class="item-cuenta__container item-cuenta__container--desktop">
+                        <div class="item-cuenta__check">
+                            <app-checkbox value="Seleccionar"></app-checkbox>
+                        </div>
+                        <div class="item-cuenta__options">
+                            <a href="/" class="item-cuenta__option">
+                                <i class="material-icons">edit</i>
+                            </a>
+                            <a href="/" class="item-cuenta__option">
+                                <i class="material-icons">delete</i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- FIN item cuenta -->
+
+                <!-- Inicio item cuenta // Este es el item que se muestra cuando se va al detalle de una cuenta -->
+                <div class="item-cuenta item-cuenta--detalle">
+                    <div class="item-cuenta__container item-cuenta__container--mobile">
+                        <div class="item-cuenta__icon">
+                            <img src="assets/imgs/icons/call-answer-white.svg" alt="Icono del servicio a pagar">
+                        </div>
+                        <div class="item-cuenta__info">
+                            <div class="item-cuenta__nombre">Enel</div>
+                            <div class="item-cuenta__detalle">
+                                Vence el 21/09/19
+                            </div>
+                        </div>
+                        <div class="item-cuenta__options">
+                            <a href="/" class="item-cuenta__option">
+                                <i class="material-icons">edit</i>
+                            </a>
+                            <a href="/" class="item-cuenta__option">
+                                <i class="material-icons">delete</i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- FIN item cuenta -->
+            </div>
+        </div>
+    </div>
+
+    <div class="container container--white text-center mt-4">
+        <div class="row">
+            <div class="col-12 mt-4"></div>
+            <div class="col-12 mt-4">
+                <app-page-title>Icono para modales</app-page-title>
+                <app-paragraph>El mismo componente aborda distintos casos de uso</app-paragraph>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12 mt-4"></div>
+            <div class="col-12">
+                <hr>
+            </div>
+            <div class="col-12 mt-4">
+                <app-page-title>"Iconos"</app-page-title>
+                <app-paragraph>&#60;app-modal-icon type="ok"&#62;&#60;/app-modal-icon&#62;</app-paragraph>
+            </div>
+
+            <div class="col-12 col-md-3 mt-4">
+                <app-modal-icon type="ok"></app-modal-icon>
+                <pre>type="ok"</pre>
+            </div>
+
+            <div class="col-12 col-md-3 mt-4">
+                <app-modal-icon type="voucher"></app-modal-icon>
+                <pre>type="voucher"</pre>
+            </div>
+
+            <div class="col-12 col-md-3 mt-4">
+                <app-modal-icon type="info"></app-modal-icon>
+                <pre>type="info"</pre>
+            </div>
+
+            <div class="col-12 col-md-3 mt-4">
+                <app-modal-icon type="danger"></app-modal-icon>
+                <pre>type="danger"</pre>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12">
+                <hr>
+            </div>
+            <div class="col-12 mt-4">
+                <app-page-title>"Ilustraciones"</app-page-title>
+                <app-paragraph> type="il" src="assets/imgs/svg/icon-mano.svg" alt="Icono ok de la modal"</app-paragraph>
+            </div>
+
+            <!-- Ejemplo: Estructura html del componente app-modal-icon -->
+            <div class="col-12 col-md-3 mt-4">
+                <div class="icon-modal icon-modal--il">
+                    <span class="icon-modal__icon">
+                        <img src="assets/imgs/svg/icon-llave.svg" alt="Icono ok de la modal">
+                    </span>
+                </div>
+            </div>
+            <!-- FIN Ejemplo -->
+
+            <!-- Componente aplicado  -->
+            <div class="col-12 col-md-3 mt-4">
+                <app-modal-icon type="il" src="assets/imgs/svg/icon-mano.svg" alt="Icono ok de la modal"></app-modal-icon> 
+            </div>
+            <div class="col-12 col-md-3 mt-4">
+                <app-modal-icon type="il" src="assets/imgs/svg/icon-llave.svg" alt="Icono ok de la modal"></app-modal-icon>
+            </div>
+            <div class="col-12 col-md-3 mt-4">
+                <app-modal-icon type="il" src="assets/imgs/svg/icon-beneficios.svg" alt="Icono ok de la modal"></app-modal-icon>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12 mt-4"></div>
+            <div class="col-12">
+                <hr>
+            </div>
+            <div class="col-12 mt-4">
+                <app-page-title>"Imagen + fondo"</app-page-title>
+                <app-paragraph>type="img" src="assets/imgs/svg/icon-login.svg" alt="Icono ok de la modal"</app-paragraph>
+            </div>
+            <div class="col-12 col-md-3 mt-4">
+                <app-modal-icon type="img" src="assets/imgs/svg/icon-login.svg" alt="Icono ok de la modal"></app-modal-icon>
+            </div>
+            <div class="col-12 col-md-3 mt-4">
+                <app-modal-icon type="img" src="assets/imgs/svg/icon-tarjetas.svg" alt="Icono ok de la modal"></app-modal-icon>
+            </div>
+            <div class="col-12 col-md-3 mt-4">
+                <app-modal-icon type="img" src="assets/imgs/svg/icon-estrella-bg.svg" alt="Icono ok de la modal"></app-modal-icon>
+            </div>
+            <div class="col-12 col-md-3 mt-4">
+                <app-modal-icon type="img" src="assets/imgs/svg/icon-busquedaavanzada-bg.svg" alt="Icono ok de la modal"></app-modal-icon>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12 mt-4"></div>
+            <div class="col-12">
+                <hr>
+            </div>
+            <div class="col-12 mt-4">
+                <app-page-title>"Imagen grande + fondo"</app-page-title>
+                <app-paragraph>type="imgLg" src="assets/imgs/svg/icon-bienvenida-bg.svg" alt="Icono ok de la modal"</app-paragraph>
+            </div>
+            <div class="col-12 col-md-12 mt-4">
+                <app-modal-icon type="imgLg" src="assets/imgs/svg/icon-bienvenida-bg.svg" alt="Icono ok de la modal"></app-modal-icon>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- Opciones de menú para todos los componentes que tengan tres puntos ...  -->
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-l-6 mt-4">
+                <app-page-title>Dropdown options</app-page-title>
+            </div>
+            <div class="col-11 offset-1  mt-4">
+                <div class="dropdown">
+                    <ul class="dropdown__list">
+                        <li class="dropdown__item">Ver detalle</li>
+                        <li class="dropdown__item">Detalle de cuenta</li>
+                        <li class="dropdown__item dropdown__item--delete">Eliminar cuenta</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-11 offset-1 mt-4">
+                <div class="dropdown">
+                    <ul class="dropdown__list">
+                        <li class="dropdown__item">Quitar de la lista</li>
+                        <li class="dropdown__item">Detalle de cuenta</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Select ServiEstado ...  -->
+    <div class="container">
+        <div class="row">
+            <div class="col-12 mt-4"></div>
+            <div class="col-12 mt-4">
+                <app-page-title>Select - ServiEstado "Phone"</app-page-title>
+            </div>
+            <div class="col-12 col-md-6">
+                <div class="select-se select-se--phone select-se--selected">
+                    <div class="select-se__default">
+                        <p class="select-se__label">+56 <span>9</span></p>
+                        <span class="select-se__icon">
+                            <img class="select-se__img" src="assets/imgs/svg/icon-select-arrow.svg" alt="icono del select">
+                            <img class="select-se__img select-se__img--active" src="assets/imgs/svg/icon-select-arrow-active.svg" alt="icono del select">
+                        </span>
+                    </div>
+                    <ul class="select-se__list">
+                        <li class="select-se__item">+56 <span>8</span></li>
+                        <li class="select-se__item">+56 <span>7</span></li>
+                        <li class="select-se__item">+56 <span>2</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- FIN Select ServiEstado ...  -->
+
+    <!-- Select ServiEstado ...  -->
+    <div class="container">
+        <div class="row">
+            <div class="col-12 mt-4"></div>
+            <div class="col-12  mt-4">
+                <app-page-title>Select - ServiEstado "Default"</app-page-title>
+            </div>
+            <div class="col-12 col-md-6">
+                <div class="select-se">
+                    <div class="select-se__default">
+                        <p class="select-se__label">Selecciona</p>
+                        <span class="select-se__icon">
+                            <img class="select-se__img" src="assets/imgs/svg/icon-select-arrow.svg" alt="icono del select">
+                            <img class="select-se__img select-se__img--active" src="assets/imgs/svg/icon-select-arrow-active.svg" alt="icono del select">
+                        </span>
+                    </div>
+                    <ul class="select-se__list">
+                        <li class="select-se__item">Opción 1</li>
+                        <li class="select-se__item">Opción 2</li>
+                        <li class="select-se__item">Opción 3</li>
+                        <li class="select-se__item">Opción 4</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- FIN Select ServiEstado ...  -->
+
+    <!-- Select ServiEstado - seleccionado ...  -->
+    <div class="container">
+        <div class="row">
+            <div class="col-12 mt-4"></div>
+            <div class="col-12  mt-4">
+                <app-page-title>Select - ServiEstado "Seleccionado"</app-page-title>
+            </div>
+            <div class="col-12 col-md-6">
+                <div class="select-se select-se--selected">
+                    <div class="select-se__default">
+                        <p class="select-se__label">Selecciona</p>
+                        <span class="select-se__icon">
+                            <img class="select-se__img" src="assets/imgs/svg/icon-select-arrow.svg" alt="icono del select">
+                            <img class="select-se__img select-se__img--active" src="assets/imgs/svg/icon-select-arrow-active.svg" alt="icono del select">
+                        </span>
+                    </div>
+                    <ul class="select-se__list">
+                        <li class="select-se__item">Opción 1</li>
+                        <li class="select-se__item">Opción 2</li>
+                        <li class="select-se__item">Opción 3</li>
+                        <li class="select-se__item">Opción 4</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- FIN Select ServiEstado ...  -->
+
+    <!-- Select ServiEstado - seleccionado ...  -->
+    <div class="container">
+        <div class="row">
+            <div class="col-12 mt-4"></div>
+            <div class="col-12  mt-4">
+                <app-page-title>Select - ServiEstado "Disabled"</app-page-title>
+            </div>
+            <div class="col-12 col-md-6">
+                <div class="select-se select-se--disabled">
+                    <div class="select-se__default">
+                        <p class="select-se__label">Selecciona</p>
+                        <span class="select-se__icon">
+                            <img class="select-se__img" src="assets/imgs/svg/icon-select-arrow.svg" alt="icono del select">
+                            <img class="select-se__img select-se__img--active" src="assets/imgs/svg/icon-select-arrow-active.svg" alt="icono del select">
+                        </span>
+                    </div>
+                    <ul class="select-se__list">
+                        <li class="select-se__item">Opción 1</li>
+                        <li class="select-se__item">Opción 2</li>
+                        <li class="select-se__item">Opción 3</li>
+                        <li class="select-se__item">Opción 4</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- FIN Select ServiEstado ...  -->
+
+    <!-- Select ServiEstado - active ...  -->
+    <div class="container">
+        <div class="row">
+            <div class="col-12 mt-4"></div>
+            <div class="col-12  mt-4">
+                <app-page-title>Select - ServiEstado "Active"</app-page-title>
+            </div>
+            <div class="col-12 col-md-6">
+                <div class="select-se select-se--active">
+                    <div class="select-se__default">
+                        <p class="select-se__label">Selecciona</p>
+                        <span class="select-se__icon">
+                            <img class="select-se__img" src="assets/imgs/svg/icon-select-arrow.svg" alt="icono del select">
+                            <img class="select-se__img select-se__img--active" src="assets/imgs/svg/icon-select-arrow-active.svg" alt="icono del select">
+                        </span>
+                    </div>
+                    <ul class="select-se__list">
+                        <li class="select-se__item">Opción 1</li>
+                        <li class="select-se__item">Opción 2</li>
+                        <li class="select-se__item">Opción 3</li>
+                        <li class="select-se__item">+56 <span>9</span></li>
+                        <li class="select-se__item">+56 <span>8</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- FIN Select ServiEstado ...  -->
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col-12  mt-4">
+                <app-page-title>Input's</app-page-title>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <app-input  type="text" placeholder="Sin icono"></app-input>
+            </div>
+            <div class="col-12">
+                <app-input  icon="search" placeholder="Input con icono a la derecha"></app-input>
+            </div>
+            <div class="col-12">
+                <app-input iconSrc="assets/imgs/svg/icon-mano.svg" placeholder="Icono desde ruta 'src' "></app-input>
+            </div>
+            <div class="col-12">
+                <app-input iconLeft="account_circle" placeholder="Ingresa tu rut"></app-input>
+            </div>
+            <div class="col-12">
+                <app-input type="password" placeholder="Contraseña" status="invalid" invalidText="Contraseña incorrecta"></app-input>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col-12 mt-4"></div>
+            <div class="col-12  mt-4">
+                <app-page-title>Input's + drop</app-page-title>
+                <app-paragraph>Para visualizar los casos, hay que utilizar: caso 0, caso 1, caso 2, caso 3</app-paragraph>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 mt-4"></div>
+            <div class="col-12">
+                <div class="input-dropdown input-dropdown--active">
+                  <app-input  icon="search" placeholder="Movistar"></app-input>
+                  <div class="input-dropdown__list">
+                    <ul>
+                      <li class="input-dropdown__item">Movistar móvil</li>
+                      <li class="input-dropdown__item">Movistar hogar</li>
+                    </ul>
+                  </div>
+                </div> 
+            </div>
+            <div class="col-12" style="margin-top: 120px;">
+                <div class="input-dropdown input-dropdown--category input-dropdown--active">
+                  <app-input  icon="search" placeholder="Telefonía"></app-input>
+                  <div class="input-dropdown__list">
+                    <h5 class="input-dropdown__title-group">Telefonía móvil</h5>
+                    <ul class="input-dropdown__group">
+                      <li class="input-dropdown__item">Entel</li>
+                      <li class="input-dropdown__item">Movistar</li>
+                      <li class="input-dropdown__item">Claro</li>
+                    </ul>
+                    <h5 class="input-dropdown__title-group">Telefonía hogar</h5>
+                    <ul class="input-dropdown__group">
+                      <li class="input-dropdown__item">Entel</li>
+                      <li class="input-dropdown__item">Movistar</li>
+                      <li class="input-dropdown__item">Claro</li>
+                    </ul>
+                  </div>
+                </div> 
+            </div>
+            <div class="col-12" style="margin-top: 380px; margin-bottom: 400px;">
+                <div class="input-dropdown input-dropdown--category input-dropdown--active">
+                  <app-input  icon="search" placeholder="Gas"></app-input>
+                  <div class="input-dropdown__list">
+                    <ul>
+                      <li class="input-dropdown__item">Abastible</li>
+                      <li class="input-dropdown__item">Gas Sur</li>
+                      <li class="input-dropdown__item">Lipigas</li>
+                      <li class="input-dropdown__item">Metrogas</li>
+                    </ul>
+                    <h5 class="input-dropdown__title-group">Otros</h5>
+                    <ul class="input-dropdown__group">
+                      <li class="input-dropdown__item">Gasolandia</li>
+                      <li class="input-dropdown__item">Gasoventura</li>
+                    </ul>
+                  </div>
+                </div> 
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col-12  mt-4">
+                <app-page-title>Botones</app-page-title>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <app-paragraph>Primario</app-paragraph>
+            </div>
+            <div class="col-md-3 mt-4">
+                <app-button2>Default</app-button2>
+            </div>
+            <div class="col-md-3 mt-4">
+                <app-button2 size="medium">Default</app-button2>
+            </div>
+            <div class="col-md-3 mt-4">
+                <app-button2 size="small">Default</app-button2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 mt-4"></div>
+            <div class="col-12">
+                <app-paragraph>Secundario</app-paragraph>
+            </div>
+            <div class="col-md-3 mt-4">
+                <app-button2 type="secundario">Default</app-button2>
+            </div>
+            <div class="col-md-3 mt-4">
+                <app-button2 size="medium" type="secundario">Default</app-button2>
+            </div>
+            <div class="col-md-3 mt-4">
+                <app-button2 size="small" type="secundario">Default</app-button2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 mt-4"></div>
+            <div class="col-12">
+                <app-paragraph>Terciario</app-paragraph>
+            </div>
+            <div class="col-md-3 mt-4">
+                <app-button2 type="terciario">Default</app-button2>
+            </div>
+            <div class="col-md-3 mt-4">
+                <app-button2 size="medium" type="terciario">Default</app-button2>
+            </div>
+            <div class="col-md-3 mt-4">
+                <app-button2 size="small" type="terciario">Default</app-button2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 mt-4"></div>
+            <div class="col-12">
+                <app-paragraph>Disabled</app-paragraph>
+            </div>
+
+            <div class="col-md-3 mt-4">
+                <app-button2 disabled="true">Primario Disabled</app-button2>
+            </div>
+
+            <div class="col-md-3 mt-4">
+                <app-button2 disabled="true" type="secundario">Secundario Disabled </app-button2>
+            </div>
+
+            <div class="col-12 col-md-3 mt-4">
+                <app-button2 disabled="true" type="terciario">Terciario Disabled </app-button2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 mt-4"></div>
+            <div class="col-12">
+                <app-paragraph>Casos "Botones con iconos y botones que se adapten al contenedor"</app-paragraph>
+            </div>
+
+            <!-- el parametro auto="true" hace que el botón se adapte al contenedor -->
+            <div class="col-6 mt-4">
+                <app-button2 image="assets/imgs/icons/icon-paper.svg">Botón</app-button2>
+            </div>
+
+            <div class="col-md-6 mt-4">
+                <app-button2 image="assets/imgs/icons/icon-paper.svg" auto="true">Botón</app-button2>
+            </div>
+            <div class="col-md-3 mt-4">
+                <app-button2 type="secundario" auto="true">Secundario</app-button2>
+            </div>
+
+            <div class="col-md-12 mt-4">
+                <app-button2 auto="true">Primario</app-button2>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-12 mt-4"></div>
+            <div class="col-12  mt-4">
+                <app-page-title>Modales y casos</app-page-title>
+                <app-paragraph>Estos son accesos para visualizar las distintas modales del portal. Dependiendo del usuario y casuistica es cuál hay que mostrar</app-paragraph>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 mt-"></div>
+            <div class="col-12">
+                <app-button2 type="primario" auto="true" (click)="closeListOpenSingle([], 'modal-login-flow')" display="block">Flujo login</app-button2>
+            </div>
+            <div class="col-12 col-md-4 mt-4">
+                <app-button2  type="primario" auto="true" (click)="closeListOpenSingle([''], 'eliminar-cuenta')" display="block">Eliminar cuenta</app-button2>
+            </div>
+            <div class="col-12 col-md-4 mt-4">
+                <app-button2 type="primario" auto="true" (click)="closeListOpenSingle([''], 'modal-recommended-account')" display="block">Inscribir cuentas recomendadas</app-button2>
+            </div>
+            <div class="col-12 col-md-4 mt-4">
+                <app-button2 type="primario" auto="true" (click)="closeListOpenSingle([''], 'modal-benefits')" display="block">Beneficios ServiEstado</app-button2>
+            </div>
+            <div class="col-12 col-md-4 mt-4">
+                <app-button2 type="primario" auto="true" (click)="closeListOpenSingle([''], 'modal-benefits-be')" display="block">Beneficios Bancoestado</app-button2>
+            </div>
+            <div class="col-12 col-md-4 mt-4">
+                <app-button2 type="primario" auto="true" (click)="closeListOpenSingle([''], 'modal-benefits-be-no-button')" display="block">Beneficios Bancoestado sin botones</app-button2>
+            </div>
+            <div class="col-12 col-md-4 mt-4">
+                <app-button2 type="primario" auto="true" (click)="closeListOpenSingle([''], 'clave-bloqueada')" display="block">Clave bloqueada</app-button2>
+            </div>
+            <div class="col-12 col-md-4 mt-4">
+                <app-button2 type="primario" auto="true" (click)="closeListOpenSingle([''], 'fin-sesion')" display="block">Fin de sesión</app-button2>
+            </div>
+            <div class="col-12 col-md-4 mt-4">
+                <app-button2 type="primario" auto="true" (click)="closeListOpenSingle([], 'modal-error-default')" display="block">Error general</app-button2>
+            </div>
+            <div class="col-12 col-md-4 mt-4">
+                <div class="toasts toasts--warning" data-name="not1">
+                    <p class="toasts__text">Sólo puedes pagar un max de 3 cuotas</p>
+                    <img src="assets/imgs/svg/icon-not-warning.svg" class="toasts__icon" alt="">
+                </div>
+                <app-button2 (click)="openToasts($event,'not1')" type="primario" auto="true" display="block">Toasts - Notificacion 1</app-button2>
+            </div>
+            <div class="col-12 col-md-4 mt-4">
+                <div class="toasts toasts--success" data-name="not2">
+                    <p class="toasts__text">Correo ingresado</p>
+                    <img src="assets/imgs/svg/icon-not-success.svg" class="toasts__icon" alt="">
+                </div>
+                <app-button2 (click)="openToasts($event,'not2')" type="primario" auto="true" display="block">Toasts - Notificacion 2</app-button2>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-12 mt-4"></div>
+            <div class="col-12  mt-4">
+                <app-page-title>Busqueda avanzada</app-page-title>
+                <app-paragraph>Para visualizar el caso de multiples identificadores, tienes que ingresar el texto <strong>Claro</strong> en el campo <strong>¿Qué quieres pagar?</strong></app-paragraph>
+            </div>
+        </div>
+    </div>
+
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-12 mt-4">
+                <app-page-title>Busqueda agregar cuenta</app-page-title>
+                <app-paragraph>Para visualizar los distintos casos de error y respuesta, tienes que ingresar los siguientes casos en el campo <strong>Ingresa tu número de cliente</strong></app-paragraph>
+            </div>
+            <div class="col-12 mt-4">
+                <app-paragraph><strong>1111</strong> Para input con error</app-paragraph>
+                <app-paragraph><strong>1112</strong> Indentificador incorrecto</app-paragraph>
+                <app-paragraph><strong>1113</strong> Servicios con problemas</app-paragraph>
+                <app-paragraph><strong>1114</strong> Sin deuda pendiente</app-paragraph>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col-12  mt-4">
+                <app-page-title>Select - ServiEstado "Componente"</app-page-title>
+            </div>
+            <div class="col-12 col-sm-6 mt-4">
+                <app-select-se type="select-se--phone" label="+56" sufix=" 9" [items]="[{label: '+56', sufix: ' 9'}, {label: '+56', sufix: ' 7'}, {label: '+56', sufix: ' 3'}]"></app-select-se>
+            </div>
+            <div class="col-12 col-sm-6 mt-4">
+                <app-select-se label="Selecciona" [items]="[{label: 'Opción 1'}, {label: 'Opción 2'}, {label: 'Opción 3'}]"></app-select-se>
+            </div>
+            <div class="col-12 col-sm-6 mt-4">
+                <app-select-se [disabled]="true" label="Selecciona" [items]="[{label: 'Opción 1'}, {label: 'Opción 2'}, {label: 'Opción 3'}]"></app-select-se>
+            </div>
+        </div>
+    </div>
+</app-page>
+
+
+<app-footer-default></app-footer-default>
+
+
+<!-- Aquí estan, parte de las modales que se levantan en los ejemplos -->
+
+<app-modal-error-default></app-modal-error-default>
+<app-modal name="modal-recommended-account">
+    <div class="modal_section__header text-center">
+        <app-modal-icon type="il" src="assets/imgs/svg/icon-mano.svg" alt="Icono ok de la modal"></app-modal-icon>
+    </div>
+    <div class="modal_section__body text-center">
+        <app-modal-title>Hola Patricio!</app-modal-title>
+        <app-paragraph>¿Con este correo ya has pagado varias cuentas. Te gustaría ver las cuentas e inscribirlas de forma rápida?</app-paragraph>
+    </div>
+    <div class="modal_section__footer text-center">
+        <div class="check my-4">
+            <app-checkbox value="No mostrar más este mensaje"></app-checkbox>
+        </div>
+        <div class="row">
+            <div class="col-12 col-md-8 offset-md-2">
+                <app-button2 auto="true" type="medium" (click)="closeListOpenSingle(['modal-recommended-account'], '')">Ver cuentas</app-button2>
+            </div>
+        </div>
+    </div>
+</app-modal>
+
+<app-modal name="eliminar-cuenta">
+    <div class="modal_section__header text-center">
+        <app-modal-icon type="danger"></app-modal-icon>
+    </div>
+    <div class="modal_section__body text-center">
+        <app-modal-title>Tenemos algunos problemas</app-modal-title>
+        <app-paragraph>¿Estás seguro de eliminar tu cuenta inscrita Nombre de la cuenta ? </app-paragraph>
+    </div>
+    <div class="modal_section__footer text-center">
+        <div class="modal__content__boton">
+            <app-button2 type="terciario" auto="true">Cancelar</app-button2>
+            <app-button2 auto="true">Aceptar</app-button2>
+        </div>
+    </div>
+</app-modal>
+
+<app-modal name="clave-bloqueada">
+    <div class="modal_section__header text-center">
+        <app-modal-icon type="danger"></app-modal-icon>
+    </div>
+
+    <div class="modal_section__body text-center">
+        <app-modal-title>Clave bloqueada</app-modal-title>
+        <app-paragraph>Hemos detectado muchos errores, por tal motivo tu clave fue bloqueada.</app-paragraph>
+    </div>
+
+    <div class="modal_section__footer text-center">
+        <div class="modal__content__boton">
+            <app-button2 type="terciario" auto="true">Volver al home</app-button2>
+            <app-button2 auto="true">Recuperar clave</app-button2>
+        </div>
+    </div>
+    
+</app-modal>
+
+<app-modal name="fin-sesion">
+    <div class="modal_section__header text-center">
+        <app-modal-icon type="danger"></app-modal-icon>
+    </div>
+
+    <div class="modal_section__body text-center">
+        <app-modal-title>Tu sesión se ha cerrado</app-modal-title>
+        <app-paragraph>Hemos detectado inactividad en el sitio y por seguridad tu sesión se ha cerrado.</app-paragraph>
+    </div>
+
+    <div class="modal_section__footer text-center">
+        <div class="modal__content__boton">
+            <app-button2 type="terciario" auto="true">Quiero más tiempo</app-button2>
+            <app-button2 auto="true">Aceptar</app-button2>
+        </div>
+    </div>
+    
+</app-modal>

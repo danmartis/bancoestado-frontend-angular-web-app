@@ -1,0 +1,98 @@
+:host > button {
+  cursor: pointer;
+  padding: 0 15px;
+  border-radius: 1.5625rem;
+  -webkit-box-shadow: 0rem 1.25rem 1.25rem 0rem rgba(0, 0, 0, 0.07);
+          box-shadow: 0rem 1.25rem 1.25rem 0rem rgba(0, 0, 0, 0.07);
+  height: 3rem;
+  width: auto;
+  font-size: 1rem;
+  background-color: transparent;
+  color: #042c5c;
+  font-family: 'Circular Std';
+  font-weight: 500;
+}
+
+:host > button:focus, :host > button:hover {
+  outline: none;
+}
+
+:host > button.ui-button--sm {
+  height: 2.5rem;
+}
+
+:host > button.ui-button--primary-outline-rounded {
+  border: 0.0625rem solid #1e63f8;
+  color: #1e63f8;
+}
+
+:host > button.ui-button--primary-outline-rounded:hover {
+  border: 0.0625rem solid #1e63f8;
+  background-color: #1e63f8;
+  color: #ffffff;
+  -webkit-box-shadow: 0rem 1.3125rem 0.75rem -0.9375rem rgba(4, 44, 92, 0.3);
+          box-shadow: 0rem 1.3125rem 0.75rem -0.9375rem rgba(4, 44, 92, 0.3);
+}
+
+:host > button.ui-button--primary-outline-rounded:active {
+  color: #ffffff;
+  border-color: #042c5c;
+  background-color: #042c5c;
+  -webkit-box-shadow: 0rem 1.3125rem 0.75rem -0.9375rem rgba(4, 44, 92, 0.05);
+          box-shadow: 0rem 1.3125rem 0.75rem -0.9375rem rgba(4, 44, 92, 0.05);
+}
+
+:host > button.ui-button--primary-rounded {
+  border-width: 0.0625rem;
+  border-style: solid;
+  border-color: #1e63f8;
+  background-color: #1e63f8;
+  color: #ffffff;
+  -webkit-box-shadow: 0rem 1.3125rem 0.75rem -0.9375rem rgba(4, 44, 92, 0.19);
+          box-shadow: 0rem 1.3125rem 0.75rem -0.9375rem rgba(4, 44, 92, 0.19);
+}
+
+:host > button.ui-button--primary-rounded:hover {
+  border: 0.0625rem solid #2a6dff;
+  background-color: #2a6dff;
+  border-color: #2a6dff;
+  color: #ffffff;
+  -webkit-box-shadow: 0rem 1.3125rem 0.75rem -0.9375rem rgba(4, 44, 92, 0.3);
+          box-shadow: 0rem 1.3125rem 0.75rem -0.9375rem rgba(4, 44, 92, 0.3);
+}
+
+:host > button.ui-button--primary-rounded:active {
+  color: #ffffff;
+  background-color: #042c5c;
+  border-color: #042c5c;
+  -webkit-box-shadow: 0rem 1.3125rem 0.75rem -0.9375rem rgba(4, 44, 92, 0.05);
+          box-shadow: 0rem 1.3125rem 0.75rem -0.9375rem rgba(4, 44, 92, 0.05);
+}
+
+:host > button:active {
+  outline: none;
+}
+
+:host > button.ui-button--action-footer {
+  margin: 0.9375rem;
+}
+
+@media (max-width: 576px) {
+  :host > button.ui-button--action-footer {
+    display: block;
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+@media (min-width: 576px) {
+  :host > button.ui-button--action-footer {
+    display: inline-block;
+  }
+}
+
+:host > button.ui-button--action-footer:last-child {
+  margin-right: 0;
+}
+/*# sourceMappingURL=button.component.css.map */

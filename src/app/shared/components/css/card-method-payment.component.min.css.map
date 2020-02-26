@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "../card-method-payment/card-method-payment.component.scss"
+    ],
+    "names": [],
+    "file": "card-method-payment.component.min.css"
+}

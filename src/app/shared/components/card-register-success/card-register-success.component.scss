@@ -1,0 +1,39 @@
+@import '../../../../scss/_vars';
+ :host {
+    .card-register-success {
+        overflow: hidden;
+        width: 416px;
+        max-width: 90%;
+        margin: auto;
+        background: rgb(255, 255, 255);
+        box-shadow: 0px 15px 15px 0px rgba(0, 0, 0, 0.03);
+        border-radius: 8px;
+        &__header {
+            padding: 35px 52px 16px 52px;
+            @media (max-width: 500px) {
+                padding: 35px 16px 16px 16px;
+            }
+            h1 {
+                color: rgb(4, 44, 92);
+                font-size: 18px;
+                font-family: 'Circular Std';
+                font-weight: bold;
+                text-align: center;
+                letter-spacing: 0px;
+                line-height: 24px;
+            }
+        }
+        &__body {
+            padding: 8px 52px 16px 52px;
+            @media (max-width: 500px) {
+                padding: 8px 16px 16px 16px;
+            }
+        }
+        &__footer {
+            padding: 32px 52px;
+            @media (max-width: 500px) {
+                padding: 30px 0;
+            }
+        }
+    }
+}

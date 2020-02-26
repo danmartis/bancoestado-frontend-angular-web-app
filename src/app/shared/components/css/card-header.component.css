@@ -1,0 +1,25 @@
+@media (min-width: 768px) {
+  :host .card-header {
+    background-color: #ffffff;
+    border-radius: 0.875rem;
+    height: auto;
+    width: 100%;
+    padding: 1.5rem;
+  }
+}
+
+:host .card-header--image-right {
+  padding-right: 7.7rem;
+  position: relative;
+}
+
+:host .card-header--image-right img {
+  position: absolute;
+  right: 0.9375rem;
+  display: none;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  display: block;
+}
+/*# sourceMappingURL=card-header.component.css.map */

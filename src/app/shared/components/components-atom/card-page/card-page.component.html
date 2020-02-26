@@ -1,0 +1,11 @@
+<div class="card" [style.width]="width">
+    <div class="card__header">
+        <ng-content select=".card-page-header"></ng-content>
+    </div>
+    <div class="card__body">
+        <ng-content select=".card-page-body"></ng-content>
+    </div>
+    <div class="card__footer">
+        <ng-content select=".card-page-footer"></ng-content>
+    </div>
+</div>

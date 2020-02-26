@@ -1,0 +1,12 @@
+@import '../../../../scss/_vars';
+:host {
+
+
+    .botones{
+        text-align: right;
+
+        @media (max-width: 767px) {
+            display: none;
+        }
+    }
+}

@@ -1,0 +1,68 @@
+.boxs-1 {
+  -webkit-box-shadow: 0rem 0.0625rem 0.5rem 0rem rgba(0, 0, 0, 0.07);
+          box-shadow: 0rem 0.0625rem 0.5rem 0rem rgba(0, 0, 0, 0.07);
+}
+
+.boxs-2 {
+  -webkit-box-shadow: 0rem 1.5375rem 1.5375rem 0rem rgba(0, 0, 0, 0.07);
+          box-shadow: 0rem 1.5375rem 1.5375rem 0rem rgba(0, 0, 0, 0.07);
+}
+
+.boxs-3 {
+  -webkit-box-shadow: 0rem 1.6375rem 1.6375rem 0rem rgba(0, 0, 0, 0.07);
+          box-shadow: 0rem 1.6375rem 1.6375rem 0rem rgba(0, 0, 0, 0.07);
+}
+
+.boxs-4 {
+  -webkit-box-shadow: 0rem 1.7375rem 1.7375rem 0rem rgba(0, 0, 0, 0.07);
+          box-shadow: 0rem 1.7375rem 1.7375rem 0rem rgba(0, 0, 0, 0.07);
+}
+
+.boxs-5 {
+  -webkit-box-shadow: 0rem 1.8375rem 1.8375rem 0rem rgba(0, 0, 0, 0.07);
+          box-shadow: 0rem 1.8375rem 1.8375rem 0rem rgba(0, 0, 0, 0.07);
+}
+
+:host .page {
+  padding-top: 5em;
+}
+
+.not-found {
+  padding: 1em 0 1em 0;
+}
+
+@media (max-width: 480px) {
+  .not-found {
+    margin: 0;
+  }
+}
+
+.not-found__action {
+  margin: 3em 0 0 0;
+}
+
+.not-found__concept {
+  margin: 2em 0 2em 0;
+  position: relative;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+@media (max-width: 480px) {
+  .not-found__concept {
+    margin: 1em 0 1em 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .not-found__info {
+    margin: 0 0 3em 0;
+    padding: 1em 1em 1em 1em;
+    text-align: center;
+  }
+}
+
+.not-found__image {
+  max-width: 420px;
+}
+/*# sourceMappingURL=not-found.component.css.map */

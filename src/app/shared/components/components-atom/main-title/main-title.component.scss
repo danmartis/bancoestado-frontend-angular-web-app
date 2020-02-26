@@ -1,0 +1,17 @@
+@import '../../../../../scss/_vars';
+@import '../../../../../scss/_mixins';
+:host {
+    h1 {
+        color: $color-primary;
+        @include font-size(18);
+        @include line-height(24);
+        font-weight: 900;
+        margin: 0 0 0 0;
+        &.history {
+            @include font-size(24);
+            @media (max-width: 767px) {
+                @include font-size(18);
+            }
+        }
+    }
+}

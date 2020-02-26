@@ -1,0 +1,296 @@
+.boxs-1 {
+  -webkit-box-shadow: 0rem 0.0625rem 0.5rem 0rem rgba(0, 0, 0, 0.07);
+          box-shadow: 0rem 0.0625rem 0.5rem 0rem rgba(0, 0, 0, 0.07);
+}
+
+.boxs-2 {
+  -webkit-box-shadow: 0rem 1.5375rem 1.5375rem 0rem rgba(0, 0, 0, 0.07);
+          box-shadow: 0rem 1.5375rem 1.5375rem 0rem rgba(0, 0, 0, 0.07);
+}
+
+.boxs-3 {
+  -webkit-box-shadow: 0rem 1.6375rem 1.6375rem 0rem rgba(0, 0, 0, 0.07);
+          box-shadow: 0rem 1.6375rem 1.6375rem 0rem rgba(0, 0, 0, 0.07);
+}
+
+.boxs-4 {
+  -webkit-box-shadow: 0rem 1.7375rem 1.7375rem 0rem rgba(0, 0, 0, 0.07);
+          box-shadow: 0rem 1.7375rem 1.7375rem 0rem rgba(0, 0, 0, 0.07);
+}
+
+.boxs-5 {
+  -webkit-box-shadow: 0rem 1.8375rem 1.8375rem 0rem rgba(0, 0, 0, 0.07);
+          box-shadow: 0rem 1.8375rem 1.8375rem 0rem rgba(0, 0, 0, 0.07);
+}
+
+:host {
+  cursor: pointer;
+}
+
+:host .card-method-payment {
+  width: 100%;
+  height: 128px;
+  background: white;
+  -webkit-box-shadow: 0px 2px 38px 0px rgba(0, 0, 0, 0.07);
+          box-shadow: 0px 2px 38px 0px rgba(0, 0, 0, 0.07);
+  border-radius: 6px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+@media (max-width: 550px) {
+  :host .card-method-payment {
+    height: 23vw;
+  }
+}
+
+:host .card-method {
+  border-radius: 20px;
+  min-height: 248px;
+  position: relative;
+}
+
+:host .card-method > * {
+  padding: 16px;
+}
+
+:host .card-method button.context-menu {
+  position: absolute;
+  right: 18px;
+  top: 18px;
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+:host .card-method h4 {
+  margin: 0 0 0rem 0;
+  font-size: 14px;
+  font-family: 'Circular Std Book';
+  font-weight: normal;
+  font-style: normal;
+}
+
+:host .card-method.card-method--compay h4 {
+  position: relative;
+  display: inline-block;
+  padding-right: 12px;
+  width: auto;
+}
+
+:host .card-method.card-method--compay h4::after {
+  content: "";
+  position: absolute;
+  height: 6px;
+  width: 6px;
+  background: #ffb842;
+  border-radius: 50%;
+  right: 0;
+}
+
+:host .card-method .card-method__header {
+  height: 6.5rem;
+  padding-top: 3.5rem;
+}
+
+:host .card-method .card-method__body__description {
+  font-size: 14px;
+  font-family: 'Circular Std Book';
+  font-weight: normal;
+  font-style: normal;
+}
+
+:host .card-method .card-method__body__number {
+  font-size: 12px;
+  font-family: 'Circular Std Book';
+  font-weight: normal;
+  font-style: normal;
+}
+
+:host .card-method .card-method__footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+:host .card-method.card-method--primary {
+  color: #ffffff;
+  background-color: #1e63f8;
+}
+
+:host .card-method.card-method--primary .card-method__body__number {
+  color: #dee3eb;
+}
+
+:host .card-method.card-method--secondary {
+  color: #304566;
+  background-color: #ffffff;
+}
+
+:host .card-method.card-method--secondary .card-method__body__number {
+  color: #77869e;
+}
+
+:host .card-method-create {
+  border-radius: 20px;
+  min-height: 248px;
+  position: relative;
+  color: #304566;
+  background-color: #ffffff;
+  text-align: center;
+  font-size: 14px;
+  font-family: 'Circular Std Book';
+  font-weight: normal;
+  font-style: normal;
+}
+
+:host .card-method-create .card-method-create__container {
+  width: 100%;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  position: absolute;
+}
+
+:host .card-method-create .card-method-create__container .card-method-create__icon {
+  margin-top: 5rem;
+}
+
+:host .card-method-create .card-method-create__container .card-method-create__icon i {
+  color: #042c5c;
+  font-size: 32px;
+  font-size: 2rem;
+}
+
+:host .card-method-create .card-method-create__container .card-method-create__content .card-method-create__content__title {
+  color: #77869e;
+  font-size: 12px;
+  font-size: 0.75rem;
+  line-height: 15px;
+  line-height: 0.9375rem;
+  margin: .3em 0 0 0;
+  padding: 0 1em 0 1em;
+}
+
+@media (min-width: 768px) {
+  :host .card-method-create .card-method-create__container .card-method-create__content .card-method-create__content__title {
+    font-size: 16px;
+    font-size: 1rem;
+    line-height: 20px;
+    line-height: 1.25rem;
+  }
+}
+
+:host .card-method-change {
+  border-radius: 0.5rem;
+  position: relative;
+}
+
+:host .card-method-change > * {
+  padding: 18px 18px 18px 52px;
+}
+
+:host .card-method-change .card-method-change__radio {
+  position: absolute;
+  left: 18px;
+  top: 0;
+  bottom: 0;
+  height: 19px;
+  width: 16px;
+  margin: auto;
+}
+
+:host .card-method-change .card-method-change__description .card-method-change__number {
+  font-size: 14px;
+  font-family: 'Circular Std';
+  font-weight: 500;
+  font-style: normal;
+  color: #042c5c;
+}
+
+:host .card-method-change .card-method-change__description .card-method-change__title {
+  font-size: 12px;
+  font-family: 'Circular Std Book';
+  font-weight: normal;
+  font-style: normal;
+}
+
+:host .card-method-change .card-method-change__image {
+  width: 30px;
+  position: absolute;
+  right: 18px;
+  top: 20px;
+}
+
+:host .card-method-select {
+  border-radius: 0.5rem;
+  position: relative;
+}
+
+:host .card-method-select > * {
+  padding: 14px 0;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+:host .card-method-select .card-method-select__description .card-method-select__number {
+  color: #042c5c;
+  font-size: 14px;
+  font-weight: bold;
+  letter-spacing: 0px;
+  font-family: 'Circular Std';
+  font-style: normal;
+  color: #042c5c;
+  line-height: 8px;
+}
+
+:host .card-method-select .card-method-select__description .card-method-select__title {
+  color: #77869e;
+  font-size: 12px;
+  font-weight: 300;
+  letter-spacing: 0px;
+}
+
+:host .card-method__footer__icon-check {
+  color: #00d793 !important;
+  width: 35px;
+  position: absolute;
+  overflow: hidden;
+  height: 38px;
+  bottom: 16px;
+  right: 16px;
+}
+
+:host .card-method__footer__icon-check::after {
+  content: "";
+  position: absolute;
+  width: 27px;
+  height: 27px;
+  background: white;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  right: 0;
+  border-radius: 50%;
+  bottom: 0;
+  margin: auto;
+}
+
+:host .card-method__footer__icon-check i {
+  position: relative;
+  z-index: 2;
+}
+/*# sourceMappingURL=card-method-payment.component.css.map */

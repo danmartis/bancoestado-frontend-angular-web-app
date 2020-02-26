@@ -1,0 +1,20 @@
+@import '../../../../scss/_vars';
+:host {
+    .checkbox-group {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        padding: 1rem 0;
+        &.text-center {
+            justify-content: center;
+        }
+        input {
+            margin-right: .4rem;
+        }
+        label {
+            color: $color-active;
+            font-weight: normal;
+            font-size: 0.875rem;
+        }
+    }
+}

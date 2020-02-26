@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "../sandbox/sandbox.component.scss"
+    ],
+    "names": [],
+    "file": "sandbox.component.css"
+}

@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,MAAM,CAAA;EACF,MAAM,EAAE,WAAW;CACtB",
+    "sources": [
+        "payment-select.component.scss"
+    ],
+    "names": [],
+    "file": "payment-select.component.css"
+}

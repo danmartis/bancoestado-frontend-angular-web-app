@@ -1,0 +1,84 @@
+:host .card-account {
+  margin: 0 0.3125rem 2.5rem 0.3125rem;
+  width: 6.5625rem;
+  height: 8.125rem;
+  text-align: center;
+  color: #ffffff;
+  border-radius: 0.7813rem;
+  position: relative;
+  overflow: hidden;
+  -webkit-box-shadow: 0rem 1.4375rem 1.4375rem 0rem rgba(0, 0, 0, 0.07);
+          box-shadow: 0rem 1.4375rem 1.4375rem 0rem rgba(0, 0, 0, 0.07);
+}
+
+:host .card-account::after {
+  content: '';
+  background: rgba(255, 255, 255, 0.1);
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 50%;
+  top: 0;
+  z-index: 0;
+  left: 0;
+  right: 0;
+  border-radius: 0 0 50% 50%;
+  margin: auto;
+}
+
+:host .card-account .card-account__icon-account {
+  margin: 1.875rem auto 2.8125rem auto;
+}
+
+:host .card-account .card-account__content {
+  z-index: 1;
+  position: absolute;
+  bottom: 0.9375rem;
+  text-align: center;
+  width: 100%;
+}
+
+:host .card-account .card-account__content .card-account__content__title {
+  font-size: 0.75rem;
+  font-family: 'Circular Std Book';
+}
+
+:host .card-account .card-account__content .card-sold {
+  font-size: 0.875rem;
+  font-family: 'Circular Std';
+  font-weight: bold;
+}
+
+:host .card-account--electrical {
+  background: #ffb842;
+}
+
+:host .card-account--teleco {
+  background: #7e81ff;
+}
+
+:host .card-account--other {
+  background: #00d793;
+}
+
+:host .card-account--water {
+  background: -webkit-gradient(linear, left bottom, left top, from(#1a8cff), to(#6993fe));
+  background: linear-gradient(0deg, #1a8cff 0%, #6993fe 100%);
+}
+
+:host .card-account__menu-button {
+  position: absolute;
+  right: 0;
+  padding: 0;
+  margin: 0;
+  z-index: 2;
+  height: 1.5rem;
+  top: 0.6rem;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 1.5rem;
+  background-color: transparent;
+  text-align: center;
+}
+/*# sourceMappingURL=card-account.component.css.map */

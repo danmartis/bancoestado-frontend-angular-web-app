@@ -1,0 +1,22 @@
+:host .registered {
+  padding-top: 3em;
+}
+
+:host .registered__credit-number {
+  margin: 0;
+}
+
+:host .registered__bank-title {
+  margin: 0;
+}
+
+:host .registered__center-button {
+  margin: 0.375rem 0rem;
+}
+
+@media (max-width: 767px) {
+  :host .registered {
+    padding-top: 1.5em;
+  }
+}
+/*# sourceMappingURL=registered-payment-methods.component.css.map */

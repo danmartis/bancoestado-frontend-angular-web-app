@@ -1,0 +1,139 @@
+@import '_mixins';
+
+/* Select ServiEstado */
+
+.select-se {
+    position: relative;
+    transition: all 0.3s ease !important;
+    margin-bottom: 0.9375rem;
+    &__label {
+        color: #BFC5D2;
+        @include font-size(14);
+        @include line-height(24);
+        font-weight: 400;
+        span {
+            color: #042C5C;
+        }
+    }
+    &__default {
+        background-color: #fff;
+        border-radius: $base-border-radius;
+        border: $color-input-border 1px solid;
+        display: flex;
+        align-items: center;
+        max-height: 48px;
+        padding: 1em 1em 1em 1em;
+        position: relative;
+        width: 100%;
+    }
+    &__icon {
+        display: inline-block;
+        height: 8px;
+        position: absolute;
+        right: 20px;
+        top: 48%;
+        width: 8px;
+    }
+    &__img {
+        &--active {
+            display: none;
+        }
+    }
+    &__list {
+        border-radius: $base-border-radius;
+        box-shadow: 0rem 1.4375rem 1.4375rem 0rem rgba(0, 0, 0, 0.07);
+        display: none;
+        margin: 1px 0 0 0;
+        padding: 0 0 0 0;
+        position: absolute;
+        left: 0;
+        top: 49px;
+        transition: all 0.3s ease !important;
+        width: 100%;
+        z-index: 10;
+    }
+    &__item {
+        background-color: $color-primary-light;
+        color: #304566;
+        @include font-size(14);
+        @include line-height(16);
+        font-weight: 400;
+        padding: 1.1em 1.3em 1.1em 1.3em;
+        transition: all 0.3s ease !important;
+        span {
+            color: #042C5C;
+        }
+        &:hover {
+            background-color: #F4F7FA;
+        }
+        &--delete {
+            color: #FB6262;
+        }
+    }
+}
+
+
+/* 
+Cuando el usuario hace click sobre el componente select
+*/
+
+.select-se--active {
+    .select-se__default {
+        border: #1E63F8 1px solid;
+    }
+    .select-se__img {
+        display: none;
+        &--active {
+            display: inherit;
+        }
+    }
+    .select-se__list {
+        display: inline-block;
+    }
+}
+
+
+/* 
+Cuando el usuario selecciona una de las opciones 
+importante: Esta clase tiene que reemplazar a la clase select-se--active, no tienen que estar juntas
+*/
+
+.select-se--selected {
+    .select-se__label {
+        color: #042C5C;
+        font-weight: 600;
+    }
+}
+
+
+/* 
+Cuando el select tiene el atributo disabled, esta clase se tiene que agregar
+al componente select-se 
+*/
+
+.select-se--disabled {
+    .select-se__default {
+        background-color: #F4F6F8;
+    }
+}
+
+
+/* 
+Esta clase siempre tiene que estar presente
+en los select para telefonia
+*/
+
+.select-se--phone {
+    .select-se__label {
+        color: #BFC5D2;
+        span {
+            color: #042C5C;
+        }
+    }
+}
+
+
+/* FIN Select ServiEstado */
+
+
+/* FIN */

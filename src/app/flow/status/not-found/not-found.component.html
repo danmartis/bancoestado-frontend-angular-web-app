@@ -1,0 +1,27 @@
+<app-header-main></app-header-main>
+<app-page type="public">
+    <section class="not-found">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-12">
+                    <app-back-button-page></app-back-button-page>
+                </div>
+                <div class="col-10 offset-1 col-sm-5 offset-sm-0">
+                    <figure class="not-found__concept">
+                        <img class="not-found__image" src="assets/imgs/svg/img-404.svg" alt="Imagen de persona con expresión de duda">
+                    </figure>
+                </div>
+                <div class="col-12 col-sm-6 offset-sm-1">
+                    <div class="not-found__info">
+                        <h1 class="hero-title hero-title--sub">Ooops, la página que buscas no existe </h1>
+                        <app-paragraph>Puedes que hayas escrito mal la URL o la página haya sido movida.</app-paragraph>
+                        <div class="not-found__action">
+                            <app-link to="/home-account/home">Ir al home</app-link>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</app-page>
+<app-footer-default></app-footer-default>

@@ -1,0 +1,17 @@
+@import '../../../../../scss/_vars';
+:host {
+    .link {
+        display: inline-block;
+        vertical-align: middle;
+        color: $color-primary-light;
+        border: 1px solid $color-action;
+        background-color: $color-action;
+        padding: 0.688rem 0.8rem;
+        box-shadow: 0rem 1.3125rem 0.75rem -0.9375rem rgba(4, 44, 92, 0.19);
+        border-radius: 25px;
+        text-decoration: none;
+        min-height: 48px;
+        min-width: 150px;
+        text-align: center;
+    }
+}

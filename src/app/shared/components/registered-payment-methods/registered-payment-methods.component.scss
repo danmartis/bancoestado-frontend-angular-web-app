@@ -1,0 +1,17 @@
+:host {
+    .registered {
+        padding-top: 3em;
+        &__credit-number {
+            margin: 0;
+        }
+        &__bank-title {
+            margin: 0;
+        }
+        &__center-button {
+            margin: 0.375rem 0rem;
+        }
+        @media (max-width: 767px) {
+            padding-top: 1.5em;
+        }
+    }
+}

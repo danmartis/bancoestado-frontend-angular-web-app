@@ -1,0 +1,1 @@
+export const colorPrimary : string = "#042c5c";

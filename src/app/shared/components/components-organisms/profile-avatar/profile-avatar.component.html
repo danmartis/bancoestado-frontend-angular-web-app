@@ -1,0 +1,13 @@
+<div class="profile-avatar text-center" [ngClass]="[mode === 'view'? 'profile-show': 'profile-hide']">
+    <app-image type="avatar" src="assets/imgs/usuario.png"></app-image>
+    <h2 class="mt-4">Maria Martinez</h2>
+    <app-paragraph>maria.martinez@gmail.com</app-paragraph>
+</div>
+
+<div class="profile-avatar text-center" [ngClass]="[mode === 'edit'? 'profile-show': 'profile-hide']">
+    <button class="add-image">
+        <img src="assets/imgs/add-image-plus.svg" />
+    </button>
+    <h2 class="mt-4">Maria Martinez</h2>
+    <app-paragraph>maria.martinez@gmail.com</app-paragraph>
+</div>

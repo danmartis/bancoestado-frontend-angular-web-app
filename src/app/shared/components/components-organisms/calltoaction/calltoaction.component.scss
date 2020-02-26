@@ -1,0 +1,113 @@
+@import '../../../../../scss/_vars';
+@import '../../../../../scss/_mixins';
+
+
+:host {
+    // call to action
+    position: relative;
+
+    .call-to-action-01 {
+        overflow: hidden;
+        position: relative;
+        margin: 3rem 0 0 0;
+        padding: 5rem 0;
+        background: $color-action;
+        color: $color-primary-light;
+
+        >div {
+            position: relative;
+            z-index: 1;
+        }
+    }
+
+    &::before {
+        content: '';
+        width: 500px;
+        height: 500px;
+        background: #ffffff29;
+        display: block;
+        top: -200px;
+        left: -250px;
+        position: absolute;
+        z-index: 0;
+        border-radius: 50%;
+    }
+
+    &::after {
+        content: '';
+        width: 500px;
+        height: 500px;
+        background: #ffffff29;
+        display: block;
+        bottom: -330px;
+        right: -250px;
+        position: absolute;
+        z-index: 0;
+        border-radius: 50%;
+    }
+
+    @media (max-width: 991px) {
+        padding: 3rem 0;
+    }
+
+    .call-to-action-01__title {
+        text-align: center;
+        margin: 0 4rem;
+        //font-size: 1.4rem;
+        @include font-size(46);
+        @include line-height(52);
+    }
+
+    .call-to-action-02 {
+        border-radius: 16px;
+        overflow: hidden;
+        position: relative;
+        margin: 3rem 0 0 0;
+        padding: 5rem 0;
+        background: $color-action;
+        color: $color-primary-light;
+        >div {
+            position: relative;
+            z-index: 1;
+        }
+    }
+
+    .call-to-action-03 {
+        border-radius: 16px;
+        overflow: hidden;
+        position: relative;
+        margin: 3rem 0 0 0;
+        padding: 5rem 0;
+        background: $color-primary;
+        color: $color-primary-light;
+        >div {
+            position: relative;
+            z-index: 1;
+        }
+        margin-bottom: 4rem;
+    }
+
+    .call-to-action-02__title {
+        text-align: center;
+        font-size: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    .call-to-action-03__title {
+        text-align: center;
+        font-size: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    .call-to-action-02__subtitle {
+        text-align: center;
+        margin: 0 4rem;
+        font-size: 1.4rem;
+    }
+    
+    .call-to-action-03__subtitle {
+        text-align: center;
+        margin: 0 4rem;
+        font-size: 1.4rem;
+    }
+}

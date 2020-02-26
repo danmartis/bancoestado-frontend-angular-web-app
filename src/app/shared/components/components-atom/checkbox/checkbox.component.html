@@ -1,0 +1,9 @@
+<div (click)="onToggle($event)" [ngClass]="[value ? 'checkbox--with-value' : '', position ? 'position--' +position : '', display]">
+    <div class="account-group__card__check">
+        <input type="checkbox" [checked]="checked" (change)="onToggle($event) " />
+        <div class="account-group__card__check__ui"></div>
+    </div>
+    <span *ngIf="valueType === ''">{{value}}</span>
+    <p *ngIf="valueType === 'paragraph'" type="min">{{value}}</p>
+    <ng-content></ng-content>
+</div>

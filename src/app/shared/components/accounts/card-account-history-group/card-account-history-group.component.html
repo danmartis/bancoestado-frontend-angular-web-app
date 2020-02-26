@@ -1,0 +1,78 @@
+<!-- Inicio item cuenta // ejemplo 02 - collapse ( Item de cuenta del historico de un grupo de pago ) -->
+<div class="item-cuenta item-cuenta--historico-grupo" *ngIf="type === 'close'">
+    <div class="item-cuenta__container item-cuenta__container--mobile">
+        <div class="item-cuenta__icon">
+            <img src="assets/imgs/icons/icon-vacaciones.svg" alt="Icono del servicio a pagar">
+        </div>
+        <div class="item-cuenta__info">
+            <div class="item-cuenta__nombre">Cuentas de mamá</div>
+            <div class="item-cuenta__detalle">
+                Pagado el 21/09/19
+            </div>
+        </div>
+        <div class="item-cuenta__monto">
+            <div class="item-cuenta__valor">$480.500</div>
+        </div>
+        <div class="item-cuenta__action">
+            <i class="material-icons">keyboard_arrow_right</i>
+        </div>
+    </div>
+    <div class="item-cuenta__container item-cuenta__container--collapse">
+        <ul class="item-cuenta__historico item-cuenta__historico--hidden">
+            <li class="item-cuenta__historico-detalle">
+                <p class="item-cuenta__historico-biller">Enel</p>
+                <p class="item-cuenta__historico-valor">$79.000</p>
+            </li>
+            <li class="item-cuenta__historico-detalle">
+                <p class="item-cuenta__historico-biller">Aguas Andinas</p>
+                <p class="item-cuenta__historico-valor">$400.500</p>
+            </li>
+            <li class="item-cuenta__historico-detalle">
+                <p class="item-cuenta__historico-biller">VTR</p>
+                <p class="item-cuenta__historico-valor">$1.000</p>
+            </li>
+        </ul>
+        <button class="item-cuenta__link" (click)="toggleType()">Ver detalle</button>
+    </div>
+</div>
+<!-- FIN item cuenta -->
+
+
+<!-- Inicio item cuenta // ejemplo 02 - collapse ( Item de cuenta del historico de un grupo de pago abierto ) -->
+<div class="item-cuenta item-cuenta--historico-grupo" *ngIf="type === 'open'">
+    <div class="item-cuenta__container item-cuenta__container--mobile">
+        <div class="item-cuenta__icon">
+            <img src="assets/imgs/icons/icon-vacaciones.svg" alt="Icono del servicio a pagar">
+        </div>
+        <div class="item-cuenta__info">
+            <div class="item-cuenta__nombre">Cuentas de mamá</div>
+            <div class="item-cuenta__detalle">
+                Pagado el 21/09/19
+            </div>
+        </div>
+        <div class="item-cuenta__monto">
+            <div class="item-cuenta__valor">$480.500</div>
+        </div>
+        <div class="item-cuenta__action">
+            <i class="material-icons">keyboard_arrow_right</i>
+        </div>
+    </div>
+    <div class="item-cuenta__container item-cuenta__container--collapse">
+        <ul class="item-cuenta__historico">
+            <li class="item-cuenta__historico-detalle">
+                <p class="item-cuenta__historico-biller">Enel</p>
+                <p class="item-cuenta__historico-valor">$79.000</p>
+            </li>
+            <li class="item-cuenta__historico-detalle">
+                <p class="item-cuenta__historico-biller">Aguas Andinas</p>
+                <p class="item-cuenta__historico-valor">$400.500</p>
+            </li>
+            <li class="item-cuenta__historico-detalle">
+                <p class="item-cuenta__historico-biller">VTR</p>
+                <p class="item-cuenta__historico-valor">$1.000</p>
+            </li>
+        </ul>
+        <button class="item-cuenta__link" (click)="toggleType()">Ver menos</button>
+    </div>
+</div>
+<!-- FIN item cuenta -->

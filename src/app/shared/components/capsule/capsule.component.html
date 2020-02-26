@@ -1,0 +1,72 @@
+<div class="banner" *ngIf="type === 'welcome-01'">
+    <figure class="banner__icon">
+        <img class="banner__image" src="assets/imgs/star.svg" alt="Imagen de beneficios">
+    </figure>
+    <div class="banner__info">
+        <p class="banner__title">Beneficios</p>
+        <p class="banner__text">Descubre los beneficios de ser cliente de ServiEstado
+            <app-button type="link" (click)="closeListOpenSingle([''], 'modal-benefits')">Saber más</app-button>
+        </p>
+    </div>
+</div>
+
+
+<div class="banner banner--right" *ngIf="type === 'welcome-02'">
+    <div class="banner__info">
+        <p class="banner__title">Bienvenido !</p>
+        <p class="banner__text">Aquí podrás pagar todas tus cuentas de forma fácil </p>
+    </div>
+    <figure class="banner__icon">
+        <img class="banner__image" src="assets/imgs/card-hand.png" alt="Imagen de beneficios">
+    </figure>
+</div>
+
+
+<div class="banner banner--banco" *ngIf="type === 'welcome-03'">
+    <figure class="banner__icon">
+        <img class="banner__image" src="assets/imgs/star.svg" alt="Imagen de beneficios">
+    </figure>
+    <div class="banner__info">
+        <p class="banner__title">Beneficios</p>
+        <p class="banner__text">Descubre los beneficios de ser cliente de <b>BancoEstado</b></p>
+    </div>
+</div>
+
+<!-- MENSAJE PARA HEADER -->
+<div class="container-capsule" *ngIf="type === 'welcome-message-header-logout'">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-12">
+                <div class="banner">
+                    <figure class="banner__icon">
+                        <img class="banner__image" src="assets/imgs/star.svg" alt="Imagen de beneficios">
+                    </figure>
+                    <div class="banner__info">
+                        <p class="banner__title">Beneficios</p>
+                        <p class="banner__text">Descubre los beneficios de ser cliente de ServiEstado
+                            <app-button type="link" (click)="closeListOpenSingle([''], 'modal-benefits')">Saber más</app-button>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-capsule" *ngIf="type === 'welcome-message-header-login'">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-12">
+                <div class="banner banner--right">
+                    <div class="banner__info">
+                        <p class="banner__title">Bienvenido !</p>
+                        <p class="banner__text">Aquí podrás pagar todas tus cuentas de forma fácil </p>
+                    </div>
+                    <figure class="banner__icon">
+                        <img class="banner__image" src="assets/imgs/card-hand.png" alt="Imagen de beneficios">
+                    </figure>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

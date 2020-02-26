@@ -1,0 +1,59 @@
+.boxs-1 {
+  -webkit-box-shadow: 0rem 0.0625rem 0.5rem 0rem rgba(0, 0, 0, 0.07);
+          box-shadow: 0rem 0.0625rem 0.5rem 0rem rgba(0, 0, 0, 0.07);
+}
+
+.boxs-2 {
+  -webkit-box-shadow: 0rem 1.5375rem 1.5375rem 0rem rgba(0, 0, 0, 0.07);
+          box-shadow: 0rem 1.5375rem 1.5375rem 0rem rgba(0, 0, 0, 0.07);
+}
+
+.boxs-3 {
+  -webkit-box-shadow: 0rem 1.6375rem 1.6375rem 0rem rgba(0, 0, 0, 0.07);
+          box-shadow: 0rem 1.6375rem 1.6375rem 0rem rgba(0, 0, 0, 0.07);
+}
+
+.boxs-4 {
+  -webkit-box-shadow: 0rem 1.7375rem 1.7375rem 0rem rgba(0, 0, 0, 0.07);
+          box-shadow: 0rem 1.7375rem 1.7375rem 0rem rgba(0, 0, 0, 0.07);
+}
+
+.boxs-5 {
+  -webkit-box-shadow: 0rem 1.8375rem 1.8375rem 0rem rgba(0, 0, 0, 0.07);
+          box-shadow: 0rem 1.8375rem 1.8375rem 0rem rgba(0, 0, 0, 0.07);
+}
+
+:host .display-detail-values {
+  position: relative;
+}
+
+:host .display-detail-values .fees-total-pay {
+  position: absolute;
+  right: 0;
+  text-align: right;
+  top: -3.2em;
+}
+
+:host .display-detail-values .fees-total-pay strong {
+  color: #042c5c;
+}
+
+.numero-cliente {
+  margin: -.7em 0 0 0;
+}
+
+.subtitulo-modal {
+  margin: 2em 0 1.5em 0;
+}
+
+.modal-bottom_section__footer {
+  margin: 0 auto 0 auto;
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .modal-bottom_section__footer {
+    width: 50%;
+  }
+}
+/*# sourceMappingURL=modal-card-detail.component.css.map */

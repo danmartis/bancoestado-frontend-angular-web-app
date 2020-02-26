@@ -1,0 +1,112 @@
+<header class="header header--sesion" [ngClass]="['header--' + type, sidebarShadow ? 'header--shadow' : 'header--without-shadow']">
+    <ul class="header__portal">
+        <li class="header__portal-item">
+            <a href="/" class="header__portal-link header__portal-link--active">Persona</a>
+        </li>
+        <li class="header__portal-item">
+            <a href="/" class="header__portal-link">Empresa</a>
+        </li>
+    </ul>
+    <div class="header__accesos">
+        <figure class="header__logotipo">
+            <img src="assets/imgs/logo-ServiEstado-horizontal.png" (click)="goToLanding()" alt="Logotipo ServiEstado" style="cursor: pointer">
+        </figure>
+        <div class="header__botones">
+            <div>
+                <!-- <app-button2 modPadding="hyper-small-padding" auto="true" type="secundario">Hazte cliente</app-button2> -->
+                <app-button2 auto="true" type="secundario">Ingresar</app-button2>
+            </div>
+            <div>
+                <app-button2 auto="true" type="primario">Hazte cliente</app-button2>
+            </div>
+        </div>
+        <div class="header__perfil">
+            <figure class="header__user">
+                <img src="assets/imgs/usuario.png" alt="Foto o imagen del cliente" class="sidebar__avatar">
+            </figure>
+            <div class="header__info">
+                <p class="header__name">María Martinez</p>
+                <p class="header__email">maria.martinez@gmail.com</p>
+            </div>
+            <span class="header__option" (click)="perfilDropToggle($event)">
+                <i class="material-icons">more_vert</i>
+            </span>
+
+            <ul class="header__perfil__dropdown">
+              <li class="header__perfil__dropdown__item">
+                <a class="header__perfil__dropdown__link" href="#">
+                  <img class="header__perfil__dropdown__icon" src="assets/imgs/svg/icon-estrella.svg" />
+                  <p class="header__perfil__dropdown__titulo">Beneficios</p>
+                  <p class="header__perfil__dropdown__texto">Descubre los beneficios de ser cliente de <b>BancoEstado</b></p>
+                </a>
+              </li>
+              <li class="header__perfil__dropdown__item">
+                <a class="header__perfil__dropdown__link" href="#">
+                  <img class="header__perfil__dropdown__icon" src="assets/imgs/svg/icon-exit.svg" />
+                  <p class="header__perfil__dropdown__titulo header__perfil__dropdown__titulo--rojo">Salir</p>
+                </a>
+              </li>
+            </ul>
+
+        </div>
+
+        <div class="header__mobile">
+            <figure class="header__user">
+                <img src="assets/imgs/usuario.png" alt="Foto o imagen del cliente" class="sidebar__avatar">
+            </figure>
+            <div class="header__burger">
+                <button class="header__button-menu" [ngClass]="sidebarStatus ? 'header__button-menu--open' : 'header__button-menu--close'" (click)="toggleSidebarStatus()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <nav class="menu-principal">
+        <div class="container">
+            <div class="row">
+                <div class="col-9 offset-1">
+                    <ul class="header__menu">
+                        <li class="header__item">
+                            <a routerLink="/" class="header__link">Inicio</a>
+                        </li>
+                        <li class="header__item">
+                            <a routerLink="/nosotros" class="header__link">Nosotros</a>
+                        </li>
+                        <li class="header__item">
+                            <a routerLink="/historia" class="header__link">Historia</a>
+                        </li>
+                        <li class="header__item">
+                            <a routerLink="/qué hacemos" class="header__link">Qué hacemos</a>
+                        </li>
+                        <li class="header__item">
+                            <a routerLink="/sucursales" class="header__link">Sucursales</a>
+                            <span class="header__icon">
+                              <img class="select-se__img" src="assets/imgs/svg/icon-select-arrow.svg" alt="icono del select">
+                            </span>
+                            <ul class="header__submenu">
+                              <li class="header__submenu__item">
+                                <a href="/" class="header__submenu__link">Nosotros</a>
+                              </li>
+                              <li class="header__submenu__item">
+                                <a href="/" class="header__submenu__link">Qué hacemos</a>
+                              </li>
+                              <li class="header__submenu__item">
+                                <a href="/" class="header__submenu__link">Ayuda</a>
+                              </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+</header>
+
+
+
+
+
+<app-sidebar [status]="getSidebarStatus()"></app-sidebar>

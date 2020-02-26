@@ -1,0 +1,123 @@
+@import '../../../../scss/_vars';
+@import '../../../../scss/_mixins';
+.banner {
+    background-color: $color-primary-light;
+    border-bottom-right-radius: .8em;
+    border-bottom-left-radius: .8em;
+    box-shadow: 0 2px 38px 0 rgba(0, 0, 0, 0.07);
+    display: flex;
+    justify-content: flex-start;
+    margin: 0 0 1em 0;
+    padding: 1em 1em 1em 1em;
+    transition: all 0.3s ease;
+
+    @media (min-width: 992px) {
+        border-radius: .8em .8em .8em .8em;
+        padding: 2em 2em 2em 2em;
+        min-height: 130px;
+    }
+
+    &__icon {
+        height: 20px;
+        margin: .3em .5em 0 0;
+        transition: all 0.3s ease;
+        width: 20px;
+        @media (min-width: 992px) {
+            margin: .1em .5em 0 0;
+        }
+    }
+
+    &__info {
+        text-align: left;
+        width: 100%;
+    }
+    &__title {
+        color: $color-primary;
+        @include font-size(18);
+        @include line-height(24);
+        font-weight: 600;
+        margin: 0 0 .3em 0;
+
+        @media (max-width: 320px) {
+            @include font-size(14);
+            @include line-height(20);
+        }
+    }
+    &__text {
+        //color: #BFC5D2;
+        color: #77869E;
+        @include font-size(14);
+        @include line-height(20);
+        font-weight: 400;
+        margin: 0 0 0 0;
+        @media (min-width: 992px) {
+            @include font-size(16);
+            @include line-height(24);
+        }
+        @media (max-width: 320px) {
+            @include font-size(12);
+            @include line-height(16);
+        }
+    }
+    &__link {
+        color: #1E63F8;
+        font-weight: 600;
+        text-decoration: underline;
+    }
+}
+
+
+/*
+ Esta modificador se agrega cuando el banner
+ tiene la imagen a la derecha
+*/
+
+.banner--right {
+    align-items: center;
+    .banner__icon {
+        height: auto;
+        margin: 0 0 0 1em !important;
+        width: 80px;
+    }
+}
+
+
+/*
+ Esta modificador se agrega cuando el banner
+ se usa en el menú de usuario
+*/
+
+.banner--banco {
+    border-radius: .8em .8em .8em .8em;
+}
+
+// header
+.container-capsule {
+    position: relative;
+    @media (max-width: 767.9999px) {
+        .container {
+            width: 100%;
+            max-width: 100%;
+            margin: 0;
+            padding: 0;
+            .row {
+                width: 100%;
+                max-width: 100%;
+                padding: 0;
+                margin: 0;
+                >* {
+                    width: 100%;
+                    max-width: 100%;
+                    padding: 0;
+                    margin: 0;
+                }
+            }
+        }
+    }
+    .banner {
+        border-radius: .8em;
+        @media (max-width: 767.9999px) {
+            border-radius: 0 0 0.8em 0.8em;
+        }
+    }
+}

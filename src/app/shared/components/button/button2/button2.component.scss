@@ -1,0 +1,166 @@
+@import '../../../../../scss/_vars';
+@import '../../../../../scss/_mixins';
+
+/* Botones - Estados */
+
+:host {
+    .button {
+        background-color: $color-action;
+        border: 1px solid $color-action;
+        border-radius: 1.5em;
+        box-shadow: 0 21px 12px -15px rgba(4, 44, 92, 0.2);
+        color: #fff;
+        cursor: pointer;
+        @include font-size(16);
+        @include line-height(32);
+        font-family: 'Circular Std';
+        font-weight: 600;
+        margin: .5em 0 .5em 0; // Confirmar si esto no rompe algun componente
+        padding: .45em 2em .45em 2em;
+        transition: all 0.3s ease;
+
+        &.button--small-padding {
+            padding: .45em 4em .45em 4em;
+            @media (max-width: 575.9999px) {
+                padding: .45em 1.5em;
+            }
+        }
+
+        &.button--hyper-small-padding {
+            padding: .45em 0.5em .45em 0.5em;
+            @media (max-width: 575.9999px) {
+                padding: .45em 1.5em;
+            }
+        }
+
+        &__icon {
+            display: inline-block;
+            margin: 0 .5em 0 0;
+            vertical-align: middle;
+            width: 20px;
+        }
+
+        &:hover {
+            background-color: $color-action-hover;
+            border: 1px solid $color-action-hover;
+            box-shadow: 0 26px 17px -15px rgba(4, 44, 92, 0.3);
+        }
+
+        &:disabled {
+            background-color: #DFE3EA;
+            border-color: #DFE3EA;
+            box-shadow: none;
+            color: #BFC5D2;
+            pointer-events: none;
+        }
+    }
+
+
+    .button--medium {
+        @include font-size(14);
+        @include line-height(24);
+        padding: .5em 3em .5em 3em;
+    }
+
+    .button--small {
+        @include font-size(12);
+        @include line-height(16);
+        padding: .6em 2.5em .6em 2.5em;
+    }
+
+
+    .button--white {
+        background-color: #fff;
+        border: 1px solid #fff;
+        color: $color-action;
+
+        &:hover{
+            background-color: #fff;
+            border: 1px solid #fff;
+            color: $color-action;
+        }
+    }
+
+    .button--secundario,
+    .button--terciario {
+        background-color: rgba(255, 255, 255, 0.0);
+        border: 1px solid $color-action;
+        box-shadow: none;
+        color: $color-action;
+        font-weight: 400;
+        &:hover {
+            background-color: #F3F7FF;
+            box-shadow: none;
+        }
+        &:disabled {
+            background-color: transparent;
+            border-color: #DFE3EA;
+        }
+    }
+
+    .button--terciario {
+        border: 1px solid transparent;
+        &:disabled {
+            border-color: transparent;
+        }
+        &:hover {
+            border: 1px solid #F3F7FF;
+        }
+    }
+
+    .button--light {
+        background-color: transparent;
+        border: 1px solid #fff;
+        box-shadow: none;
+        color: #fff;
+        font-weight: 400;
+
+        &:hover {
+            border: 1px solid #fff;
+            background-color: rgba($color: #fff, $alpha: .05);
+            box-shadow: none;
+        }
+
+        &:disabled {
+            background-color: transparent;
+            border-color: #fff;
+            color: #fff;
+        }
+    }
+    /* 
+Esta clase se utiliza cuando el boton es al 100% 
+de su contenedor. 
+*/
+    .button--auto {
+        //padding: .45em 2em .45em 2em;
+        padding: .45em 8px .45em 8px;
+        width: 100%;
+    }
+    /* 
+Ejemplos de como usar los botones en caso de necesitar que
+tengan un ancho determinado ... lo recomendado es
+utilizar dentro de un contendor. 
+
+.caja {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    &__hijo {
+        width: 48%;
+    }
+}
+
+.mi-boton-icon {
+    margin: 0 auto 0 auto;
+    width: 160px;
+}
+    
+*/
+    &.b-mt-0 .button {
+        margin-top: 0;
+        @media (max-width: 480px) { 
+            padding-left: 15px;
+            padding-right: 30px;
+        }
+    }
+}

@@ -1,0 +1,253 @@
+@charset "UTF-8";
+.boxs-1 {
+  -webkit-box-shadow: 0rem 0.0625rem 0.5rem 0rem rgba(0, 0, 0, 0.07);
+          box-shadow: 0rem 0.0625rem 0.5rem 0rem rgba(0, 0, 0, 0.07);
+}
+
+.boxs-2 {
+  -webkit-box-shadow: 0rem 1.5375rem 1.5375rem 0rem rgba(0, 0, 0, 0.07);
+          box-shadow: 0rem 1.5375rem 1.5375rem 0rem rgba(0, 0, 0, 0.07);
+}
+
+.boxs-3 {
+  -webkit-box-shadow: 0rem 1.6375rem 1.6375rem 0rem rgba(0, 0, 0, 0.07);
+          box-shadow: 0rem 1.6375rem 1.6375rem 0rem rgba(0, 0, 0, 0.07);
+}
+
+.boxs-4 {
+  -webkit-box-shadow: 0rem 1.7375rem 1.7375rem 0rem rgba(0, 0, 0, 0.07);
+          box-shadow: 0rem 1.7375rem 1.7375rem 0rem rgba(0, 0, 0, 0.07);
+}
+
+.boxs-5 {
+  -webkit-box-shadow: 0rem 1.8375rem 1.8375rem 0rem rgba(0, 0, 0, 0.07);
+          box-shadow: 0rem 1.8375rem 1.8375rem 0rem rgba(0, 0, 0, 0.07);
+}
+
+.sidebar {
+  background-color: #fff;
+  -webkit-box-shadow: 0 2px 38px 0 rgba(0, 0, 0, 0.07);
+          box-shadow: 0 2px 38px 0 rgba(0, 0, 0, 0.07);
+  height: 100%;
+  max-width: 85%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  opacity: 1;
+  overflow-x: hidden;
+  -webkit-transition: all .3s ease;
+  transition: all .3s ease;
+  width: 100%;
+  z-index: 1000;
+}
+
+.sidebar.sidebar--close {
+  left: -100%;
+  opacity: .5;
+  overflow: hidden;
+}
+
+.sidebar.sidebar--open {
+  padding: 1;
+  width: calc(100vw - 4rem);
+}
+
+.sidebar__header {
+  background-color: #F4F7FE;
+  max-height: 240px;
+  overflow: hidden;
+  padding: 4em 2em 2em 2em;
+  position: relative;
+  text-align: center;
+}
+
+.sidebar__header:after {
+  content: '';
+  background-color: none;
+  border: 1px solid rgba(228, 236, 251, 0.7);
+  border-radius: 50%;
+  display: inline-block;
+  height: 160px;
+  margin: 0 auto;
+  position: absolute;
+  top: 20px;
+  left: 0;
+  right: 0;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  width: 160px;
+  z-index: 0;
+}
+
+.sidebar__name {
+  color: #042c5c;
+  font-size: 18px;
+  font-size: 1.125rem;
+  line-height: 24px;
+  line-height: 1.5rem;
+  font-weight: 600;
+  margin: 1.1em 0 0 0;
+  position: relative;
+  text-shadow: 1px 1px 10px #F4F7FE;
+  z-index: 1;
+}
+
+@media (max-width: 320px) {
+  .sidebar__name {
+    font-size: 16px;
+    font-size: 1rem;
+  }
+}
+
+.sidebar__email {
+  color: #77869E;
+  font-size: 14px;
+  font-size: 0.875rem;
+  line-height: 24px;
+  line-height: 1.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.sidebar__welcome {
+  display: none;
+}
+
+.sidebar__user {
+  border: 4px solid #fff;
+  border-radius: 50%;
+  -webkit-box-shadow: 0 12px 13px 0 rgba(0, 0, 0, 0.07);
+          box-shadow: 0 12px 13px 0 rgba(0, 0, 0, 0.07);
+  height: 80px;
+  margin: 0 auto;
+  overflow: hidden;
+  width: 80px;
+}
+
+.sidebar__menu {
+  background-color: #fff;
+  font-size: 16px;
+  font-size: 1rem;
+  line-height: 24px;
+  line-height: 1.5rem;
+  display: inline-block;
+  font-weight: 400;
+  padding: 1.5em 1.5em 1.5em 1.5em;
+  width: 100%;
+}
+
+@media (max-width: 320px) {
+  .sidebar__menu {
+    font-size: 14px;
+    font-size: 0.875rem;
+    line-height: 20px;
+    line-height: 1.25rem;
+  }
+}
+
+.sidebar__item {
+  margin: 0 0 1em 0;
+}
+
+.sidebar__item--out {
+  display: none;
+}
+
+.sidebar__link {
+  color: #042c5c;
+}
+
+.sidebar__icon {
+  color: #042c5c;
+  margin: 0 1em 0 0;
+}
+
+.sidebar__icon--salir {
+  color: #f44336 !important;
+}
+
+.sidebar__icon i {
+  font-size: 16px;
+  font-size: 1rem;
+  line-height: 24px;
+  line-height: 1.5rem;
+}
+
+@media (max-width: 320px) {
+  .sidebar__icon i {
+    font-size: 14px;
+    font-size: 0.875rem;
+    line-height: 20px;
+    line-height: 1.25rem;
+  }
+}
+
+.sidebar__menu--public .sidebar__link {
+  color: #77869E;
+}
+
+.sidebar__menu--public .sidebar__icon {
+  opacity: 0;
+}
+
+.sidebar__banco {
+  margin: 0 0 4em 0;
+  padding: 0 1em 0 1em;
+}
+
+.sidebar__welcome {
+  text-align: center;
+}
+
+.sidebar__welcome-icon {
+  display: inline-block;
+  margin: 0 0 1em 0;
+  width: 35px;
+}
+
+.sidebar__botones {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  margin: 2em 0 0 0;
+}
+
+.sidebar__botones > * {
+  width: 48%;
+}
+
+/*
+Esta es la clase que se agrega al "nav" para visualizar
+el menú lateral no sesionado.
+*/
+.sidebar--out .sidebar__header:after,
+.sidebar--out .sidebar__user,
+.sidebar--out .sidebar__name,
+.sidebar--out .sidebar__email,
+.sidebar--out .sidebar__menu,
+.sidebar--out .sidebar__banco {
+  display: none;
+}
+
+.sidebar--out .sidebar__welcome {
+  display: inherit;
+}
+
+.sidebar--out .sidebar__header {
+  max-height: initial;
+}
+
+.sidebar--out .sidebar__menu--public {
+  display: inherit;
+}
+
+.sidebar--out .sidebar__icon {
+  margin: 0 .1em 0 0;
+}
+
+.sidebar--out .sidebar__item--out {
+  display: inherit;
+}
+/*# sourceMappingURL=sidebar.component.css.map */

@@ -1,0 +1,93 @@
+<nav class="sidebar sidebar--out" [ngClass]="[getStatusCss()]">
+
+    <div class="sidebar__header">
+
+        <ul class="sidebar__portal">
+            <li class="sidebar__portal-item">
+                <a href="/" class="sidebar__portal-link sidebar__portal-link--active">Persona</a>
+            </li>
+            <li class="sidebar__portal-item">
+                <a href="/" class="sidebar__portal-link">Empresa</a>
+            </li>
+        </ul>
+
+        
+        <figure class="sidebar__user">
+            <img src="assets/imgs/usuario.png" alt="Foto o imagen del cliente" class="sidebar__avatar">
+        </figure>
+        <p class="sidebar__name">María Martinez</p>
+        <p class="sidebar__email">maria.martinez@gmail.com</p>
+        <div class="sidebar__welcome">
+            <figure class="sidebar__welcome-icon">
+                <img src="assets/imgs/star.svg" alt="Imagen de una estrella">
+            </figure>
+            <p class="siderar__invitacion">Disfruta de todos los beneficios que tenemos pensados para ti</p>
+            <div class="sidebar__botones">
+                <app-button2  size="medium" type="secundario" auto="true">Ingresar</app-button2>
+                <app-button2  size="medium" type="primario" auto="true" (click)="goToLogin()">Hazte cliente</app-button2>
+                <!-- <app-button type="primary-outline-rounded" size="lg">Ingresar</app-button>
+                <app-button type="primary-rounded">Hazte cliente</app-button> -->
+            </div>
+        </div>
+    </div>
+
+    <ul class="sidebar__menu">
+        <li class="sidebar__item">
+            <span class="sidebar__icon"><i class="material-icons">home</i></span>
+            <a href="home-account/home" class="sidebar__link">Inicio</a>
+        </li>
+        <li class="sidebar__item">
+            <span class="sidebar__icon"><i class="material-icons">credit_card</i></span>
+            <a href="" class="sidebar__link">Mis medios de pago</a>
+        </li>
+        <li class="sidebar__item">
+            <span class="sidebar__icon"><i class="material-icons">perm_identity</i></span>
+            <a href="" class="sidebar__link">Mi perfil</a>
+        </li>
+
+        <li class="sidebar__item">
+            <span class="sidebar__icon"><i class="material-icons">date_range</i></span>
+            <a href="" class="sidebar__link">Histórico de pagos</a>
+        </li>
+
+        <li class="sidebar__item">
+            <span class="sidebar__icon"><i class="material-icons">restore</i></span>
+            <a href="" class="sidebar__link">Mis comprobantes</a>
+        </li>
+        <li class="sidebar__item">
+            <span class="sidebar__icon sidebar__icon--salir"><i class="material-icons">input</i></span>
+            <a href="" class="sidebar__link">Salir</a>
+        </li>
+    </ul>
+
+
+    <ul class="sidebar__menu sidebar__menu--public">
+        <li class="sidebar__item sidebar__item--out">
+            <span class="sidebar__icon"><i class="material-icons">trending_flat</i></span>
+            <a href="home-account/home" class="sidebar__link">Inicio</a>
+        </li>
+        <li class="sidebar__item">
+            <span class="sidebar__icon"><i class="material-icons">trending_flat</i></span>
+            <a href="public/about" class="sidebar__link">Nosotros</a>
+        </li>
+        <li class="sidebar__item">
+            <span class="sidebar__icon"><i class="material-icons">trending_flat</i></span>
+            <a href="" class="sidebar__link">Qué hacemos</a>
+        </li>
+        <li class="sidebar__item">
+            <span class="sidebar__icon"><i class="material-icons">trending_flat</i></span>
+            <a href="/public/branch-offices" class="sidebar__link">Sucursales</a>
+        </li>
+
+        <li class="sidebar__item">
+            <span class="sidebar__icon"><i class="material-icons">trending_flat</i></span>
+            <a href="" class="sidebar__link">Ayuda</a>
+        </li>
+    </ul>
+
+
+    <div class="sidebar__banco">
+        <app-capsule type="welcome-03"></app-capsule>
+    </div>
+
+</nav>

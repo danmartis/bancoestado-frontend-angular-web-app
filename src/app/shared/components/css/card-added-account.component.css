@@ -1,0 +1,31 @@
+:host .card-added-account {
+  margin: 0 0.3125rem 2.5rem 0.3125rem;
+  width: 6.5625rem;
+  height: 8.125rem;
+  text-align: center;
+  background-color: #ffffff;
+  color: #77869e;
+  border-radius: 0.7813rem;
+  position: relative;
+  overflow: hidden;
+  -webkit-box-shadow: 0rem 1.4375rem 1.4375rem 0rem rgba(0, 0, 0, 0.07);
+          box-shadow: 0rem 1.4375rem 1.4375rem 0rem rgba(0, 0, 0, 0.07);
+}
+
+:host .card-added-account .card-added-account__icon-account {
+  margin: 1.875rem auto 2.8125rem auto;
+}
+
+:host .card-added-account .card-added-account__content {
+  z-index: 1;
+  position: absolute;
+  bottom: 0.9375rem;
+  text-align: center;
+  width: 100%;
+}
+
+:host .card-added-account .card-added-account__content .card-added-account__content__title {
+  font-size: 0.75rem;
+  font-family: 'Circular Std Book';
+}
+/*# sourceMappingURL=card-added-account.component.css.map */

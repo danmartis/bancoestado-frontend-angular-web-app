@@ -1,0 +1,13 @@
+@media (max-width: 575.9999px) {
+  :host .action-footer {
+    z-index: 99;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding-top: 0.9375rem;
+    padding-bottom: 0.9375rem;
+    background-color: #f7f9fc;
+  }
+}
+/*# sourceMappingURL=action-footer.component.css.map */

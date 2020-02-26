@@ -1,0 +1,664 @@
+variables: 
+    PROJECT_NAME: $CI_PROJECT_NAME
+    DOCKER_IMAGE: "${REGISTRYDESA}/${NAMESPACE}/${IMAGENAME}_${CI_PROJECT_NAME}_${VERSION}:${CI_PIPELINE_ID}"
+    LINE: "--===========================================================--"
+
+stages: 
+    - start  
+    - sonar
+    - build
+    - kubernetes
+    - health_check
+    - unity_test
+    - coverage
+    - selenium
+    - performance
+    - seguridad
+    - urbancode 
+    - rollback
+
+start:
+    stage: start
+    before_script:
+        - echo "export ROLLBACK=False" > rollback
+        - datetime=$(date '+%d-%m-%Y %H:%M:%S')
+    script:      
+        - Ejecuta="True"
+        - |
+          if [[ -z $commit ]]; then
+            commit=${CI_COMMIT_SHA:0:8}
+          else
+            if ! git cat-file -e $commit 2> /dev/null; then 
+              echo "No existe el commit ingresado"; 
+              Ejecuta="False"
+            fi
+          fi
+        - |
+          cat << EOF > datos_ejecucion
+          Datos de ejecución:
+            DateTime   =  $datetime
+            Email      =  $GITLAB_USER_EMAIL
+            ID User    =  $GITLAB_USER_ID
+            Login      =  $GITLAB_USER_LOGIN
+            Nombre     =  $GITLAB_USER_NAME
+            Pipeline   =  $CI_PIPELINE_ID
+            URL        =  $CI_PROJECT_URL
+            Commit     =  $commit
+            Ejecuta    =  $Ejecuta
+          EOF
+        - cat datos_ejecucion
+        - |
+          if [[ ${Ejecuta} == "False" ]];then
+            exit 1
+          fi
+    artifacts:
+      when: always 
+      paths:
+        - datos_ejecucion
+        - rollback
+    when: manual
+    allow_failure: false
+
+pruebas sonar:
+    stage: sonar
+    before_script:
+        - |
+          if [[ ! -z $commit ]]; then
+            git checkout $commit
+          fi
+        - PROJECT_KEY=$(grep sonar.projectKey sonar-project.properties | cut -d '=' -f 2)
+        - PROJECT_NAME=$(grep sonar.projectName sonar-project.properties | cut -d '=' -f 2)
+        - set +e # Disable exit on error
+        - EXIST=$(curl -u $USER_SONAR:$PASS_SONAR -X GET http://172.17.200.7:9000/api/projects/index?key=${PROJECT_KEY} | grep id | wc -l)
+        - |
+          if [ $(expr $EXIST) == 0 ]; then
+            curl -u $USER_SONAR:$PASS_SONAR --data "key=${PROJECT_KEY}&name=${PROJECT_NAME}" -X POST http://172.17.200.7:9000/api/projects/create
+          fi
+        - set -e # Enable exit on error
+    script:
+        #- npm install typescript tslint
+        - /opt/plataforma/support/support_to_runtime/sonar-scanner-2.8/bin/sonar-scanner -X
+        - RESULTADO=$(curl -u $USER_SONAR:$PASS_SONAR -X GET "http://172.17.200.7:9000/api/qualitygates/project_status?projectKey=$PROJECT_KEY" | cut -d'"' -f 6)
+        - |
+          if [ ! -z $RESULTADO ]; then
+            if [ "$RESULTADO" == "OK" ]; then
+                echo "Quality Gate Aprobada para ${PROJECT_NAME}"
+            else    
+                echo "Quality Gate NO Aprobada para ${PROJECT_NAME}"
+                exit 1
+            fi
+          else
+            echo "Error en la obtencion de Quality Gate para ${PROJECT_NAME}"
+            exit 1
+          fi
+    allow_failure: true
+
+build image:
+    stage: build
+    variables:
+        ANGULAR_TYPE: 'io8'
+    before_script:
+        - |
+          if [[ ! -z $commit ]]; then
+            git checkout $commit
+            CI_COMMIT_SHA=$(git rev-parse --short=8 $commit)
+          fi
+    script:
+        - echo "CONSTRUYENDO IMAGEN"
+        - |
+          curl -k -o dependencies_Dockerfile_angular_runtime_io.tar.gz --header "PRIVATE-TOKEN:${TOKEN_GITLAB_EE}" https://gitlab.banco.bestado.cl/devops/tools/raw/master/angular_io/dependencies_Dockerfile_angular_runtime_io.tar.gz
+          tar -zxvf dependencies_Dockerfile_angular_runtime_io.tar.gz 
+          if [[ "$ANGULAR_TYPE" == "js" ]]; then
+            curl --request GET -k -o Dockerfile --header "PRIVATE-TOKEN:${TOKEN_GITLAB_EE}" https://gitlab.banco.bestado.cl/devops/tools/raw/master/angular_io/Dockerfile_angular_runtime_js_v2             
+          elif [[ "$ANGULAR_TYPE" == "io" ]]; then
+
+            curl --request GET -k -o Dockerfile --header "PRIVATE-TOKEN:${TOKEN_GITLAB_EE}" https://gitlab.banco.bestado.cl/devops/tools/raw/master/angular_io/Dockerfile_angular_runtime_io_v2 
+            curl --request GET -k -o entry.sh --header "PRIVATE-TOKEN:${TOKEN_GITLAB_EE}" https://gitlab.banco.bestado.cl/devops/tools/raw/master/angular_io/entry.sh            
+          elif [[ "$ANGULAR_TYPE" == "io8" ]]; then
+            curl --request GET -k -o Dockerfile --header "PRIVATE-TOKEN:${TOKEN_GITLAB_EE}" https://gitlab.banco.bestado.cl/BECH/apps/se-personas/raw/Desarrollo-CI/Dockerfile_SE
+            curl --request GET -k -o entry.sh --header "PRIVATE-TOKEN:${TOKEN_GITLAB_EE}" https://gitlab.banco.bestado.cl/devops/tools/raw/master/angular_io/entry.sh            
+          fi
+        - docker build -t ${DOCKER_IMAGE}_${CI_COMMIT_SHA:0:8} . 
+        - docker push ${DOCKER_IMAGE}_${CI_COMMIT_SHA:0:8}        
+
+kubernetes:
+    stage: kubernetes
+    before_script:
+        - curl -k -o charts.tar --header "PRIVATE-TOKEN:${TOKEN_GITLAB_EE}" https://gitlab.banco.bestado.cl/BECH/charts/-/archive/master/charts-master.tar?ref=master
+        - tar -xvf charts.tar    
+        - |
+          if [[ ! -z $commit ]]; then
+            CI_COMMIT_SHA=$(git rev-parse --short=8 $commit)
+          fi
+    script:        
+        - sed -i 's/tag:\ cambiame/tag:\ '\"${CI_PIPELINE_ID}_${CI_COMMIT_SHA:0:8}\"'/g' charts-master/${PROJECT_NAME}/values.yaml
+        - /home/gitlab-runner/configICP.sh
+        - set +e # Disable exit on error
+        - helmExecution=""
+        - |
+          echo "helm status ${PROJECT_NAME}-${VERSION} --tls |grep STATUS | head -n 1 | awk '{print $2}'"
+          STATUS=$(helm status ${PROJECT_NAME}-${VERSION} --tls |grep STATUS | head -n 1 | awk '{print $2}')
+          echo $STATUS
+        - set -e
+        - |
+          if [[ $STATUS == "DEPLOYED" ]]; then
+            echo "Se actualiza el chart"
+            echo "helm upgrade ${PROJECT_NAME}-${VERSION} charts-master/${PROJECT_NAME} -f charts-master/${PROJECT_NAME}/values.yaml --namespace ${NAMESPACE} --tls --no-hooks"
+            helmExecution=$(helm upgrade ${PROJECT_NAME}-${VERSION} charts-master/${PROJECT_NAME} -f charts-master/${PROJECT_NAME}/values.yaml --namespace ${NAMESPACE} --tls --no-hooks)
+          elif [[ $STATUS == "FAILED" ]]; then
+            echo "helm delete ${PROJECT_NAME}-${VERSION} --purge --tls"
+            helmExecution=$(helm delete ${PROJECT_NAME}-${VERSION} --purge --tls)
+            echo "Instalando chart"
+            helmExecution=$(helm install charts-master/${PROJECT_NAME} -f charts-master/${PROJECT_NAME}/values.yaml --namespace ${NAMESPACE} --name=${PROJECT_NAME}-${VERSION} --tls)
+          else
+            echo "Se instala chart"
+            echo "helm install charts-master/${PROJECT_NAME} -f charts-master/${PROJECT_NAME}/values.yaml --namespace ${NAMESPACE} --name=${PROJECT_NAME}-${VERSION} --tls"
+            helmExecution=$(helm install charts-master/${PROJECT_NAME} -f charts-master/${PROJECT_NAME}/values.yaml --namespace ${NAMESPACE} --name=${PROJECT_NAME}-${VERSION} --tls)
+          fi                
+        - echo "Helm Execution:\ ${CI_PIPELINE_ID}_${CI_COMMIT_SHA:0:8}" >> helm_${CI_PIPELINE_ID}.txt
+        - echo "$helmExecution" >> helm_${CI_PIPELINE_ID}.txt
+        - cat helm_${CI_PIPELINE_ID}.txt
+    artifacts:
+      when: always
+      paths:
+        - helm_${CI_PIPELINE_ID}.txt
+
+health check:
+    stage: health_check
+    variables:
+        MAXRETRY: 320
+        SECONDSTOWAIT: 3
+    before_script:
+        - source rollback
+        - echo "export ROLLBACK=True" > rollback
+    script:
+        - set +e # Disable exit on error
+        - /home/gitlab-runner/configICP.sh
+        - cat helm_${CI_PIPELINE_ID}.txt
+        - arraypods=$(cat helm_${CI_PIPELINE_ID}.txt | grep "${PROJECT_NAME}-${VERSION}-deployment-[[:alnum:]]*" | grep -v Running | grep -v Terminating | grep -v CrashLoopBackOff | grep -v ImagePullBackOff | grep -v Error | awk '{print $1}')
+        - echo $arraypods
+        #- array=$(kubectl get pods |grep ${PROJECT_NAME}-${VERSION} | awk '{print $1}')
+        - finalPod=""
+        - |
+          retry=0
+          while [[ $retry -lt ${MAXRETRY} ]] && [[ ${arraypods} != "" ]]; do
+            for pod in $arraypods; do              
+              validate=0
+              arraystatus=$(kubectl get pod $pod -n ${NAMESPACE} -o=json | jq '.status.conditions' | jq '.[] | .status')
+              if [[ $arraystatus == "" ]];then
+                echo "No se pudo encontrar el pod: $pod";
+                exit 1;
+              fi
+              for statuspod in $arraystatus; do
+                if [[ ${statuspod} == \"False\" ]]; then
+                  echo "Pending...";
+                  #kubectl get pod $pod -o=json | jq '.status.conditions'
+                  validate=1
+                  break
+                fi
+              done
+              if [[ ${validate} -eq 1 ]]; then
+                break;
+              fi
+              finalPod=$pod
+            done
+            if [[ $finalPod == "" ]]; then
+              retry=$((retry + 1))
+              echo "Reintento número $retry ..."
+              sleep "${SECONDSTOWAIT}s"
+            else 
+              retry=${MAXRETRY}
+            fi
+          done
+        - set -e # Disable exit on error
+        - echo "export FINAL_POD=$finalPod;" >> pod
+        - |
+          if [[ $finalPod == "" ]]; then
+            echo "El servicio no logró inicializarse automáticamente en $((${MAXRETRY}*${SECONDSTOWAIT})) segundos."
+            exit 1
+          fi                
+    artifacts:
+        when: always
+        paths:
+        - pod
+        - rollback
+
+pruebas unitarias:
+    stage: unity_test
+    variables:
+      UNITYTEST_K8_DIFF_COMMIT: "\n\n  $LINE\n\tHay otra version desplegada en Kubernetes.\n\tNo se puede volver a gatillar el stage 'unity_test'\n\tFavor Vuelva a generar un nuevo pipeline\n  $LINE\n\n"
+      MINUTESTOWAIT: 1
+      SECONDSTOWAIT: 50
+    before_script:
+        - source pod
+        # BEGIN: Se verifica la version que esta activa vs el commit a desplegar
+        - image=$(kubectl get deployment "${PROJECT_NAME}"-"${VERSION}"-deployment -o wide -n ${NAMESPACE} | awk '{print $8}' | tail -1)
+        - splited=($(echo $image | tr ":" "\n"))
+        - splited=($(echo "${splited[-1]}" | tr "_" "\n"))
+        - |
+            if [[ ! -z $commit ]]; then
+              CI_COMMIT_SHA=$(git rev-parse --short=8 $commit)
+            fi
+        - |
+          if [ "${splited[-1]}" != "${CI_COMMIT_SHA:0:8}" ] || [ "${splited[-2]}" != ${CI_PIPELINE_ID} ];then
+            echo "${UNITYTEST_K8_DIFF_COMMIT}"
+            exit 1
+          fi
+        # END
+    script:        
+        - echo "El pod a utilizar es:\ $FINAL_POD"
+        #- |
+        #  if [[ ${PROJECT_NAME} != "tef" ]]; then
+        #    echo "Se espera a que el pod quede disponible ${MINUTESTOWAIT}m ${SECONDSTOWAIT}s"
+        #    sleep ${MINUTESTOWAIT}m ${SECONDSTOWAIT}s
+        #  fi
+        #- |
+        #  if [[ ${PROJECT_NAME} == "tef" ]]; then
+        #  echo "Se espera a que el pod quede disponible $((MINUTESTOWAIT*4))m ${SECONDSTOWAIT}s"
+        #    sleep $((MINUTESTOWAIT*4))m ${SECONDSTOWAIT}s
+        #  fi
+        - set +e
+        - return=$(kubectl exec -n ${NAMESPACE} $FINAL_POD -c ${PROJECT_NAME} -- /bin/bash -c "npm test")
+        - echo "${return}"
+        - END_LINE_P_L=$(echo "${return}"| grep "PhantomJS 2.1.1 (" | wc -l)
+        - END_LINE_C_L=$(echo "${return}"| grep "HeadlessChrome " | wc -l)
+        
+        - echo $END_LINE_P_L
+        - echo $END_LINE_C_L
+        - |
+          if [[ $END_LINE_P_L -eq 0 ]] && [[ $END_LINE_C_L -gt 0 ]]; then
+            END_LINE=$(echo "${return}"| grep "HeadlessChrome " | tail -1)
+          elif [[ $END_LINE_C_L -eq 0 ]] && [[ $END_LINE_P_L -gt 0 ]]; then
+            END_LINE=$(echo "${return}"| grep "PhantomJS 2.1.1 (" | tail -1)
+          else
+            echo "ERROR DE EJECUCION<<<<<<"
+            exit 1
+          fi
+        - FAILING=$(echo "${END_LINE}" | grep "FAILED" | wc -l)        
+        - FAILING=$(expr $FAILING)
+        - |
+          if [[ $FAILING -ge 1 ]]; then
+           #FAILED_TEST=`echo "$END_LINE" | sed -e "s/PhantomJS 2.1.1 (Linux 0.0.0): //g" | awk -F " FAILED" '{print $1}' | awk -F "(" '{print $2}'`
+           FAILED_TEST=`echo "$END_LINE" | awk -F ': ' '{print $2}' | awk -F " FAILED" '{print $1}' | awk -F "(" '{print $2}'`
+           echo "Cantidad de errores detectados [${FAILED_TEST}]"
+           exit 1
+          fi
+        - ERROR=$(echo "${END_LINE}" | grep "ERROR" | wc -l)
+        - ERROR=$(echo $ERROR)
+        - |
+          if [[ $ERROR -ge 1 ]]; then
+           ERROR_TEST=`echo "$END_LINE" | awk -F ': ' '{print $2}' | awk -F " ERROR" '{print $1}' | awk -F "(" '{print $2}'`
+           echo "Cantidad de errores detectados [${ERROR_TEST}]"
+           exit 1
+          fi
+        - set -e
+    allow_failure: true
+
+coverage:
+    stage: coverage
+    variables:
+        COVERAGE_K8_DIFF_COMMIT: "\n\n  $LINE\n\tHay otra version desplegada en Kubernetes.\n\tNo se puede volver a gatillar el stage 'coverage'\n\tFavor Vuelva a generar un nuevo pipeline\n  $LINE\n\n"
+    before_script:
+        - source pod
+        # BEGIN: Se verifica la version que esta activa vs el commit a desplegar
+        - image=$(kubectl get deployment "${PROJECT_NAME}"-"${VERSION}"-deployment -o wide -n ${NAMESPACE} | awk '{print $8}' | tail -1)
+        - splited=($(echo $image | tr ":" "\n"))
+        - splited=($(echo "${splited[-1]}" | tr "_" "\n"))
+        - |
+            if [[ ! -z $commit ]]; then
+              CI_COMMIT_SHA=$(git rev-parse --short=8 $commit)
+            fi
+        - |
+          if [ "${splited[-1]}" != "${CI_COMMIT_SHA:0:8}" ] || [ "${splited[-2]}" != ${CI_PIPELINE_ID} ];then
+            echo "${COVERAGE_K8_DIFF_COMMIT}"
+            exit 1
+          fi
+        # END
+    script:
+        - echo "El pod a utilizar es:\ $FINAL_POD"
+        - COVERAGE=$(kubectl exec -n ${NAMESPACE} $FINAL_POD -- /bin/bash -c "cat /usr/src/app/coverage/index.html" | grep -B 1 '<span class="quiet">Statements</span>' | head -1 | awk -F '>' '{print $2}' | awk -F '%' '{print $1}' | awk -F '.' '{print $1}')
+        - |
+          if [[ $COVERAGE -lt $THRESHOLD ]];then
+            echo "COVERAGE [${COVERAGE} < ${THRESHOLD}]"
+            exit 1
+          fi
+        - echo "COVERAGE [${COVERAGE}]"
+    allow_failure: true
+
+selenium:
+    stage: selenium
+    variables:
+        SEL_K8_DIFF_COMMIT: "\n\n  $LINE\n\tHay otra version desplegada en Kubernetes.\n\tNo se puede volver a gatillar el stage 'selenium'\n\tFavor Vuelva a generar un nuevo pipeline\n  $LINE\n\n"
+    before_script:
+        # BEGIN: Se verifica la version que esta activa vs el commit a desplegar
+        - image=$(kubectl get deployment "${PROJECT_NAME}"-"${VERSION}"-deployment -o wide -n ${NAMESPACE} | awk '{print $8}' | tail -1)
+        - splited=($(echo $image | tr ":" "\n"))
+        - splited=($(echo "${splited[-1]}" | tr "_" "\n"))
+        - |
+            if [[ ! -z $commit ]]; then
+              CI_COMMIT_SHA=$(git rev-parse --short=8 $commit)
+            fi
+        - |
+          if [ "${splited[-1]}" != "${CI_COMMIT_SHA:0:8}" ] || [ "${splited[-2]}" != ${CI_PIPELINE_ID} ];then
+            echo "${SEL_K8_DIFF_COMMIT}"
+            exit 1
+          fi
+        # END
+    script:
+        - chmod +x test/seleniumHQ/src/main/resources/Runners/phantomjs_Linux64
+        - mvn -f test/seleniumHQ/pom.xml clean test 
+    artifacts:
+        when: always
+        paths:
+        - test/seleniumHQ/screenshots
+
+jmeter:
+    stage: performance
+    variables:
+        JMX_K8_DIFF_COMMIT: "\n\n  $LINE\n\tHay otra version desplegada en Kubernetes.\n\tNo se puede volver a gatillar el stage 'performance'\n\tFavor Vuelva a generar un nuevo pipeline\n  $LINE\n\n"
+        concurrenciaObjetivo: 1
+        incrementoEnSegundos: 1
+        numeroDeIncrementos: 0
+        mantenerTasaObjetivoPorNSegundos: 1
+        limiteDeIteraciones: 1
+        puerto: 443
+        puertoMS: 443
+        protocolo: https
+        archivoValoresParametricos: datosDesarrollo.txt
+    before_script:
+        # BEGIN: Se verifica la version que esta activa vs el commit a desplegar
+        - image=$(kubectl get deployment "${PROJECT_NAME}"-"${VERSION}"-deployment -o wide -n ${NAMESPACE} | awk '{print $8}' | tail -1)
+        - splited=($(echo $image | tr ":" "\n"))
+        - splited=($(echo "${splited[-1]}" | tr "_" "\n"))
+        - |
+            if [[ ! -z $commit ]]; then
+              CI_COMMIT_SHA=$(git rev-parse --short=8 $commit)
+            fi
+        - |
+          if [ "${splited[-1]}" != "${CI_COMMIT_SHA:0:8}" ] || [ "${splited[-2]}" != ${CI_PIPELINE_ID} ];then
+            echo "${JMX_K8_DIFF_COMMIT}"
+            exit 1
+          fi
+        # END
+        - set +e        
+        - mkdir -p pruebasPerformance/salida
+        - archivoJMX=$(ls test/performance/ | grep jmx | grep -vi peaks)
+        - archivoReporteSalida=ResultadoPruebaDePerformance_${PROJECT_NAME}_${CI_PIPELINE_ID}.csv
+        - |
+          if [[ -z ${archivoJMX} ]]; then  
+            echo "Archivo jmx no existe"
+            exit 1
+          fi
+        - archivo="test/performance/$archivoJMX"
+        - existeCSV=$(cat ${archivo} | grep '<CSVDataSet' | wc -l)
+        - |
+          if [[ $existeCSV -eq 0 ]]; then  
+            echo "NO EXISTE CONFIGURACION DE ARCHIVO DE ENTRADA"
+            exit 1
+          fi
+        - confCSV=$(echo $(cat ${archivo}) | awk -F '<CSVDataSet' '{print $2}' | awk -F '</CSVDataSet' '{print $1}')
+        - archivoCSV=$(echo $confCSV | sed 's/> </>\n</g' | grep filename | grep -Ei "[\$]{__[a-z]+\(+[a-z._-]+[,]{0,10}\)}" | wc -l)
+        - lecturaCSV=$(echo $confCSV | sed 's/> </>\n</g' | grep variableNames | grep '></stringProp>' | wc -l)
+        - |
+          if [[ $archivoCSV -eq 0 ]]; then
+            echo "ARCHIVO CSV NO CONFIGURADO DINAMICAMENTE"
+            echo $confCSV | sed 's/> </>\n</g' | grep filename
+            exit 1
+          fi
+          if [[ $lecturaCSV -gt 0 ]]; then            
+            echo "ARCHIVO CSV DEBE SER LEIDO POR LA PRUEBA"
+            echo $confCSV | sed 's/> </>\n</g' | grep variableNames
+            exit 1
+          fi
+        - concurrenciaObjetivoT=$(cat ${archivo} | grep  -Ei "[\$]{__[a-z]+\(concurrenciaObjetivo\)}" | wc -l)
+        - incrementoEnSegundosT=$(cat ${archivo} | grep  -Ei "[\$]{__[a-z]+\(incrementoEnSegundos\)}" | wc -l)
+        - numeroDeIncrementosT=$(cat ${archivo} | grep  -Ei "[\$]{__[a-z]+\(numeroDeIncrementos\)}" | wc -l)
+        - mantenerTasaObjetivoPorNSegundosT=$(cat ${archivo} | grep  -Ei "[\$]{__[a-z]+\(mantenerTasaObjetivoPorNSegundos\)}" | wc -l)
+        - limiteDeIteracionesT=$(cat ${archivo} | grep  -Ei "[\$]{__[a-z]+\(limiteDeIteraciones\)}" | wc -l)
+
+        - |
+          if [[ $concurrenciaObjetivoT -eq 0 ]]; then
+            echo "VARIABLE DE CONFIGURACION concurrenciaObjetivo NO DEFINIDA EN LA PRUEBA"
+            exit 1
+          fi
+
+          if [[ $incrementoEnSegundosT -eq 0 ]]; then
+            echo "VARIABLE DE CONFIGURACION incrementoEnSegundos NO DEFINIDA EN LA PRUEBA"
+            exit 1
+          fi
+
+          if [[ $numeroDeIncrementosT -eq 0 ]]; then
+            echo "VARIABLE DE CONFIGURACION numeroDeIncrementos NO DEFINIDA EN LA PRUEBA"
+            exit 1
+          fi
+
+          if [[ $mantenerTasaObjetivoPorNSegundosT -eq 0 ]]; then
+            echo "VARIABLE DE CONFIGURACION mantenerTasaObjetivoPorNSegundos NO DEFINIDA EN LA PRUEBA"
+            exit 1
+          fi
+
+          if [[ $limiteDeIteracionesT -eq 0 ]]; then
+            echo "VARIABLE DE CONFIGURACION limiteDeIteraciones NO DEFINIDA EN LA PRUEBA"
+          fi
+        - domain=$(cat ${archivo} | grep 'HTTPSampler.domain' | grep -v -Ei "[\$]{__[a-z]+\(+[a-z._-]+\)}" | wc -l)
+        - port=$(cat ${archivo} | grep 'HTTPSampler.port' | grep -v -Ei "[\$]{__[a-z]+\(+[a-z._-]+\)}" | wc -l)
+        - protocol=$(cat ${archivo} | grep 'HTTPSampler.protocol' | grep -v -Ei "[\$]{__[a-z._-]+\(+[a-z]+\)}" | wc -l)
+        - path=$(cat ${archivo} | grep 'HTTPSampler.path' | grep -v 'apps' | grep -v 'servicio' | grep -v 'bff' | grep -v 'apis' | wc -l)
+
+        - |
+          if [[ $domain -gt 0 ]]; then  
+            echo "DOMINIOS SIN VARIABLE"
+            cat ${archivo} | grep 'HTTPSampler.domain' | grep -v -Ei "[\$]{__[a-z]+\(+[a-z._-]+\)}"
+            exit 1
+          fi
+          if [[ $port -gt 0 ]]; then
+            echo "PUERTOS SIN VARIABLE"
+            cat ${archivo} | grep 'HTTPSampler.port' | grep -v -Ei "[\$]{__[a-z]+\(+[a-z._-]+\)}"
+            exit 1
+          fi
+          if [[ $protocol -gt 0 ]]; then
+            echo "PROTOCOLOS SIN VARIABLE"
+            cat ${archivo} | grep 'HTTPSampler.protocol' | grep -v -Ei "[\$]{__[a-z]+\(+[a-z._-]+\)}"
+            exit 1
+          fi
+          if [[ $path -gt 0 ]]; then
+            echo "PATH SIN VARIABLE"
+            cat ${archivo} | grep 'HTTPSampler.path' | grep -v 'apps' | grep -v 'servicio' | grep -v 'bff' | grep -v 'apis'
+            exit 1
+          fi
+        - llamada=$(cat ${archivo} | grep -i "apps/${PROJECT_NAME}" | wc -l)
+        - |
+          if [[ $llamada -eq 0 ]]; then
+            echo "PRUEBA SIN UNA LLAMADA AL PROYECTO LEVANTADO"
+            echo "$llamada $PROJECT_NAME"
+            echo "Archivo revisado: $archivo"
+            echo "resultado de busqueda"
+            echo $(cat ${archivo} | grep -i "apps/${PROJECT_NAME}")
+            exit 1
+          fi
+
+    script: 
+        - |
+          cat << EOF > jmeter.sh
+            /opt/java/jmeter -n -t $archivo \
+            -JconcurrenciaObjetivo=$concurrenciaObjetivo \
+            -JincrementoEnSegundos=$incrementoEnSegundos \
+            -Jdrupal_port=8082 \
+            -JnumeroDeIncrementos=$numeroDeIncrementos \
+            -JmantenerTasaObjetivoPorNSegundos=$mantenerTasaObjetivoPorNSegundos \
+            -JlimiteDeIteraciones=$limiteDeIteraciones \
+            -Jhost=${HOSTNAME} \
+            -Jhostapi=${HOSTNAME} \
+            -Jpuerto=$puerto \
+            -JhostMS=${HOSTNAME} \
+            -JpuertoMS=$puertoMS \
+            -Jprotocolo=$protocolo \
+            -Jcsvfile=test/performance/$archivoValoresParametricos \
+            -Jjmeter.save.saveservice.output_format=csv \
+            -l pruebasPerformance/salida/$archivoReporteSalida \
+            -e -o pruebasPerformance/salida/${PROJECT_NAME}_${CI_PIPELINE_ID}
+          EOF
+        - cat jmeter.sh
+        - result=$(sh jmeter.sh)
+        - echo $result
+        - RESULTADOS=$(echo "${result}" | grep "summary" | grep "Err:" | tail -1)
+        - ERRORES=$(echo ${RESULTADOS} | awk '{print $15}')
+        - LLAMADAS=$(echo ${RESULTADOS} | awk '{print $3}')
+        - EJECUCION=$(echo "${result}" | grep "summary" | grep "Err:" | wc -l)
+        - |
+          if [[ ${EJECUCION} -eq 0 ]]; then
+            echo "La prueba no se ejecutó correctamente"
+              exit 1
+          fi
+          if [[ ${LLAMADAS} -eq 0 ]]; then
+            echo "No se ejecutaron llamadas"
+              exit 1
+          fi
+          if [[ ${ERRORES} -gt 0 ]]; then
+            echo "Fallas [${ERRORES}]"
+              exit 1
+          fi
+    artifacts:
+        when: always
+        paths:
+        - pruebasPerformance/salida
+    allow_failure: true
+
+pruebas de seguridad:
+  stage: seguridad
+  variables:
+    SEC_K8_DIFF_COMMIT: "\n\n  $LINE\n\tHay otra version desplegada en Kubernetes.\n\tNo se puede volver a gatillar el stage 'seguridad'\n\tFavor Vuelva a generar un nuevo pipeline\n  $LINE\n\n"
+  before_script:
+    # BEGIN: Se verifica la version que esta activa vs el commit a desplegar
+    - image=$(kubectl get deployment "${PROJECT_NAME}"-"${VERSION}"-deployment -o wide -n ${NAMESPACE} | awk '{print $8}' | tail -1)
+    - splited=($(echo $image | tr ":" "\n"))
+    - splited=($(echo "${splited[-1]}" | tr "_" "\n"))
+    - |
+        if [[ ! -z $commit ]]; then
+          CI_COMMIT_SHA=$(git rev-parse --short=8 $commit)
+        fi
+    - |
+      if [ "${splited[-1]}" != "${CI_COMMIT_SHA:0:8}" ] || [ "${splited[-2]}" != ${CI_PIPELINE_ID} ];then
+        echo "${SEC_K8_DIFF_COMMIT}"
+        exit 1
+      fi
+    # END
+  script:
+    - set +ex 
+    - URL=https://desa-plataformadigital.banco.bestado.cl/apps/${PROJECT_NAME}
+    - REPORTE=ReporteSeguridad-${PROJECT_NAME}-${CI_PIPELINE_ID}_${CI_COMMIT_SHA:0:8}.html
+    - docker run -u zap -v /home/zap/informe:/zap/wrk/:rw owasp/zap2docker-stable zap-baseline.py -a -j -t ${URL} -g gen.conf -r ${REPORTE}
+    - echo /home/zap/informe/${REPORTE}
+    - cp /home/zap/informe/${REPORTE} $(pwd)
+    - file ${REPORTE}
+    - |
+      if [[ -f ${REPORTE} ]]; then
+        numero_errores_high=$(cat ${REPORTE} | grep ">High</a>" | cut -d " " -f 3 | cut -d ">" -f 2 | awk -F "<" '{print $1}')
+        if [[ ${numero_errores_high} -ne 0 ]]; then
+          echo "Existen ${numero_errores_high} Errores de categoría High"
+          #exit 1
+        else
+          echo "No hay vulnerabilidades de alto riesgo"
+        fi
+      else
+        echo "No se generó reporte correctamente" 
+        exit 1
+      fi
+    - REPORTE=$(ls -l | grep Reporte | awk '{print $9}')
+  artifacts:
+    when: always
+    paths:
+      - ./ReporteSeguridad-${PROJECT_NAME}-${CI_PIPELINE_ID}_${CI_COMMIT_SHA:0:8}.html
+
+urbancode:
+    stage: urbancode
+    variables:
+        folder: "test/performance"
+    before_script:
+        - curl -k -o charts.tar --header "PRIVATE-TOKEN:${TOKEN_GITLAB_EE}" https://gitlab.banco.bestado.cl/BECH/charts/-/archive/master/charts-master.tar?ref=master
+        - tar -xvf charts.tar
+        - |
+          if [[ ! -z $commit ]]; then
+            CI_COMMIT_SHA=$(git rev-parse --short=8 $commit)
+          fi
+        - mkdir input
+        - archivoJMX=$(ls ${folder} | grep jmx | grep -vi peaks)
+        - datetime=$(date '+%d-%m-%Y %H:%M:%S')
+        - dockerTag=${CI_PIPELINE_ID}_${CI_COMMIT_SHA:0:8}
+        - component=${PROJECT_NAME}
+        - chartsVersion=$(cat charts-master/${PROJECT_NAME}/Chart.yaml | grep version | awk '{print $2}')
+        - set +e
+        - retorno=$(java -jar /opt/urbancode-cli/udclient.jar -username ${URBANUSER} -password ${URBANPASS} -weburl https://167.28.86.224:8443 getComponent -component ${component})
+    script:
+        - |
+          cat << EOF > input/input.properties
+            gitTag=${CI_COMMIT_SHA:0:8}
+            dockerTag=$dockerTag
+            msName=$component
+            chartsVersion=${chartsVersion}
+            nameSpace=${NAMESPACE}
+            imageName=${IMAGENAME}_${PROJECT_NAME}_${VERSION}
+            pathJMX=${folder}
+            archivoJMX=$archivoJMX
+            version=${VERSION}
+            idProyecto=${CI_PROJECT_ID}
+          EOF
+        - |
+          cat << EOF > newComponent.json
+            {
+              "name":"${component}",
+              "description":"Automatizacion CI",
+              "templateName":"CD_ICP",
+              "templateVersion":"",
+              "template/MyProperty":"MyValue",
+              "componentType":"STANDARD",
+              "sourceConfigPlugin":"",
+              "importAutomatically":"false",
+              "useVfs":"true",
+              "defaultVersionType":"FULL",
+              "importAgentType":"inherit",
+              "inheritSystemCleanup":"true",
+              "runVersionCreationProcess":"false",
+              "properties":{},
+              "teamMappings":[]
+            }
+          EOF   
+        - |
+          if [[ "No component for" =~ ^${retorno} ]]; then            
+            java -jar /opt/urbancode-cli/udclient.jar -username ${URBANUSER} -password ${URBANPASS} -weburl https://167.28.86.224:8443 createComponent newComponent.json
+            java -jar /opt/urbancode-cli/udclient.jar -username ${URBANUSER} -password ${URBANPASS} -weburl https://167.28.86.224:8443 addComponentToApplication -application CD-ICP -component ${component}
+            echo "La componente ${component} se ha generado con exito"
+          fi
+        - cat input/input.properties
+        - java -jar /opt/urbancode-cli/udclient.jar -username ${URBANUSER} -password ${URBANPASS} -weburl https://167.28.86.224:8443 createVersion -component ${component} -name ${dockerTag}
+        - java -jar /opt/urbancode-cli/udclient.jar -username ${URBANUSER} -password ${URBANPASS} -weburl https://167.28.86.224:8443 addVersionFiles -component ${component} -version ${dockerTag} -base input
+        - java -jar /opt/urbancode-cli/udclient.jar -username ${URBANUSER} -password ${URBANPASS} -weburl https://167.28.86.224:8443 addVersionStatus -component ${component} -version ${dockerTag} -status QA          
+        - echo "DateTime   =  $datetime"
+    when: manual
+    allow_failure: false
+
+
+
+rollback:
+    stage: rollback 
+    before_script:
+      - source rollback
+      - cat rollback
+    script:
+      - |
+        if [[ $ROLLBACK == "False" ]]; then
+          rollback="No se gatilla RollBack"
+        else
+          set -e
+          rollback=$(helm rollback ${PROJECT_NAME}-${VERSION} 0 --tls);
+          set +e
+        fi
+      - echo $rollback
+      - echo $rollback > helmrollback.log
+    when: on_failure
+    artifacts:
+      when: always 
+      paths:
+      - helmrollback.log    
+# Fin CI
+# 13935

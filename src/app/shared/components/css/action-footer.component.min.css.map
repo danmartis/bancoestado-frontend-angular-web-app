@@ -1,0 +1,10 @@
+{
+    "version": 3,
+    "mappings": "AAIQ,MAAM,EAAE,SAAS,EAAE,UAAU,EAHrC,AACI,KADC,CACD,cAAc,AAAC,CAGP,OAAO,CAAE,EAAE,CACX,QAAQ,CAAE,KAAK,CACf,MAAM,CAAE,CAAC,CACT,IAAI,CAAE,CAAC,CACP,KAAK,CAAE,CAAC,CACR,WAAW,CAAE,SAAS,CACtB,cAAc,CAAE,SAAS,CACzB,gBAAgB,CCRJ,OAAO,CDU1B",
+    "sources": [
+        "../action-footer/action-footer.component.scss",
+        "../../../scss/_vars.scss"
+    ],
+    "names": [],
+    "file": "action-footer.component.min.css"
+}

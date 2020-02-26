@@ -1,0 +1,16 @@
+<app-modal-bottom name="modal-edit-account-detail" activateBack="true" (onBack)="closeListOpenSingle(['modal-edit-account-detail'],'modal-card-detail')">
+    <div class="modal-bottom_section__header">
+        <app-modal-title className="ml-5 mt-1">Editar cuenta</app-modal-title>
+        <app-paragraph type="min">Ponle un nombre nuevo a esta cuenta que te permita recordar e identificar de forma facil.</app-paragraph>
+    </div>
+    <div class="modal-bottom_section__body">
+        <app-input placeholter="Ingresa nombre de cuenta"></app-input>
+    </div>
+    <div class="modal-bottom_section__footer text-center">
+        <div class="row">
+            <div class="col-12 col-md-8 offset-md-2">
+                <app-button2 auto="true" type="primario" (click)="closeListOpenSingle(['modal-edit-account-detail'],'modal-card-detail')">Guardar</app-button2>
+            </div>
+        </div>
+    </div>
+</app-modal-bottom>

@@ -1,0 +1,16 @@
+<app-modal name="modal-error-default">
+    <div class="modal_section__header text-center">
+        <app-modal-icon type="img" src="assets/imgs/svg/icon-error.svg" alt="Icono de error transversal"></app-modal-icon>
+            <!-- <app-image src="assets/imgs/default-error.png" type="alternative" alt="ERROR"></app-image> -->
+    </div>
+    <div class="modal_section__body text-center">
+        <app-modal-title>Tenemos algunos problemas</app-modal-title>
+        <app-paragraph>Algunos servicios están con problemas, por favor inténtalo más tarde</app-paragraph>
+    </div>
+    <div class="modal_section__footer text-center">
+        <div class="boton-modal">
+            <app-button2 auto="true" (click)="closeListOpenSingle(['modal-error-default'],'')">Salir</app-button2>
+        </div>
+        <!-- <app-button type="auto-block-min-w" (click)="closeListOpenSingle(['modal-error-default'],'')">Salir</app-button> -->
+    </div>
+</app-modal>

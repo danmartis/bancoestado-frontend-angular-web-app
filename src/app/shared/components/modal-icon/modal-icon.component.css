@@ -1,0 +1,95 @@
+@charset "UTF-8";
+/* Icono modales */
+.icon-modal {
+  background-color: #00d793;
+  border-radius: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 90px;
+  margin: 0 auto 0 auto;
+  width: 90px;
+}
+
+.icon-modal--info {
+  background-color: #1e63f8;
+}
+
+.icon-modal--danger {
+  background-color: #f44336;
+}
+
+.icon-modal--il {
+  background-color: #F6F8FA;
+}
+
+.icon-modal--img {
+  background-color: transparent;
+}
+
+.icon-modal--img-lg {
+  background-color: transparent;
+  height: 160px;
+  width: 160px;
+}
+
+.icon-modal__icon {
+  height: 43px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 43px;
+}
+
+.icon-modal__icon img {
+  max-height: 100%;
+}
+
+/* 
+Los comprobantes utilizan el mismo icono ok de una modal
+pero más pequeño 
+*/
+.icon-modal--voucher {
+  height: 50px;
+  width: 50px;
+}
+
+.icon-modal--voucher .icon-modal__icon {
+  height: 20px;
+  width: 20px;
+}
+
+/* 
+Modificador Cuando el icono de la modal es una olustración
+con background gris 
+*/
+.icon-modal--il .icon-modal__icon {
+  height: 60px;
+  width: 60px;
+}
+
+/* 
+Modificador Cuando el icono de la modal es una ilustración
+o imagen que incluye el bg ... el sufijo -lg es cuando
+la imagen se tiene que mostrar más grande
+*/
+.icon-modal--img .icon-modal__icon,
+.icon-modal--img-lg .icon-modal__icon {
+  height: 100%;
+  width: 100%;
+}
+
+/* FIN - Icono modales */
+/*# sourceMappingURL=modal-icon.component.css.map */

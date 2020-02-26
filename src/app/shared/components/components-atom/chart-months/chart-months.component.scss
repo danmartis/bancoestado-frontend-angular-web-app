@@ -1,0 +1,147 @@
+@import '../../../../../scss/_vars';
+:host {
+    .color {
+        &:nth-child(1) {
+            .dot {
+                background-color: $color-success;
+            }
+        }
+        &:nth-child(2) {
+            .dot {
+                background-color: $color-danger;
+            }
+        }
+        &:nth-child(3) {
+            .dot {
+                background-color: $color-warning;
+            }
+        }
+        &:nth-child(4) {
+            .dot {
+                background-color: $color-service-water;
+            }
+        }
+        &:nth-child(5) {
+            .dot {
+                background-color: $color-service-teleco;
+            }
+        }
+        &:nth-child(6) {
+            .dot {
+                background-color: $color-primary;
+            }
+        }
+    }
+    .chart {
+        width: 100%;
+        border-bottom: solid 1px $color-border-light;
+        height: 150px;
+        text-align: left;
+        position: relative;
+        .chart__part {
+            width: 20%;
+            height: 100%;
+            display: block;
+            position: relative;
+            float: left;
+            &::before {
+                display: block;
+                position: absolute;
+                height: 100%;
+                width: 1px;
+                background-color: $color-border-light;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                margin: auto;
+                content: '';
+            }
+            .chart__part__value {
+                text-align: center;
+                height: 20px;
+                padding: 2px;
+                width: 100%;
+                position: relative;
+                span {
+                    line-height: 12px;
+                    font-size: 12px;
+                    position: absolute;
+                    background: $color-primary-light;
+                    width: 100%;
+                    left: 0;
+                    top: 0;
+                    height: 100%;
+                    border-bottom: solid 1px $color-border-light;
+                    background-color: $color-primary-light;
+                    color: #d5dae2;
+                }
+                &::before {}
+            }
+            &:first-child {}
+            &:last-child {}
+        }
+        .chart__months {
+            position: absolute;
+            top: 32px;
+            left: 10%;
+            right: auto;
+            width: 80%;
+            .chart__months__month {
+                box-shadow: 0px 4px 7px 0px rgba(0, 0, 0, 0.1);
+                border-radius: 0px 2.8px 2.8px 0px;
+                position: relative;
+                height: 6px;
+                margin-bottom: 24px;
+                .chart__months__month__value {
+                    position: absolute;
+                    right: 0px;
+                    width: 0;
+                    top: -1px;
+                    span {
+                        color: $color-text;
+                        background: #ffffff;
+                        position: absolute;
+                        left: 5px;
+                        text-align: left;
+                        border-radius: 0px;
+                        font-size: 12px;
+                        padding: 0px;
+                        height: 9px;
+                        line-height: 0.7;
+                    }
+                }
+            }
+        }
+    }
+    .chart_info {
+        font-size: 12px;
+        margin: 10px auto;
+        .chart_info__descriptor {
+            width: 80%;
+            margin: auto;
+            .chart_info__descriptor__desc {
+                display: inline-block;
+                text-align: left;
+                width: 50%;
+                margin: 2px 0;
+                .chart_info__descriptor__desc__dot {
+                    width: 8px;
+                    height: 8px;
+                    border-radius: 50%;
+                    display: inline-block;
+                    margin-right: 5px;
+                }
+                .chart_info__descriptor__desc__name {
+                    display: inline-block;
+                    color: $color-text;
+                }
+            }
+            .chart_info__descriptor__value {
+                display: inline-block;
+                width: 50%;
+                text-align: right;
+            }
+        }
+    }
+}

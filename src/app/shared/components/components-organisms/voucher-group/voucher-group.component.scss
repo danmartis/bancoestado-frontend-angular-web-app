@@ -1,0 +1,43 @@
+@import '../../../../../scss/_vars';
+@import '../../../../../scss/_mixins';
+
+
+:host {
+
+    .voucher-group-total {
+        font-size: 1.3rem;
+        color: $color-primary;
+    }
+
+    .payment-origin {
+        border-bottom: solid 1px $color-input-border;
+        margin-bottom: 1.5rem;
+        padding-bottom: 1.5rem;
+    }
+
+    .voucher-group__footer {
+        //max-width: 45rem;
+        max-width: 100%;
+        margin: auto;
+
+        
+    }
+
+    .voucher-group__single-image {
+        width: 3.6rem;
+        height: 3.6rem;
+        margin: auto;
+
+        img {
+            object-fit: cover;
+        }
+    }
+
+
+    .card-voucher__footer{
+
+        .d-none .row{
+            display: none;
+        }
+    }
+}

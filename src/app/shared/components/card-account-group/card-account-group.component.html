@@ -1,0 +1,50 @@
+<div class="account-group__card__container boxs-1">
+    <div class="account-group__card">
+        <div class="d-md-none">
+            <app-checkbox position="absolute" (click)="handlerClick(1)" [checked]="account.selected"></app-checkbox>
+        </div>
+
+        <div class="d-none d-md-block card-account-detail__icon" [style.background-color]="getColorAccount()">
+            <img [src]="getIcon()" />
+        </div>
+
+        <div class="account-group__card__content">
+            <h3 [style.color]="getColorAccount()">{{account.title}}</h3>
+            <div *ngIf="account.status !== ''" class="account-group__card__status" [ngClass]="account.status">
+                {{account.textStatus}}
+                <app-icon name="error" size="md-18" [color]="getColor()"></app-icon>
+            </div>
+            <p *ngIf="account.status === ''">{{account.expire}}</p>
+        </div>
+
+        <div class="account-group__card__value">
+            {{account.value}}
+            <div class="account-group__card__extra-value" *ngIf="account.extraValue">+ montos</div>
+        </div>
+
+        <button (click)="toggleOptionsStatus($event)" class="account-group__card__menu-button d-md-none">
+            <app-icon name="more_vert" size="md-18" [color]="iconColor"></app-icon>
+        </button>
+    </div>
+
+    <div class="app-card-default__footer">
+        <div class="d-none d-md-block card-account-group__desktop-option">
+            <div class="row">
+                <div class="col-6">
+                    <app-checkbox value="Seleccionar"></app-checkbox>
+                </div>
+                <div class="col-6 text-right">
+                    <div class="d-inline-block">
+                        <button class="account-group__card__edit">
+                        <app-icon name="edit" size="md-18" [color]="iconColor"></app-icon>
+                    </button>
+                        <button class="account-group__card__delete">
+                        <app-icon name="delete_outline" size="md-18" [color]="iconColor"></app-icon>
+                    </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</div>

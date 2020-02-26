@@ -1,0 +1,125 @@
+@charset "UTF-8";
+:host header {
+    position: relative;
+    min-width: 100%;
+    min-height: 11.5rem;
+    color: #042c5c;
+    font-size: 1rem;
+    -webkit-box-shadow: 0rem 0.5625rem 0.875rem 0rem rgba(131, 134, 163, 0.12);
+    box-shadow: 0rem 0.5625rem 0.875rem 0rem rgba(131, 134, 163, 0.12);
+    background-color: #ffffff;
+    margin-bottom: 2rem;
+}
+
+:host header .header__button-menu {
+    background-color: #ffffff;
+    top: 1.4688rem;
+    position: absolute;
+    right: 0.9375rem;
+    border: none;
+    z-index: 1;
+}
+
+@media (min-width: 768px) {
+     :host header .header__button-menu {
+        display: none;
+    }
+}
+
+@media (min-width: 768px) {
+     :host header {
+        margin-bottom: 0;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+        background-color: transparent;
+        min-height: auto;
+    }
+}
+
+:host header .header__desktop-menu {
+    display: none;
+    height: 3rem;
+    background-color: #ffffff;
+}
+
+@media (min-width: 768px) {
+     :host header .header__desktop-menu {
+        display: block;
+    }
+}
+
+:host header .header__desktop-menu ul {
+    margin: 0;
+    padding: 0;
+    text-align: right;
+}
+
+:host header .header__desktop-menu ul li {
+    cursor: pointer;
+    color: #77869e;
+    display: inline-block;
+    padding: 0.9375rem;
+}
+
+:host header .header__desktop-menu ul li.header__desktop-menu__item--active {
+    color: #1e63f8;
+}
+
+:host header .header__desktop-menu ul li.header__desktop-menu__item--active::before {
+    content: "•";
+    padding-right: 0.3125rem;
+}
+
+:host header .header__desktop-menu ul li:hover {
+    color: #2a6dff;
+}
+
+:host header .header__desktop-menu ul li:active {
+    color: #042c5c;
+}
+
+:host header .header__main {
+    min-height: 4.5rem;
+    padding-top: 1.4688rem;
+}
+
+@media (min-width: 768px) {
+     :host header .header__main {
+        margin-bottom: 2rem;
+        -webkit-box-shadow: 0rem 0.5625rem 0.875rem 0rem rgba(131, 134, 163, 0.12);
+        box-shadow: 0rem 0.5625rem 0.875rem 0rem rgba(131, 134, 163, 0.12);
+        background-color: #ffffff;
+    }
+}
+
+:host header .header__main .header__main__desktop-button {
+    display: none;
+    padding-bottom: 2.25rem;
+}
+
+:host header .header__main .header__main__desktop-button>* {
+    padding-left: 0.9375rem;
+}
+
+@media (min-width: 768px) {
+     :host header .header__main .header__main__desktop-button {
+        display: block;
+    }
+}
+
+:host header .header__content {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    padding-bottom: 1.4688rem;
+}
+
+@media (min-width: 768px) {
+     :host header .header__content {
+        position: relative;
+        bottom: auto;
+    }
+}
+
+
+/*# sourceMappingURL=header.component.css.map */

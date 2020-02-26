@@ -1,0 +1,16 @@
+@import '../../../../../scss/_vars';
+:host {
+    .icon-container {
+        display: inline-block;
+        width: 1.5rem;
+        height: 1.5rem;
+        border-radius: 50%;
+        background: $color-action;
+        text-align: center;
+        color: #fff;
+        vertical-align: middle;
+        margin-top: -5px;
+        margin-right: .3rem;
+        padding-top: 2px;
+    }
+}

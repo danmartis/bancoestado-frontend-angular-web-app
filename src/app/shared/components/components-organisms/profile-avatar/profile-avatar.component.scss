@@ -1,0 +1,53 @@
+@import '../../../../../scss/_vars';
+:host {
+    .profile-show {
+        display: block;
+    }
+    .profile-hide {
+        display: none;
+    }
+    .profile-avatar {
+        position: relative;
+        background-color: $color-primary-light;
+        color: $color-primary;
+        border-radius: 14px;
+        height: auto;
+        width: 100%;
+        min-height: 20.5rem;
+        padding: 4rem 1.5rem;
+        box-shadow: 0px 15px 15px 0px rgba(0, 0, 0, 0.03);
+
+        @media (max-width: 991px) {
+            border-radius: 0.875rem 0.875rem 0 0 !important;
+        }
+
+        h2 {
+            color: rgb(4, 44, 92);
+            font-size: 18px;
+            font-weight: bold;
+            letter-spacing: 0.1px;
+            line-height: 24px;
+            text-align: center;
+            margin: 0;
+        }
+
+        button.add-image {
+            width: 6rem;
+            border-radius: 50%;
+            height: 6rem;
+            padding: 0;
+            margin: 0;
+            font-size: 2.5rem;
+            line-height: 1;
+            vertical-align: top;
+            //border: $color-background-page solid 1px;
+            border: none;
+            background-color: $color-primary-light;
+            box-shadow: 0px 12px 13px 0px rgba(0, 0, 0, 0.07);
+            color: $color-action;
+            img {
+                width: 30px;
+            }
+        }
+    }
+}

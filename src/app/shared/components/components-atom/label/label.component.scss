@@ -1,0 +1,12 @@
+@import '../../../../../scss/_vars';
+:host {
+    label {
+        color: $color-primary;
+        font-family: "Circular Std";
+        line-height: 1.5rem;
+        font-size: 1rem;
+        font-weight: normal;
+        margin: 0 0 0.5rem 0;
+        display: inline-block;
+    }
+}

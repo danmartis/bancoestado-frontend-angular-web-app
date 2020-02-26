@@ -1,0 +1,126 @@
+<button [disabled]="disabled" class="button" [ngClass]="['button--' + modPadding, 'button--' + size, 'button--' + type, getAuto()]">
+    <span class="button__icon" *ngIf="image !== ''">
+        <img [src]="image" [alt]="imageAlt">
+    </span>
+    <ng-content></ng-content>
+</button>
+
+<!--
+<div class="container">
+    <div class="row">
+        <div class="col-12 mt-4">
+            <app-page-title>Botones "Primario"</app-page-title>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12  mt-4">
+            <button class="button">Large</button>
+        </div>
+        <div class="col-12 mt-4">
+            <button class="button button--medium">Medium</button>
+        </div>
+        <div class="col-12 mt-4">
+            <button class="button button--small">Small</button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 mt-4">
+            <app-page-title>Botones "Secundario"</app-page-title>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12  mt-4">
+            <button class="button button--secundario">Large</button>
+        </div>
+        <div class="col-12 mt-4">
+            <button class="button button--secundario button--medium">Medium</button>
+        </div>
+        <div class="col-12 mt-4">
+            <button class="button button--secundario button--small">Small</button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 mt-4">
+            <app-page-title>Botones "Terciario"</app-page-title>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12  mt-4">
+            <button class="button button--terciario">Large</button>
+        </div>
+        <div class="col-12 mt-4">
+            <button class="button button--terciario button--medium">Medium</button>
+        </div>
+        <div class="col-12 mt-4">
+            <button class="button button--terciario button--small">Small</button>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12 mt-4">
+            <app-page-title>Botones "Casos disabled"</app-page-title>
+        </div>
+        <div class="col-12  mt-4">
+            <button class="button" disabled="disabled">Boton primario</button>
+        </div>
+        <div class="col-12 mt-4">
+            <button class="button button--secundario" disabled="disabled">Boton secundario</button>
+        </div>
+        <div class="col-12 mt-4">
+            <button class="button button--terciario" disabled="disabled">Boton terciario</button>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12 mt-4">
+            <app-page-title>Botones "Casos width 100%"</app-page-title>
+        </div>
+        <div class="col-12  mt-4">
+            <button class="button button--auto">Soy cliente BancoEstado</button>
+        </div>
+        <div class="col-12 mt-4">
+            <button class="button button--auto button--medium">Medium</button>
+        </div>
+        <div class="col-12 mt-4">
+            <button class="button button--auto button--small">Small</button>
+        </div>
+        <div class="col-12 mt-4">
+
+            Ejemplo: Como usar botones al mismo ancho
+<div class="caja">
+    <div class="caja__hijo">
+        <button class="button button--auto button--secundario">Ingresar</button>
+    </div>
+    <div class="caja__hijo">
+        <button class="button button--auto">Hazte cliente</button>
+    </div>
+</div>
+
+</div>
+
+<div class="col-12 mt-4">
+    <app-page-title>Botones "Iconos"</app-page-title>
+</div>
+<div class="col-12 mt-4">
+    <button class="button button--auto">
+                <span class="button__icon">
+                    <img src="assets/imgs/icons/icon-paper.svg" alt="">
+                </span>
+                Copiar
+            </button>
+</div>
+<div class="col-12 mt-4">
+
+    Ejemplo: Como usar un boton ancho determinado
+    <div class="mi-boton-icon">
+        <button class="button button--auto">
+                    <span class="button__icon">
+                        <img src="assets/imgs/icons/icon-paper.svg" alt="">
+                    </span>
+                    Copiar
+                </button>
+    </div>
+</div>
+</div>
+</div>
+-->

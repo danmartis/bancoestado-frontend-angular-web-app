@@ -1,0 +1,15 @@
+@import '../../../../../scss/_vars';
+:host {
+    .icon-group {
+        background: $color-background-page;
+        width: 3rem;
+        display: inline-block;
+        height: 3rem;
+        text-align: center;
+        border-radius: 50%;
+        padding: 0.7rem 0;
+        img {
+            height: 1.5rem;
+        }
+    }
+}

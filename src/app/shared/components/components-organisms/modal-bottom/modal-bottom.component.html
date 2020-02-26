@@ -1,0 +1,18 @@
+<ng-content select=".modal-bottom_section__outsideaction"></ng-content>
+<div class="modal-bottom" [ngClass]="activateBack ? 'back-support' : ''">
+    <div class="modal-bottom__box">
+        <button class="modal-bottom__box__close-button" (click)="toggle($event)">
+            <app-icon name="close" size="20"></app-icon>
+        </button>
+        <div class="modal-bottom__box__header">
+            <app-back-button *ngIf="activateBack" (click)="backAction()"></app-back-button>
+            <ng-content select=".modal-bottom_section__header"></ng-content>
+        </div>
+        <div class="modal-bottom__box__body">
+            <ng-content select=".modal-bottom_section__body"></ng-content>
+        </div>
+        <div class="modal-bottom__box__footer">
+            <ng-content select=".modal-bottom_section__footer"></ng-content>
+        </div>
+    </div>
+</div>

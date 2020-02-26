@@ -1,0 +1,70 @@
+.boxs-1 {
+  -webkit-box-shadow: 0rem 0.0625rem 0.5rem 0rem rgba(0, 0, 0, 0.07);
+          box-shadow: 0rem 0.0625rem 0.5rem 0rem rgba(0, 0, 0, 0.07);
+}
+
+.boxs-2 {
+  -webkit-box-shadow: 0rem 1.5375rem 1.5375rem 0rem rgba(0, 0, 0, 0.07);
+          box-shadow: 0rem 1.5375rem 1.5375rem 0rem rgba(0, 0, 0, 0.07);
+}
+
+.boxs-3 {
+  -webkit-box-shadow: 0rem 1.6375rem 1.6375rem 0rem rgba(0, 0, 0, 0.07);
+          box-shadow: 0rem 1.6375rem 1.6375rem 0rem rgba(0, 0, 0, 0.07);
+}
+
+.boxs-4 {
+  -webkit-box-shadow: 0rem 1.7375rem 1.7375rem 0rem rgba(0, 0, 0, 0.07);
+          box-shadow: 0rem 1.7375rem 1.7375rem 0rem rgba(0, 0, 0, 0.07);
+}
+
+.boxs-5 {
+  -webkit-box-shadow: 0rem 1.8375rem 1.8375rem 0rem rgba(0, 0, 0, 0.07);
+          box-shadow: 0rem 1.8375rem 1.8375rem 0rem rgba(0, 0, 0, 0.07);
+}
+
+:host .group-cards-container {
+  margin: 0 -8px 0 -8px !important;
+}
+
+:host .group-cards-container div {
+  display: inline-block;
+  padding: 0 16px 32px 16px;
+}
+
+@media (min-width: 1200px) {
+  :host .group-cards-container div {
+    width: 16.6666666%;
+  }
+}
+
+@media (max-width: 1199px) {
+  :host .group-cards-container div {
+    width: 20%;
+  }
+}
+
+@media (max-width: 991px) {
+  :host .group-cards-container div {
+    width: 30%;
+  }
+}
+
+@media (max-width: 767px) {
+  :host .group-cards-container div {
+    width: 33.3333333%;
+  }
+}
+
+@media (max-width: 576px) {
+  :host .group-cards-container div {
+    width: 192px;
+  }
+}
+
+@media (max-width: 500px) {
+  :host .group-cards-container div {
+    width: 50%;
+  }
+}
+/*# sourceMappingURL=account-group.component.css.map */

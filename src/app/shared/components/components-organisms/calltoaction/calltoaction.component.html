@@ -1,0 +1,70 @@
+<div class="call-to-action-01" *ngIf="type === ''">
+    <div class="container text-center">
+        <div class="row">
+            <div class="col-12">
+                <h3 class="call-to-action-01__title">
+                    {{title}}
+                </h3>
+            </div>
+            <div class="col-12 col-lg-6 offset-lg-3 mt-4">
+                <app-paragraph type="calltoaction">
+                    {{text}}
+                </app-paragraph>
+            </div>
+            <div class="col-12 mt-4">
+                <app-button type="calltoaction">{{buttonText}}</app-button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="call-to-action-02" *ngIf="type === '02'">
+    <div class="text-center">
+        <div class="row">
+            <div class="col-12">
+                <h3 class="call-to-action-02__title">
+                    {{title}}
+                </h3>
+                <h4 class="call-to-action-02__subtitle">
+                    {{subtitle}}
+                </h4>
+            </div>
+            <div class="col-12 col-lg-6 offset-lg-3 mt-4">
+                <app-paragraph type="calltoaction">
+                    {{text}}
+                </app-paragraph>
+            </div>
+            <!--<div class="col-12 mt-4">
+                <app-button type="calltoaction">{{buttonText}}</app-button>
+            </div>-->
+        </div>
+    </div>
+</div>
+
+
+
+
+<div class="call-to-action-03" *ngIf="type === '03'">
+    <div class="text-center">
+        <div class="row">
+            <div class="col-12">
+                <h3 class="call-to-action-03__title">
+                    {{title}}
+                </h3>
+                <h4 class="call-to-action-03__subtitle">
+                    {{subtitle}}
+                </h4>
+            </div>
+            <div class="col-12 col-lg-6 offset-lg-3 mt-4">
+                <app-paragraph type="calltoaction">
+                    {{text}}
+                </app-paragraph>
+            </div>
+            <!--<div class="col-12 mt-4">
+                <app-button type="calltoaction">{{buttonText}}</app-button>
+            </div>-->
+        </div>
+    </div>
+</div>

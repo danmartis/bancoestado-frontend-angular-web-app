@@ -1,0 +1,30 @@
+<div class="card-account" [style.background-color]="getColorAccount()" [ngClass]="getType()" (click)="showDetailOpen($event)">
+    <button data-parent="false" (click)="toggleOptionsStatus($event)" class="card-account__menu-button" popoverClass="pop-dropdown" placement="bottom-right" [ngbPopover]="popContent">
+        <i class="material-icons">more_vert </i>
+    </button>
+    <ng-template #popContent>
+        <div class="dropdown">
+            <ul class="dropdown__list">
+                <li class="dropdown__item dropdown__item--delete" (click)="removeCard()">
+                    <span>Quitar de la lista</span>
+                </li>
+                <li class="dropdown__item">
+                    <span>Detalle de cuenta</span>
+                </li>
+            </ul>
+        </div>
+    </ng-template>
+    <div class="card-account__icon-account">
+        <img [src]="getIcon()" />
+    </div>
+    <div class="card-account__content">
+        <div class="card-account__content__title">{{account.title}}</div>
+        <div class="card-account__content__sold">{{formatNumber(account.value)}}</div>
+    </div>
+    <div data-type="card-account__context-menu" data-parent="false" class="card-account__options" [ngClass]="getOptionsStatus()">
+        <ul>
+            <li><button (click)="removeCard()">Quitar de la lista</button></li>
+            <li *ngIf="account.expirePayment > 0 && account.fullPayment > 0" ><button (click)="showDetailAccount()">Cambiar deuda</button></li>
+        </ul>
+    </div>
+</div>

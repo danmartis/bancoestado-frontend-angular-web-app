@@ -1,0 +1,27 @@
+@import '../../../../../scss/_vars';
+:host {
+    >span {
+        height: 1.25rem;
+        width: 1.25rem;
+        display: inline-block;
+        >span {
+            width: 5px;
+            display: inline-block;
+            margin-right: 2px;
+            border-radius: 2.5px;
+        }
+         :nth-child(1) {
+            height: 50%;
+            background-color: $color-warning;
+        }
+         :nth-child(2) {
+            height: 75%;
+            background-color: $color-service-teleco;
+        }
+         :nth-child(3) {
+            height: 100%;
+            margin-right: 0;
+            background-color: $color-success;
+        }
+    }
+}

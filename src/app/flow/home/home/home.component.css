@@ -1,0 +1,197 @@
+.boxs-1 {
+  -webkit-box-shadow: 0rem 0.0625rem 0.5rem 0rem rgba(0, 0, 0, 0.07);
+          box-shadow: 0rem 0.0625rem 0.5rem 0rem rgba(0, 0, 0, 0.07);
+}
+
+.boxs-2 {
+  -webkit-box-shadow: 0rem 1.5375rem 1.5375rem 0rem rgba(0, 0, 0, 0.07);
+          box-shadow: 0rem 1.5375rem 1.5375rem 0rem rgba(0, 0, 0, 0.07);
+}
+
+.boxs-3 {
+  -webkit-box-shadow: 0rem 1.6375rem 1.6375rem 0rem rgba(0, 0, 0, 0.07);
+          box-shadow: 0rem 1.6375rem 1.6375rem 0rem rgba(0, 0, 0, 0.07);
+}
+
+.boxs-4 {
+  -webkit-box-shadow: 0rem 1.7375rem 1.7375rem 0rem rgba(0, 0, 0, 0.07);
+          box-shadow: 0rem 1.7375rem 1.7375rem 0rem rgba(0, 0, 0, 0.07);
+}
+
+.boxs-5 {
+  -webkit-box-shadow: 0rem 1.8375rem 1.8375rem 0rem rgba(0, 0, 0, 0.07);
+          box-shadow: 0rem 1.8375rem 1.8375rem 0rem rgba(0, 0, 0, 0.07);
+}
+
+:host swiper {
+  width: calc(100% + 1.875rem);
+  margin-bottom: 0.9375rem;
+  margin-left: -0.9375rem;
+  margin-right: -0.9375rem;
+  position: relative;
+}
+
+:host swiper::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  height: 100%;
+  width: 1.5rem;
+  background: -webkit-gradient(linear, left top, right top, from(rgba(247, 249, 252, 0)), to(#f7f9fc));
+  background: linear-gradient(to right, rgba(247, 249, 252, 0) 0%, #f7f9fc 100%);
+  z-index: 2;
+}
+
+:host swiper::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  height: 100%;
+  width: 1.5rem;
+  background: -webkit-gradient(linear, left top, right top, from(#f7f9fc), to(rgba(247, 249, 252, 0)));
+  background: linear-gradient(to right, #f7f9fc 0%, rgba(247, 249, 252, 0) 100%);
+  z-index: 2;
+}
+
+:host .swiper-wrapper {
+  padding-top: 0;
+  overflow: visible;
+}
+
+:host .app-swiper-wrapper {
+  width: 100%;
+}
+
+:host .swiper-container {
+  width: 100%;
+  height: 18.75rem;
+  margin: 0 auto;
+}
+
+:host .swiper-slide {
+  text-align: center;
+  /* Center slide text vertically */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  width: auto;
+  height: auto;
+}
+
+:host .swiper-slide:first-child {
+  padding-left: 0.9375rem;
+}
+
+:host .swiper-slide:last-child {
+  padding-right: 0.9375rem;
+}
+
+:host .num-cliente {
+  color: #042c5c;
+  font-size: 2rem;
+  font-weight: bold;
+  letter-spacing: 0.1669rem;
+}
+
+.contador {
+  margin: -.5em 0 0 0;
+  position: relative;
+  bottom: -24px;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  z-index: 2;
+}
+
+@media (min-width: 996px) {
+  .contador {
+    margin: 1em 0 0 0;
+  }
+}
+
+.total {
+  background-color: #ffffff;
+  border-radius: 8px;
+  color: #304566;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  max-height: 48px;
+  font-size: 14px;
+  font-size: 0.875rem;
+  line-height: 18px;
+  line-height: 1.125rem;
+  font-weight: bold;
+  margin: 0 0 0 0;
+  padding: 1em 1em 1em 1em;
+  position: relative;
+  top: -40px;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  width: 100%;
+  z-index: 2;
+}
+
+@media (min-width: 768px) {
+  .total {
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+    max-height: 56px;
+    margin: 0 0 2em 0;
+    padding: 1.3em 1.3em 1.3em 1.3em;
+    top: -32px;
+  }
+}
+
+.total__label {
+  font-size: 14px;
+  font-size: 0.875rem;
+  line-height: 18px;
+  line-height: 1.125rem;
+  margin: 0 0 0 0;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+@media (min-width: 768px) {
+  .total__label {
+    font-size: 16px;
+    font-size: 1rem;
+    line-height: 28px;
+    line-height: 1.75rem;
+    margin: 0 6em 0 0;
+  }
+}
+
+.total__monto {
+  font-size: 16px;
+  font-size: 1rem;
+  line-height: 24px;
+  line-height: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .total__monto {
+    font-size: 18px;
+    font-size: 1.125rem;
+    line-height: 24px;
+    line-height: 1.5rem;
+  }
+}
+/*# sourceMappingURL=home.component.css.map */

@@ -1,0 +1,222 @@
+<app-header-main></app-header-main>
+<app-page>
+    <div class="container mt-4">
+        <div class="row" *ngIf="haUnregistered()">
+            <div class="col-12">
+                <app-non-registered-flow [accounts]="unregisteredAccount"></app-non-registered-flow>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12">
+                <app-main-title type="history">Historial de pagos</app-main-title>
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-12">
+                <ngb-tabset type="pills">
+                    <ngb-tab title="3 meses">
+                        <ng-template ngbTabContent>
+                            <div class="text-center mt-2">
+                                <app-card-default className="card-default--bs">
+                                    <div class="row">
+                                        <div class="col-12 col-md-6 mt-2 mb-4 d-flex-center">
+                                            <app-graph-display-value></app-graph-display-value>
+                                        </div>
+                                        <div class="col-12 col-md-6">
+                                            <div class="row">
+                                                <div class="col-6 d-block d-md-none">
+                                                    <app-paragraph type="sub-value">
+                                                        <strong>{{historyFirst.totalAccount}}</strong>
+                                                        <app-paragraph type="min-sub-value">Cuentas pagadas</app-paragraph>
+                                                    </app-paragraph>
+                                                </div>
+                                                <div class="col-6 d-block d-md-none">
+                                                    <app-paragraph type="sub-value">
+                                                        <div>
+                                                            <app-triangle-icon-detail></app-triangle-icon-detail>
+                                                        </div>
+                                                        <app-button type="unstyle" (click)="toggleDetail('first')">
+                                                            <app-paragraph type="min">Ver detalle
+                                                                <app-icon [name]="getIconDetail('first')"></app-icon>
+                                                            </app-paragraph>
+                                                        </app-button>
+                                                    </app-paragraph>
+                                                </div>
+                                                <div class="col-12 d-none d-md-block">
+                                                    <app-chart-months [months]="historyFirst.months"></app-chart-months>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="mt-2 chart-cont d-md-none" [ngClass]="getStatusDetail('first')">
+                                        <app-chart-months [months]="historyFirst.months"></app-chart-months>
+                                    </div>
+                                </app-card-default>
+                                <div class="row">
+                                    <div class="col-12 md-4">
+                                        <div *ngFor="let month of historyFirst.months">
+                                            <div class="row mt-4 mb-2">
+                                                <div class="col-6 text-left">
+                                                    <app-page-title type="history">{{month.name}}</app-page-title>
+                                                </div>
+                                                <div class="col-6 text-right">
+                                                    {{formatNumber(month.value)}}
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <!--<div *ngFor="let account of month.accounts" class="col-12 col-md-6 text-left my-2">
+                                                    <app-card-account-detail [account]="account" type="only-view"></app-card-account-detail>
+                                                </div>-->
+                                                <div class="col-12 col-md-6 text-left">
+                                                    <app-card-account-history></app-card-account-history>
+                                                </div>
+                                                <div class="col-12 col-md-6 text-left">
+                                                    <app-card-account-history type="info"></app-card-account-history>
+                                                </div>
+                                                <div class="col-12 col-md-6 text-left">
+                                                    <app-card-account-history></app-card-account-history>
+                                                </div>
+                                                <div class="col-12 col-md-6 text-left">
+                                                    <app-card-account-history></app-card-account-history>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </ng-template>
+                    </ngb-tab>
+                    <ngb-tab>
+                        <ng-template ngbTabTitle>6 meses</ng-template>
+                        <ng-template ngbTabContent>
+                            <div class="text-center mt-2">
+                                <app-card-default className="card-default--bs">
+                                    <div class="row">
+                                        <div class="col-12 col-md-6 mt-2 mb-4 d-flex-center">
+                                            <app-graph-display-value></app-graph-display-value>
+                                        </div>
+                                        <div class="col-12 col-md-6">
+                                            <div class="row">
+                                                <div class="col-6 d-block d-md-none">
+                                                    <app-paragraph type="sub-value">
+                                                        <strong>{{historySecond.totalAccount}}</strong>
+                                                        <app-paragraph type="min-sub-value">Cuentas pagadas</app-paragraph>
+                                                    </app-paragraph>
+                                                </div>
+                                                <div class="col-6 d-block d-md-none">
+                                                    <app-paragraph type="sub-value">
+                                                        <div>
+                                                            <app-triangle-icon-detail></app-triangle-icon-detail>
+                                                        </div>
+                                                        <app-button type="unstyle" (click)="toggleDetail('second')">
+                                                            <app-paragraph type="min">Ver detalle
+                                                                <app-icon [name]="getIconDetail('second')"></app-icon>
+                                                            </app-paragraph>
+                                                        </app-button>
+                                                    </app-paragraph>
+                                                </div>
+                                                <div class="col-12 d-none d-md-block">
+                                                    <app-chart-months [months]="historySecond.months"></app-chart-months>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="mt-2 chart-cont d-md-none" [ngClass]="getStatusDetail('second')">
+                                        <app-chart-months [months]="historySecond.months"></app-chart-months>
+                                    </div>
+                                </app-card-default>
+                                <div class="row">
+                                    <div class="col-12 md-4">
+                                        <div *ngFor="let month of historySecond.months">
+                                            <div class="row mt-4 mb-2">
+                                                <div class="col-6 text-left">
+                                                    <app-page-title type="min">{{month.name}}</app-page-title>
+                                                </div>
+                                                <div class="col-6 text-right">
+                                                    {{formatNumber(month.value)}}
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <!--<div *ngFor="let account of month.accounts" class="col-12 col-md-6 text-left my-2">
+                                                    <app-card-account-detail [account]="account" type="only-view"></app-card-account-detail>
+                                                </div>-->
+                                                <div class="col-12 col-md-6 text-left">
+                                                    <app-card-account-history></app-card-account-history>
+                                                </div>
+                                                <div class="col-12 col-md-6 text-left">
+                                                    <app-card-account-history type="info"></app-card-account-history>
+                                                </div>
+                                                <div class="col-12 col-md-6 text-left">
+                                                    <app-card-account-history></app-card-account-history>
+                                                </div>
+                                                <div class="col-12 col-md-6 text-left">
+                                                    <app-card-account-history-group></app-card-account-history-group>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </ng-template>
+                    </ngb-tab>
+                    <ngb-tab title="Avanzado">
+                        <ng-template ngbTabContent>
+                            <div class="text-center mt-2">
+                                <app-card-default>
+                                    <div class="row">
+                                        <div class="col-12 col-md-6">
+                                            <app-input placeholder="Nombre o alias de la cuenta" icon="search"></app-input>
+                                        </div>
+                                        <div class="col-6 col-md-3">
+                                            <app-input class="input--datepicker" mode="wrapper">
+                                                <input placeholder="Desde" name="dateFrom" [(ngModel)]="from" ngbDatepicker #dateFrom="ngbDatepicker" (click)="dateFrom.toggle()">
+                                                <img class="input--datepicker-img" src="assets/imgs/svg/icon-select-arrow.svg" alt="icono del select">
+                                            </app-input>
+                                        </div>
+                                        <div class="col-6 col-md-3">
+                                            <app-input class="input--datepicker" mode="wrapper">
+                                                <input placeholder="Hasta" name="dateTo" [(ngModel)]="to" ngbDatepicker #dateTo="ngbDatepicker" (click)="dateTo.toggle()">
+                                                <img class="input--datepicker-img" src="assets/imgs/svg/icon-select-arrow.svg" alt="icono del select">
+                                            </app-input>
+                                        </div>
+                                    </div>
+                                </app-card-default>
+                                <div class="row mt-4">
+                                    <!--<div *ngFor="let account of historyAdvanced" class="col-12 col-md-6 text-left my-2">
+                                        <app-card-account-detail [account]="account" type="only-view"></app-card-account-detail>
+                                    </div>-->
+                                    <div class="col-12 col-md-6 text-left">
+                                        <app-card-account-history></app-card-account-history>
+                                    </div>
+                                    <div class="col-12 col-md-6 text-left">
+                                        <app-card-account-history type="info"></app-card-account-history>
+                                    </div>
+                                    <div class="col-12 col-md-6 text-left">
+                                        <app-card-account-history></app-card-account-history>
+                                    </div>
+                                    <div class="col-12 col-md-6 text-left">
+                                        <app-card-account-history></app-card-account-history>
+                                    </div>
+                                </div>
+                            </div>
+                        </ng-template>
+                    </ngb-tab>
+                </ngb-tabset>
+            </div>
+        </div>
+        <div class="row d-none">
+            <div class="col-12">
+                Cuadro Resumen > desplega detalle
+            </div>
+        </div>
+        <div class="row d-none">
+            <div class="col-12">
+                Listado por meses
+            </div>
+        </div>
+    </div>
+</app-page>
+<app-footer-default></app-footer-default>

@@ -1,0 +1,10 @@
+{
+    "version": 3,
+    "mappings": "AACA,AACI,KADC,CACD,aAAa,CAAC;EACV,gBAAgB,ECEF,OAAO;EDDrB,KAAK,ECGK,OAAO;EDFjB,aAAa,EAAE,QAAQ;EACvB,MAAM,EAAE,IAAI;EACZ,KAAK,EAAE,IAAI;EACX,OAAO,EAAE,MAAM;CAClB",
+    "sources": [
+        "../card-default/card-default.component.scss",
+        "../../../scss/_vars.scss"
+    ],
+    "names": [],
+    "file": "card-default.component.css"
+}

@@ -1,0 +1,76 @@
+<!-- Inicio item cuenta // ejemplo 00 ( Item de cuenta destacada con opciones de montos ) -->
+<div class="item-cuenta" *ngIf="type === ''">
+    <div class="item-cuenta__container item-cuenta__container--mobile">
+        <div class="item-cuenta__check">
+            <app-checkbox></app-checkbox>
+        </div>
+        <div class="item-cuenta__icon">
+            <img src="assets/imgs/icons/call-answer-white.svg" alt="Icono del servicio a pagar">
+        </div>
+        <div class="item-cuenta__info">
+            <div class="item-cuenta__nombre">Enel</div>
+            <div class="item-cuenta__detalle">
+                Vence el 21/09/19
+            </div>
+        </div>
+        <div class="item-cuenta__monto">
+            <div class="item-cuenta__valor">$1.120.000</div>
+            <div class="item-cuenta__badge">+montos</div>
+        </div>
+        <div class="item-cuenta__action" *ngIf="getContextMenu()">
+            <i class="material-icons">more_vert </i>
+        </div>
+    </div>
+    <div class="item-cuenta__container item-cuenta__container--desktop">
+        <div class="item-cuenta__check">
+            <app-checkbox value="Seleccionar"></app-checkbox>
+        </div>
+        <div class="item-cuenta__options">
+            <a href="/" class="item-cuenta__option">
+                <i class="material-icons">edit</i>
+            </a>
+            <a href="/" class="item-cuenta__option">
+                <i class="material-icons">delete</i>
+            </a>
+        </div>
+    </div>
+</div>
+<!-- FIN item cuenta -->
+
+<!-- Inicio item cuenta // ejemplo 02-b "cuenta con logotipo en desktop" -->
+<div class="item-cuenta item-cuenta--logotipo" *ngIf="type === 'logo'">
+    <div class="item-cuenta__container item-cuenta__container--mobile">
+        <div class="item-cuenta__check">
+            <app-checkbox></app-checkbox>
+        </div>
+        <div class="item-cuenta__icon">
+            <img src="assets/imgs/logotipo-entel.png" alt="Icono del servicio a pagar">
+        </div>
+        <div class="item-cuenta__info">
+            <div class="item-cuenta__nombre">Enel</div>
+            <div class="item-cuenta__detalle">
+                Vence el 23/12/2019
+            </div>
+        </div>
+        <div class="item-cuenta__monto">
+            <div class="item-cuenta__valor">$0</div>
+        </div>
+        <!-- <div class="item-cuenta__action" *ngIf="getContextMenu()">
+            <i class="material-icons">more_vert </i>
+        </div> -->
+    </div>
+    <div class="item-cuenta__container item-cuenta__container--desktop">
+        <div class="item-cuenta__check">
+            <app-checkbox value="Seleccionar"></app-checkbox>
+        </div>
+        <div class="item-cuenta__options" *ngIf="getEditable()">
+            <a href="/" class="item-cuenta__option">
+                <i class="material-icons">edit</i>
+            </a>
+            <a href="/" class="item-cuenta__option">
+                <i class="material-icons">delete</i>
+            </a>
+        </div>
+    </div>
+</div>
+<!-- FIN item cuenta -->

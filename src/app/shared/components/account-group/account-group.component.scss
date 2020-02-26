@@ -1,0 +1,28 @@
+@import '../../../../scss/_vars';
+:host {
+    .group-cards-container {
+        margin: 0 -8px 0 -8px !important;
+        div {
+            display: inline-block;
+            padding: 0 16px 32px 16px;
+            @media (min-width: 1200px) {
+                width: 16.6666666%;
+            }
+            @media (max-width: 1199px) {
+                width: 20%;
+            }
+            @media (max-width: 991px) {
+                width: 30%;
+            }
+            @media (max-width: 767px) {
+                width: 33.3333333%;
+            }
+            @media (max-width: 576px) {
+                width: 192px;
+            }
+            @media (max-width: 500px) {
+                width: 50%;
+            }
+        }
+    }
+}

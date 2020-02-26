@@ -1,0 +1,86 @@
+.boxs-1 {
+  -webkit-box-shadow: 0rem 0.0625rem 0.5rem 0rem rgba(0, 0, 0, 0.07);
+          box-shadow: 0rem 0.0625rem 0.5rem 0rem rgba(0, 0, 0, 0.07);
+}
+
+.boxs-2 {
+  -webkit-box-shadow: 0rem 1.5375rem 1.5375rem 0rem rgba(0, 0, 0, 0.07);
+          box-shadow: 0rem 1.5375rem 1.5375rem 0rem rgba(0, 0, 0, 0.07);
+}
+
+.boxs-3 {
+  -webkit-box-shadow: 0rem 1.6375rem 1.6375rem 0rem rgba(0, 0, 0, 0.07);
+          box-shadow: 0rem 1.6375rem 1.6375rem 0rem rgba(0, 0, 0, 0.07);
+}
+
+.boxs-4 {
+  -webkit-box-shadow: 0rem 1.7375rem 1.7375rem 0rem rgba(0, 0, 0, 0.07);
+          box-shadow: 0rem 1.7375rem 1.7375rem 0rem rgba(0, 0, 0, 0.07);
+}
+
+.boxs-5 {
+  -webkit-box-shadow: 0rem 1.8375rem 1.8375rem 0rem rgba(0, 0, 0, 0.07);
+          box-shadow: 0rem 1.8375rem 1.8375rem 0rem rgba(0, 0, 0, 0.07);
+}
+
+:host .be-message {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+:host .be-message .be-message__image {
+  position: relative;
+  display: inline-block;
+}
+
+:host .be-message .be-message__text {
+  text-align: left;
+  line-height: 1;
+  display: inline-block;
+  position: relative;
+  padding-left: 16px;
+}
+
+:host .input-enter-code {
+  max-width: 16rem;
+  margin: auto;
+}
+
+:host .input-enter-code .input-enter-code__cont {
+  width: 25%;
+  display: inline-block;
+  padding: 0 4px;
+}
+
+:host .input-enter-code .input-enter-code__cont input {
+  color: #042c5c;
+  text-align: center;
+  font-size: 24px;
+  display: block;
+  width: 100%;
+  border: none;
+  height: 50px;
+  border-bottom: 2px #dce0e7 solid;
+}
+
+:host .input-enter-code .input-enter-code__cont input:focus {
+  outline: none;
+  border-bottom: 2px #042c5c solid;
+}
+
+:host .input-enter-code .input-enter-code__cont:first-child {
+  padding: 0;
+}
+
+:host .input-enter-code .input-enter-code__cont:last-child {
+  padding: 0;
+}
+/*# sourceMappingURL=login-flow-be.component.css.map */

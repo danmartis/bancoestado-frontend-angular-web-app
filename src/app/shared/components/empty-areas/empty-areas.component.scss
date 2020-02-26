@@ -1,0 +1,41 @@
+@import '../../../../scss/_vars';
+@import '../../../../scss/_mixins';
+
+.empty{
+    background-color: $color-primary-light;
+    border-radius: .6em;
+    //margin: 1em 0 1em 0;
+    margin: 0 0 1em 0;
+    padding: 2em 2em 2em 2em;
+    text-align: center;
+
+    @media (min-width: 992px) {
+        padding: 5em 5em 5em 5em;
+    }
+
+    &__icon{
+        display: inline-block;
+        height:auto;
+        transition: all 0.3s ease;
+        width: 85px;
+    }
+
+
+    &__text, &__link{
+        color: #BFC5D2;
+        @include font-size(14);
+        @include line-height(16);
+        font-weight: 400;
+        margin: 1.5em 0 .5em 0;
+    }
+
+    &__link{
+        color: #1E63F8;
+        font-weight: 600;
+        margin: 0 0 0 0;
+    }
+
+
+}
+
+

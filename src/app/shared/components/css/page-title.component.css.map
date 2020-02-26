@@ -1,0 +1,10 @@
+{
+    "version": 3,
+    "mappings": "AACA,AACI,KADC,CACD,EAAE,CAAC;EACC,KAAK,ECGG,OAAO;EDFf,WAAW,EAAE,cAAc;EAC3B,WAAW,EAAE,QAAQ;EACrB,SAAS,EAAE,QAAQ;EACnB,WAAW,EAAE,GAAG;EAChB,MAAM,EAAE,eAAe;CAC1B",
+    "sources": [
+        "../page-title/page-title.component.scss",
+        "../../../scss/_vars.scss"
+    ],
+    "names": [],
+    "file": "page-title.component.css"
+}

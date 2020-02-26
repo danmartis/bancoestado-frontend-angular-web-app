@@ -1,0 +1,86 @@
+@import '../../../../../scss/_vars';
+@import '../../../../../scss/_mixins';
+:host {
+    >div {
+        &.checkbox--with-value {
+            position: relative;
+            //padding-left: 2.3rem;
+            padding: 0 0 0 0;
+            span {
+                vertical-align: top;
+                padding: 0 0 0 0;
+                //color: $color-primary;
+                color: #77869E;
+                @include font-size(14);
+                @include line-height(20);
+                font-weight: 400;
+                margin: 0 0 0 8px;
+            }
+            //margin-bottom: 0.5rem;
+        }
+        &.position--absolute:not(.checkbox--with-value) {
+            vertical-align: top;
+            height: 1.2rem;
+            width: 1.2rem;
+            margin: auto;
+            position: relative;
+            overflow: hidden;
+        }
+        &.inline-block {
+            vertical-align: top;
+            display: inline-block;
+            position: relative;
+        }
+        .account-group__card__check {
+            vertical-align: top;
+            bottom: 0;
+            height: 1.2rem;
+            width: 1.2rem;
+            margin: auto;
+            position: relative;
+            display: inline-block;
+            .account-group__card__check__ui {
+                top: 0;
+                left: 0;
+                height: 1.2rem;
+                width: 1.2rem;
+                margin: auto;
+                position: absolute;
+                overflow: hidden;
+                border: solid 0.1rem #BFC5D2;
+                background-color: $color-primary-light;
+                border-radius: 0.2rem;
+            }
+            input:checked~.account-group__card__check__ui {
+                background-color: $color-action-active;
+                border-color: $color-action-active;
+                &::after {
+                    bottom: 0.2rem;
+                    left: 0;
+                    right: 0;
+                    margin: auto;
+                    content: '';
+                    display: block;
+                    position: absolute;
+                    height: 0.7rem;
+                    width: 0.4rem;
+                    transform: rotate(45deg);
+                    border-bottom: 0.15rem solid $color-primary-light;
+                    border-right: 0.15rem solid $color-primary-light;
+                }
+            }
+            input {
+                opacity: 0;
+                transform: scale(4);
+            }
+        }
+        p {
+            line-height: 1.6;
+            font-size: 14px;
+            display: inline-block;
+            vertical-align: top;
+            padding-left: 22px;
+            ;
+        }
+    }
+}

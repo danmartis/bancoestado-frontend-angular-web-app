@@ -1,0 +1,148 @@
+<app-header-main></app-header-main>
+<app-page>
+    <!-- LOGOUT -->
+    <div *ngIf="isLogout()">
+        <app-capsule type="welcome-message-header-logout"></app-capsule>
+    </div>
+
+    <!-- LOGIN -->
+    <div *ngIf="isLogin()">
+        <app-capsule type="welcome-message-header-login"></app-capsule>
+    </div>
+
+    <div class="container">
+        <div class="contador">
+            <app-page-title>
+                Cuentas que pagarás
+                <app-badge type="rounded-number">{{getSizeList()}}</app-badge>
+            </app-page-title>
+        </div>
+    </div>
+    
+	<!--CARRUSEL-->
+    <div class="app-swiper-wrapper container">
+        <swiper [config]="config">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <app-card-added-account (click)="openDialogAddAccount()" (click)="clearAccountModal()"></app-card-added-account>
+                </div>
+                <div class="swiper-slide" *ngFor="let account of accountList">
+                    <app-card-account (showDetail)="showDetail($event, account)" (close)="delete(account.counter)" [account]="account"></app-card-account>
+                </div>
+            </div>
+        </swiper>
+    </div>
+
+    <div class="container">
+        <div class="total">
+            <p class="total__label">Total a pagar</p>
+            <p class="total__monto">{{getTotal()}}</p>
+        </div>
+    </div>
+
+    <!-- LOGIN -->
+    <app-account-group *ngIf="isLogin()"></app-account-group>
+    <app-registered-payment-methods *ngIf="isLogin()"></app-registered-payment-methods>
+    
+    <!--<div *ngIf="isLogin()" class="text-center pt-4">
+        <app-button type="unborder" data-modal="close" class="d-sm-block d-md-none">Seleccionar otro medio de pago</app-button>
+    </div>
+    <div class="container">
+        <div class="row justify-content-end">
+            <div class="col-12 col-md-2 p-0">
+                <app-action-footer>
+                    <app-button2 auto="true">Pagar</app-button2>
+                </app-action-footer>
+            </div>
+        </div>
+    </div>-->
+
+    <app-action-footer>
+    	<app-button type="primary-rounded" functionality="action-footer" (click)="goToPaymentMethod()">Ir a pagar</app-button>
+    </app-action-footer>
+
+    <app-modal-bottom name="modal-added-account">
+        <div class="modal-bottom_section__header">
+            <app-modal-title className="mt-1">Agregar una cuenta</app-modal-title>
+        </div>
+        <div class="modal-bottom_section__body">
+            <app-label>Servicio a pagar</app-label>
+            <app-input type="text" maxlength="50" icon="search" [isDrop]="true" [value]="account.title" invalidText="Sin resultados" placeholder="Busca una cuenta" (onChange)="handlerChangeTitle($event)" #buscarBiller (keyup)="getQueQuieresPagar(buscarBiller.value)" (keypress)="getValidaCaracter($event)" [status]="estadoError" [options]="conveniosFiltrados" typeOptions="listOrder" (onChangeConvenio)="selectElement($event)"></app-input>
+            <div class="row">
+                <div class="col-12 justify-content-between d-flex align-items-end">
+                    <app-label>Número de cliente</app-label>
+					<app-button  type="link" (click)="getAyuda()">¿Dónde lo encuentro?</app-button>
+                </div>
+                <div class="col-12">
+                    <app-input type="text" maxlength="20" invalidText="Identificador incorrecto" (keypress)="getValidaCaracter($event)" [status]="getClientNumberStatus()" [value]="account.clientNumber" placeholder="Rut de cliente o identificador" (onChange)="handlerChangeType($event)"></app-input>
+                </div>
+                <!-- LOGIN -->
+                <div class="col-12" *ngIf="isLogin()">
+                    <div class="pb-4">
+                        <app-checkbox (click)="toggleAlias()" [checked]="hiddenAlias" display="inline-block" value="No quiero inscribir esta cuenta" valueType="paragraph"></app-checkbox>
+                    </div>
+                    <div *ngIf="!hiddenAlias">
+                        <app-label>Ingresa un alias</app-label>
+                        <app-input value="" placeholder="Ejemplo: Mi cuenta de luz"></app-input>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="modal-bottom_section__footer text-center">
+            <app-button display="block" [disabled]="!getAddAccountDisabled()" type="primary-rounded" (click)="addAccount('modal-added-account')">Agregar</app-button>
+        </div>
+    </app-modal-bottom>
+
+    <!--MODAL NUMERO DE CLIENTE-->
+    <app-modal-bottom name="modal-client-number" activateBack="true" (onBack)="closeListOpenSingle(['modal-client-number'],'modal-added-account')">
+        <div class="modal-bottom_section__header">
+            <app-modal-title className="ml-5">Número de cliente </app-modal-title>
+            <app-paragraph>Puedes encontrarlo generalmente ubicado en la parte superior izquierda de tu boleta con el nombre <b>ID de cliente</b></app-paragraph>
+        </div>
+        <div class="modal-bottom_section__body text-center pt-3">
+            <figure class="text-center">
+                <img [src]="imagenAyuda" class="img-fluid img-inline-block" alt="">
+            </figure>
+        </div>
+        <div class="modal-bottom_section__footer text-center">
+            <app-modal-title>
+                ¿Aún no logras identificar tu <br> número de cliente?
+            </app-modal-title>
+
+            <app-button type="unborder" size="lg" data-modal="close" class="d-sm-block d-md-none">
+                <img class="img-inline-block" src="assets/imgs/icon-codigo.svg"> Escanear código QR / Barra</app-button>
+           	<div *ngIf="activo">
+	            <app-button (click)="closeListOpenSingle(['modal-client-number'],'modal-advanced-search')" type="primary-outline-rounded" size="lg" functionality="action-footer">Búsqueda avanzada</app-button>
+			</div>
+            <app-button type="primary-rounded" size="lg" functionality="action-footer" (click)="closeListOpenSingle(['modal-client-number'],'modal-added-account')">Ya lo encontré</app-button>
+        </div>
+    </app-modal-bottom>
+    <!--FIN MODAL NUMERO DE CLIENTE-->
+
+    <!--MODAL BUSQUEDA AVANZADA-->
+    <app-modal-bottom name="modal-advanced-search" activateBack="true" (onBack)="closeListOpenSingle(['modal-advanced-search'],'modal-client-number')">
+        <div class="modal-bottom_section__header">
+            <app-modal-title className="ml-4 ml-sm-5 mt-1">Búsqueda avanzada</app-modal-title>
+            <app-paragraph>Ingresa la siguiente información para ayudarte a encontrar el número de cliente de tu cuenta.</app-paragraph>
+        </div>
+        <div class="modal-bottom_section__body">
+            <app-input [disabled]="true" icon="search" [value]="account.title" (onChange)="handlerChangeTitle($event)"></app-input>
+            <div *ngFor="let datoBusqueda of datosBusqueda; let i = index" >
+                <app-input [placeholder]="datoBusqueda.placeholder" [value]="datoBusqueda.valor" (onChange)="handlerChangeBusqueda($event, i)"></app-input>
+            </div>
+        </div>
+        <div class="modal-bottom_section__footer text-center">
+            <app-button (click)="getIdentificadorCta()" type="primary-rounded" size="lg" functionality="action-footer">Consultar</app-button>
+        </div>
+    </app-modal-bottom>
+    <!--FIN MODAL BUSQUEDA AVANZADA-->
+
+    <!--MODALS ORGANISMS-->
+    <app-modal-client-number-result [clientNumberFound]="getClientNumberFound()" (onSelectNumber)="assingClientNumber()"></app-modal-client-number-result>
+    <app-modal-card-detail [account]="accountSelected" (showDetail)="showDetail($event, $event)"></app-modal-card-detail>
+    <app-modal-edit-account-detail></app-modal-edit-account-detail>
+    <app-modal-account-errors></app-modal-account-errors>
+    <app-modal-benefits></app-modal-benefits>
+</app-page>
+<app-footer-default></app-footer-default>

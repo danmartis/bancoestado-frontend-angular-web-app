@@ -1,0 +1,10 @@
+{
+    "version": 3,
+    "mappings": "AACA,AACI,KADC,CACD,EAAE,AAAC,CACC,KAAK,CCGG,OAAO,CDFf,WAAW,CAAE,cAAc,CAC3B,WAAW,CAAE,MAAM,CACnB,SAAS,CAAE,QAAQ,CACnB,WAAW,CAAE,GAAG,CAChB,MAAM,CAAE,CAAC,CACZ",
+    "sources": [
+        "../main-title/main-title.component.scss",
+        "../../../scss/_vars.scss"
+    ],
+    "names": [],
+    "file": "main-title.component.min.css"
+}

@@ -1,0 +1,26 @@
+<app-header-main></app-header-main>
+<app-page>
+    <div class="container mb-5">
+        <div class="row">
+            <div class="col-12 col-12 offset-lg-1 col-lg-9 mt-4">
+                <app-back-button-page (click)="goToHome()"></app-back-button-page>
+            </div>
+            <div class="col-12 col-sm-6 offset-lg-1 col-lg-5 align-self-center">
+                <app-page-title>Comprobante</app-page-title>
+            </div>
+            <div class="col-6 col-lg-5">
+                <div class="botones">
+                    <app-button2 size="medium" type="terciario">Compartir</app-button2>
+                    <app-button2 size="medium" type="secundario">Descargar</app-button2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <app-voucher-group [data]="dataSingle" [mostrarModalEnvio]="mostrarModalEnvio"></app-voucher-group>
+            </div>
+        </div>
+    </div>
+</app-page>
+<app-footer-default>
+</app-footer-default>

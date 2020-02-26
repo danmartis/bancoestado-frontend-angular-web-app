@@ -1,0 +1,4 @@
+run: 
+	npm cache clean --force && npm build && npm start
+install:
+	npm install

@@ -1,0 +1,105 @@
+<div class="input" [ngClass]="[className, iconLeft || iconSrc ? 'input--icon-left' : '']" *ngIf="mode !== 'wrapper'" (click)="isOpenSetTrue($event)">
+    <div class="input-container" [ngClass]="[getNativeIcon() !== '' ? 'input-native-icon' : '', getStatus(), getIcon()]">
+
+        <div class="input__icon-left input__icon-left--image" *ngIf="iconSrc !== ''">
+            <img [src]="iconSrc">
+        </div>
+
+        <div class="input__icon-left" *ngIf="getNativeIcon() !== ''">
+            <i class="material-icons">{{getNativeIcon()}}</i>
+        </div>
+
+        <div class="input__icon-left" *ngIf="iconLeft !== ''">
+            <i class="material-icons">{{iconLeft}}</i>
+        </div>
+
+        <i *ngIf="getStatusIcon() !== ''" class="material-icons">{{getStatusIcon()}}</i>
+        <i *ngIf="getIconName() !== ''" class="material-icons">{{getIconName()}}</i>
+        <!--<input [disabled]="disabled" [value]="value" [type]="type" [placeholder]="getAttribute('placeholder')" (input)="handlerChange($event)" />-->
+        <input [disabled]="disabled" [value]="value" [type]="type" [attr.maxlength]="maxlength" [attr.size]="size" [placeholder]="getAttribute('placeholder')" (input)="handlerChange($event)" />
+    </div>
+    <small *ngIf="status === 'invalid'">{{invalidText}}</small>
+</div>
+
+<div class="input" [ngClass]="[className]" *ngIf="mode === 'wrapper'">
+    <div class="input-container" [ngClass]="[getNativeIcon() !== '' ? 'input-native-icon' : '', getStatus(), getIcon()]">
+
+        <div class="input__icon-left" *ngIf="getNativeIcon() !== ''">
+            <i class="material-icons">{{getNativeIcon()}}</i>
+        </div>
+
+        <i *ngIf="getStatusIcon() !== ''" class="material-icons">{{getStatusIcon()}}</i>
+        <i *ngIf="getIconName() !== ''" class="material-icons">{{getIconName()}}</i>
+        <ng-content></ng-content>
+    </div>
+    <small *ngIf="status === 'invalid'">{{invalidText}}</small>
+</div>
+<!-- Lista -->
+<!-- Caso 1 -->
+<div class="input-dropdown__list" [ngClass]="isOpen ? 'open' : ''" *ngIf="isDrop && isOpen && typeOptions === 'listOrder'">
+    <div *ngFor="let items of options">
+        <h5 class="input-dropdown__title-group">{{ items.tittle }}</h5>
+        <ul class="input-dropdown__group" *ngIf="items !== undefined">
+            <li class="input-dropdown__item" *ngFor="let item of items.list" (click)="selectElement(item)">{{ item.servicio }}</li>
+        </ul>
+    </div>
+</div>
+<!-- Caso 2 -->
+<div class="input__drop" *ngIf="isDrop && isOpen && typeOptions === 'list'">
+    <ul *ngIf="options !== false">
+        <li class="input__prop__match" *ngFor="let item of options" (click)="selectElement(item)">{{ item.servicio }}</li>
+    </ul>
+</div>
+
+<!-- Caso 0
+<div class="input__drop" *ngIf="value !== '' && isDrop && isOpen && value === 'caso 0'">
+    <ul *ngIf="options === false">
+        <li class="input__prop__match">Chilectra</li>
+        <li>Chile Unido</li>
+        <li>Claro</li>
+    </ul>
+    <ul *ngIf="options !== false">
+        <li *ngFor="let item of options">{{item}}</li>
+    </ul>
+</div>
+-->
+
+<!--caso 1 
+<div class="input-dropdown__list" [ngClass]="isOpen ? 'open' : ''" *ngIf="value !== '' && isDrop && isOpen && value === 'caso 1'">
+    <h5 class="input-dropdown__title-group">Telefonía móvil</h5>
+    <ul class="input-dropdown__group">
+        <li class="input-dropdown__item">Entel</li>
+        <li class="input-dropdown__item">Movistar</li>
+        <li class="input-dropdown__item">Claro</li>
+    </ul>
+    <h5 class="input-dropdown__title-group">Telefonía hogar</h5>
+    <ul class="input-dropdown__group">
+        <li class="input-dropdown__item">Entel</li>
+        <li class="input-dropdown__item">Movistar</li>
+        <li class="input-dropdown__item">Claro</li>
+    </ul>
+</div> -->
+
+<!--caso 2 
+<div class="input-dropdown__list" [ngClass]="isOpen ? 'open' : ''" *ngIf="value !== '' && isDrop && isOpen && value === 'caso 2'">
+    <ul>
+        <li class="input-dropdown__item">Movistar móvil</li>
+        <li class="input-dropdown__item">Movistar hogar</li>
+    </ul>
+</div>
+-->
+
+<!--caso 3
+<div class="input-dropdown__list" [ngClass]="isOpen ? 'open' : ''" *ngIf="value !== '' && isDrop && isOpen && value === 'caso 3'">
+    <ul>
+        <li class="input-dropdown__item">Abastible</li>
+        <li class="input-dropdown__item">Gas Sur</li>
+        <li class="input-dropdown__item">Lipigas</li>
+        <li class="input-dropdown__item">Metrogas</li>
+    </ul>
+    <h5 class="input-dropdown__title-group">Otros</h5>
+    <ul class="input-dropdown__group">
+        <li class="input-dropdown__item">Gasolandia</li>
+        <li class="input-dropdown__item">Gasoventura</li>
+    </ul>
+</div> -->

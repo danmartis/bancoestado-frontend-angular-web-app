@@ -1,0 +1,78 @@
+<app-modal ngClass="modal--login-flow" name="modal-login-flow">
+    <div class="modal_section__header text-center">
+        <div class="row">
+            <div class="col">
+                <img class="img-logo-vertical" src="assets/imgs/logo-ServiEstado-horizontal.png" alt="Login ServiEstado" />
+                <p class="text-logo-vertical-login mb-3">Para iniciar sesión ingresa tus datos</p>
+            </div>
+        </div>
+    </div>
+    <div class="modal_section__body text-center">
+        <div class="row">
+            <div class="col">
+                <app-input (onChange)="setEmail($event)" [value]="email" type="email" [status]="emailValidate(email)" invalidText="Tienes un error"></app-input>
+                <app-input ngClass="mb-0" type="password"></app-input>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-md-8 offset-md-2">
+                <div class="mb-0">
+                    <app-button2 auto="true" type="terciario" (click)="closeListOpenSingle(['modal-login-flow'], 'modal-login-flow-forgot-password')">
+                        ¿Olvidaste tu contraseña?
+                    </app-button2>
+                </div>
+                <app-button2 auto="true" type="primario" (click)="closeListOpenSingle([''], 'modal-login-be-payment-method')">
+                    Iniciar sesión
+                </app-button2>
+            </div>
+        </div>
+    </div>
+    <div class="modal_section__footer text-center">
+        <div class="row">
+            <div class="col-12">
+                <app-paragraph type="min">¿Aún no eres cliente?</app-paragraph>
+                <app-button2 type="terciario">Hazte cliente</app-button2>
+            </div>
+        </div>
+    </div>
+</app-modal>
+
+<app-modal name="modal-login-flow-forgot-password">
+    <div class="modal_section__header text-center">
+        <div class="row">
+            <div class="col">
+                <img class="img-logo-vertical" src="assets/imgs/logo-ServiEstado-horizontal.png" alt="Login ServiEstado" />
+            </div>
+        </div>
+        <app-paragraph>Ingresa el correo electrónico con el que te registraste en ServiEstado para enviarte una clave provisoria</app-paragraph>
+    </div>
+    <div class="modal_section__body text-center">
+        <app-input (onChange)="setEmailReset($event)" [value]="emailReset" type="email" [status]="emailValidate(emailReset)"></app-input>
+    </div>
+    <div class="modal_section__footer text-center">
+        <div class="row">
+            <div class="col-12 col-md-8 offset-md-2">
+                <app-button2 auto="true" type="primario" (click)="closeListOpenSingle(['modal-login-flow-forgot-password'], 'modal-login-flow-change-password')">Enviar clave</app-button2>
+            </div>
+        </div>
+    </div>
+</app-modal>
+
+<app-modal name="modal-login-flow-change-password">
+    <div class="modal_section__header text-center">
+        <app-modal-icon type="il" src="assets/imgs/svg/icon-llave.svg" alt="Icono ok de la modal"></app-modal-icon>
+        <app-modal-title>Bievenida Maria!</app-modal-title>
+        <app-paragraph>Por tu seguridad recomendamos que escribas una nueva contraseña</app-paragraph>
+    </div>
+    <div class="modal_section__body text-center">
+        <app-input type="password" placeholder="Crear contraseña"></app-input>
+        <app-input type="password" placeholder="Repetir contraseña"></app-input>
+    </div>
+    <div class="modal_section__footer text-center">
+        <div class="row">
+            <div class="col-12 col-md-8 offset-md-2">
+                <app-button2 auto="true" type="primario" (click)="closeListOpenSingle(['modal-login-flow-change-password'], '')">Aceptar</app-button2>
+            </div>
+        </div>
+    </div>
+</app-modal>

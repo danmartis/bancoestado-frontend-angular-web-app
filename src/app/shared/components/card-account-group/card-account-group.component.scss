@@ -1,0 +1,124 @@
+@import '../../../../scss/_vars';
+:host {
+    position: relative;
+
+    .account-group__card__container {
+        border-radius: 0.875rem;
+        background-color: $color-primary-light;
+        overflow: hidden;
+    }
+
+    .card-account-detail__icon {
+        width: 3rem;
+        height: 3rem;
+        border-radius: 1rem;
+        position: absolute;
+        top: 1.5rem;
+        left: 1.5rem;
+
+        img {
+            height: 1.6rem;
+            margin: 0.7rem;
+            width: auto;
+        }
+    }
+
+    .account-group__card {
+        position: relative;
+        color: $color-secondary;
+        height: auto;
+        min-height: 91px;
+        width: 100%;
+        padding: 1.5rem;
+        padding-left: 3rem;
+        padding-right: 4.5rem;
+
+        @media (min-width: 768px) {
+            padding-left: 6rem;
+        }
+    }
+
+    h3 {
+        margin: 0;
+        font-size: 1rem;
+        @media (min-width: 768px) {
+            color: $color-primary !important;
+        }
+    }
+
+    p {
+        margin: 0;
+        color: $color-paragraph;
+        font-size: 0.8rem;
+    }
+
+    .account-group__card__value {
+        color: $color-primary;
+        text-align: right;
+        right: 1.5rem;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        position: absolute;
+        height: 1rem;
+    }
+
+    button.account-group__card__menu-button {
+        position: absolute;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        background: transparent;
+        height: 1.5rem;
+        width: 1.5rem;
+        border: none;
+        padding: 0;
+        font-weight: inherit;
+        font-size: inherit;
+        color: inherit;
+        cursor: pointer;
+        text-align: center;
+        margin: auto;
+        &:hover {
+            background: $color-hover-options;
+        }
+    }
+
+    .account-group__card__status {
+        margin: 0;
+        font-size: 0.8rem;
+        &.success {
+            color: $color-success;
+        }
+        &.warning {
+            color: $color-warning;
+        }
+        &.error {
+            color: $color-danger;
+        }
+    }
+
+    .account-group__card__extra-value {
+        text-transform: uppercase;
+        color: $color-success;
+        background-color: $color-success-light;
+        font-size: 0.8rem;
+        border-radius: 0.8rem;
+        padding: 0.2rem 0.4rem;
+    }
+
+    .card-account-group__desktop-option {
+        padding: 1.5rem;
+        border-radius: 0 0 0.875rem 0.875rem;
+        border-top: solid 1px #e5e9f2;
+        height: 68px;
+        .account-group__card__delete,
+        .account-group__card__edit {
+            background: none;
+            border: none;
+            width: 28px;
+            text-align: center;
+            padding: 0 5px;
+        }
+    }
+}

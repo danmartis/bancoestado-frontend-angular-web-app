@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AACI,KADC,CACD,WAAW,CAAC;EACR,MAAM,EAAE,OAAO;CAClB",
+    "sources": [
+        "payments.component.scss"
+    ],
+    "names": [],
+    "file": "payments.component.css"
+}

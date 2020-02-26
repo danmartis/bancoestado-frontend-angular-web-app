@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="6px" height="5px" viewBox="0 0 6 5" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 61 (89581) - https://sketch.com -->
+    <title>search</title>
+    <desc>Created with Sketch.</desc>
+    <g id="ui-kit-" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Form" transform="translate(-1221.000000, -978.000000)">
+            <g id="-Round-/-Navigation-/-arrow_drop_up" transform="translate(1214.000000, 971.000000)">
+                <g transform="translate(0.000000, 0.000000)">
+                    <polygon id="Path" points="0 0 20 0 20 20 0 20"></polygon>
+                    <path d="M7.25833333,10.2416667 L9.41666667,8.08333333 C9.74166667,7.75833333 10.2666667,7.75833333 10.5916667,8.08333333 L12.75,10.2416667 C13.275,10.7666667 12.9,11.6666667 12.1583333,11.6666667 L7.84166667,11.6666667 C7.1,11.6666667 6.73333333,10.7666667 7.25833333,10.2416667 Z" id="🔹-Icon-Color" fill="#1E63F8"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

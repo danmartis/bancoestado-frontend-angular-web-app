@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAEQ,KAFH,CACD,cAAc,GACT,GAAG,CAAC;EACD,QAAQ,EAAE,QAAQ;EAClB,YAAY,EAAE,MAAM;EACpB,MAAM,EAAE,YAAY;CAKvB;;AAVT,AAMY,KANP,CACD,cAAc,GACT,GAAG,CAIA,WAAW,CAAC;EACR,QAAQ,EAAE,QAAQ;EAClB,IAAI,EAAE,CAAC;CACV",
+    "sources": [
+        "modal-benefits.component.scss"
+    ],
+    "names": [],
+    "file": "modal-benefits.component.css"
+}

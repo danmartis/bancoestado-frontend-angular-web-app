@@ -1,0 +1,10 @@
+{
+    "version": 3,
+    "mappings": "AACA,AACI,KADC,CACD,CAAC,CAAC;EACE,KAAK,ECSK,OAAO;EDRjB,WAAW,EAAE,mBAAmB;EAChC,WAAW,EAAE,MAAM;EACnB,SAAS,EAAE,IAAI;EACf,MAAM,EAAE,CAAC;CACZ",
+    "sources": [
+        "../paragraph/paragraph.component.scss",
+        "../../../scss/_vars.scss"
+    ],
+    "names": [],
+    "file": "paragraph.component.css"
+}

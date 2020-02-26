@@ -1,0 +1,180 @@
+@charset "UTF-8";
+.boxs-1 {
+  -webkit-box-shadow: 0rem 0.0625rem 0.5rem 0rem rgba(0, 0, 0, 0.07);
+          box-shadow: 0rem 0.0625rem 0.5rem 0rem rgba(0, 0, 0, 0.07);
+}
+
+.boxs-2 {
+  -webkit-box-shadow: 0rem 1.5375rem 1.5375rem 0rem rgba(0, 0, 0, 0.07);
+          box-shadow: 0rem 1.5375rem 1.5375rem 0rem rgba(0, 0, 0, 0.07);
+}
+
+.boxs-3 {
+  -webkit-box-shadow: 0rem 1.6375rem 1.6375rem 0rem rgba(0, 0, 0, 0.07);
+          box-shadow: 0rem 1.6375rem 1.6375rem 0rem rgba(0, 0, 0, 0.07);
+}
+
+.boxs-4 {
+  -webkit-box-shadow: 0rem 1.7375rem 1.7375rem 0rem rgba(0, 0, 0, 0.07);
+          box-shadow: 0rem 1.7375rem 1.7375rem 0rem rgba(0, 0, 0, 0.07);
+}
+
+.boxs-5 {
+  -webkit-box-shadow: 0rem 1.8375rem 1.8375rem 0rem rgba(0, 0, 0, 0.07);
+          box-shadow: 0rem 1.8375rem 1.8375rem 0rem rgba(0, 0, 0, 0.07);
+}
+
+:host header {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 1000;
+  min-width: 100%;
+  min-height: 0;
+  color: #042c5c;
+  font-size: 1rem;
+  background-color: #ffffff;
+  margin-bottom: 2rem;
+}
+
+@media (max-width: 767px) {
+  :host header.header--shadow {
+    -webkit-box-shadow: 0rem 0.5625rem 0.875rem 0rem rgba(131, 134, 163, 0.12);
+            box-shadow: 0rem 0.5625rem 0.875rem 0rem rgba(131, 134, 163, 0.12);
+  }
+}
+
+:host header .header__button-menu {
+  background-color: #ffffff;
+  top: 1.4688rem;
+  position: absolute;
+  right: 0.9375rem;
+  border: none;
+  z-index: 1;
+}
+
+:host header .header__button-menu span {
+  width: 1.3125rem;
+  height: 0.125rem;
+  background-color: #042c5c;
+  margin: 0.25rem 0;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  display: block;
+}
+
+:host header .header__button-menu--open {
+  position: fixed;
+}
+
+:host header .header__button-menu--open span:nth-child(1) {
+  -webkit-transform: rotate(-45deg) translate(-5px, 4px);
+          transform: rotate(-45deg) translate(-5px, 4px);
+}
+
+:host header .header__button-menu--open span:nth-child(2) {
+  opacity: 0;
+}
+
+:host header .header__button-menu--open span:nth-child(3) {
+  -webkit-transform: rotate(45deg) translate(-4px, -4px);
+          transform: rotate(45deg) translate(-4px, -4px);
+}
+
+@media (min-width: 768px) {
+  :host header .header__button-menu {
+    display: none;
+  }
+}
+
+@media (min-width: 768px) {
+  :host header {
+    margin-bottom: 0;
+    -webkit-box-shadow: none;
+            box-shadow: none;
+    background-color: transparent;
+    min-height: auto;
+  }
+}
+
+:host header .header__desktop-menu {
+  display: none;
+  height: 3rem;
+  background-color: #ffffff;
+}
+
+@media (min-width: 768px) {
+  :host header .header__desktop-menu {
+    display: block;
+  }
+}
+
+:host header .header__desktop-menu ul {
+  margin: 0;
+  padding: 0;
+  text-align: right;
+}
+
+:host header .header__desktop-menu ul li {
+  cursor: pointer;
+  display: inline-block;
+  padding: 0.9375rem;
+}
+
+:host header .header__desktop-menu ul li a {
+  color: #77869e;
+  text-decoration: none;
+}
+
+:host header .header__desktop-menu ul li.header__desktop-menu__item--active a {
+  color: #1e63f8;
+}
+
+:host header .header__desktop-menu ul li.header__desktop-menu__item--active a::before {
+  content: "•";
+  padding-right: 0.3125rem;
+}
+
+:host header .header__desktop-menu ul li:hover a {
+  color: #2a6dff;
+}
+
+:host header .header__desktop-menu ul li:active a {
+  color: #042c5c;
+}
+
+:host header .header__main {
+  min-height: 4.5rem;
+  padding-top: 1.4688rem;
+}
+
+@media (min-width: 768px) {
+  :host header .header__main {
+    margin-bottom: 2rem;
+    -webkit-box-shadow: 0rem 0.5625rem 0.875rem 0rem rgba(131, 134, 163, 0.12);
+            box-shadow: 0rem 0.5625rem 0.875rem 0rem rgba(131, 134, 163, 0.12);
+    background-color: #ffffff;
+    padding-left: 1.875rem;
+    padding-right: 0.625rem;
+  }
+}
+
+:host header .header__main .header__main__desktop-button {
+  display: none;
+  padding-bottom: 1.6rem;
+}
+
+:host header .header__main .header__main__desktop-button > * {
+  padding-left: 0.9375rem;
+}
+
+@media (min-width: 768px) {
+  :host header .header__main .header__main__desktop-button {
+    display: block;
+  }
+  :host header .header__main .header__main__desktop-button ::ng-deep button {
+    height: 2.5rem;
+    width: 8.5rem;
+  }
+}
+/*# sourceMappingURL=header.component.css.map */

@@ -1,0 +1,25 @@
+<app-header-main></app-header-main>
+<app-page>
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-6 pt-2">
+                <app-page-title>Mi perfil</app-page-title>
+            </div>
+            <div class="col-6 text-right">
+                <app-button2 *ngIf="mode === 'view'" type="secundario" (click)="toggleMode()">Editar</app-button2>
+                <app-button2 *ngIf="mode === 'edit'" type="primario" (click)="toggleMode()">Guardar</app-button2>
+            </div>
+        </div>
+    </div>
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-12 col-md-12 col-lg-4">
+                <app-profile-avatar [mode]="mode"></app-profile-avatar>
+            </div>
+            <div class="col-12 col-md-12 col-lg-8">
+                <app-profile-form [mode]="mode"></app-profile-form>
+            </div>
+        </div>
+    </div>
+</app-page>
+<app-footer-default></app-footer-default>

@@ -1,0 +1,78 @@
+<div class="profile-form" [ngClass]="[mode === 'view'? 'profile-show': 'profile-hide']">
+    <div class="row">
+        <div class="col-6 col-md-4 mt-4">
+            <div class="display-data">
+                <app-paragraph type="min">Rut</app-paragraph>
+                <app-paragraph type="data">16.751.256-9</app-paragraph>
+            </div>
+        </div>
+        <div class="col-6 col-md-4 mt-4">
+            <div class="display-data">
+                <app-paragraph type="min">F. Nacimiento</app-paragraph>
+                <app-paragraph type="data">10/12/1986</app-paragraph>
+            </div>
+        </div>
+        <div class="col-12 col-md-4 mt-4">
+            <div class="display-data">
+                <app-paragraph type="min">Teléfono</app-paragraph>
+                <app-paragraph type="data">+569 32270662</app-paragraph>
+            </div>
+        </div>
+        <div class="col-12 col-md-4 mt-4">
+            <div class="display-data">
+                <app-paragraph type="min">Dirección</app-paragraph>
+                <app-paragraph type="data">Los Cerezos 89, dpto 782</app-paragraph>
+            </div>
+        </div>
+        <div class="col-6 col-md-4 mt-4">
+            <div class="display-data">
+                <app-paragraph type="min">Comuna</app-paragraph>
+                <app-paragraph type="data">Ñuñoa</app-paragraph>
+            </div>
+        </div>
+        <div class="col-6 col-md-4 mt-4">
+            <div class="display-data">
+                <app-paragraph type="min">Ciudad</app-paragraph>
+                <app-paragraph type="data">Santiago, RM</app-paragraph>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="profile-form" [ngClass]="[mode === 'edit'? 'profile-show': 'profile-hide']">
+    <div class="row">
+        <div class="col-12 col-lg-6">
+            <app-input placeholder="Nombres"></app-input>
+        </div>
+        <div class="col-12 col-lg-6">
+            <app-input placeholder="Apellidos"></app-input>
+        </div>
+        <div class="col-6 col-lg-6">
+            <app-input placeholder="Rut"></app-input>
+        </div>
+        <div class="col-6 col-lg-6">
+            <app-input mode="wrapper">
+                <input placeholder="F. Nacimiento" name="dateBorn" [(ngModel)]="bornModel" ngbDatepicker #dateBorn="ngbDatepicker" (click)="dateBorn.toggle()">
+            </app-input>
+        </div>
+        <div class="col-12 col-lg-6">
+            <app-input placeholder="Correo eléctronico"></app-input>
+        </div>
+        <div class="col-12 col-lg-6">
+            <app-input placeholder="Correo eléctronico de recurepación"></app-input>
+        </div>
+        <div class="col-12 col-lg-6">
+            <div class="row row-small">
+                <div class="col-4">
+                    <app-select-se type="select-se--phone" label="+56" sufix=" 9" [items]="[{label: '+56', sufix: ' 9'}, {label: '+56', sufix: ' 7'}, {label: '+56', sufix: ' 3'}]"></app-select-se>
+                </div>
+                <div class="col-8">
+                    <app-input placeholder="Teléfono"></app-input>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-lg-6">
+            <app-input placeholder="Dirección" (onChange)="changeAdress($event)" [value]="address" [isDrop]="true"></app-input>
+        </div>
+    </div>
+</div>

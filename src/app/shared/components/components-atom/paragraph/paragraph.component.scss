@@ -1,0 +1,107 @@
+@import '../../../../../scss/_vars';
+@import '../../../../../scss/_mixins';
+:host {
+    p {
+        color: $color-paragraph;
+        font-family: 'Circular Std Book';
+        @include font-size(16);
+        @include line-height(24);
+        margin: 0;
+
+        &.primary {
+            color: $color-primary;
+        }
+
+        &.emphasis {
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: $color-primary;
+        }
+
+        &.min {
+            line-height: 1.2;
+            font-size: 0.8rem;
+        }
+
+        &.modal {
+            padding: 0 1em 0 1em;
+        }
+
+        &.page-public {
+            @include font-size(18);
+            @include line-height(32);
+            @media (max-width: 768px) {
+                @include font-size(16);
+                @include line-height(24);
+            }
+        }
+
+        &.xs {
+            font-size: 0.8rem;
+            @media (max-width: 380px) {
+                font-size: 10px;
+            }
+        }
+
+        &.calltoaction {
+            @include font-size(18);
+            @include line-height(24);
+            color: $color-primary-light;
+        }
+
+        &.data {
+            font-size: 16px;
+            font-weight: 300;
+            line-height: 16px;
+            color: $color-primary;
+        }
+
+        &.value {
+            font-size: 1.5rem;
+            color: $color-primary;
+        }
+
+        &.sub-value {
+            font-size: 1.2rem;
+            color: $color-primary;
+        }
+
+        &.min-sub-value {
+            line-height: 28px;
+            font-size: 12.8px;
+        }
+
+         ::ng-deep a {
+            display: inline-block;
+            margin-left: 0.3125rem;
+            color: $color-action;
+        }
+
+         ::ng-deep strong {
+            display: inline-block;
+            color: $color-primary;
+        }
+
+        &.min-light {
+            color: $color-input-border-light;
+            font-size: 0.8rem;
+        }
+
+        &.min-white {
+            color: #fff;
+            @include font-size(14);
+            @include line-height(20);
+        }
+
+        &.step {
+            color: $color-primary;
+            font-size: 18px;
+            font-weight: 500;
+            letter-spacing: 0px;
+            line-height: 24px;
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 0 1em;
+        }
+    }
+}

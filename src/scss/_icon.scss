@@ -1,0 +1,70 @@
+/* Icono modales */
+
+.icon-modal {
+    background-color: #00d793;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90px;
+    margin: 0 auto 0 auto;
+    width: 90px;
+    &--info {
+        background-color: #1e63f8;
+    }
+    &--danger {
+        background-color: #f44336;
+    }
+    &--il {
+        background-color: #F6F8FA;
+    }
+    &--img {
+        background-color: transparent;
+    }
+    &--img-lg {
+        background-color: transparent;
+        height: 160px;
+        width: 160px;
+    }
+    &__icon {
+        height: 43px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 43px;
+        img {
+            max-height: 100%;
+        }
+    }
+}
+
+
+/* 
+Modificador Cuando el icono de la modal es una olustración
+con background gris 
+*/
+
+.icon-modal--il {
+    .icon-modal__icon {
+        height: 60px;
+        width: 60px;
+    }
+}
+
+
+/* 
+Modificador Cuando el icono de la modal es una ilustración
+o imagen que incluye el bg ... el sufijo -lg es cuando
+la imagen se tiene que mostrar más grande
+*/
+
+.icon-modal--img,
+.icon-modal--img-lg {
+    .icon-modal__icon {
+        height: 100%;
+        width: 100%;
+    }
+}
+
+
+/* FIN - Icono modales */

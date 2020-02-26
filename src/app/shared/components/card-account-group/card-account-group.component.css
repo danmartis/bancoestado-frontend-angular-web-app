@@ -1,0 +1,159 @@
+.boxs-1 {
+  -webkit-box-shadow: 0rem 0.0625rem 0.5rem 0rem rgba(0, 0, 0, 0.07);
+          box-shadow: 0rem 0.0625rem 0.5rem 0rem rgba(0, 0, 0, 0.07);
+}
+
+.boxs-2 {
+  -webkit-box-shadow: 0rem 1.5375rem 1.5375rem 0rem rgba(0, 0, 0, 0.07);
+          box-shadow: 0rem 1.5375rem 1.5375rem 0rem rgba(0, 0, 0, 0.07);
+}
+
+.boxs-3 {
+  -webkit-box-shadow: 0rem 1.6375rem 1.6375rem 0rem rgba(0, 0, 0, 0.07);
+          box-shadow: 0rem 1.6375rem 1.6375rem 0rem rgba(0, 0, 0, 0.07);
+}
+
+.boxs-4 {
+  -webkit-box-shadow: 0rem 1.7375rem 1.7375rem 0rem rgba(0, 0, 0, 0.07);
+          box-shadow: 0rem 1.7375rem 1.7375rem 0rem rgba(0, 0, 0, 0.07);
+}
+
+.boxs-5 {
+  -webkit-box-shadow: 0rem 1.8375rem 1.8375rem 0rem rgba(0, 0, 0, 0.07);
+          box-shadow: 0rem 1.8375rem 1.8375rem 0rem rgba(0, 0, 0, 0.07);
+}
+
+:host {
+  position: relative;
+}
+
+:host .account-group__card__container {
+  border-radius: 0.875rem;
+  background-color: #ffffff;
+  overflow: hidden;
+}
+
+:host .card-account-detail__icon {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 1rem;
+  position: absolute;
+  top: 1.5rem;
+  left: 1.5rem;
+}
+
+:host .card-account-detail__icon img {
+  height: 1.6rem;
+  margin: 0.7rem;
+  width: auto;
+}
+
+:host .account-group__card {
+  position: relative;
+  color: #304566;
+  height: auto;
+  min-height: 91px;
+  width: 100%;
+  padding: 1.5rem;
+  padding-left: 3rem;
+  padding-right: 4.5rem;
+}
+
+@media (min-width: 768px) {
+  :host .account-group__card {
+    padding-left: 6rem;
+  }
+}
+
+:host h3 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+@media (min-width: 768px) {
+  :host h3 {
+    color: #042c5c !important;
+  }
+}
+
+:host p {
+  margin: 0;
+  color: #77869e;
+  font-size: 0.8rem;
+}
+
+:host .account-group__card__value {
+  color: #042c5c;
+  text-align: right;
+  right: 1.5rem;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  position: absolute;
+  height: 1rem;
+}
+
+:host button.account-group__card__menu-button {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: transparent;
+  height: 1.5rem;
+  width: 1.5rem;
+  border: none;
+  padding: 0;
+  font-weight: inherit;
+  font-size: inherit;
+  color: inherit;
+  cursor: pointer;
+  text-align: center;
+  margin: auto;
+}
+
+:host button.account-group__card__menu-button:hover {
+  background: #f4f7fa;
+}
+
+:host .account-group__card__status {
+  margin: 0;
+  font-size: 0.8rem;
+}
+
+:host .account-group__card__status.success {
+  color: #00d793 !important;
+}
+
+:host .account-group__card__status.warning {
+  color: #ffb842;
+}
+
+:host .account-group__card__status.error {
+  color: #f44336 !important;
+}
+
+:host .account-group__card__extra-value {
+  text-transform: uppercase;
+  color: #00d793 !important;
+  background-color: #eafdf7 !important;
+  font-size: 0.8rem;
+  border-radius: 0.8rem;
+  padding: 0.2rem 0.4rem;
+}
+
+:host .card-account-group__desktop-option {
+  padding: 1.5rem;
+  border-radius: 0 0 0.875rem 0.875rem;
+  border-top: solid 1px #e5e9f2;
+  height: 68px;
+}
+
+:host .card-account-group__desktop-option .account-group__card__delete,
+:host .card-account-group__desktop-option .account-group__card__edit {
+  background: none;
+  border: none;
+  width: 28px;
+  text-align: center;
+  padding: 0 5px;
+}
+/*# sourceMappingURL=card-account-group.component.css.map */

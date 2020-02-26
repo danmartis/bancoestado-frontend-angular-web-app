@@ -1,0 +1,32 @@
+@import '../../../../scss/_vars';
+@import '../../../../scss/_mixins';
+
+:host {
+    .message-payment {
+        text-align: center;
+        padding: 0 1.75rem;
+
+        &__icon {
+            margin-bottom: .5rem;
+            
+             ::ng-deep .material-icons {
+                font-size: 3.125rem;
+   
+            }
+
+            &--success {
+                 ::ng-deep .material-icons {
+                    color: $color-success;
+                }
+            }
+        }
+
+        &__body {
+            @include font-size(18);
+            @include line-height(24);
+            font-weight: bold;
+            color: $color-primary;
+            margin: 1em 0 0 0;
+        }
+    }
+}

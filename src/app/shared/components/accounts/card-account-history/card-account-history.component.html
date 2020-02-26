@@ -1,0 +1,46 @@
+<!-- Inicio item cuenta // ejemplo 02 ( Item de cuenta del historico ) -->
+<div class="item-cuenta item-cuenta--historico" *ngIf="type === ''">
+    <div class="item-cuenta__container item-cuenta__container--mobile">
+        <div class="item-cuenta__icon">
+            <img src="assets/imgs/icons/call-answer-white.svg" alt="Icono del servicio a pagar">
+        </div>
+        <div class="item-cuenta__info">
+            <div class="item-cuenta__nombre">Enel</div>
+            <div class="item-cuenta__detalle">
+                {{status}} el 21/09/19
+            </div>
+        </div>
+        <div class="item-cuenta__monto">
+            <div class="item-cuenta__valor">$480.500</div>
+        </div>
+        <div class="item-cuenta__action">
+            <i class="material-icons">keyboard_arrow_right</i>
+        </div>
+    </div>
+</div>
+<!-- FIN item cuenta -->
+
+<!-- Inicio item cuenta // ejemplo 02 ( Item de Cuenta del historico,  que fue pagada en BancoEstado y muestra un icon azul con tooltip ), esta cuenta no muestra el comprobante, por tal razón se oculta el arrow -->
+<div class="item-cuenta  item-cuenta--historico-info" *ngIf="type === 'info'">
+    <button popoverClass="popover--force-tr" class="item-cuenta__info-comprobante" placement="bottom-right" ngbPopover="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
+        <i class="item-cuenta__detalle-icon material-icons">info</i>
+    </button>
+    <div class="item-cuenta__container item-cuenta__container--mobile">
+        <div class="item-cuenta__icon">
+            <img src="assets/imgs/icons/call-answer-white.svg" alt="Icono del servicio a pagar">
+        </div>
+        <div class="item-cuenta__info">
+            <div class="item-cuenta__nombre">Enel</div>
+            <div class="item-cuenta__detalle">
+                Pagado el 21/09/19
+            </div>
+        </div>
+        <div class="item-cuenta__monto">
+            <div class="item-cuenta__valor">$480.500</div>
+        </div>
+        <div class="item-cuenta__action">
+            <i class="material-icons">keyboard_arrow_right</i>
+        </div>
+    </div>
+</div>
+<!-- FIN item cuenta -->

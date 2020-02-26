@@ -1,0 +1,155 @@
+<ng-template #popContent let-greeting="greeting">{{account.textInfo}}!</ng-template>
+
+<div class="card-account-detail" [ngClass]="type">
+    <div class="card-account-detail__default" *ngIf="type === 'account'">
+      <!--  <app-card-default className="boxs-1">
+            <div class="card-account-detail-container">
+                <div class="row">
+                    <div class="card-account-detail__icon" [style.background-color]="getColor()">
+                        <img [src]="getIcon()" />
+                    </div>
+                    <div class="col-12 card-account-detail__title-date">
+                        <h3 [style.color]="getColor()">{{account.title}}</h3>
+                        <app-paragraph type="xs">
+                            Vence el {{getIsNotNullDate(account, 'expire')}}
+                        </app-paragraph>
+                    </div>
+                    <div class="card-account-detail__actions">
+                        <button (click)="openEdit()">
+                            <app-icon name="edit" size="md-24" [color]="iconColor"></app-icon>
+                        </button>
+                        <button>
+                            <app-icon name="delete_outline" size="md-24" [color]="iconColor"></app-icon>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </app-card-default> -->
+    </div>
+    <!-- PROOF -->
+    <div class="card-account-detail__proof" *ngIf="type === 'proof-payment'">
+        <div class="card-account-detail-container">
+            <div class="row">
+                <div class="card-account-detail__icon" [style.background-color]="getColor()">
+                    <img [src]="getIcon()" />
+                </div>
+                <div class="col-12">
+                    <h3 [style.color]="getColor()">{{account.title}}</h3>
+                    <app-paragraph type="min">
+                        N° cliente {{account.clientNumber}}
+                    </app-paragraph>
+                </div>
+                <div class="card-account-detail__ammount">
+                    <div class="card-account-detail__ammount-title">
+                        <app-paragraph type="min">Monto</app-paragraph>
+                    </div>
+                    <strong>{{getValue()}}</strong>
+                </div>
+                <div class="card-account-detail__detail-button">
+                    <app-icon [color]="colorSecondaryLight" name="chevron_right" (click)="goToDetail()" size="md-24"></app-icon>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- GROUP -->
+    <div class="card-account-detail card-account-detail__in-group" *ngIf="type === 'in-group'">
+        <div class="mt-2">
+            <app-card-default className="boxs-1">
+                <div class="card-account-detail__in-group__check">
+                    <app-checkbox></app-checkbox>
+                </div>
+                <div class="card-account-detail__in-group__container">
+                    <div class="row">
+                        <div class="col-12 card-account-detail__in-group__container__title-date">
+                            <h3 [style.color]="getColor()">{{account.title}}</h3>
+                            <app-paragraph type="min">
+                                Vence el {{getIsNotNullDate(account, 'expire')}}
+                            </app-paragraph>
+                        </div>
+                        <strong class="card_account-detail__value-left">{{getValue()}}</strong>
+                    </div>
+                </div>
+            </app-card-default>
+        </div>
+    </div>
+
+    <!-- ONLY VIEW in HISTORY -->
+    <div class="card-account-only-view" *ngIf="type === 'only-view'">
+        <app-card-default className="boxs-1">
+            <div class="card-account-detail-container">
+                <div class="row">
+                    <div class="card-account-detail__icon" [style.background-color]="getColor()">
+                        <img [src]="getIcon()" />
+                    </div>
+                    <div class="col-12">
+                        <h3 [style.color]="getColor()">{{account.title}}</h3>
+                        <app-paragraph type="min">
+                            Pagado el {{getIsNotNullDate(account, 'payDate')}}
+                        </app-paragraph>
+                        <button class="card-account-detail__info-button" placement="bottom-right" *ngIf="isInfo()" type="button" [ngbPopover]="popContent" [autoClose]="true" triggers="manual" #p="ngbPopover" (click)="p.open()">
+                            <app-icon [color]="getInfoColor()" name="error" size="md-18"></app-icon>
+                        </button>
+                    </div>
+                    <div class="card-account-detail__ammount mt-3">
+                        <strong class="card_account-detail__value-left mt-4">{{getValue()}}</strong>
+                    </div>
+                    <div class="card-account-detail__detail-button" *ngIf="!isInfo()">
+                        <app-icon [color]="colorSecondaryLight" name="chevron_right" size="md-24"></app-icon>
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="isGroup()" class="text-center mt-4">
+                <div *ngIf="showGroupDetail">
+                    <table class="table table-group-detail">
+                        <tr *ngFor="let acc of account.groupList">
+                            <td>{{acc.title}}</td>
+                            <td>{{formatNumber(acc.value)}}</td>
+                        </tr>
+                    </table>
+                </div>
+                <hr/>
+                <div class="mt-4">
+                    <app-button type="unstyle" (click)="toggleGroupDetail()">{{yesOrNotGroupDetail('Ver menos', 'Ver detalle')}}</app-button>
+                </div>
+            </div>
+        </app-card-default>
+    </div>
+
+    <div class="card-account-detail card-account-unregistered" *ngIf="type === 'unregistered'">
+        <app-card-default className="boxs-1">
+
+            <div class="card-account-detail__unregistered__check">
+                <app-checkbox></app-checkbox>
+            </div>
+            <div class="card-account-detail__unregistered__container">
+                <div class="row">
+                    <div class="col-12 card-account-detail__unregistered__container__title-date">
+                        <h3 [style.color]="getColor()">{{account.title}}</h3>
+                        <app-paragraph type="min">
+                            Vence el {{getIsNotNullDate(account, 'expire')}}
+                        </app-paragraph>
+                        <button class="card-account-detail__info-button" placement="bottom-right" *ngIf="isInfo()" type="button" [ngbPopover]="popContent" [autoClose]="true" triggers="manual" #p="ngbPopover" (click)="p.open()">
+                            <app-icon [color]="getInfoColor()" name="error" size="md-18"></app-icon>
+                        </button>
+                    </div>
+                    <strong class="card_account-detail__value">{{getValue()}}</strong>
+                </div>
+            </div>
+
+            <div *ngIf="isGroup()" class="text-center mt-4">
+                <div *ngIf="showGroupDetail">
+                    <table class="table table-group-detail">
+                        <tr *ngFor="let acc of account.groupList">
+                            <td>{{acc.title}}</td>
+                            <td>{{formatNumber(acc.value)}}</td>
+                        </tr>
+                    </table>
+                </div>
+                <hr/>
+                <div class="mt-4">
+                    <app-button type="unstyle" (click)="toggleGroupDetail()">{{yesOrNotGroupDetail('Ver menos', 'Ver detalle')}}</app-button>
+                </div>
+            </div>
+        </app-card-default>
+    </div>
+</div>

@@ -1,0 +1,55 @@
+<app-modal-bottom name="modal-card-detail">
+    <div class="modal-bottom_section__header">
+        <app-modal-title className="mt-1">Detalle de cuenta</app-modal-title>
+        <div class="numero-cliente">
+            <app-paragraph>Número de cliente {{account.clientNumber}}</app-paragraph>
+        </div>
+    </div>
+    <div class="modal-bottom_section__body">
+        <app-card-account-detail-new *ngIf="account.title" (openEditAccount)="closeListOpenSingle(['modal-card-detail'],'modal-edit-account-detail')"></app-card-account-detail-new>
+        <!--<app-card-account-detail *ngIf="account.title" type="account"[account]="account"></app-card-account-detail>-->
+        <div class="mt-4">
+            <div class="subtitulo-modal">
+                <app-modal-title type="min">{{account.fees ? 'Cuotas a pagar' : 'Selecciona la deuda a pagar'}}
+                    <app-badge *ngIf="account.fees" type="rounded-number-min">{{feesToPay}}</app-badge>
+                </app-modal-title>
+            </div>
+            <div class="display-detail-values">
+                <div *ngIf="account.fees" class="fees-total-pay">
+                    <strong>{{getFeesToPay()}}</strong>
+                    <app-paragraph type="min">Total a pagar</app-paragraph>
+                </div>
+                <div *ngIf="account.fees">
+                    <div *ngFor="let fee of account.fees">
+                        <app-checkbox>
+                            <div class="checkbox-fee">
+                                <div class="checkbox-fee__value">{{formatNumber(fee.value)}}</div>
+                                <div class="checkbox-fee__detail">{{fee.title}}</div>
+                            </div>
+                        </app-checkbox>
+                    </div>
+                </div>
+                <div *ngIf="!account.fees && account.value">
+                    <app-radio [value]="formatNumber(account.value)">
+                        <app-paragraph type="min" display="inline-block">Deuda total</app-paragraph>
+                    </app-radio>
+                </div>
+                <div *ngIf="account.expirePayment">
+                    <app-radio [value]="formatNumber(account.expirePayment)">
+                        <app-paragraph type="min" display="inline-block">Deuda vencida</app-paragraph>
+                    </app-radio>
+                </div>
+                <div *ngIf="!account.fees && account.value">
+                    <app-radio value="Abonar">
+                        <div class="mt-2">
+                            <app-input (onChange)="setValueToPay(value)" [value]="valueToPay" type="number" placeholder="Ingresa monto"></app-input>
+                        </div>
+                    </app-radio>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-bottom_section__footer text-center">
+        <app-button2 type="primary" auto="true" (click)="closeListOpenSingle(['modal-card-detail'],'')">Aceptar</app-button2>
+    </div>
+</app-modal-bottom>

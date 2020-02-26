@@ -1,0 +1,33 @@
+:host nav.sidebar {
+  height: 100%;
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  background-color: #042c5c;
+  overflow-x: hidden;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  padding-top: 3.75rem;
+  max-width: 20rem;
+}
+
+:host nav.sidebar.sidebar--close {
+  width: 0;
+}
+
+:host nav.sidebar.sidebar--open {
+  width: calc(100vw - 4.875rem);
+}
+
+:host nav.sidebar > ul {
+  padding: 0;
+  margin: 0;
+  color: #ffffff;
+  width: calc(100vw - 4.875rem);
+}
+
+:host nav.sidebar > ul > li {
+  display: block;
+}
+/*# sourceMappingURL=sidebar.component.css.map */

@@ -1,0 +1,26 @@
+FROM centos:7.3.1611
+RUN yum -y install sudo
+USER root
+RUN curl --silent --location https://rpm.nodesource.com/setup_11.x | bash -
+RUN yum -y install nodejs
+RUN yum -y install gcc
+RUN yum -y install pango.x86_64 libXcomposite.x86_64 libXcursor.x86_64 libXdamage.x86_64 libXext.x86_64 libXi.x86_64 libXtst.x86_64 cups-libs.x86_64 libXScrnSaver.x86_64 libXrandr.x86_64 GConf2.x86_64 alsa-lib.x86_64 atk.x86_64 gtk3.x86_64 ipa-gothic-fonts xorg-x11-fonts-100dpi xorg-x11-fonts-75dpi xorg-x11-utils xorg-x11-fonts-cyrillic xorg-x11-fonts-Type1 xorg-x11-fonts-misc
+RUN yum -y install nss
+RUN mkdir -p /usr/src/app
+RUN mkdir -p /usr/src/temp 
+RUN mkdir -p /usr/src/support_to_runtime
+WORKDIR /usr/src/app
+
+COPY x86_64 /var/cache/yum/x86_64/
+
+RUN yum -y install bzip2
+RUN yum -y install fontconfig freetype freetype-devel fontconfig-devel libstdc++
+RUN npm install -g ng-cli
+RUN npm install -g lcov-summary
+
+COPY package.json /usr/src/app/package.json
+RUN cd /usr/src/app && npm install
+COPY . /usr/src/app
+RUN chmod +x /usr/src/app/entry.sh
+RUN rm -rf test/seleniumHQ
+ENTRYPOINT ["/usr/src/app/entry.sh"]

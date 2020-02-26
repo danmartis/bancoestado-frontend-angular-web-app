@@ -1,0 +1,11 @@
+@import '../../../../../scss/_vars';
+@import '../../../../../scss/_mixins';
+
+.boton-modal{
+    width: 100%;
+
+    @media (min-width: 768px) {
+        margin: 0 auto 0 auto;
+        width: 50%;
+    }
+}

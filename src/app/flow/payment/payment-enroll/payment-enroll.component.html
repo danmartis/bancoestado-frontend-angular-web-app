@@ -1,0 +1,46 @@
+<app-header-main></app-header-main>
+<app-page>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <app-back-button-page></app-back-button-page>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row row-md">
+            <div class="col-12 mb-5 left-to-center-text">
+                <app-page-title>Inscribir medio de pago</app-page-title>
+                <app-paragraph>Selecciona un medio de pago y sigue las instrucciones que se te presentaran.</app-paragraph>
+            </div>
+            <div class="col-6 col-md-6 col-lg-6 col-xl-4 text-center mb-3" *ngFor="let paymentMethod of paymentMethodList">
+                <app-card-method-payment (click)="closeListOpenSingle([], 'modal-success-added-payment-method')">
+                    <app-image height="36" src="assets/imgs/{{paymentMethod.image}}" [alt]="paymentMethod.title" type="alternative"></app-image>
+                </app-card-method-payment>
+            </div>
+        </div>
+    </div>
+</app-page>
+<app-footer-default></app-footer-default>
+
+
+<app-modal name="modal-success-added-payment-method">
+    <div class="modal_section__header text-center">
+        <app-modal-icon type="ok" alt="Icono ok de la modal"></app-modal-icon>
+        <app-modal-title>Exelente!</app-modal-title>
+        <app-paragraph>
+            Tu tarjeta BancoEstado ha sido inscrita exitosamente.
+        </app-paragraph>
+    </div>
+    <div class="modal_section__footer text-center">
+        <div class="row">
+            <div class="col-12 col-md-10 offset-md-1">
+                <!--app-button2 auto="true" (click)="closeListOpenSingle(['modal-success-added-payment-method'],'')" type="terciario">
+                    Volver al home
+                </app-button2-->
+                <app-button2 modPadding="small-padding" (click)="closeListOpenSingle(['modal-success-added-payment-method'],'')">Continuar con el pago</app-button2>
+            </div>
+        </div>
+    </div>
+</app-modal>

@@ -1,0 +1,51 @@
+<app-header-main></app-header-main>
+<app-page>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-12 mt-4">
+                <app-page-title>Medios de pago Banco Estado</app-page-title>
+                <app-paragraph>Selecciona el medio de pago con el que pagarás por defecto.</app-paragraph>
+            </div>
+        </div>
+        <div class="row">
+            <div *ngFor="let method of methodBancoEstado" class="col-6 col-md-3 col-lg-2 col-sm-4 mt-4">
+                <app-card-method-payment [method]="method" type="selected">
+                </app-card-method-payment>
+            </div>
+            <div class="col-6 col-md-3 col-lg-2 col-sm-4 mt-4">
+                <app-card-method-payment type="create">
+                </app-card-method-payment>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col-12 mt-5">
+                <app-page-title>Medios de otros bancos</app-page-title>
+            </div>
+        </div>
+        <div class="row">
+            <div *ngFor="let method of methodOtherBank" class="col-6 col-md-3 col-lg-2 col-sm-4 mt-4">
+                <app-card-method-payment [method]="method" type="selected">
+                </app-card-method-payment>
+            </div>
+            <div class="col-6 col-md-3 col-lg-2 col-sm-4 mt-4">
+                <app-card-method-payment type="create">
+                </app-card-method-payment>
+            </div>
+        </div>
+
+        <div class="row justify-content-end">
+            <div class="col col-md-4 col-lg-3">
+                <div class="boton">
+                    <app-button2 auto="true">Guardar</app-button2>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</app-page>
+<app-footer-default></app-footer-default>

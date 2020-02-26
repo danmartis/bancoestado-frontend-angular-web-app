@@ -1,0 +1,93 @@
+<!-- STEPTS -->
+<app-modal-splash name="modal-splash-00">
+    <div class="modal_section__header text-center">
+        <div class="logo-splash">
+            <app-image src="assets/imgs/logo.png" alt="Imagen regerencial paso 1" type="alternative"></app-image>
+        </div>
+    </div>
+    <div class="modal_section__footer text-center">
+        <app-button2 size="medium" (click)="closeListOpenSingle(['modal-splash-00'],'modal-splash-01')" type="primario">Consultar</app-button2>
+    </div>
+</app-modal-splash>
+<app-modal-splash name="modal-splash-01">
+    <div class="modal_section__header pt-5">
+        <div class="text-center">
+            <app-image src="assets/imgs/svg/img-welcome-01.svg" alt="Imagen regerencial paso 1"></app-image>
+        </div>
+    </div>
+    <div class="modal_section__body">
+        <div class="row text-center">
+            <div class="col-12">
+                <app-bullet-step current="0"></app-bullet-step>
+            </div>
+            <div class="col-12">
+                <app-paragraph type="step">Ahorra tiempo ! y pagas todas tus cuentas en un solo lugar. </app-paragraph>
+            </div>
+        </div>
+    </div>
+    <div class="modal_section__footer text-center pb-2">
+        <div class="row">
+            <div class="col-6">
+                <app-button2 type="terciario" size="medium" auto="true" (click)="closeListOpenSingle(['modal-splash-01'],'modal-splash-00')">Saltar</app-button2>
+            </div>
+            <div class="col-6">
+                <app-button2 type="primario" size="medium" auto="true" (click)="closeListOpenSingle(['modal-splash-01'],'modal-splash-02')">Siguiente</app-button2>
+            </div>
+        </div>
+    </div>
+</app-modal-splash>
+<app-modal-splash name="modal-splash-02" activateBack="true" (onBack)="closeListOpenSingle(['modal-splash-02'],'modal-splash-01')">
+    <div class="modal_section__header pt-5">
+        <div class="text-center">
+            <app-image src="assets/imgs/svg/img-welcome-02.svg" alt="Imagen regerencial paso 2"></app-image>
+        </div>
+    </div>
+    <div class="modal_section__body">
+        <div class="row text-center">
+            <div class="col-12 mb-2">
+                <app-bullet-step current="1"></app-bullet-step>
+            </div>
+            <div class="col-12">
+                <app-paragraph type="step">Te damos el control para que decidas el monto que quieres pagar.</app-paragraph>
+            </div>
+        </div>
+    </div>
+    <div class="modal_section__footer text-center">
+        <div class="row">
+            <div class="col-6">
+                <app-button2 size="medium" type="terciario" auto="true" (click)="closeListOpenSingle(['modal-splash-02'],'modal-splash-01')">Saltar</app-button2>
+            </div>
+            <div class="col-6">
+                <app-button2 size="medium" type="primario" auto="true" (click)="closeListOpenSingle(['modal-splash-02'],'modal-splash-03')">Siguiente</app-button2>
+            </div>
+        </div>
+    </div>
+</app-modal-splash>
+<app-modal-splash name="modal-splash-03" activateBack="true" (onBack)="closeListOpenSingle(['modal-splash-03'],'modal-splash-02')">
+    <div class="modal_section__header pt-5">
+        <div class="text-center">
+            <app-image src="assets/imgs/svg/img-welcome-03.svg" alt="Imagen regerencial paso 3"></app-image>
+        </div>
+    </div>
+    <div class="modal_section__body">
+        <div class="row text-center">
+            <div class="col-12 mb-2">
+                <app-bullet-step current="2"></app-bullet-step>
+            </div>
+            <div class="col-12">
+                <app-paragraph type="step">Guarda tus medios de pago favoritos y paga en un click!</app-paragraph>
+            </div>
+        </div>
+    </div>
+    <div class="modal_section__footer text-center">
+        <div class="row text-center">
+            <div class="col-12">
+                <div class="row">
+                    <div class="offset-6 col-6">
+                        <app-button2 size="medium" type="primario" auto="true" (click)="closeListOpenSingle(['modal-splash-03'],'')">Finalizar</app-button2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</app-modal-splash>

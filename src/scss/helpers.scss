@@ -1,0 +1,39 @@
+.text-right {
+    text-align: right;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.img-fluid {
+    max-width: 100%;
+}
+
+.app-swiper-wrapper {
+    margin-top: 24px!important;
+    width: 100%;
+    margin: auto;
+    @media (min-width: 576px) {
+        width: calc(540px - 30px);
+        margin: auto;
+    }
+    @media (min-width: 768px) {
+        width: calc(720px - 30px);
+    }
+    @media (min-width: 992px) {
+        width: calc(960px - 30px);
+    }
+    @media (min-width: 1200px) {
+        width: calc(1140px - 30px);
+    }
+}
+
+img.img-responsive {
+    width: 100%;
+    height: auto;
+}

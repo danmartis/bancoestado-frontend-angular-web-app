@@ -1,0 +1,234 @@
+@import '../../../../../scss/_vars';
+@import '../../../../../scss/_mixins';
+:host {
+    display: block;
+    position: relative;
+    .input {
+        position: relative;
+        margin-bottom: 1.5625rem;
+        .input-container {
+            position: relative;
+            margin-bottom: 0.9375rem;
+            height: 3rem;
+            i {
+                position: absolute;
+                right: 0.9375rem;
+                top: 0;
+                bottom: 0;
+                margin: auto;
+                height: 1.125rem;
+                font-size: 1.125rem;
+            }
+             ::ng-deep input,
+            input {
+                width: 100%;
+                height: 100%;
+                border-radius: $base-border-radius;
+                border: $color-input-border 1px solid;
+                padding: 1rem;
+                font-size: 0.875rem;
+                color: $color-input-text;
+                &:focus,
+                &:focus {
+                    outline: none;
+                    border-color: $color-action;
+                }
+                &[disabled] {
+                    color: $color-text-disabled;
+                    background-color: $color-input-border;
+                }
+            }
+            &.input--icon {
+                input {
+                    padding-right: 2.5rem;
+                }
+            }
+            &.input--valid {
+                input {
+                    padding-right: 2.5rem;
+                }
+                i {
+                    color: $color-success;
+                }
+            }
+            &.input--invalid {
+                input {
+                    padding-right: 2.5rem;
+                    border-color: $color-danger;
+                }
+                i {
+                    color: $color-danger;
+                }
+            }
+             ::placeholder {
+                color: $color-input-placeholder;
+            }
+            &.input-native-icon {
+                input {
+                    padding-left: 2.5rem;
+                }
+                .input__icon-left i {
+                    color: $color-paragraph !important;
+                    position: absolute;
+                    left: 0.9375rem;
+                    right: auto;
+                    top: 0;
+                    bottom: 0;
+                    margin: auto;
+                    height: 1.125rem;
+                    font-size: 1.125rem;
+                }
+                //ICON SRC * Cuando el icono es un vector o png
+            }
+            //ICON SRC * Cuando el icono es un vector o png
+            .input__icon-left--image {
+                height: 20px;
+                //outline: 1px solid red;
+                padding: 1px 1px 1px 1px;
+                position: absolute;
+                top: 1em;
+                left: 1em;
+                width: 20px;
+            }
+        }
+        small {
+            position: absolute;
+            top: 2.9rem;
+            text-align: left;
+            left: 1rem;
+            color: #f44336 !important;
+            font-size: 0.75rem;
+            width: 100%;
+        }
+        &.input--icon-left {
+            input {
+                padding-left: 2.5rem !important;
+            }
+            .input__icon-left i {
+                color: $color-paragraph !important;
+                position: absolute;
+                left: 0.9375rem;
+                right: auto;
+                top: 0;
+                bottom: 0;
+                margin: auto;
+                height: 1.125rem;
+                font-size: 1.125rem;
+            }
+        }
+        &.mb-0 {
+            .input-container {
+                margin-bottom: 0;
+            }
+        }
+    }
+    .input__drop {
+        position: absolute;
+        z-index: 9;
+        background: #ffffff;
+        width: 100%;
+        border-radius: 0.5rem;
+        top: 48px;
+        background: $color-primary-light;
+        box-shadow: 0rem 0.5rem 0.5rem 0rem rgba(0, 0, 0, 0.09);
+        ul {
+            li {
+                padding: 1rem;
+                font-size: 0.875rem;
+                &.input__prop__match {
+                    background-color: $color-hover-options;
+                }
+                &:first-child {
+                    padding-top: 1rem;
+                }
+                &:last-child {
+                    padding-bottom: 1rem;
+                }
+            }
+        }
+    }
+    &.mb-0>.input {
+        margin-bottom: 0;
+    }
+    &.input--datepicker ::ng-deep img {
+        width: 10px;
+        right: 20px;
+        top: 45%;
+        position: absolute;
+    }
+    @media (max-width: 550px) {
+        &.input--datepicker ::ng-deep img {
+            width: 10px;
+            right: 10px;
+        }
+    }
+    /*--INPUT DROPDOWM--*/
+    .input-dropdown {
+        position: relative;
+        &__list {
+            border-radius: $base-border-radius;
+            box-shadow: 0rem 1.4375rem 1.4375rem 0rem rgba(0, 0, 0, 0.07);
+            margin: 1px 0 0 0;
+            padding: 0 0 0 0;
+            position: absolute;
+            left: 0;
+            top: 64px;
+            transition: all 0.3s ease !important;
+            width: 100%;
+            z-index: 20;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            max-height: 0;
+            &.open {
+                visibility: visible;
+                opacity: 1;
+                max-height: none;
+                overflow: hidden;
+            }
+        }
+        &__item {
+            background-color: $color-primary-light;
+            color: $color-paragraph;
+            @include font-size(14);
+            @include line-height(16);
+            font-weight: 400;
+            padding: 1.1em 1.3em 1.1em 1.3em;
+            transition: all 0.3s ease !important;
+            span {
+                color: #042C5C;
+            }
+            &:hover {
+                background-color: #F4F7FA;
+            }
+            &--delete {
+                color: #FB6262;
+            }
+        }
+        &__group {
+            .input-dropdown__item {
+                padding-left: 2.2rem;
+            }
+        }
+        &__title-group {
+            background-color: $color-primary-light;
+            color: $color-secondary;
+            font-weight: bold;
+            @include font-size(14);
+            @include line-height(16);
+            margin: 0;
+            padding: 1.1em 1.3em 1em 1.3em;
+        }
+    }
+    .input-dropdown--active {
+        .input-dropdown__list {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0px);
+            max-height: 1000px;
+            transition: all .2s ease;
+            overflow: hidden;
+        }
+    }
+    /*--FIN INPUT DROPDOWM--*/
+}

@@ -1,0 +1,19 @@
+:host .login-flow__logo-container {
+  width: 10rem;
+  margin: auto;
+  margin-top: 1rem;
+  margin-bottom: 2.5rem;
+}
+
+:host ::ng-deep .modal--login-flow .modal__box .modal__box__content .modal__box__content__footer {
+  background: #fafafb;
+  border-radius: 0 0 0.7813rem 0.7813rem;
+}
+
+:host ::ng-deep .modal--login-flow .modal__box .modal__box__content .modal__box__content__footer .button {
+  margin: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  line-height: 1rem;
+}
+/*# sourceMappingURL=login-flow.component.css.map */

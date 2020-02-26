@@ -1,0 +1,115 @@
+.boxs-1 {
+  -webkit-box-shadow: 0rem 0.0625rem 0.5rem 0rem rgba(0, 0, 0, 0.07);
+          box-shadow: 0rem 0.0625rem 0.5rem 0rem rgba(0, 0, 0, 0.07);
+}
+
+.boxs-2 {
+  -webkit-box-shadow: 0rem 1.5375rem 1.5375rem 0rem rgba(0, 0, 0, 0.07);
+          box-shadow: 0rem 1.5375rem 1.5375rem 0rem rgba(0, 0, 0, 0.07);
+}
+
+.boxs-3 {
+  -webkit-box-shadow: 0rem 1.6375rem 1.6375rem 0rem rgba(0, 0, 0, 0.07);
+          box-shadow: 0rem 1.6375rem 1.6375rem 0rem rgba(0, 0, 0, 0.07);
+}
+
+.boxs-4 {
+  -webkit-box-shadow: 0rem 1.7375rem 1.7375rem 0rem rgba(0, 0, 0, 0.07);
+          box-shadow: 0rem 1.7375rem 1.7375rem 0rem rgba(0, 0, 0, 0.07);
+}
+
+.boxs-5 {
+  -webkit-box-shadow: 0rem 1.8375rem 1.8375rem 0rem rgba(0, 0, 0, 0.07);
+          box-shadow: 0rem 1.8375rem 1.8375rem 0rem rgba(0, 0, 0, 0.07);
+}
+
+:host > div.checkbox--with-value {
+  position: relative;
+  padding: 0 0 0 0;
+}
+
+:host > div.checkbox--with-value span {
+  vertical-align: top;
+  padding: 0 0 0 0;
+  color: #77869E;
+  font-size: 14px;
+  font-size: 0.875rem;
+  line-height: 20px;
+  line-height: 1.25rem;
+  font-weight: 400;
+  margin: 0 0 0 8px;
+}
+
+:host > div.position--absolute:not(.checkbox--with-value) {
+  vertical-align: top;
+  height: 1.2rem;
+  width: 1.2rem;
+  margin: auto;
+  position: relative;
+  overflow: hidden;
+}
+
+:host > div.inline-block {
+  vertical-align: top;
+  display: inline-block;
+  position: relative;
+}
+
+:host > div .account-group__card__check {
+  vertical-align: top;
+  bottom: 0;
+  height: 1.2rem;
+  width: 1.2rem;
+  margin: auto;
+  position: relative;
+  display: inline-block;
+}
+
+:host > div .account-group__card__check .account-group__card__check__ui {
+  top: 0;
+  left: 0;
+  height: 1.2rem;
+  width: 1.2rem;
+  margin: auto;
+  position: absolute;
+  overflow: hidden;
+  border: solid 0.1rem #BFC5D2;
+  background-color: #ffffff;
+  border-radius: 0.2rem;
+}
+
+:host > div .account-group__card__check input:checked ~ .account-group__card__check__ui {
+  background-color: #042c5c;
+  border-color: #042c5c;
+}
+
+:host > div .account-group__card__check input:checked ~ .account-group__card__check__ui::after {
+  bottom: 0.2rem;
+  left: 0;
+  right: 0;
+  margin: auto;
+  content: '';
+  display: block;
+  position: absolute;
+  height: 0.7rem;
+  width: 0.4rem;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+  border-bottom: 0.15rem solid #ffffff;
+  border-right: 0.15rem solid #ffffff;
+}
+
+:host > div .account-group__card__check input {
+  opacity: 0;
+  -webkit-transform: scale(4);
+          transform: scale(4);
+}
+
+:host > div p {
+  line-height: 1.6;
+  font-size: 14px;
+  display: inline-block;
+  vertical-align: top;
+  padding-left: 22px;
+}
+/*# sourceMappingURL=checkbox.component.css.map */

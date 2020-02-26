@@ -1,0 +1,123 @@
+<div class="login-flow-se">
+    <div class="login-flow-se__header">
+        <app-modal-icon type="img" src="assets/imgs/svg/icon-login.svg" alt="Icono ok de la modal"></app-modal-icon>
+        <h1>Ingresa tus datos para crear una cuenta</h1>
+    </div>
+    <div class="login-flow-se__body">
+        <div class="mb-2">
+            <app-input type="text" [maxlength]="2" placeholder="Nombre" [value]="nombre" (onChange)="handlerChangeName($event)" 
+                        (keyup)="validateName(nombre)" (keypress)="validateIsLetter($event)" [status]="statusName"></app-input>
+
+            <app-input type="text" placeholder="Correo electronico" [value]="correo" (onChange)="handlerChangeEmail($event)" 
+                        (keyup)="validateEmail(correo)" (keypress)="validateKeySpecial($event)" [status]="statusEmail"></app-input>
+        </div>
+        <div class="mb-2">
+            <app-button2 auto="true" type="terciario">
+                Ya tengo una cuenta
+            </app-button2>
+            <div class="mb-2"></div>
+            <!--<app-button2 auto="true" type="primario" (click)="closeListOpenSingle([''], 'modal-login-se-code')">
+                Crear una cuenta
+            </app-button2>-->
+            <app-button type="modal" [disabled]="btnCreateAccountDisabled" (click)="createAccountInit()">
+                Crear una cuenta
+            </app-button>
+        </div>
+    </div>
+    <div class="login-flow-se__footer">
+        <p>O puedes registrarte usando</p>
+        <div class="mt-2 row">
+            <div class="col-12">
+                <div class="login-flow-05">
+                    <button class="button-social">
+                        <div class="button-social__image">
+                            <app-image src="assets/imgs/facebook.svg"></app-image>
+                        </div> <span>Facebook</span>
+                    </button>
+                </div>
+                <div class="login-flow-05">
+                    <button class="button-social">
+                        <div class="button-social__image">
+                            <app-image src="assets/imgs/google.svg"></app-image>
+                        </div> <span>Google</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--Modal validacion correo-->
+<app-modal name="modal-login-se-code">
+    <div class="modal_section__header text-center">
+        <app-modal-icon type="img" src="assets/imgs/svg/icon-correo-bg.svg" alt="Icono ok de la modal"></app-modal-icon>
+        <app-modal-title>Solicitud enviada</app-modal-title>
+        <app-paragraph>Escribe el codigó de activación que se ha enviado a {{correo}}</app-paragraph>
+    </div>
+    <div class="modal_section__body">
+        <div class="input-enter-code">
+            <div class="input-enter-code__cont"><input type="text" #v1 maxlength="1" (keypress)="validateIsNumber($event)"></div>
+            <div class="input-enter-code__cont"><input type="text" #v2 maxlength="1" (keypress)="validateIsNumber($event)"></div>
+            <div class="input-enter-code__cont"><input type="text" #v3 maxlength="1" (keypress)="validateIsNumber($event)"></div>
+            <div class="input-enter-code__cont"><input type="text" #v4 maxlength="1" (keypress)="validateIsNumber($event)"></div>
+            <div class="input-enter-code__cont"><input type="text" #v5 maxlength="1" (keypress)="validateIsNumber($event)"></div>
+            <div class="input-enter-code__cont"><input type="text" #v6 maxlength="1" (keypress)="validateIsNumber($event)"></div>
+        </div>
+    </div>
+    <div class="modal_section__footer text-center">
+        <div class="row">
+            <div class="col-12 col-md-8 offset-md-2">
+                <app-button2 type="terciario" auto="true">Reenviar código</app-button2>
+                <app-button2 auto="true" type="primario" (click)="closeListOpenSingle(['modal-login-se-code'], 'modal-login-flow-se-password')">Continuar</app-button2>
+            </div>
+        </div>
+    </div>
+</app-modal>
+<!--Fin modal validacion correo-->
+<!--Modal ingreso contraseña-->
+<app-modal name="modal-login-flow-se-password">
+    <div class="modal_section__header text-center">
+        <div class="row">
+            <div class="login-flow-se__logo-container">
+                <app-modal-icon type="il" src="assets/imgs/svg/icon-llave.svg" alt="Icono ok de la modal"></app-modal-icon>
+            </div>
+        </div>
+        <app-modal-title>Hola, {{ nombre }}!</app-modal-title>
+        <app-paragraph>Por tu seguridad recomendamos que escribas una nueva contraseña</app-paragraph>
+    </div>
+    <div class="modal_section__body text-center">
+        <app-input type="password" placeholder="Crear contraseña" [maxlength]="10" (onChange)="handlerChangePass1($event)" 
+                    (keyup)="validatePasswords(pass1, pass2)" (keypress)="validatePassSE($event)" [status]="statusPass1"></app-input>
+        <app-input type="password" placeholder="Repetir contraseña" [maxlength]="10" (onChange)="handlerChangePass2($event)" 
+                    (keyup)="validatePasswords(pass1, pass2)" (keypress)="validatePassSE($event)" [status]="statusPass2"></app-input>
+    </div>
+    <div class="modal_section__footer text-center">
+        <div>
+            <app-button type="modal" [disabled]="!passwordsOk" (click)="createAccountEnd(pass1, pass2)">Aceptar</app-button>
+        </div>
+    </div>
+</app-modal>
+<!--Fin modal ingreso contraseña-->
+<!--Modal felicitacion-->
+<app-modal name="modal-login-flow-se-success">
+    <div class="modal_section__header text-center">
+        <div class="row">
+            <div class="login-flow-se__logo-container">
+                <app-image src="assets/imgs/login-se-code-success.png" alt="Registro Exitoso"></app-image>
+            </div>
+        </div>
+        <app-modal-title>Felicitaciones! tu cuenta fue creada</app-modal-title>
+        <app-paragraph>
+            Antes de continuar cuentános <b>¿Eres cliente de BancoEstado?</b>
+        </app-paragraph>
+    </div>
+    <div class="modal_section__body text-left">
+        <app-capsule type="welcome-03"></app-capsule>
+    </div>
+    <div class="modal_section__footer text-center">
+        <div>
+            <app-button type="auto-block-secondary">No soy cliente</app-button>
+            <app-button type="auto-block">Soy cliente BancoEstado</app-button>
+        </div>
+    </div>
+</app-modal>
+<!--Fin modal felicitacion-->

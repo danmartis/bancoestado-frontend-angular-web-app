@@ -1,0 +1,56 @@
+@import '../../../../../scss/_vars';
+:host {
+    .found-number--single {
+        margin-top: 16px;
+
+        .found-number {
+
+            .found-number__number {
+                font-size: 32px;
+                margin-bottom: 1.2rem;
+                color: $color-primary;
+                
+                .found-number__number__extra {
+                    display: none;
+                }
+            }
+            .found-number__button {}
+            .col-5,.col-7 {
+                width: 100% !important;
+                flex: 100%;
+                max-width: 100% !important;
+            }
+        }
+    }
+
+    .found-number--multi {
+        max-width: 20rem;
+        margin: 16px auto 0;
+
+        .found-number {
+
+            .found-number__number {
+                vertical-align: middle;
+                width: 100%;
+                text-align: left;
+                display: inline-block;
+                font-size: 24px;
+                color: $color-primary;
+
+                .found-number__number__extra {
+                    font-size: 12px;
+                    color: $color-paragraph;
+                    font-family: 'Circular Std Book';
+                    font-weight: normal;
+                    font-style: normal;
+                }
+            }
+
+            .found-number__button {
+                vertical-align: middle;
+                width: 100%;
+                display: inline-block;
+            }
+        }
+    }
+}

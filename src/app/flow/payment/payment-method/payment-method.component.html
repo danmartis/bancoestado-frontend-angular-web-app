@@ -1,0 +1,96 @@
+<app-header-main></app-header-main>
+<app-page>
+
+    <!-- LOGOUT -->
+    <div *ngIf="isLogout()">
+        <app-capsule type="welcome-message-header-logout"></app-capsule>
+    </div>
+
+    <!-- LOGIN -->
+    <div *ngIf="isLogin()">
+        <app-capsule type="welcome-message-header-login"></app-capsule>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <app-back-button-page (click)="goToHome()"></app-back-button-page>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row row-md">
+            <div class="col-12 left-to-center-text mb-5">
+                <app-page-title>¿Cómo quieres pagar?</app-page-title>
+                <app-paragraph>Selecciona un medio de pago para pagar <strong>{{montoPagar}}</strong></app-paragraph>
+            </div>
+            <div class="col-6 col-md-6 col-lg-6 col-xl-4 text-center mb-3" *ngFor="let paymentMethod of paymentMethodList">
+                <app-card-method-payment (click)="closeListOpenSingle([], 'modal__method-payment-02')">
+                    <app-image height="36" src="assets/imgs/{{paymentMethod.image}}" [alt]="paymentMethod.title" type="alternative"></app-image>
+                </app-card-method-payment>
+            </div>
+        </div>
+    </div>
+
+    <!--MODAL ENVIAR COMPROBANTE-->
+    <!--
+    <app-modal name="modal__method-payment-01">
+        <div class="modal_section__header"></div>
+            <div class="modal_section__body text-center">
+                <figure>
+                    <app-image src="assets/imgs/correo.svg" alt="Imagen referencial correo" type="alternative"></app-image>
+                </figure>
+                <div class="mb-4">
+                    <app-modal-title>¿Quieres recibir comprobante?</app-modal-title>
+                    <app-paragraph>Dejános tu correo electrónico y te enviaremos el comprobante</app-paragraph>
+                </div>
+                <div class="col-12 justify-content-between d-flex align-items-end">
+                    <app-input type="text" [value]="correoCliente" placeholder="Ingresa tu correo" (onChange)="handlerChangeEmail($event)" #email (keyup)="validateEmail(email.value)" style="width:100%;"></app-input>
+                    <app-icon *ngIf="isCorreoValid" size="md-20" name="check_circle" [color]="checkColor"></app-icon>
+                </div>
+        </div>
+        <div class="modal_section__footer text-center">
+            <div class="row">
+
+                <div class="col-12 col-md-10 offset-md-1">
+                    <div class="col-12">
+                        <app-button [disabled]="!isCorreoValid" type="modal" (click)="closeListOpenSingle([''], 'modal__method-payment-02')" (click)="enviarComprobante()">Enviar comprobante</app-button>
+                        <div class="mt-2 text-left">
+                            <app-checkbox [checked]="noMostrarMensaje" value="No mostrar más este mensaje" (click)="noMostrarMensaje = !noMostrarMensaje"></app-checkbox>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </app-modal>
+    -->
+    <!--FIN MODAL ENVIAR COMPROBANTE-->
+
+    <!--MODAL CONFIRMACION PAGO-->
+    <app-modal name="modal__method-payment-02">
+        <div class="modal_section__header">
+            <app-modal-icon type="imgSm" src="assets/imgs/card.png" alt="Icono ok de la modal"></app-modal-icon>
+        </div>
+        <div class="modal_section__body text-center">
+            <div class="mb-2">
+                <app-modal-title>Confirmación de pago</app-modal-title>
+                <!--
+                <app-paragraph>Realizarás un pago por un monto de <b>{{ montoPagar }}</b> con cargo a tu tarjeta <b>xxxxx5002</b></app-paragraph>
+                -->
+                <!-- Mensaje provisorio para presentacion a gerencia -->
+                <app-paragraph>Realizarás un pago con Banco Estado por un monto de <b>{{ montoPagar }}</b></app-paragraph>
+            </div>
+        </div>
+        <div class="modal_section__footer text-center">
+            <div class="row">
+                <div class="col-10 offset-1 mb-2">
+                    <app-button2 auto="true" type="terciario" size="lg" (click)="closeListOpenSingle(['modal__method-payment-02'], '')">Cancelar</app-button2>
+                </div>
+                <div class="col-10 offset-1">
+                    <app-button2 auto="true" type="modal" (click)="goToProofPayment()">Aceptar</app-button2>
+                </div>
+            </div>
+        </div>
+    </app-modal>
+    <!--FIN MODAL CONFIRMACION PAGO-->
+</app-page>
+<app-footer-default></app-footer-default>

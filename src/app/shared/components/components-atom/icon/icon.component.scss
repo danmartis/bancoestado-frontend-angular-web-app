@@ -1,0 +1,7 @@
+@import '../../../../../scss/_vars';
+:host {
+    i {
+        color: $color-primary;
+        vertical-align: middle;
+    }
+}

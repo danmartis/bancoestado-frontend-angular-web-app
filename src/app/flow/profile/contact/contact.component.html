@@ -1,0 +1,108 @@
+<app-header-main></app-header-main>
+<app-page>
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-12">
+                <app-back-button-page title="Volver"></app-back-button-page>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 mb-4">
+                <app-page-title>Contacto</app-page-title>
+                <app-paragraph>
+                    Llene este simple formulario y te contactaremos por el correo ingresado.
+                </app-paragraph>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-lg-6 mb-4">
+                <app-card-default type="contact">
+                    <div class="row">
+                        <div class="col-12">
+                            <app-modal-title>Tus datos</app-modal-title>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <app-input placeholder="Nombres"></app-input>
+                        </div>
+                        <div class="col-12">
+                            <app-input placeholder="Correo eléctronico"></app-input>
+                        </div>
+                        <div class="col-5 col-md-4">
+                            <app-select-se type="select-se--phone" label="+56" sufix=" 9" [items]="[{label: '+56', sufix: ' 9'}, {label: '+56', sufix: ' 7'}, {label: '+56', sufix: ' 3'}]"></app-select-se>
+                        </div>
+                        <div class="col-7 col-md-8">
+                            <app-input placeholder="Teléfono"></app-input>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <app-modal-title>Motivo del contacto</app-modal-title>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <app-select-se label="Seleccionar" [items]="[{label: 'Felicitaciones'}, {label: 'Sugerencias'}, {label: 'Consultas'}, {label: 'Reclamos'}]"></app-select-se>
+                        </div>
+                        <div class="col-12">
+                            <app-textarea></app-textarea>
+                        </div>
+                        <div class="col-12">
+                            <div class="inputfile">
+                                <input type="file" name="file" id="file" class="inputfile__input" />
+                                <label class="inputfile__label" for="file">
+                                    <img src="assets/imgs/svg/icon-clip.svg" class="inputfile__icon" alt="">
+                                    <span>Adjuntar Archivo</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </app-card-default>
+                <div class="row mt-4">
+                    <div class="col-12 offset-md-7 col-md-5">
+                        <app-button2 (click)="closeListOpenSingle([''], 'contacto-gracias')" auto="true" type="primario">Enviar</app-button2>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-lg-6 text-center">
+                <app-card-default>
+                    <app-modal-title>Llámanos</app-modal-title>
+                    <div class="mb-4">
+                        <app-paragraph>
+                          Si aún tienes dudas, utiliza el siguiente número y uno de nuestros ejecutivos te ayudará.
+                        </app-paragraph>
+                    </div>
+                    <div class="card-llamanos">
+                      <div class="card-llamanos__img">
+                        <img alt="Logotipo ServiEstado" src="assets/imgs/logo-ServiEstado-horizontal.png">
+                      </div>
+                      <a class="card-llamanos__text" href="tel:6002007000">600 200 7000</a>
+                      <span class="card-llamanos__circle card-llamanos__circle--left"></span>
+                      <span class="card-llamanos__circle card-llamanos__circle--right"></span>
+                    </div>
+                </app-card-default>
+            </div>
+        </div>
+    </div>
+</app-page>
+
+<app-modal name="contacto-gracias">
+    <div class="modal_section__header text-center">
+        <app-modal-icon type="ok"></app-modal-icon>
+    </div>
+
+    <div class="modal_section__body text-center">
+        <app-modal-title>¡Gracias!</app-modal-title>
+        <app-paragraph>Tu <b>Reclamo</b> fue enviado con éxito, pronto te responderemos al correo <b>maria.martinez@gmail.com</b> que ingresaste.</app-paragraph>
+    </div>
+
+    <div class="modal_section__footer text-center">
+        <div class="modal__content__boton">
+            <app-button2 auto="true">Continuar</app-button2>
+        </div>
+    </div>
+    
+</app-modal>
+
+<app-footer-default></app-footer-default>

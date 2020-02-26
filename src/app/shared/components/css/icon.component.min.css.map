@@ -1,0 +1,10 @@
+{
+    "version": 3,
+    "mappings": "AACA,AACI,KADC,CACD,CAAC,AAAC,CACE,KAAK,CCGG,OAAO,CDFlB",
+    "sources": [
+        "../icon/icon.component.scss",
+        "../../../scss/_vars.scss"
+    ],
+    "names": [],
+    "file": "icon.component.min.css"
+}

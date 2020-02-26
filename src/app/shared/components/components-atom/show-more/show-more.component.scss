@@ -1,0 +1,14 @@
+@import '../../../../../scss/_vars';
+:host {
+    .show-more {
+        color: $color-action;
+        font-size: 1rem;
+        text-align: center;
+        margin: auto;
+        width: 5rem;
+        display: block;
+        margin-top: 2rem;
+        background: #ffffff00;
+        border: none;
+    }
+}

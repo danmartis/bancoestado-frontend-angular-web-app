@@ -1,0 +1,52 @@
+<!-- Inicio item cuenta // ejemplo 01 ( Item de Cuenta con texto informativo e icono ) -->
+<div class="item-cuenta">
+    <div class="item-cuenta__container item-cuenta__container--mobile">
+        <div class="item-cuenta__check">
+            <app-checkbox></app-checkbox>
+        </div>
+        <div class="item-cuenta__icon">
+            <img src="assets/imgs/icons/call-answer-white.svg" alt="Icono del servicio a pagar">
+        </div>
+        <div class="item-cuenta__info">
+            <div class="item-cuenta__nombre">Enel</div>
+            <!-- Estado -->
+            <div class="item-cuenta__detalle item-cuenta__detalle--alert" [ngClass]="[getStatus('success')]">
+                No tienes deuda pendiente
+                <i class="item-cuenta__detalle-icon material-icons">check_circle</i>
+            </div>
+            <div class="item-cuenta__detalle item-cuenta__detalle--alert" [ngClass]="[getStatus('danger')]">
+                Error en cuenta
+                <i class="item-cuenta__detalle-icon material-icons">error</i>
+            </div>
+            <div class="item-cuenta__detalle item-cuenta__detalle--alert" [ngClass]="[getStatus('warning')]">
+                Mensaje de alerta
+                <i class="item-cuenta__detalle-icon material-icons">error</i>
+            </div>
+            <!-- Fin estado -->
+        </div>
+        <div class="item-cuenta__monto">
+            <div class="item-cuenta__valor">$0</div>
+        </div>
+        <button class="item-cuenta__action" popoverClass="pop-dropdown" placement="bottom-right" [ngbPopover]="popContent">
+            <i class="material-icons">more_vert </i>
+        </button>
+        <ng-template #popContent>
+            <!-- <app-dropdown [items]="[ { class: '', text: 'Ver detalle'}, { class: '', text: 'Detalle de cuenta'}, { class: 'dropdown__item--delete', text: 'Eliminar cuenta'} ]"></app-dropdown> -->
+            <app-dropdown [items]="[ { class: '', text: 'Detalle de cuenta'}, { class: 'dropdown__item--delete', text: 'Eliminar cuenta'} ]"></app-dropdown>
+        </ng-template>
+    </div>
+    <div class="item-cuenta__container item-cuenta__container--desktop">
+        <div class="item-cuenta__check">
+            <app-checkbox value="Seleccionar"></app-checkbox>
+        </div>
+        <div class="item-cuenta__options">
+            <a href="/" class="item-cuenta__option">
+                <i class="material-icons">edit</i>
+            </a>
+            <a href="/" class="item-cuenta__option">
+                <i class="material-icons">delete</i>
+            </a>
+        </div>
+    </div>
+</div>
+<!-- FIN item cuenta -->

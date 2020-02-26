@@ -1,0 +1,60 @@
+@import 'box-shadow-helper.scss';
+// size
+$base-border-radius: 0.5rem;
+$card-border-radius: 0.7813rem;
+
+// Colors
+$color-text: rgb(119, 134, 158);
+$color-card-footer: #fafafb;
+$color-hover-options: #f4f7fa;
+$color-background-page: #f7f9fc;
+$color-border-light: #f2f2f2;
+$color-primary-light: #ffffff;
+$color-primary: #042c5c;
+$color-secondary: #304566;
+$color-action: #1e63f8;
+$color-action-hover: #2a6dff;
+$color-link: #4990ff;
+$color-action-active: #042c5c;
+$color-paragraph: #77869e;
+$color-label: $color-primary;
+$color-active: #77869e;
+$color-text-disabled: #c3c9d6;
+$color-background-modal: rgba(35, 35, 35, 0.6);
+// input
+$color-input-border-light: rgb(222, 227, 235);
+$color-code-border: #dce0e7;
+$color-input-border: #f4f6f8;
+$color-input-text: $color-primary;
+$color-input-placeholder: #bfc5d2;
+// global states
+$color-success: #00d793 !important;
+$color-success-alternative: #74e89f!important;
+$color-success-light: #eafdf7!important;
+$color-danger: #f44336 !important;
+$color-warning: rgb(255, 184, 66);
+// card
+// account color
+$color-service-electrical: rgb(255, 184, 66);
+$color-service-other: rgb(0, 215, 147);
+$color-service-water: rgb(26, 140, 255); //linear-gradient(0deg, rgb(26, 140, 255) 0%, rgb(105, 147, 254) 100%);
+$color-service-teleco: rgb(126, 129, 255);
+// size
+$h-footer-mobile: 18rem;
+$h-footer-mobile-wrap: 10rem;
+$h-footer-desktop: 9.4rem;
+$h-footer-desktop-wrap: 10.4rem;
+@mixin main-with-header {
+    @media (max-width: 767.99999px) {
+        margin-top: 5rem;
+        display: block;
+    }
+}
+
+@mixin main-without-header-footer {
+    @media (min-width: 768px) {
+        margin-top: -10rem;
+    }
+    display: block;
+    margin-bottom: -10rem;
+}

@@ -1,0 +1,41 @@
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <app-page-title>Tus cuentas inscritas</app-page-title>
+        </div>
+        <div class="col-12">
+            <ngb-tabset>
+                <ngb-tab title="Todas">
+                    <ng-template ngbTabContent>
+                        <div class="account-group__tab__content mt-2">
+                            <div class="row">
+                                <div class="col-12 col-md-12" *ngIf="accounts.length === 0" (click)="setGroupAccounts()">
+                                    <app-empty-areas></app-empty-areas>
+                                </div>
+                                <div *ngFor="let account of accounts" class="col-12 col-md-12 col-lg-6">
+                                    <!--<app-card-account-group [account]="account"></app-card-account-group>-->
+                                    <app-card-account-type-b status="success"></app-card-account-type-b>
+                                </div>
+                            </div>
+                        </div>
+                    </ng-template>
+                </ngb-tab>
+                <ngb-tab>
+                    <ng-template ngbTabTitle>Grupos</ng-template>
+                    <ng-template ngbTabContent>
+                        <div class="d-flex d-flex-wrap group-cards-container mt-2">
+                            <div *ngFor="let group of groups">
+                                <app-card-group [group]="group"></app-card-group>
+                            </div>
+                            <div>
+                                <app-card-added-group (click)="closeListOpenSingle(['*'],'modal-add-group-01')" title="Crear nuevo grupo"></app-card-added-group>
+                            </div>
+                        </div>
+                    </ng-template>
+                </ngb-tab>
+            </ngb-tabset>
+        </div>
+    </div>
+</div>
+
+<app-add-group-flow></app-add-group-flow>

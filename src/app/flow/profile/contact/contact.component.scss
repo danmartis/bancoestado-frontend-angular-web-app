@@ -1,0 +1,78 @@
+@import '../../../../scss/_vars';
+@import '../../../../scss/_select';
+
+.inputfile {
+    position: relative;
+    &__input {
+        width: 0.1px;
+        height: 0.1px;
+        opacity: 0;
+        overflow: hidden;
+        position: absolute;
+        z-index: -1;
+    }
+    &__label {
+        font-size: 1rem;
+        font-weight: 700;
+        color: #1e63f8;
+        display: inline-block;
+        cursor: pointer;
+    }
+    &__icon {
+        width: 30px;
+        height: auto;
+        display: inline-block;
+        vertical-align: middle;
+        margin-right: .5rem;
+    }
+    &__input:focus + label,
+    &__input + label:hover {
+    }
+}
+
+.card-llamanos {
+    background: #f7f9fc;
+    border-radius: 10px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 350px;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 3rem 1rem;
+    overflow: hidden;
+    position: relative;
+    &__img {
+        text-align: center;
+        margin-bottom: 1.5rem;
+        img {
+            width: 150px;
+        }
+    }
+    &__text {
+        color: rgb(119, 134, 158);
+        font-size: 1.7rem;
+        font-weight: bold;
+    }
+    &__circle {
+        border-radius: 50%;
+        background: rgba(0,0,0,0.04);
+        display: block;
+        position: absolute;
+        &--left {
+            left: -6rem;
+            bottom: -6rem;
+            height: 12rem;
+            width: 12rem;
+        }
+        &--right {
+            right: -12rem;
+            top: -2rem;
+            height: 17rem;
+            width: 17rem;
+        }
+    }
+}
+

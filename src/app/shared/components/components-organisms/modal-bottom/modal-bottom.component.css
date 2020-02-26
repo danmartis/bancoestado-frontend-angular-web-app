@@ -1,0 +1,265 @@
+.boxs-1 {
+  -webkit-box-shadow: 0rem 0.0625rem 0.5rem 0rem rgba(0, 0, 0, 0.07);
+          box-shadow: 0rem 0.0625rem 0.5rem 0rem rgba(0, 0, 0, 0.07);
+}
+
+.boxs-2 {
+  -webkit-box-shadow: 0rem 1.5375rem 1.5375rem 0rem rgba(0, 0, 0, 0.07);
+          box-shadow: 0rem 1.5375rem 1.5375rem 0rem rgba(0, 0, 0, 0.07);
+}
+
+.boxs-3 {
+  -webkit-box-shadow: 0rem 1.6375rem 1.6375rem 0rem rgba(0, 0, 0, 0.07);
+          box-shadow: 0rem 1.6375rem 1.6375rem 0rem rgba(0, 0, 0, 0.07);
+}
+
+.boxs-4 {
+  -webkit-box-shadow: 0rem 1.7375rem 1.7375rem 0rem rgba(0, 0, 0, 0.07);
+          box-shadow: 0rem 1.7375rem 1.7375rem 0rem rgba(0, 0, 0, 0.07);
+}
+
+.boxs-5 {
+  -webkit-box-shadow: 0rem 1.8375rem 1.8375rem 0rem rgba(0, 0, 0, 0.07);
+          box-shadow: 0rem 1.8375rem 1.8375rem 0rem rgba(0, 0, 0, 0.07);
+}
+
+@-webkit-keyframes fadeout {
+  0% {
+    -webkit-transform: scaleY(1);
+            transform: scaleY(1);
+    opacity: 1;
+    visibility: visible;
+  }
+  50% {
+    opacity: 0;
+    -webkit-transform: scaleY(1);
+            transform: scaleY(1);
+    visibility: visible;
+    display: block;
+  }
+  51% {
+    display: block;
+  }
+  100% {
+    opacity: 0;
+    -webkit-transform: scaleY(1);
+            transform: scaleY(1);
+    visibility: visible;
+    display: none;
+  }
+}
+
+@keyframes fadeout {
+  0% {
+    -webkit-transform: scaleY(1);
+            transform: scaleY(1);
+    opacity: 1;
+    visibility: visible;
+  }
+  50% {
+    opacity: 0;
+    -webkit-transform: scaleY(1);
+            transform: scaleY(1);
+    visibility: visible;
+    display: block;
+  }
+  51% {
+    display: block;
+  }
+  100% {
+    opacity: 0;
+    -webkit-transform: scaleY(1);
+            transform: scaleY(1);
+    visibility: visible;
+    display: none;
+  }
+}
+
+@-webkit-keyframes fadein {
+  0% {
+    height: 100%;
+    opacity: 0;
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  75% {
+    -webkit-transform: scaleY(1);
+            transform: scaleY(1);
+    opacity: 1;
+    visibility: visible;
+  }
+  100% {
+    bottom: 0;
+    height: 100%;
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    visibility: visible;
+  }
+}
+
+@keyframes fadein {
+  0% {
+    height: 100%;
+    opacity: 0;
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  75% {
+    -webkit-transform: scaleY(1);
+            transform: scaleY(1);
+    opacity: 1;
+    visibility: visible;
+  }
+  100% {
+    bottom: 0;
+    height: 100%;
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    visibility: visible;
+  }
+}
+
+@-webkit-keyframes anim_up {
+  0% {
+    bottom: -8rem;
+  }
+  100% {
+    bottom: 0;
+    visibility: visible;
+  }
+}
+
+@keyframes anim_up {
+  0% {
+    bottom: -8rem;
+  }
+  100% {
+    bottom: 0;
+    visibility: visible;
+  }
+}
+
+@-webkit-keyframes anim_down {
+  0% {
+    bottom: 0;
+  }
+  100% {
+    bottom: -8rem;
+    visibility: visible;
+  }
+}
+
+@keyframes anim_down {
+  0% {
+    bottom: 0;
+  }
+  100% {
+    bottom: -8rem;
+    visibility: visible;
+  }
+}
+
+:host {
+  bottom: 0;
+  position: fixed;
+  left: 0;
+  right: 0;
+  background-color: rgba(35, 35, 35, 0.6);
+  z-index: 9999;
+  width: 100%;
+  height: 0;
+  -webkit-transform: scaleY(0);
+          transform: scaleY(0);
+  visibility: visible;
+  overflow: auto;
+}
+
+:host .modal-bottom {
+  width: 26rem;
+  margin: auto;
+}
+
+:host.modal--open {
+  display: block;
+  -webkit-animation: fadein 0.2s ease 0s forwards;
+          animation: fadein 0.2s ease 0s forwards;
+}
+
+:host.modal--open .modal-bottom__box {
+  -webkit-animation: anim_up 0.2s ease 0s forwards;
+          animation: anim_up 0.2s ease 0s forwards;
+}
+
+:host.modal--close {
+  display: none;
+  -webkit-animation: fadeout .2s ease 0s forwards;
+          animation: fadeout .2s ease 0s forwards;
+}
+
+:host.modal--close .modal-bottom__box {
+  -webkit-animation: anim_down 0.2s ease 0s forwards;
+          animation: anim_down 0.2s ease 0s forwards;
+}
+
+:host .modal-bottom__box {
+  -webkit-box-shadow: 0px -5px 36px 0px rgba(0, 0, 0, 0.24);
+          box-shadow: 0px -5px 36px 0px rgba(0, 0, 0, 0.24);
+  border-radius: 0.7813rem 0.7813rem 0 0;
+  position: absolute;
+  bottom: 0%;
+  left: 0%;
+  background-color: #ffffff;
+  width: 100%;
+  margin: auto;
+  text-align: left;
+}
+
+@media (max-width: 767.99999px) {
+  :host .modal-bottom__box {
+    max-height: 90%;
+    overflow: auto;
+  }
+}
+
+@media (min-width: 768px) {
+  :host .modal-bottom__box {
+    position: relative;
+    max-width: 35rem;
+    margin: auto;
+    margin-top: 5rem;
+    border-radius: 0.7813rem 0.7813rem;
+  }
+}
+
+:host .modal-bottom__box .modal-bottom__box__close-button {
+  position: absolute;
+  background: transparent;
+  height: auto;
+  padding: 0;
+  margin: 0;
+  border: none;
+  cursor: pointer;
+  right: 1.25rem;
+  top: 1.5rem;
+  -webkit-transition: cubic-bezier(0.77, 0, 0.175, 1) 0.5s;
+  transition: cubic-bezier(0.77, 0, 0.175, 1) 0.5s;
+}
+
+:host .modal-bottom__box .modal-bottom__box__close-button:hover {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+  opacity: .8;
+}
+
+:host .modal-bottom__box .modal-bottom__box__header {
+  padding: 1.5rem 1.5rem 0rem;
+}
+
+:host .modal-bottom__box .modal-bottom__box__body {
+  padding: 0.9375rem 1.5rem;
+}
+
+:host .modal-bottom__box .modal-bottom__box__footer {
+  padding: 0.9375rem 1.5rem 1.5rem;
+}
+/*# sourceMappingURL=modal-bottom.component.css.map */

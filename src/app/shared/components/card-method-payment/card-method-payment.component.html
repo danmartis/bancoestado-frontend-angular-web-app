@@ -1,0 +1,83 @@
+<div *ngIf="type === ''" class="card-method-payment">
+    <ng-content></ng-content>
+</div>
+
+<div *ngIf="type === 'selected' && method" class="card-method-container">
+    <div class="card-method boxs-1" [ngClass]="[method.primary ? 'card-method--primary' : 'card-method--secondary', isCompanyMethod() ? 'card-method--compay' : '']">
+        <div class="card-method__header">
+            <button class="context-menu" popoverClass="pop-dropdown" placement="bottom-right" [ngbPopover]="popContent">
+                    <app-icon name="more_vert" size="md-18" [color]="getIconColorContextMenu()"></app-icon>
+                </button>
+            <ng-template #popContent>
+                <app-dropdown [items]="[ { class: '', text: 'Opción a definir'}, { class: 'dropdown__item--delete', text: 'Eliminar'} ]"></app-dropdown>
+            </ng-template>
+            <h4>{{method.bank}}</h4>
+        </div>
+        <div class="card-method__body">
+            <div class="card-method__body__description">
+                {{method.typeDescription}}
+            </div>
+            <div class="card-method__body__number">
+                {{method.numberResume}}
+            </div>
+        </div>
+        <div class="card-method__footer text-right">
+            <app-button2 auto="true" *ngIf="!method.primary" size="small" type="secundario">Seleccionar</app-button2>
+            <div class="card-method__footer__icon-check" *ngIf="method.primary">
+                <i class="material-icons md-36">check_circle</i>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="type === 'create'" class="card-method-container">
+    <div class="card-method-create boxs-1">
+        <div class="card-method-create__container">
+            <div class="card-method-create__icon">
+                <i class="material-icons">add_circle</i>
+            </div>
+            <div class="card-method-create__content">
+                <div class="card-method-create__content__title">Inscribir medio de pago</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="type === 'change' && method" class="card-method-container">
+    <div class="card-method-change boxs-1">
+        <div>
+            <div class="card-method-change__radio">
+                <app-radio [checked]="method.primary" display="inline-block"></app-radio>
+            </div>
+            <div class="card-method-change__description">
+                <div class="card-method-change__number">
+                    {{method.number}}
+                </div>
+                <div class="card-method-change__title">
+                    {{method.bank}}
+                </div>
+            </div>
+            <div class="card-method-change__image">
+                <app-image src="assets/imgs/{{method.image}}" [alt]="method.bank"></app-image>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="type === 'be-select' && method" class="card-method-select-container">
+    <div class="card-method-select">
+        <div>
+            <div class="card-method-select__radio">
+                <app-radio display="inline-block"></app-radio>
+            </div>
+            <div class="card-method-select__description">
+                <div class="card-method-select__number">
+                    {{method.number}}
+                </div>
+                <div class="card-method-select__title">
+                    {{method.title}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

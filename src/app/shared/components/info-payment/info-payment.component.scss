@@ -1,0 +1,38 @@
+@import '../../../../scss/_vars';
+:host {
+    .info-payment {
+        text-align: center;
+        padding: 1.75em 1em;
+        border-bottom: 0.0625rem solid $color-input-placeholder;
+        &__logo {
+            margin: 0;
+        }
+        &__amount {
+            font-size: 1.5rem;
+            line-height: 1.5rem;
+            font-weight: bold;
+            color: $color-primary;
+            margin-bottom: .8em;
+             ::ng-deep span {
+                color: $color-active;
+                font-size: 0.875rem;
+            }
+             ::ng-deep p {
+                margin: 0rem 0 0;
+            }
+        }
+        &__origin {
+            font-size: 1rem;
+            line-height: 1rem;
+            font-weight: 500;
+            color: $color-primary;
+             ::ng-deep span {
+                color: $color-active;
+                font-size: 0.875rem;
+            }
+             ::ng-deep p {
+                margin: 0.125rem 0 0;
+            }
+        }
+    }
+}

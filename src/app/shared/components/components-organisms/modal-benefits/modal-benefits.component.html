@@ -1,0 +1,104 @@
+<app-modal name="modal-benefits">
+    <div class="modal_section__header text-center">
+        <app-image src="assets/imgs/benefist_header.png" type="alternative" alt=""></app-image>
+        <app-modal-title>¿Eres nuevo en ServiEstado?</app-modal-title>
+        <app-paragraph>Estos son algunos beneficios de hacerse cliente <strong>gratis</strong></app-paragraph>
+    </div>
+    <div class="modal_section__body">
+        <div class="benefist-list">
+            <div>
+                <div class="check-icon">
+                    <app-icon [color]="checkColor" name="check" size="md-18"></app-icon>
+                </div>
+                <app-paragraph display="inline-block">Podrás inscribir cuentas</app-paragraph>
+            </div>
+            <div>
+                <div class="check-icon">
+                    <app-icon [color]="checkColor" name="check" size="md-18"></app-icon>
+                </div>
+                <app-paragraph display="inline-block">Crear grupos de pago</app-paragraph>
+            </div>
+            <div>
+                <div class="check-icon">
+                    <app-icon [color]="checkColor" name="check" size="md-18"></app-icon>
+                </div>
+                <app-paragraph display="inline-block">Revisar tus comprobantes</app-paragraph>
+            </div>
+            <div>
+                <div class="check-icon">
+                    <app-icon [color]="checkColor" name="check" size="md-18"></app-icon>
+                </div>
+                <app-paragraph display="inline-block">Registrar tus medios de pago y paga en un click</app-paragraph>
+            </div>
+        </div>
+    </div>
+    <div class="modal_section__footer text-center">
+        <app-button type="modal" (click)="goToLogin()">Hazte cliente</app-button>
+    </div>
+</app-modal>
+
+<app-modal name="modal-benefits-be">
+    <div class="modal_section__header text-center">
+        <app-image src="assets/imgs/benefist_header.png" type="alternative" alt=""></app-image>
+        <app-modal-title>Beneficios cliente BancoEstado</app-modal-title>
+    </div>
+    <div class="modal_section__body">
+        <div class="benefist-list">
+            <div>
+                <div class="check-icon">
+                    <app-icon [color]="checkColor" name="check" size="md-18"></app-icon>
+                </div>
+                <app-paragraph display="inline-block">Sincronización de tus medios de pago favoritos</app-paragraph>
+            </div>
+            <div>
+                <div class="check-icon">
+                    <app-icon [color]="checkColor" name="check" size="md-18"></app-icon>
+                </div>
+                <app-paragraph display="inline-block">Podrás revisar tu historial de pagos</app-paragraph>
+            </div>
+            <div>
+                <div class="check-icon">
+                    <app-icon [color]="checkColor" name="check" size="md-18"></app-icon>
+                </div>
+                <app-paragraph display="inline-block">Podrás ver las deudas de tus productos bancarios</app-paragraph>
+            </div>
+        </div>
+    </div>
+    <div class="modal_section__footer text-center">
+        <div class="row">
+            <div class="col-12 col-md-8 offset-md-2">
+                <app-button2 type="terciario" (click)="closeListOpenSingle(['modal-benefits'],'')">No soy cliente</app-button2>
+                <app-button2 (click)="closeListOpenSingle(['modal-benefits'],'')">Soy cliente BancoEstado</app-button2>
+            </div>
+        </div>
+    </div>
+</app-modal>
+
+<app-modal name="modal-benefits-be-no-button">
+    <div class="modal_section__header text-center">
+        <app-image src="assets/imgs/benefist_header.png" type="alternative" alt=""></app-image>
+        <app-modal-title>Beneficios cliente BancoEstado</app-modal-title>
+    </div>
+    <div class="modal_section__body">
+        <div class="benefist-list">
+            <div>
+                <div class="check-icon">
+                    <app-icon [color]="checkColor" name="check" size="md-18"></app-icon>
+                </div>
+                <app-paragraph display="inline-block">Sincronización de tus medios de pago favoritos</app-paragraph>
+            </div>
+            <div>
+                <div class="check-icon">
+                    <app-icon [color]="checkColor" name="check" size="md-18"></app-icon>
+                </div>
+                <app-paragraph display="inline-block">Podrás revisar tu historial de pagos</app-paragraph>
+            </div>
+            <div>
+                <div class="check-icon">
+                    <app-icon [color]="checkColor" name="check" size="md-18"></app-icon>
+                </div>
+                <app-paragraph display="inline-block">Podrás ver las deudas de tus productos bancarios</app-paragraph>
+            </div>
+        </div>
+    </div>
+</app-modal>

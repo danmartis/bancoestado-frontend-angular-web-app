@@ -1,0 +1,855 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import 'scss/grid.scss';
+@import 'scss/icon.scss';
+@import 'scss/helpers.scss';
+@import 'scss/_vars.scss';
+@import 'scss/_mixins.scss';
+@import 'scss/box-shadow-helper.scss';
+
+* {
+    font-family: 'Circular Std';
+    box-sizing: border-box;
+}
+
+html,
+body {
+    background-color: $color-background-page;
+    color: $color-paragraph;
+    @include font-size(16);
+    @include line-height(24);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-tap-highlight-color: transparent;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    min-height: 100%;
+    @media (max-width: 767.99999px) {
+        //padding-top: 5rem;
+    }
+}
+
+.logo-splash {
+    margin-top: 50px;
+    margin-bottom: 25px;
+}
+
+.container-min {
+    max-width: 25rem;
+}
+
+.hero-title {
+    color: $color-primary;
+    @include font-size(64);
+    @include line-height(72);
+    font-weight: bold;
+    margin: 1.5em 0 .5em 0;
+    transition: all 0.3s ease;
+    @media (max-width: 768px) {
+        @include font-size(48);
+        @include line-height(56);
+    }
+    @media (max-width: 480px) {
+        @include font-size(56);
+        @include line-height(64);
+        margin: .5em 0 .5em 0;
+    }
+}
+
+.hero-title--sub {
+    @include font-size(48);
+    @include line-height(52);
+    margin: .2em 0 .5em 0;
+    @media (max-width: 768px) {
+        @include font-size(36);
+        @include line-height(48);
+    }
+    @media (max-width: 480px) {
+        @include font-size(48);
+        @include line-height(52);
+    }
+}
+
+.img-credit-card-method {
+    width: 2.5rem;
+    height: auto;
+}
+
+.img-inline-block {
+    display: inline-block;
+    width: auto;
+}
+
+.img-logo-vertical {
+    margin: 40px auto;
+    height: 32px;
+    width: auto;
+}
+
+// SLIDE tns
+.tns-outer {
+    margin-bottom: 40px;
+}
+
+.tns-nav {
+    max-width: 300px;
+    height: 5px;
+    display: flex;
+    border-radius: 3.5px;
+    overflow: hidden;
+    background-color: $color-code-border;
+    position: absolute;
+    bottom: 18px;
+    width: 100%;
+    left: 0;
+    right: 0;
+    margin: auto;
+    visibility: hidden;
+    @media (max-width: 480px) {
+        visibility: visible;
+    }
+    button {
+        border: none;
+        margin: 0;
+        flex: 1;
+        height: 100%;
+        border-radius: 3.5px;
+        background-color: $color-code-border;
+    }
+    button.tns-nav-active {
+        background-color: $color-action;
+    }
+}
+
+// SLIDER
+.container-slider {
+    @media (max-width: 767px) {
+        width: 100%;
+        max-width: 100%;
+        position: relative;
+        >.row {
+            margin: 0 -30px;
+        }
+    }
+}
+
+.item-card-slider {
+    overflow: hidden;
+    width: 379px;
+    position: relative;
+    background-color: #ffffff;
+    color: #304566;
+    border-radius: 12px;
+    height: auto;
+    min-height: 360px;
+    box-shadow: 0rem 2px 5px 0rem rgba(0, 0, 0, 0.07);
+    margin-bottom: 4px;
+    padding: 0 0 0 0;
+    transition: all 0.3s ease;
+
+    @media (max-width: 768px) {
+        height: 270px;
+        width: 280px;
+    }
+ 
+    .item-card-slider-image {
+        width: 100%;
+        height: 200px;
+        background-size: cover;
+        margin: auto;
+    }
+    &.item-card-slider-video-wrapper {
+        padding-top: 165px;
+        width: 220px;
+        @media (max-width: 1211px) {
+            width: 220px;
+        }
+        @media (max-width: 1202px) {
+            width: 220px;
+        }
+        @media (max-width: 1199px) {
+            width: 220px;
+        }
+        @media (max-width: 991px) {
+            width: 220px;
+        }
+    }
+    .item-card-slider-video {
+        overflow: hidden;
+        width: 100%;
+        height: 150px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        background-size: cover;
+        margin: auto;
+        .video-responsive {
+            border-radius: 0;
+        }
+    }
+    .item-card-slider-text-min {
+        @include font-size(13);
+        @include line-height(16);
+        color: $color-paragraph;
+        font-family: 'Circular Std Book';
+        margin: 0 0 0 0;
+        padding: 1em 1em 1em 1em;
+    }
+    .item-card-slider-text-primary {
+        @include font-size(16);
+        @include line-height(24);
+        color: $color-primary;
+        font-family: 'Circular Std Book';
+        font-weight: 600;
+        margin: 0 0 0 0;
+        padding: .5em 1em .5em 1em;
+    }
+    .item-card-slider-icon {
+        color: $color-action;
+        background-color: $color-input-border-light;
+        width: 50px;
+        text-align: center;
+        height: 50px;
+        line-height: 4.7;
+        border-radius: 50%;
+        margin-bottom: 8px;
+    }
+    .item-card-slider-title {}
+    .item-card-slider-question {
+        color: $color-action;
+        font-size: 0.8rem;
+    }
+    &.item-card-slider-help {
+        padding: 1.5rem;
+        width: 220px;
+        @media (max-width: 1211px) {
+            width: 220px;
+        }
+        @media (max-width: 1202px) {
+            width: 220px;
+        }
+        @media (max-width: 1199px) {
+            width: 220px;
+        }
+        @media (max-width: 991px) {
+            width: 220px;
+        }
+    }
+}
+
+.item-card-slider-circle {
+    text-align: center;
+    padding: 0 8px;
+    .item-card-slider-image {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        background-size: cover;
+    }
+    .item-card-slider-text-min {
+        color: $color-primary;
+    }
+    .item-card-slider-text-primary {
+        font-size: 0.8rem;
+    }
+}
+
+
+/* Rules for sizing the icon. */
+
+.material-icons.md-18 {
+    font-size: 18px;
+}
+
+.material-icons.md-24 {
+    font-size: 24px;
+}
+
+.material-icons.md-36 {
+    font-size: 36px;
+}
+
+.material-icons.md-48 {
+    font-size: 48px;
+}
+
+.material-icons.md-75 {
+    font-size: 75px !important;
+}
+
+
+/* Rules for using icons as black on a light background. */
+
+.material-icons.md-dark {
+    color: rgba(0, 0, 0, 0.54);
+}
+
+.material-icons.md-dark.md-inactive {
+    color: rgba(0, 0, 0, 0.26);
+}
+
+
+/* Rules for using icons as white on a dark background. */
+
+.material-icons.md-light {
+    color: rgba(255, 255, 255, 1);
+}
+
+.material-icons.md-light.md-inactive {
+    color: rgba(255, 255, 255, 0.3);
+}
+
+// FOOTER
+.page-container {
+    position: relative;
+    min-height: 100vh;
+    padding: 0 0 0 0;
+    // @media (min-width: 768px) {
+    //     padding-top: 160px;
+    // }
+}
+
+.content-wrap {
+    min-height: 100vh;
+    padding: 0 0 70px 0;
+    transition: all 0.3s ease;
+    @media (min-width: 768px) {
+        padding: 0 0 120px 0;
+    }
+}
+
+.introjs-helperLayer {
+    background: #00000003!important;
+    box-shadow: none!important;
+    border: none!important;
+}
+
+.tooltip-ui {
+    background: #5B92FE;
+    border-radius: 10px;
+    color: white;
+    width: calc(100% - 2.5rem);
+    max-width: 31.25rem;
+    padding: 1em;
+    min-width: 300px;
+    margin-left: -8px;
+    &:after {
+        content: url('assets/imgs/svg/icon-cerrar.svg');
+        position: absolute;
+        right: 1em;
+        top: .5em;
+    }
+    @media (max-width: 360px) {
+        margin-left: 24px;
+        min-width: 290px;
+    }
+    .introjs-tooltiptext {
+        @include font-size(14);
+        strong {
+            line-height: 24px;
+        }
+        p {
+            padding-top: 8px;
+            @include font-size(14);
+            line-height: 20px;
+        }
+    }
+    .introjs-arrow.bottom {
+        border-top-color: #5B92FE;
+    }
+    .introjs-arrow.top {
+        top: -9px;
+        border-bottom-color: #5B92FE;
+    }
+    .introjs-arrow.top-middle {
+        top: -9px;
+        left: 12%;
+        margin-left: 0;
+        border-bottom-color: #5B92FE;
+    }
+    .introjs-arrow.bottom-middle {
+        bottom: -9px;
+        left: 12%;
+        margin-left: 0;
+        border-top-color: #5c91f7;
+    }
+    .introjs-button {
+        border: 0.0625rem solid #fff;
+        background: #fff;
+        color: #5B92FE;
+        border-radius: 16px;
+        font-weight: bold;
+        margin-right: 0;
+        opacity: 1;
+        @include font-size(14);
+        transition: all 0.3s ease !important;
+
+        &:hover {
+            border: 0.0625rem solid #fff;
+            background-color: #fff;
+            color: #5B92FE;
+            box-shadow: none;
+            text-shadow: none;
+            opacity: .9;
+        }
+
+        &:active,
+        &:focus {
+            color: $color-primary-light;
+            border-color: $color-action-active;
+            background-color: $color-action-active;
+            box-shadow: none;
+            text-shadow: none;
+        }
+    }
+}
+
+
+/*
+*************
+Inicializador 
+**************
+*/
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+menu,
+nav,
+p,
+section,
+summary {
+    margin: 0 0 0 0;
+    padding: 0 0 0 0;
+}
+
+a {
+    text-decoration: none;
+    display: inline-block;
+    &:hover {
+        text-decoration: none;
+    }
+}
+
+a:active,
+a:focus,
+a:hover {
+    outline: none;
+}
+
+button:active,
+button:focus,
+button:hover {
+    outline: none;
+}
+
+ol,
+ul {
+    list-style-type: none;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+
+img {
+    border: 0;
+    display: block;
+    height: auto;
+    margin: 0 auto;
+    width: 100%;
+}
+
+
+p {
+    @include font-size(16);
+    @include line-height(24);
+}
+
+h1 {
+    @include font-size(64);
+    @include line-height(72);
+    margin: 0.67em 0;
+}
+
+h2 {
+    @include font-size(48);
+    @include line-height(56);
+}
+
+
+
+// TABLE
+.table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 1rem;
+}
+
+.table th,
+.table td {
+    padding: 8px;
+    text-align: left;
+}
+
+.table-payment-detail {
+    tr {
+        td:nth-child(1) {
+            font-family: 'Circular Std Book';
+            font-weight: 100;
+            text-align: left;
+        }
+        td:nth-child(2) {
+            text-align: right;
+        }
+    }
+}
+
+.table-group-detail {
+    tr {
+        color: $color-paragraph;
+        td:nth-child(1) {
+            font-family: 'Circular Std Book';
+            font-weight: 100;
+            text-align: left;
+        }
+        td:nth-child(2) {
+            text-align: right;
+        }
+    }
+}
+
+.float-right {
+    float: right;
+}
+
+
+/*
+*************
+Clase para manejar contenido en relación al header
+y cambiar el bg cuando es necesario
+**************
+*/
+
+.page {
+    background-color: $color-background-page;
+    display: inline-block;
+    height: 100%;
+    margin: 0 0 0 0;
+    overflow: hidden;
+    padding: 10em 0 10em 0;
+    width: 100%;
+    
+    &--light {
+        background-color: $color-primary-light;
+    }
+    
+    @media (max-width: 996px) {
+        margin: 50px 0 0 0;
+    }
+
+    @media (max-width: 768px) {
+        padding: 7em 0 10em 0;
+    }
+
+    @media (max-width: 480px) {
+        padding: 0 0 10em 0;
+    }
+}
+
+
+/* *********************** /
+/ *** BOOTSTRAP CUSTOM *** /
+/ *********************** */
+
+.breadcrumb {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 2px;
+    margin-bottom: 2px;
+    list-style: none;
+    background-color: transparent;
+}
+
+.breadcrumb-item {
+    padding: 0 8px;
+    &:first-child {
+        padding-left: 0;
+    }
+    // The separator between breadcrumbs (by default, a forward-slash: "/")
+    +.breadcrumb-item::before {
+        display: inline-block; // Suppress underlining of the separator in modern browsers
+        color: $color-paragraph;
+        content: "/";
+        position: relative;
+        left: -6px;
+    }
+    // IE9-11 hack to properly handle hyperlink underlines for breadcrumbs built
+    // without `<ul>`s. The `::before` pseudo-element generates an element
+    // *within* the .breadcrumb-item and thereby inherits the `text-decoration`.
+    //
+    // To trick IE into suppressing the underline, we give the pseudo-element an
+    // underline and then immediately remove it.
+    +.breadcrumb-item:hover::before {
+        text-decoration: underline;
+    }
+    // stylelint-disable-next-line no-duplicate-selectors
+    +.breadcrumb-item:hover::before {
+        text-decoration: none;
+    }
+    &.active {
+        color: $color-paragraph;
+    }
+    a {
+        color: $color-action;
+    }
+}
+
+.nav {
+    &.nav-pills,
+    &.nav-tabs {
+        margin: 0 0 1em 0;
+        .nav-item {
+            display: inline-block;
+            a {
+                border-radius: 0rem;
+                box-shadow: none;
+                border: 0.0625rem solid transparent;
+                background: none;
+                color: $color-paragraph;
+                margin-right: 0.5rem;
+                min-height: 1.2rem;
+                height: auto;
+                padding: 0.35rem 0.8rem;
+                font-size: 0.875rem;
+                border-right: none;
+                border-left: none;
+                border-bottom: transparent 2px solid;
+                &.active {
+                    border-bottom: $color-primary 2px solid;
+                    color: $color-paragraph;
+                }
+            }
+        }
+    }
+}
+
+
+.dropdown-menu {
+    background: $color-primary-light;
+    z-index: 99999;
+}
+
+.popover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1060;
+    display: block;
+    max-width: 276px;
+    text-align: left;
+    text-align: start;
+    font-size: 14px;
+    word-wrap: break-word;
+    color: #ffffff;
+    background-color: #4990ff;
+    background-clip: padding-box;
+    border: 1px solid #4990ff;
+    border-radius: 8px;
+    padding: 16px;
+    line-height: 1.4;
+    margin: 0 1em 0 2em;
+
+    .arrow {
+        position: absolute;
+        display: block;
+        width: 1rem;
+        height: .5rem;
+        margin: 0 .3rem;
+
+        &::after,
+        &::before {
+            position: absolute;
+            display: block;
+            content: "";
+            border-color: transparent;
+            border-style: solid;
+        }
+    }
+}
+
+hr {
+    background: $color-input-border-light;
+    border: none;
+    height: 1px;
+}
+
+// VIDEO RESPONSIVE
+.video-responsive {
+    position: relative;
+    padding-bottom: 56.25%;
+    /* 16/9 ratio */
+    //padding-top: 30px;
+    /* IE6 workaround*/
+    height: 0;
+    overflow: hidden;
+    //border-radius: 0.875rem;
+    border-radius: 12px;
+    &.video-responsive--no-border-radius {
+        border-radius: 0 !important;
+    }
+}
+
+.video-responsive iframe,
+.video-responsive object,
+.video-responsive embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+// CLASES COLOR
+.primary-color {
+    color: $color-link;
+}
+
+.fontColor-primary {
+    color: $color-primary;
+}
+
+.button-group.button-group--2 {
+    display: flex;
+
+    @media (max-width: 575.9999px) {
+        display: block;
+    }
+    >div {
+        padding: 0 15px;
+        width: 50%;
+        @media (max-width: 575.9999px) {
+            width: 100%;
+            padding: 15px 0;
+        }
+        &:last-child {
+            padding-right: 0;
+        }
+        &:first-child {
+            padding-left: 0;
+        }
+    }
+}
+
+
+/**
+<div class="checkbox-fee">
+    <div class="checkbox-fee__value">{{formatNumber(fee.value)}}</div>
+    <div class="checkbox-fee__detail">{{fee.title}}</div>
+</div>
+**/
+
+.checkbox-fee {
+    margin-bottom: 16px;
+    display: inline-block;
+    vertical-align: text-bottom;
+    &__value {
+        vertical-align: top;
+        color: rgb(4, 44, 92);
+        font-size: 16px;
+        font-weight: bold;
+        letter-spacing: 0px;
+        line-height: 21px;
+        display: inline-block;
+        padding-left: 8px;
+    }
+    &__detail {
+        margin-left: 16px;
+        color: $color-text;
+        font-size: 12px;
+        font-weight: 300;
+        letter-spacing: 0px;
+        line-height: 22px;
+        display: inline-block;
+        vertical-align: text-bottom;
+    }
+}
+
+.d-flex-wrap {
+    flex-wrap: wrap;
+}
+
+.d-flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pop-dropdown {
+    padding: 0 !important;
+    border: none !important;
+    //line-height: 0 !important;
+    background: transparent !important;
+}
+
+.left-to-center-text {
+    text-align: center;
+    @media (min-width: 992px) {
+        text-align: left;
+    }
+}
+
+.text-logo-vertical-login {
+    width: 100%;
+    text-align: center;
+    font-family: 'Circular Std Book';
+    color: $color-text;
+    font-size: 16px;
+    font-weight: 300;
+    letter-spacing: 0px;
+    line-height: 24px;
+}
+
+.dropdown {
+    border-radius: 8px;
+    box-shadow: 0rem 1.4375rem 1.4375rem 0rem rgba(0, 0, 0, 0.07);
+    display: inline-block;
+    overflow: hidden;
+    padding: 0 0 0 0;
+    width: auto;
+    min-width: 150px; // revisar si esto no afecta las otras vistas
+    //margin: 0 .5em 0 0;
+    position: relative;
+    right: 15px;
+
+    &__item {
+        background-color: $color-primary-light;
+        color: #8391A9;
+        @include font-size(14);
+        @include line-height(16);
+        font-weight: 400;
+        padding: 1.1em 1.3em 1.1em 1.3em;
+        transition: all 0.3s ease !important;
+        &:hover {
+            background-color: #F4F7FA;
+        }
+        &--delete {
+            color: #FB6262;
+        }
+    }
+
+    @media (max-width: 320px) {
+        right: 10px;
+        transform: scale(.9);
+    }
+}

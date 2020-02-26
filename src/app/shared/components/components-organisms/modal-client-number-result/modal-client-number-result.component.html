@@ -1,0 +1,33 @@
+<app-modal name="modal-client-number-result">
+    <div class="modal_section__header">
+    </div>
+    <div class="modal_section__body text-center">
+        <figure>
+            <img src="assets/imgs/girl-search.svg" class="img-inline-block" alt="">
+        </figure>
+        <div class="mb-4">
+            <app-paragraph>Tu número de cliente es </app-paragraph>
+        </div>
+        <div *ngFor="let cn of clientNumberFound; let i = index" [ngClass]="clientNumberFound.length === 1 ? 'found-number--single' : 'found-number--multi'">
+            <div class="found-number">
+                <div class="row row-small">
+                    <div class="col-5">
+                        <div class="found-number__number">
+                            {{cn.number}}
+                            <div class="found-number__number__extra">
+                                {{cn.extra}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-7">
+                        <div class="found-number__button">
+                            <app-button2 size="medium" type="primario" class="b-mt-0" (click)="assingClientNumber(i)">
+                                <app-icon color="#ffffff" size="md-24" name="content_copy" className="mr-2"></app-icon> Copiar
+                            </app-button2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</app-modal>

@@ -1,0 +1,45 @@
+<header [ngClass]="['header--' + type, sidebarShadow ? 'header--shadow' : '']">
+    <button class="header__button-menu" [ngClass]="sidebarStatus ? 'header__button-menu--open' : 'header__button-menu--close'" (click)="toggleSidebarStatus()">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+
+
+    <div class="header__desktop-menu">
+        <ul>
+            <li class="header__desktop-menu__item--active">
+                <a href="/">Personas</a><br />
+            </li>
+            <li>
+                <a href="#">Empresa</a>
+            </li>
+        </ul>
+    </div>
+    <div class="header__main">
+        <div class="container-fluid">
+            <div class="row">
+                <!-- 
+                <div class="col-12 col-md-6">
+                    <div class="logo min-logo">
+                        <img src="assets/imgs/min-logo.png" alt="">
+                    </div>
+                </div> 
+                -->
+                <div class="col-12 col-md-6">
+                    <div class="header__main__desktop-button text-right">
+                        <div>
+                            <app-button2 auto="true" size="small" type="secundario">Hazte cliente</app-button2>
+                        </div>
+                        <div>
+                            <app-button2 auto="true" size="small" type="primario">Ingresar</app-button2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+<app-sidebar [status]="getSidebarStatus()"></app-sidebar>

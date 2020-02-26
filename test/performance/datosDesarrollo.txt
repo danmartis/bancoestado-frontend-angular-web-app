@@ -1,0 +1,2 @@
+rut,dv,encriptado,nroCtaCte,nombreCtaCte,nroCtaRut,nombreCtaRut,nroCtaAhorro,nombreCtaAhorro,codigosession,otp,canal,url,codigosesion,nroOfuscado,dominio
+4662269,3,19237608,04900002144,CUENTA_CORRIENTE,0004662269,CHEQUERA_ELECTRONICA,91964401514,AHORRO_SIN_LIBRETA,testtest,TEST12,43,172.17.200.33,testtest,8039,domain

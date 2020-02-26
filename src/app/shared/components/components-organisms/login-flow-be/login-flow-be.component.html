@@ -1,0 +1,117 @@
+<app-card-page width="416px">
+    <div class="card-page-header">
+        <img class="img-logo-vertical" src="assets/imgs/logo-BancoEstado-horizontal.png" alt="Login ServiEstado" />
+        <p class="text-logo-vertical-login">Para iniciar sesión ingresa tus datos</p>
+    </div>
+    <div class="card-page-body">
+        <div class="mb-2">
+            <app-input iconLeft="account_circle" placeholder="Ingresa tu rut"></app-input>
+            <app-input type="password" placeholder="Contraseña"></app-input>
+        </div>
+        <div class="mb-2">
+            <div class="mb-2">
+                <app-button2 type="terciario">
+                    ¿Olvidaste tu contraseña?
+                </app-button2>
+            </div>
+            <app-button2 type="primario" (click)="closeListOpenSingle([''], 'modal-login-be-payment-method')">
+                Iniciar sesión
+            </app-button2>
+        </div>
+    </div>
+    <div class="card-page-footer">
+        <div class="mt-2 row">
+            <div class="col-12">
+                <div class="be-message">
+                    <div class="be-message__image">
+                        <app-image src="assets/imgs/login-be-message.png" type="alternative"></app-image>
+                    </div>
+                    <div class="be-message__text">
+                        <app-paragraph type="min">Si estas en un computador utiliza el código de autorización para sincronizar tus datos.</app-paragraph>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</app-card-page>
+
+<app-modal name="modal-login-be-payment-method">
+    <div class="modal_section__header text-center">
+        <app-modal-icon alt="Icono ok de la modal" src="assets/imgs/login-be-payment-method.png" type="img"></app-modal-icon>
+        <app-modal-title>Mis medios de pago</app-modal-title>
+        <div class="text-center">
+            <app-paragraph>Selecciona un medio por defecto con el cual pagarás tus cuentas en ServiEstado.</app-paragraph>
+        </div>
+    </div>
+    <div class="modal_section__body">
+        <div class="mx-4">
+            <div class="payment-method" *ngFor="let method of paymentMethodBELogin">
+                <app-card-method-payment type="be-select" [method]="method"></app-card-method-payment>
+            </div>
+        </div>
+
+        <div class="mt-4 mx-4 mt-2 text-left">
+            <app-paragraph>Adicional a tus medios de pago, también sincronizaremos la siguiente información</app-paragraph>
+        </div>
+        <div class="mx-4">
+            <div class="mt-4">
+                <app-checkbox [checked]="true" value="Cuentas inscritas en pago de servicio"></app-checkbox>
+            </div>
+            <div class="mt-4">
+                <app-checkbox [checked]="true" value="Historico de pagos"></app-checkbox>
+            </div>
+            <div class="mt-4">
+                <app-checkbox [checked]="true" value="Deudas de productos BancoEstado"></app-checkbox>
+            </div>
+        </div>
+    </div>
+    <div class="modal_section__footer text-center">
+        <div class="row">
+            <div class="col-12 col-md-8 offset-md-2">
+                <app-button2 auto="true" type="primario" (click)="closeListOpenSingle(['modal-login-be-payment-method'], 'modal-login-be-code')">Continuar</app-button2>
+            </div>
+        </div>
+    </div>
+</app-modal>
+
+<app-modal name="modal-login-be-code">
+    <div class="modal_section__header text-center">
+        <app-modal-icon alt="Icono ok de la modal" src="assets/imgs/login-be-securiry-key.png" type="il"></app-modal-icon>
+        <app-modal-title>Ingresa clave de seguridad Banco Estado</app-modal-title>
+        <app-paragraph>Para validar esta operación es necesario que ingresas tu tercera clave <strong>Banco Estado</strong></app-paragraph>
+    </div>
+    <div class="modal_section__body">
+        <div class="input-enter-code">
+            <div class="input-enter-code__cont"><input type="text"></div>
+            <div class="input-enter-code__cont"><input type="text"></div>
+            <div class="input-enter-code__cont"><input type="text"></div>
+            <div class="input-enter-code__cont"><input type="text"></div>
+        </div>
+    </div>
+    <div class="modal_section__footer text-center">
+        <div class="row">
+            <div class="col-12 col-md-8 offset-md-2">
+                <app-button2 auto="true" type="primario" (click)="closeListOpenSingle(['modal-login-be-code'], 'modal-login-be-success')">Autorizar</app-button2>
+            </div>
+        </div>
+
+    </div>
+</app-modal>
+
+<app-modal name="modal-login-be-success">
+    <div class="modal_section__header">
+        <app-modal-icon type="ok"></app-modal-icon>
+        <app-modal-title className="text-center">Felicitaciones!</app-modal-title>
+        <div class="text-center">
+            <app-paragraph>Tus servicios han sido enrolados de forma exitosa.</app-paragraph>
+        </div>
+    </div>
+    <div class="modal_section__footer text-center">
+        <div class="row">
+            <div class="col-12 col-md-8 offset-md-2">
+                <app-button2 (click)="closeListOpenSingle(['modal-login-be-success'],'')" type="primario" auto="true">Continuar</app-button2>
+            </div>
+        </div>
+
+    </div>
+</app-modal>

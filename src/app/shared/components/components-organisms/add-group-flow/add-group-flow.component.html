@@ -1,0 +1,103 @@
+<app-modal-bottom name="modal-add-group-01">
+    <div class="modal-bottom_section__header">
+        <app-modal-title className="mt-1">Crear nuevo grupo</app-modal-title>
+        <app-paragraph type="min">Escribe un nombre y selecciona las cuentas que quieras añadir al grupo</app-paragraph>
+    </div>
+    <div class="modal-bottom_section__body">
+        <div class="row">
+            <div class="col">
+                <app-modal-title type="min">¿Cual es el nombre del grupo?</app-modal-title>
+                <app-input placeholder="Ejemplo: Cuentas de hogar"></app-input>
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col-12">
+                <app-modal-title type="min">Selecciona una imagen</app-modal-title>
+            </div>
+            <div class="col-12">
+                <div class="add-group-flow__icon-list">
+                    <div class="list">
+                        <button *ngFor="let icon of iconGropFavoriteList">
+                            <app-icon-group [name]="icon.name"></app-icon-group>
+                        </button>
+                    </div>
+                    <div class="link">
+                        <app-button type="link" (click)="closeListOpenSingle(['modal-add-group-01'],'modal-add-group-02')">Ver más</app-button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col-12">
+                <div class="account-section">
+                    <div class="title">
+                        <app-modal-title type="min">Selecciona las cuentas
+                            <app-badge type="rounded-number-min">{{addedAccount}}</app-badge>
+                        </app-modal-title>
+                    </div>
+                    <div class="action">
+                        <app-button type="link">
+                            <app-icon [color]="linkColor" name="refresh"></app-icon>
+                            Actualizar
+                        </app-button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="add-group-flow__account-list">
+                    <div *ngFor="let account of accounts">
+                    	<!--<app-card-account-detail type="in-group" [account]="account"></app-card-account-detail>-->
+                        <app-card-account-type-a type="logo" editable="false"></app-card-account-type-a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-bottom_section__footer text-center">
+        <div class="row">
+            <div class="col-12 col-md-8 offset-md-2">
+                <app-button2 auto="true" (click)="closeListOpenSingle(['modal-add-group-01'],'modal-add-group-ok')">Crear grupo</app-button2>
+            </div>
+        </div>
+    </div>
+</app-modal-bottom>
+
+<app-modal-bottom name="modal-add-group-02" activateBack="true" (onBack)="closeListOpenSingle(['modal-add-group-02'],'modal-add-group-01')">
+    <div class="modal-bottom_section__header">
+        <app-modal-title className="ml-5 mt-1">Ver mas imagenes</app-modal-title>
+    </div>
+    <div class="modal-bottom_section__body">
+        <div class="add-group-flow__icon-list">
+            <div class="list-all">
+                <button *ngFor="let icon of iconGropAllList">
+                    <app-icon-group [name]="icon.name"></app-icon-group>
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="modal-bottom_section__footer text-center">
+        <div class="row">
+            <div class="col-12 offset-md-2 col-md-8">
+                <app-button2 auto="true" (click)="closeListOpenSingle(['modal-add-group-02'],'modal-add-group-01')">Seleccionar</app-button2>
+            </div>
+        </div>
+    </div>
+</app-modal-bottom>
+
+<app-modal name="modal-add-group-ok">
+    <div class="modal_section__header text-center">
+        <app-modal-icon type="ok" alt="Icono ok de la modal"></app-modal-icon>
+        <app-modal-title>Felicitaciones!</app-modal-title>
+        <app-paragraph>
+            Tu grupo ha sido creado exitosamente
+        </app-paragraph>
+    </div>
+    <div class="modal_section__footer text-center">
+        <div class="row">
+            <div class="col-12 col-md-8 offset-md-2">
+                <app-button2 auto="true" type="primario" (click)="closeListOpenSingle(['modal-add-group-ok'],'')" display="desktop-auto-responsive-block">Continuar</app-button2>
+            </div>
+        </div>
+    </div>
+</app-modal>

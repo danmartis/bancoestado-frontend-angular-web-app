@@ -1,0 +1,269 @@
+@import '../../../../scss/_vars';
+@import '../../../../scss/_mixins';
+
+
+.sidebar{
+    background-color:#fff;
+    box-shadow: 0 2px 38px 0 rgba(0, 0, 0, 0.07);
+    height: 100%;
+    max-width: 85%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    opacity: 1;
+    overflow-x: hidden;
+    transition: all .3s ease;
+    width: 100%;
+    z-index: 1000;
+
+
+    &.sidebar--close {
+        left: -100%;
+        opacity: .5;
+        overflow: hidden;
+        //width: 50%;
+    }
+
+    &.sidebar--open {
+        padding: 1; 
+        width: calc(100vw - 4rem);
+    }
+
+    &__header{
+        background-color: #F4F7FE;
+        max-height: 260px;
+        overflow: hidden;
+        padding: 5em 2em 2em 2em;
+        position: relative;
+        text-align: center;
+
+        &:after{
+            content:'';
+            background-color: none;
+            border: 1px solid rgba($color: #E4ECFB, $alpha: .7);
+            border-radius: 50%;
+            display: inline-block;
+            height: 160px;
+            margin: 0 auto;
+            position: absolute;
+            //top: 20px;
+            top: 36px;
+            left: 0;
+            right: 0;
+            transition: all 0.3s ease;
+            width: 160px;
+            z-index: 0;
+        }
+        
+    }
+
+    &__name{
+        color: $color-primary;
+        @include font-size(18);
+        @include line-height(24);
+        font-weight: 600;
+        margin: 1.1em 0 0 0;
+        position: relative;
+        text-shadow: 1px 1px 10px #F4F7FE;
+        z-index: 1;
+
+        @media (max-width: 320px) {
+            @include font-size(16);
+        }
+    }
+
+    &__email{
+        color: #77869E;
+        @include font-size(14);
+        @include line-height(24);
+        position: relative;
+        z-index: 1;
+    }
+
+    &__welcome{
+        display: none;
+    }
+
+    &__user{
+        border: 4px solid #fff;
+        border-radius: 50%;
+        box-shadow: 0 12px 13px 0 rgba(0, 0, 0, 0.07);
+        height: 80px;
+        margin: 0 auto;
+        overflow: hidden;
+        width: 80px;
+    }
+
+    &__menu{
+        background-color: #fff;
+        @include font-size(16);
+        @include line-height(24);
+        display: inline-block;
+        font-weight: 400;
+        padding: 1.5em 1.5em 1.5em 1.5em;
+        width: 100%;
+
+        @media (max-width: 320px) {
+            @include font-size(14);
+            @include line-height(20);
+        }
+    }
+
+    &__item{
+        margin: 0 0 1em 0;
+
+        &--out{
+            display: none;
+        }
+    }
+
+    &__link{
+        color: $color-primary;
+    }
+
+    &__icon{
+        color: $color-primary;
+        margin: 0 1em 0 0;
+
+        &--salir{
+            color: $color-danger;
+        }
+
+        i{
+            @include font-size(16);
+            @include line-height(24);
+
+            @media (max-width: 320px) {
+                @include font-size(14);
+                @include line-height(20);
+            }
+        }
+    }
+
+
+    &__menu--public{
+
+        .sidebar__link{
+            color: #77869E; 
+        }
+
+        .sidebar__icon{
+            opacity: 0;
+        }
+
+    }
+
+    &__banco{
+        margin: 0 0 4em 0;
+        padding: 0 1em 0 1em;
+    }
+
+    &__welcome{
+        text-align: center;
+    }
+
+    &__welcome-icon{
+        display: inline-block;
+        margin: 0 0 1em 0;
+        width: 35px;
+    }
+
+    &__botones{
+        display: flex;
+        justify-content: space-around;
+        margin: 2em 0 0 0;
+
+        >* {
+            width: 48%;
+        }
+
+    }
+}
+
+
+.sidebar__portal {
+    display: flex;
+    justify-content: flex-start;
+    margin: 0 0 0 0;
+    padding: 0 0 0 0;
+    position: absolute;
+    top: 1.5em;
+    display: none;
+}
+
+.sidebar__portal-link {
+    color: #77869E;
+    @include font-size(14);
+    @include line-height(18);
+    margin: 0 0 0 1em;
+    padding: .5em 1em .5em 1em;
+    transition: all 0.3s ease;
+
+    &:hover {
+        color: #1E63F8;
+    }
+
+    &--active {
+        color: #1E63F8;
+        font-weight: 900;
+        position: relative;
+
+        &:after {
+            background-color: #1E63F8;
+            border-radius: 50%;
+            content: '';
+            display: inline-block;
+            height: 7px;
+            position: absolute;
+            top: 13px;
+            left: 0;
+            transition: all 0.3s ease;
+            width: 7px;
+            z-index: 0;
+        }
+    }
+}
+
+
+
+
+/*
+Esta es la clase que se agrega al "nav" para visualizar
+el menú lateral no sesionado.
+*/
+
+.sidebar--out{
+    .sidebar__header:after,
+    .sidebar__user,
+    .sidebar__name,
+    .sidebar__email,
+    .sidebar__menu, 
+    .sidebar__banco {
+        display: none;
+    }
+
+    .sidebar__portal{
+        display: flex;
+    }
+
+    .sidebar__welcome{
+        display: inherit;
+    }
+
+    .sidebar__header{
+        max-height: initial;
+    }
+    
+    .sidebar__menu--public{
+        display: inherit;
+    }
+
+    .sidebar__icon{
+        margin: 0 .1em 0 0;
+    }
+
+    .sidebar__item--out{
+        display: inherit;
+    }
+}
+

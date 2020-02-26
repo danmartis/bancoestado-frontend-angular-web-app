@@ -1,0 +1,27 @@
+<div class="card-group">
+    <div class="card-group__container">
+        <div class="card-group__action">
+            <div class="text-left ml-3">
+                <app-checkbox></app-checkbox>
+            </div>
+            <button class="card-account__menu-button" popoverClass="pop-dropdown" placement="bottom-right" [ngbPopover]="popContent">
+                    <app-icon name="more_vert" [color]="iconMenu" size="md-18"></app-icon>
+            </button>
+            <ng-template #popContent>
+                <app-dropdown [items]="[ { class: '', text: 'Detalle de grupo'}, { class: 'dropdown__item--delete', text: 'Eliminar grupo'} ]"></app-dropdown>
+            </ng-template>
+        </div>
+        <div class="card-group__header">
+            <app-icon-group [name]="group.icon"></app-icon-group>
+            <h3>{{group.title}}</h3>
+            <p>{{group.detail}}</p>
+            <div *ngIf="group.status !== ''" class="card-group__card__status" [ngClass]="group.status">
+                {{group.textStatus}}
+                <app-icon name="error" size="md-18" [color]="getColor()"></app-icon>
+            </div>
+        </div>
+        <div class="card-group__content">
+            <div>{{group.value}}</div>
+        </div>
+    </div>
+</div>

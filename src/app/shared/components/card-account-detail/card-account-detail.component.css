@@ -1,0 +1,247 @@
+.boxs-1 {
+  -webkit-box-shadow: 0rem 0.0625rem 0.5rem 0rem rgba(0, 0, 0, 0.07);
+          box-shadow: 0rem 0.0625rem 0.5rem 0rem rgba(0, 0, 0, 0.07);
+}
+
+.boxs-2 {
+  -webkit-box-shadow: 0rem 1.5375rem 1.5375rem 0rem rgba(0, 0, 0, 0.07);
+          box-shadow: 0rem 1.5375rem 1.5375rem 0rem rgba(0, 0, 0, 0.07);
+}
+
+.boxs-3 {
+  -webkit-box-shadow: 0rem 1.6375rem 1.6375rem 0rem rgba(0, 0, 0, 0.07);
+          box-shadow: 0rem 1.6375rem 1.6375rem 0rem rgba(0, 0, 0, 0.07);
+}
+
+.boxs-4 {
+  -webkit-box-shadow: 0rem 1.7375rem 1.7375rem 0rem rgba(0, 0, 0, 0.07);
+          box-shadow: 0rem 1.7375rem 1.7375rem 0rem rgba(0, 0, 0, 0.07);
+}
+
+.boxs-5 {
+  -webkit-box-shadow: 0rem 1.8375rem 1.8375rem 0rem rgba(0, 0, 0, 0.07);
+          box-shadow: 0rem 1.8375rem 1.8375rem 0rem rgba(0, 0, 0, 0.07);
+}
+
+:host .card-account-detail .card-account-detail-container {
+  position: relative;
+  padding-left: 4.0625rem;
+  min-height: 3rem;
+}
+
+:host .card-account-detail .card-account-detail-container .card-account-detail__icon {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 10px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+:host .card-account-detail .card-account-detail-container .card-account-detail__icon img {
+  height: 1.6rem;
+  margin: 0.7rem;
+  width: auto;
+}
+
+:host .card-account-detail .card-account-detail-container .card-account-detail__info-button {
+  position: absolute;
+  top: -17px;
+  right: 0;
+  border: none;
+  border-radius: 50%;
+  width: 16px;
+  height: 20px;
+  margin: 0;
+  padding: 0;
+  background: none;
+  cursor: pointer;
+}
+
+:host .card-account-detail .card-account-detail-container h3 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+:host .card-account-detail .card-account-detail__default .card-account-detail__actions {
+  position: absolute;
+  right: 0;
+  text-align: right;
+}
+
+@media (max-width: 380px) {
+  :host .card-account-detail .card-account-detail__default .card-account-detail__actions {
+    width: 5rem;
+    right: -1rem;
+    top: 0;
+  }
+}
+
+:host .card-account-detail .card-account-detail__default .card-account-detail__actions button {
+  cursor: pointer;
+  background: #ffffff00;
+  border: none;
+  width: 2.1875rem;
+  height: 1.625rem;
+  display: inline-block;
+  text-align: center;
+  margin: 0.5rem 0;
+  overflow: hidden;
+}
+
+:host .card-account-detail.proof-payment {
+  border-bottom: solid 1px #f4f6f8;
+}
+
+@media (max-width: 370px) {
+  :host .card-account-detail.proof-payment .card-account-detail-container {
+    height: 4.2rem !important;
+  }
+}
+
+:host .card-account-detail.proof-payment .card-account-detail__proof {
+  display: block;
+  margin-bottom: 0.5rem;
+  padding-top: 0.5rem;
+}
+
+@media (max-width: 370px) {
+  :host .card-account-detail.proof-payment .card-account-detail__proof {
+    height: 4.5rem !important;
+  }
+}
+
+:host .card-account-detail.card-account-detail__in-group .card-account-detail__in-group__check {
+  position: absolute;
+  width: 19px;
+  height: 19px;
+  top: 0;
+  bottom: 0;
+  left: 1em;
+  margin: auto;
+}
+
+:host .card-account-detail.card-account-detail__in-group .card-account-detail__in-group__container {
+  padding-left: 1.6em;
+  padding-right: 4.3em;
+}
+
+:host .card-account-detail.card-account-detail__in-group .card-account-detail__in-group__container .card-account-detail__in-group__container__title-date h3 {
+  font-size: 1rem;
+  margin: 0;
+}
+
+:host .card-account-detail.card-account-detail__in-group .card-account-detail__in-group__container strong {
+  position: absolute;
+  right: 1em;
+  height: 1.1em;
+  margin: auto;
+  top: 0;
+  bottom: 0;
+  text-align: right;
+}
+
+@media (max-width: 370px) {
+  :host .card-account-detail.only-view .card-account-detail-container {
+    height: 4.2rem !important;
+  }
+}
+
+:host .card-account-detail.only-view .card-account-detail__proof {
+  display: block;
+  margin-bottom: 0.5rem;
+  padding-top: 0.5rem;
+}
+
+@media (max-width: 370px) {
+  :host .card-account-detail.only-view .card-account-detail__proof {
+    height: 4.5rem !important;
+  }
+}
+
+@media (min-width: 768px) {
+  :host .card-account-detail.only-view h3 {
+    color: #042c5c !important;
+  }
+}
+
+:host .card-account-detail.card-account-unregistered .card-account-detail__unregistered__check {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 24px;
+}
+
+:host .card-account-detail.card-account-unregistered h3 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+:host .card-account-detail.card-account-unregistered .card-account-detail__unregistered__container {
+  padding-left: 35px;
+}
+
+:host .card-account-detail.card-account-unregistered .card_account-detail__value {
+  position: absolute;
+  right: 20px;
+  height: 18px;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
+
+:host .card-account-detail .card-account-detail__detail-button {
+  position: absolute;
+  right: -1.1rem;
+  width: 1.5rem;
+  height: 1.5rem;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
+
+:host .card-account-detail .card-account-detail__ammount {
+  position: absolute;
+  right: 0.5rem;
+  text-align: right;
+}
+
+@media (max-width: 370px) {
+  :host .card-account-detail .card-account-detail__ammount {
+    bottom: 0;
+    right: auto;
+    text-align: left;
+    left: 4rem;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1200px) {
+  :host .card-account-detail .card-account-detail__ammount {
+    bottom: -0.8rem;
+    right: auto;
+    text-align: left;
+    left: 4rem;
+  }
+  :host .card-account-detail .card-account-detail__ammount .card-account-detail__ammount-title {
+    display: none;
+  }
+}
+
+@media (max-width: 370px) {
+  :host .card-account-detail .card-account-detail__ammount div {
+    display: inline-block;
+    padding-right: 0.5rem;
+  }
+}
+
+:host .card-account-detail .card-account-detail__ammount strong.card_account-detail__value-left {
+  font-size: 1rem;
+}
+
+@media (max-width: 370px) {
+  :host .card-account-detail .card-account-detail__ammount strong.card_account-detail__value-left {
+    display: inline-block;
+    font-size: 0.8rem;
+  }
+}
+/*# sourceMappingURL=card-account-detail.component.css.map */

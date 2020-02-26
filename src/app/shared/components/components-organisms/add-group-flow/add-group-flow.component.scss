@@ -1,0 +1,33 @@
+@import '../../../../../scss/_vars';
+:host {
+    .add-group-flow__icon-list {
+        position: relative;
+        .list {
+            padding-right: 4rem;
+        }
+        .list-all {
+            padding-right: 0;
+        }
+        >div>button {
+            display: inline-block;
+            background: transparent;
+            border: none;
+        }
+        .link {
+            position: absolute;
+            right: 0;
+            top: 0;
+        }
+    }
+    .account-section {
+        position: relative;
+        .title {
+            padding-right: 4rem;
+        }
+        .action {
+            position: absolute;
+            right: 0;
+            top: 0;
+        }
+    }
+}

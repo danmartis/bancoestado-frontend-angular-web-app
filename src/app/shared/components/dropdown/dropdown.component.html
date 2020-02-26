@@ -1,0 +1,8 @@
+<div class="dropdown">
+    <ul class="dropdown__list">
+        <li class="dropdown__item" [ngClass]="i.class" *ngFor="let i of items">
+            <span *ngIf="i.action" (click)="action(i)">{{i.text}}</span>
+            <span *ngIf="!i.action">{{i.text}}</span>
+        </li>
+    </ul>
+</div>

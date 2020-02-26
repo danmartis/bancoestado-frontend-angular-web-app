@@ -1,0 +1,17 @@
+@import '../../../../../scss/_vars';
+@import '../../../../../scss/_mixins';
+
+:host {
+    h2 {
+        color: $color-primary;
+        font-family: 'Circular Std';
+        @include font-size(18);
+        @include line-height(24);
+        font-weight: 600;
+        margin: 1em auto 1em auto;
+
+        &.min {
+            @include font-size(16);
+        }
+    }
+}

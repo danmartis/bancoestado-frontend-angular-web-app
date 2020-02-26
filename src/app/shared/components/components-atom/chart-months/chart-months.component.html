@@ -1,0 +1,27 @@
+<div class="chart" [style.height]="getCalculateHeight() + 'px'">
+    <div class="chart__part" *ngFor="let part of parts">
+        <div class="chart__part__value">
+            <span>{{formatNumber(part)}}</span>
+        </div>
+    </div>
+    <div class="chart__months">
+        <div class="color" *ngFor="let month of getMonthPercentValue()">
+            <div [style.width]="month.percent + '%'" class="chart__months__month dot">
+                <div class="chart__months__month__value">
+                    <span>{{formatNumber(month.value)}}</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="chart_info">
+    <div class="chart_info__descriptor color" *ngFor="let month of getCalculatePercentAndSumMonths()">
+        <div class="chart_info__descriptor__desc">
+            <div class="chart_info__descriptor__desc__dot dot"></div>
+            <div class="chart_info__descriptor__desc__name">{{month.name}}</div>
+        </div>
+        <div class="chart_info__descriptor__value">{{month.percent}}%</div>
+    </div>
+</div>

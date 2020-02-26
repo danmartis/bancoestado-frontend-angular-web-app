@@ -1,0 +1,2 @@
+:host swiper{width:100%;margin-bottom:15px}:host .swiper-container{width:100%;height:300px;margin:0 auto}:host .swiper-slide{text-align:center;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;width:auto;height:auto}:host .swiper-slide:first-child{padding-left:0.9375rem}:host .swiper-slide:last-child{padding-right:0.9375rem}
+/*# sourceMappingURL=home-account.component.min.css.map */
