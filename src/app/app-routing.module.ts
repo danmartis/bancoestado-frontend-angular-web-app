@@ -4,6 +4,7 @@ import { NotFoundComponent } from './flow/status/not-found/not-found.component';
 
 const routes: Routes = [
   { path: '', loadChildren: () => import('./people/people.module').then(m => m.PeopleModule) },
+  { path: 'personas', loadChildren: () => import('./people/people.module').then(m => m.PeopleModule) },
   { path: 'empresas', loadChildren: () => import('./enterprises/enterprises.module').then(m => m.EnterprisesModule) },
   { path: '**', component: NotFoundComponent }
 ];
