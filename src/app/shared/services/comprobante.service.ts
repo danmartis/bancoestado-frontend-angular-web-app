@@ -13,7 +13,7 @@ import 'rxjs/add/observable/throw';
   })
   export class ComprobanteService extends BffClientService {
   
-    public urlPath = 'https://desa-plataformadigital.banco.bestado.cl/bff/v1/se-personas-bff/comprobante';
+    public urlPath = 'https://desa-plataformadigital.banco.bestado.cl/bff/v1/se-portal-empresas-bff/comprobante';
   
     public comprobante(idComprobante:number): Observable<DataResponse> {
       const urlApi = this.urlPath + `/${idComprobante}`;

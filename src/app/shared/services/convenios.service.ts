@@ -14,7 +14,7 @@ import {HttpResponse} from "@angular/common/http";
 export class ConveniosService extends BffClientService {
 
     PATH_URL = environment.swagger_convenio;
-    public urlPath = 'https://desa-plataformadigital.banco.bestado.cl/bff/v1/se-personas-bff/convenios';
+    public urlPath = 'https://desa-plataformadigital.banco.bestado.cl/bff/v1/se-portal-empresas-bff/convenios';
     // public urlPath = 'http://localhost:6969/convenios';
 
     public convenio(): Observable<DataResponse> {

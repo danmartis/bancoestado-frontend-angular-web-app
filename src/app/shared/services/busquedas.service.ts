@@ -8,7 +8,7 @@ import { DataResponse } from './dataResponse';
 })
 export class BusquedasService extends BffClientService {
 
-  public urlPath = 'https://desa-plataformadigital.banco.bestado.cl/bff/v1/se-personas-bff/busqueda';
+  public urlPath = 'https://desa-plataformadigital.banco.bestado.cl/bff/v1/se-portal-empresas-bff/busqueda';
   // public urlPath = 'http://localhost:6969/busqueda';
 
   public busqueda(idConvenio: number, data): Observable<DataResponse> {

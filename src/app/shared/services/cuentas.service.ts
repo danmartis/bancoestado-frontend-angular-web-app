@@ -13,7 +13,7 @@ import 'rxjs/add/observable/throw';
 })
 export class CuentasService extends BffClientService {
 
-  public urlPath = 'https://desa-plataformadigital.banco.bestado.cl/bff/v1/se-personas-bff/deudas';
+  public urlPath = 'https://desa-plataformadigital.banco.bestado.cl/bff/v1/se-portal-empresas-bff/deudas';
 
   public cuenta(idConvenio:number, idCliente:string): Observable<DataResponse> {
     const urlApi = this.urlPath + `/${idConvenio}/${idCliente}`;

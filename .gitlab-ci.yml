@@ -115,7 +115,7 @@ build image:
             curl --request GET -k -o Dockerfile --header "PRIVATE-TOKEN:${TOKEN_GITLAB_EE}" https://gitlab.banco.bestado.cl/devops/tools/raw/master/angular_io/Dockerfile_angular_runtime_io_v2 
             curl --request GET -k -o entry.sh --header "PRIVATE-TOKEN:${TOKEN_GITLAB_EE}" https://gitlab.banco.bestado.cl/devops/tools/raw/master/angular_io/entry.sh            
           elif [[ "$ANGULAR_TYPE" == "io8" ]]; then
-            curl --request GET -k -o Dockerfile --header "PRIVATE-TOKEN:${TOKEN_GITLAB_EE}" https://gitlab.banco.bestado.cl/BECH/apps/se-personas/raw/Desarrollo-CI/Dockerfile_SE
+            curl --request GET -k -o Dockerfile --header "PRIVATE-TOKEN:${TOKEN_GITLAB_EE}" https://gitlab.banco.bestado.cl/BECH/apps/se-portal-empresas/raw/Desarrollo-CI/Dockerfile_SE
             curl --request GET -k -o entry.sh --header "PRIVATE-TOKEN:${TOKEN_GITLAB_EE}" https://gitlab.banco.bestado.cl/devops/tools/raw/master/angular_io/entry.sh            
           fi
         - docker build -t ${DOCKER_IMAGE}_${CI_COMMIT_SHA:0:8} . 

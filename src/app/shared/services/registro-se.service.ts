@@ -13,7 +13,7 @@ import 'rxjs/add/observable/throw';
 })
 export class RegistroSeService extends BffClientService {
 
-  public urlPath = 'https://desa-plataformadigital.banco.bestado.cl/bff/v1/se-personas-bff/registro-se/';
+  public urlPath = 'https://desa-plataformadigital.banco.bestado.cl/bff/v1/se-portal-empresas-bff/registro-se/';
 
   public registroInicial(body: any): Observable<DataResponse> {
     const urlApi = this.urlPath + 'inicial'

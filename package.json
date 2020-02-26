@@ -1,14 +1,14 @@
 {
-  "name": "se-personas",
+  "name": "se-portal-empresas",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
     "start": "node server.js",
-    "build": "ng build --base-href=/apps/se-personas/",
+    "build": "ng build --base-href=/apps/se-portal-empresas/",
     "test": "ng test  --code-coverage --no-watch",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "bundle-report": "ng build --base-href=/apps/se-personas/ --prod --stats-json  && webpack-bundle-analyzer dist/se-personas/stats.json"
+    "bundle-report": "ng build --base-href=/apps/se-portal-empresas/ --prod --stats-json  && webpack-bundle-analyzer dist/se-portal-empresas/stats.json"
   },
   "private": true,
   "dependencies": {

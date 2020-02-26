@@ -32,20 +32,20 @@ app.use(helmet({
     }))
     .use(bodyParser.urlencoded({ extended: false }))
     .use((req, res, next) => {
-        if (req.url === '/apps/se-personas/' || req.url === '/apps/se-personas') {
+        if (req.url === '/apps/se-portal-empresas/' || req.url === '/apps/se-portal-empresas') {
             res.header("Cache-Control", "no-cache, no-store, must-revalidate");
             res.header("Pragma", "no-cache");
             res.header("Expires", 0);
         }
         next();
     })
-    .use('/apps/se-personas', express.static(path.join(__dirname, '/dist/se-personas-app')))
+    .use('/apps/se-portal-empresas', express.static(path.join(__dirname, '/dist/se-portal-empresas-app')))
     .use(methodOverride());
 
 
-app.all('/apps/se-personas/*', (req, res, next) => {
+app.all('/apps/se-portal-empresas/*', (req, res, next) => {
     // Just send the index.html for other files to support HTML5Mode
-    res.sendFile('index.html', { root: path.join(__dirname, '/dist/se-personas-app') });
+    res.sendFile('index.html', { root: path.join(__dirname, '/dist/se-portal-empresas-app') });
 });
 
 const server = http.createServer(app);
