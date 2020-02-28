@@ -9,6 +9,10 @@ import { HelpComponent } from './components/help/help.component';
 import { LandingComponent } from './components/landing/landing.component';
 import { WhatWeDoComponent } from './components/what-we-do/what-we-do.component';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { BannerFeatureComponent } from './components/landing/banner-feature/banner-feature.component';
+import { BenefitsComponent } from './components/landing/benefits/benefits.component';
+import { FeatureComponent } from './components/landing/feature/feature.component';
+import { CardBenefitsComponent } from './components/landing/benefits/card-benefits/card-benefits.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +22,11 @@ import { SharedModule } from 'src/app/shared/shared.module';
     HelpComponent,
     LandingComponent,
     WhatWeDoComponent,
-    LandingComponent
+    LandingComponent,
+    BannerFeatureComponent,
+    BenefitsComponent,
+    FeatureComponent,
+    CardBenefitsComponent
   ],
   imports: [
     CommonModule,

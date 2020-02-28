@@ -1,0 +1,22 @@
+.landing__feature {
+  padding: 32px 0;
+  .feature {
+    &__row {
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: row;
+      align-items: center;
+    }
+    &__col {
+      width: 50%;
+
+      &__text {
+        max-width: 500px;
+        margin: auto;
+        &--right {
+          text-align: right;
+        }
+      }
+    }
+  }
+}

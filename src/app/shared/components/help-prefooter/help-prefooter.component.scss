@@ -1,0 +1,148 @@
+@import '../../../../scss/_vars';
+@import '../../../../scss/_mixins';
+.ayuda {
+    background-color: $color-action;
+    color: #fff;
+    margin: 10em 0 0 0;
+    overflow: hidden;
+    padding: 8em 0 8em 0;
+    position: relative;
+    text-align: center;
+
+    @media (max-width: 768px) {
+        padding: 6em 0 6em 0;
+    }
+
+    &:before,
+    &:after {
+        content: '';
+        background-color: rgba($color: #fff, $alpha: .15);
+        border-radius: 50%;
+        display: inline-block;
+        height: 1000px;
+        position: absolute;
+        bottom: -120px;
+        left: -700px;
+        transition: all 0.3s ease;
+        width: 1000px;
+        @media (max-width: 768px) {
+            height: 600px;
+            width: 600px;
+            bottom: -200px;
+            left: -400px;
+        }
+        @media (max-width: 480px) {
+            height: 300px;
+            width: 300px;
+            bottom: -150px;
+            left: -150px;
+        }
+    }
+    &:after {
+        bottom: -600px;
+        left: inherit;
+        right: -500px;
+        @media (max-width: 768px) {
+            bottom: -350px;
+            right: -350px;
+        }
+        @media (max-width: 480px) {
+            bottom: 200px;
+            right: -150px;
+        }
+    }
+
+    &__titulo {
+        @include font-size(46);
+        @include line-height(52);
+        font-weight: 600;
+        margin: 0 0 .5em 0;
+
+        @media (max-width: 768px) {
+            @include font-size(36);
+            @include line-height(40);
+        }
+
+        @media (max-width: 480px) {
+            @include font-size(28);
+            @include line-height(32);
+        }
+    }
+
+    &__info {
+        @include font-size(18);
+        @include line-height(24);
+        margin: 2em auto 3em auto;
+        max-width: 50%;
+        @media (max-width: 768px) {
+            @include font-size(16);
+            max-width: 70%;
+        }
+        @media (max-width: 480px) {
+            @include font-size(16);
+            max-width: 90%;
+        }
+    }
+
+    &__wrap {
+        display: flex;
+        @media (max-width: 991px) {
+            flex-direction: column;
+        }
+    }
+
+    &__icon {
+        i {
+            @include font-size(34);
+            @include line-height(34);
+        }
+    }
+
+    &__text {
+        @include font-size(20);
+        @include line-height(24);
+        font-weight: bold;
+    }
+
+    &--help {
+        .ayuda__titulo {
+            width: 50%;
+            text-align: left;
+            padding: 2rem;
+
+            @media (max-width: 991px) {
+                width: 100%;
+                text-align: center;
+                padding: 0;
+            }
+        }
+
+        .ayuda__info {
+            display: flex;
+            align-items: stretch;
+            position: relative;
+            z-index: 10;
+            @media (max-width: 480px) {
+                flex-direction: column;
+            }
+        }
+
+        .ayuda__item {
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+            color: #fff;
+            
+            &:last-child {
+                padding-left: 2.5rem;
+                border-left: 1px solid #fff;
+                margin-left: 2.5rem;
+                @media (max-width: 480px) {
+                    padding: 0;
+                    margin-left: 0;
+                    border: none;
+                    margin-top: 2rem;
+                }
+            }
+        }
+    }
+}

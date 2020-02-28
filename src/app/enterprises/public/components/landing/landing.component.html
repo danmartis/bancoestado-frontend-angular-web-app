@@ -1,184 +1,34 @@
-<div class="cta">
-    <p class="cta__invitacion">Paga tus cuentas rápidamente</p>
-    <a href="/" class="cta__boton-pagar">Ir a pagar</a>
-</div>
+<!--
+    <div class="cta">
+      <p class="cta__invitacion">Paga tus cuentas rápidamente</p>
+      <a href="/" class="cta__boton-pagar">Ir a pagar</a>
+    </div>
+-->
 
 <app-page type="light">
-    <section class="feature">
-        <div class="container">
-            <div class="row">
-                <div class="col-12 col-sm-6 order-2 order-sm-1">
-                    <div class="feature__info feature__info--first">
-                        <h1 class="hero-title">Paga tus cuentas en un sólo lugar - ESTO ES EMPRESAS</h1>
-                        <app-paragraph>Aquí encontraras la mayor cantidad de servicios asociados, dádote la opción de pagar todas tus cuentas en un solo lugar.</app-paragraph>
-                        <div class="feature__action">
-                            <button (click)="closeListOpenSingle([], 'modal-video-public')" class="feature__play" [routerLink]="[to]"><i class="material-icons">play_arrow</i></button>
-                            <app-link>Ir a pagar</app-link>
-                        </div>
-                    </div>
+  <app-banner-feature></app-banner-feature>
 
-                </div>
-                <div class="col-12 col-sm-6 order-1 order-sm-2">
-                    <figure class="feature__concept feature__concept--out">
-                        <img class="feature__image" src="assets/imgs/svg/img-pagacuentas.svg" alt="Fotografia de personas saludando">
-                    </figure>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section class="biller">
-        <div class="container">
-            <p class="biller__title">Algunas cuentas que puedes pagar</p>
-            <div class="row justify-content-center justify-content-md-between align-items-center">
-                <!--ngFor-->
-                <div class="col-6 col-md-auto">
-                    <figure class="biller__concept">
-                        <figcaption class="biller__badge">
-                            Nuevo
-                        </figcaption>
-                        <img class="biller__image" src="assets/imgs/svg/logotipo-entel-bn.svg" alt="Fotografia de personas saludando">
-                    </figure>
-                </div>
-                <!--fin ngFor-->
-                <div class="col-6 col-md-auto">
-                    <figure class="biller__concept">
-                        <img class="biller__image" src="assets/imgs/svg/logotipo-movistar-bn.svg" alt="Fotografia de personas saludando">
-                    </figure>
-                </div>
-                <div class="col-6 col-md-auto">
-                    <figure class="biller__concept">
-                        <img class="biller__image" src="assets/imgs/svg/logotipo-enel-bn.svg" alt="Fotografia de personas saludando">
-                    </figure>
-                </div>
-                <div class="col-6 col-md-auto">
-                    <figure class="biller__concept">
-                        <img class="biller__image" src="assets/imgs/svg/logotipo-wom-bn.svg" alt="Fotografia de personas saludando">
-                    </figure>
-                </div>
-                <div class="col-6 col-md-auto">
-                    <figure class="biller__concept">
-                        <img class="biller__image" src="assets/imgs/svg/logotipo-aguasandinas-bn.svg" alt="Fotografia de personas saludando">
-                    </figure>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section class="feature">
-        <div class="container">
-            <div class="row">
-                <div class="col-12 col-sm-5 order-2 order-sm-1">
-                    <figure class="feature__concept">
-                        <img class="feature__image" src="assets/imgs/svg/img-decidecuantopagar.svg" alt="Fotografia de personas saludando">
-                    </figure>
-                </div>
-                <div class="col-12 col-sm-6 offset-sm-1 col-lg-5 offset-lg-2 order-1 order-sm-2">
-                    <div class="feature__info">
-                        <app-paragraph>Simple e intuitivo</app-paragraph>
-                        <h2 class="hero-title hero-title--sub">Tú decides cuanto quieres pagar</h2>
-                        <app-paragraph>Te damos la opción de abonar, pagar la deuda vencida o adelantar tu pago.</app-paragraph>
-                        <div class="feature__action">
-                            <a class="feature__play" [routerLink]="[to]"><i class="material-icons">play_arrow</i></a>
-                            <app-link>Ir a pagar</app-link>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section class="feature">
-        <div class="container">
-            <div class="row">
-                <div class="col-12 col-sm-6 col-lg-5 order-1 order-sm-1">
-                    <div class="feature__info">
-                        <app-paragraph>Flexible y versátil</app-paragraph>
-                        <h2 class="hero-title hero-title--sub">Paga las cuentas en 1 solo click</h2>
-                        <app-paragraph>Te damos la opción de guardar tus medios de pago para que ahorres tiempo al pagar.</app-paragraph>
-                        <div class="feature__action">
-                            <a class="feature__play" [routerLink]="[to]"><i class="material-icons">play_arrow</i></a>
-                            <app-link>Ir a pagar</app-link>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-sm-5 offset-sm-1 col-lg-5 offset-lg-2 order-2 order-sm-2">
-                    <figure class="feature__concept">
-                        <img class="feature__image" src="assets/imgs/svg/img-1click.svg" alt="Fotografia de personas saludando">
-                    </figure>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section class="beneficios">
-        <div class="container">
-            <div class="row">
-                <div class="col-12 col-sm-10 offset-sm-1 col-lg-6 offset-lg-3">
-                    <div class="title-section">
-                        <h2 class="hero-title hero-title--sub">Beneficios pensados para ti</h2>
-                        <app-paragraph>Todas estos beneficios están diseñados para solucionar los verdaderos problemas de nuestros usuarios</app-paragraph>
-                    </div>
-                </div>
-                <div class="col-12 col-md-6 col-lg-4 offset-lg-2">
-                    <article class="beneficio">
-                        <div class="beneficio__header">
-                            <span class="beneficio__icon"><i class="material-icons">history</i></span>
-                            <p class="beneficio__title">Histórico de pagos</p>
-                        </div>
-                        <p class="beneficio__text">Sed posuere consectetur est at lobortis. Nullam quis risus eget urna mollis ornare vel eu leo. </p>
-                    </article>
-                </div>
+  <app-benefits></app-benefits>
 
-                <div class="col-12 col-md-6 col-lg-4">
-                    <article class="beneficio">
-                        <div class="beneficio__header">
-                            <span class="beneficio__icon"><i class="material-icons">search</i></span>
-                            <p class="beneficio__title">Búsqueda avanzada</p>
-                        </div>
-                        <p class="beneficio__text">Sed posuere consectetur est at lobortis. Nullam quis risus eget urna mollis ornare vel eu leo. </p>
-                    </article>
-                </div>
+  <app-feature></app-feature>
 
-                <div class="action-button">
-                    <app-link>Ver más</app-link>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="ayuda ayuda--help">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="ayuda__wrap">
-                        <p class="ayuda__titulo">¿ Quieres contactarte con nosotros ?</p>
-                        <div class="ayuda__info">
-                            <a href="tel:6002007000" class="ayuda__item">
-                                <div class="ayuda__icon">
-                                    <i class="material-icons">local_phone</i>
-                                </div>
-                                <p class="ayuda__text">LLámanos<br> 600 200 7000</p>
-                            </a>
-                            <a href="#" class="ayuda__item">
-                                <div class="ayuda__icon">
-                                    <i class="material-icons">chat_bubble_outline</i>
-                                </div>
-                                <p class="ayuda__text">Escríbenos</p>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
+  <app-help-prefooter></app-help-prefooter>
 </app-page>
-
 
 <app-footer-default></app-footer-default>
 
-
 <app-modal name="modal-video-public" type="video">
-    <div class="modal_section__body text-center">
-        <div class="video-responsive video-responsive--no-border-radius">
-            <iframe _ngcontent-srp-c41="" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" frameborder="0" height="315" src="https://www.youtube.com/embed/yigaZe45uaA" width="560"></iframe>
-        </div>
+  <div class="modal_section__body text-center">
+    <div class="video-responsive video-responsive--no-border-radius">
+      <iframe
+        _ngcontent-srp-c41=""
+        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen=""
+        frameborder="0"
+        height="315"
+        src="https://www.youtube.com/embed/yigaZe45uaA"
+        width="560"
+      ></iframe>
     </div>
+  </div>
 </app-modal>
