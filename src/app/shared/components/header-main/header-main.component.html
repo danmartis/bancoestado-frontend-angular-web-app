@@ -1,10 +1,10 @@
 <header class="header header--sesion" [ngClass]="['header--' + type, sidebarShadow ? 'header--shadow' : 'header--without-shadow']">
     <ul class="header__portal">
         <li class="header__portal-item">
-            <a href="/" class="header__portal-link header__portal-link--active">Persona</a>
+            <a routerLink="/" [ngClass]="[!router.url.includes('empresas')? 'header__portal-link header__portal-link--active' : 'header__portal-link']">Personas</a>
         </li>
         <li class="header__portal-item">
-            <a href="/" class="header__portal-link">Empresa</a>
+            <a routerLink="/empresas" [ngClass]="[router.url.includes('empresas')? 'header__portal-link header__portal-link--active' : 'header__portal-link']">Empresas</a>
         </li>
     </ul>
     <div class="header__accesos">
