@@ -6,6 +6,7 @@ import { AboutComponent } from './components/about/about.component';
 import { WhatWeDoComponent } from './components/what-we-do/what-we-do.component';
 import { BranchOfficesComponent } from './components/branch-offices/branch-offices.component';
 import { HelpComponent } from './components/help/help.component';
+import { RegisterComponent } from './components/register/register.component';
 
 const routes: Routes = [
   {
@@ -16,7 +17,8 @@ const routes: Routes = [
       { path: 'nosotros', component: AboutComponent },
       { path: 'qué hacemos', component: WhatWeDoComponent },
       { path: 'sucursales', component: BranchOfficesComponent },
-      { path: 'ayuda', component: HelpComponent }
+      { path: 'ayuda', component: HelpComponent },
+      { path: 'registro', component: RegisterComponent }
     ]
   }
 ];

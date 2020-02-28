@@ -13,6 +13,7 @@ import { BannerFeatureComponent } from './components/landing/banner-feature/bann
 import { BenefitsComponent } from './components/landing/benefits/benefits.component';
 import { FeatureComponent } from './components/landing/feature/feature.component';
 import { CardBenefitsComponent } from './components/landing/benefits/card-benefits/card-benefits.component';
+import { RegisterComponent } from './components/register/register.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { CardBenefitsComponent } from './components/landing/benefits/card-benefi
     BannerFeatureComponent,
     BenefitsComponent,
     FeatureComponent,
-    CardBenefitsComponent
+    CardBenefitsComponent,
+    RegisterComponent
   ],
   imports: [
     CommonModule,
