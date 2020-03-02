@@ -1,12 +1,14 @@
-<app-page type="light">
+<app-page type="dark">
+
   <div class="enterprises__register">
+
     <div class="container">
       <div class="row">
         <div class="col-12">
           <h1 class="hero-title">
-            Bienvenido a <span class="">ServiEstado</span> empresa
+            Bienvenido a <br><span class="serv">ServiEstado</span> empresa
           </h1>
-          <app-paragraph
+          <app-paragraph type="primary"
             >Para que puedas operar en nuestro portal, necesitamos ingreses los
             siguientes datos y uno de nuestros ejecutivos se pondrá en contacto
             para entregar una oferta personalizada y así puedas disfrutar de
@@ -15,62 +17,66 @@
         </div> <!-- /.col -->
       </div> <!-- /.row -->
     </div> <!-- /.container -->
-    <form action="">
 
-      <div class="container">
-        <div class="row">
-          <div class="col-12">
-            <app-paragraph>Datos de la empresa</app-paragraph>
-          </div> <!-- /.col -->
-        </div> <!-- /.row -->
-        <div class="row">
-          <div class="col-lg-4 col-md-6 col-sm-12">
-            <app-input type="text" placeholder="Razón social"></app-input>
-          </div>
-          <div class="col-lg-4 col-md-6 col-sm-12">
-            <app-input type="text" placeholder="Rut"></app-input>
-          </div> <!-- /.col -->
-        </div> <!-- /.row -->
-      </div> <!-- /.container -->
-      <div class="container">
-        <div class="row">
-          <div class="col-12">
-            <app-paragraph>Datos de contacto</app-paragraph>
-          </div> <!-- /.col -->
-        </div> <!-- /.row -->
-        <div class="row">
-          <div class="col-lg-4 col-md-6 col-sm-12">
-            <app-input type="text" placeholder="Nombre"></app-input>
-          </div> <!-- /.col -->
-          <div class="col-lg-4 col-md-6 col-sm-12">
-            <app-input type="text" placeholder="Apellido"></app-input>
-          </div> <!-- /.col -->
-          <div class="col-lg-4 col-md-6 col-sm-12">
-            <app-input type="email" placeholder="Correo Electrónico"></app-input>
-          </div> <!-- /.col -->
-        </div> <!-- /.row -->
-        <div class="row">
-          <div class="col-lg-4 col-md-6 col-sm-12">
-            <app-input type="text" placeholder="Teléfono"></app-input>
-          </div>
-          <div class="col-lg-4 col-md-6 col-sm-12">
-            <app-input type="text" placeholder="Cargo"></app-input>
-          </div>  <!-- /.col -->
-        </div> <!-- /.row -->
-      </div> <!-- /.container -->
-      <div class="container">
-        <div class="row">
-          <div class="col-md-4 col-sm-12">
-  
-          </div>
-          <div class="col-md-4 col-sm-12 text-right">
-            <app-link>Cancelar</app-link>
-          </div>
-          <div class="col-md-4 col-sm-12 text-right">
-            <app-link>Enviar</app-link>
-          </div>
-        </div>
-      </div>
-    </form>
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+
+          <form action="">
+
+            <div class="container">
+
+              <div class="row row-light">
+                <div class="col-12">
+                  <app-label>Datos de la empresa</app-label>
+                </div> <!-- /.col -->
+                <div class="col-lg-4 col-md-6 col-sm-12">
+                  <app-input idName="enterprises__register__name" type="text" placeholder="Razón social"></app-input>
+                </div> <!-- /.col -->
+                <div class="col-lg-4 col-md-6 col-sm-12">
+                  <app-input idName="enterprises__register__rut" type="text" placeholder="Rut"></app-input>
+                </div> <!-- /.col -->
+                <div class="offset-lg-4 offset-sm-12"></div> <!-- /.col -->
+              </div> <!-- /.row -->
+
+              <div class="row row-light">
+                <div class="col-12">
+                  <app-label>Datos de contacto</app-label>
+                </div> <!-- /.col -->
+                <div class="col-lg-4 col-md-6 col-sm-12">
+                  <app-input idName="enterprises__register__person-name" type="text" placeholder="Nombre"></app-input>
+                </div> <!-- /.col -->
+                <div class="col-lg-4 col-md-6 col-sm-12">
+                  <app-input idName="enterprises__register__person-lastname" type="text" placeholder="Apellido"></app-input>
+                </div> <!-- /.col -->
+                <div class="col-lg-4 col-md-6 col-sm-12">
+                  <app-input idName="enterprises__register__person-email" type="email" placeholder="Correo Electrónico"></app-input>
+                </div> <!-- /.col -->
+                <div class="col-lg-4 col-md-6 col-sm-12">
+                  <app-input idName="enterprises__register__person-phone" type="text" placeholder="Teléfono"></app-input>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-12">
+                  <app-input idName="enterprises__register__person-position" type="text" placeholder="Cargo"></app-input>
+                </div> <!-- /.col -->
+                <div class="offset-lg-6 offset-md-6"></div> <!-- /.col -->
+              </div> <!-- /.row -->
+              
+              <div class="row row-submit">
+                <div class="offset-md-4 col-md-4 offset-sm-2 col-sm-5 text-right">
+                  <app-button to="/empresas" type="alpha" idName="enterprises__register__btn-cancel">Cancelar</app-button>
+                </div> <!-- /.col -->
+                <div class="col-md-4 col-sm-5 text-right">
+                  <app-button size="lg" type="auto-block-min-w-x2" idName="enterprises__register__btn-submit">Enviar</app-button>
+                </div> <!-- /.col -->
+              </div> <!-- /.row -->
+            </div> <!-- /.container -->
+
+          </form>
+
+        </div> <!-- /.col -->
+      </div> <!-- /.row -->
+    </div> <!-- /.container -->
+
   </div> <!-- /.enterprises__register -->
+  
 </app-page>
