@@ -16,6 +16,7 @@ export class BannerFeatureComponent implements OnInit {
   }
 
   async contenido(){
+    
     await this.gestorContenido.gestorContenido().subscribe( res => {
       console.log('res.getDetalle()', res);
       return res.getDetalle();
