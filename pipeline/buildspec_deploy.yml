@@ -1,0 +1,11 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: 10
+  build:
+    commands:
+      - echo ${ORIGIN}
+      - aws s3 rm --recursive s3://${S3_BUCKET}
+      - aws s3 cp --recursive ${CODEBUILD_SRC_DIR_BuildArtifact} s3://${S3_BUCKET}
