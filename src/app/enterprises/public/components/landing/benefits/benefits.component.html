@@ -10,19 +10,9 @@
 
     <!-- Pruebas Cards -->
     <div class="row benefit__items">
-      <div class="col-sm-12 col-md-6 col-lg-4">
+      <div class="col-sm-12 col-md-6 col-lg-4" *ngFor="let benefit of benefits">
         <app-card-default>
-          <app-card-benefits className="benefit__item"></app-card-benefits>
-        </app-card-default>
-      </div>
-      <div class="col-sm-12 col-md-6 col-lg-4">
-        <app-card-default>
-          <app-card-benefits className="benefit__item"></app-card-benefits>
-        </app-card-default>
-      </div>
-      <div class="col-sm-12 col-md-6 col-lg-4">
-        <app-card-default>
-          <app-card-benefits className="benefit__item"></app-card-benefits>
+          <app-card-benefits [cardData]="benefit"></app-card-benefits>
         </app-card-default>
       </div>
     </div>
