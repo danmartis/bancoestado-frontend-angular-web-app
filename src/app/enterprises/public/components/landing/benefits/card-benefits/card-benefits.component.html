@@ -1,12 +1,14 @@
-<div class="text-center text-sm-left {{className}}">
+<div class="text-center text-sm-left benefit__item">
   <div class="card__icon-container">
-    <img src="{{ iconSrc }}" alt="{{ title }}">
+    <img src="{{ cardData.iconSrc }}" alt="{{ cardData.title }}">
   </div>
   <div class="card__title">
-    <h3>{{ title }}</h3>
+    <h3>{{ cardData.title }}</h3>
   </div>
   <div class="card__description">
-    <app-paragraph type="min">{{ description }}</app-paragraph>
+    <app-paragraph type="min">{{ cardData.description }}</app-paragraph>
   </div>
-  <app-colored-line></app-colored-line>
+  <app-colored-line
+    lineColor="{{ cardData.lineColor }}"
+    horizontal="center"></app-colored-line>
 </div>

@@ -3,10 +3,14 @@
 :host {
   .benefit__item {
       .card__icon-container {
-        max-width: 100px;
-        margin: auto;
+        margin: 1rem auto;
         padding-top: 1rem;
         padding-bottom: 1rem;
+        img {
+          height: 50px;
+          max-width: 50px;
+
+        }
       }
   }
 }
