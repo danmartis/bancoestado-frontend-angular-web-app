@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-card-benefits',
@@ -6,6 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./card-benefits.component.scss']
 })
 export class CardBenefitsComponent implements OnInit {
+
+  @Input() idName: string = '';
+  @Input() className: string = '';
+  @Input() iconSrc: string = '/assets/imgs/svg/icon-estrella-bg.svg';
+  @Input() title: string = 'Título';
+  @Input() description: string = 'Lorem ipsum dolor sit amet consectetur adipisicing elit.';
 
   constructor() { }
 

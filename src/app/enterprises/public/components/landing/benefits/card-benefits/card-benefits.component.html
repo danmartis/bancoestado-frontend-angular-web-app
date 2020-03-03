@@ -1,3 +1,12 @@
-<div class="beneficios__item" style="background: #dedede;height: 500px;">
-
+<div class="text-center text-sm-left {{className}}">
+  <div class="card__icon-container">
+    <img src="{{ iconSrc }}" alt="{{ title }}">
+  </div>
+  <div class="card__title">
+    <h3>{{ title }}</h3>
+  </div>
+  <div class="card__description">
+    <app-paragraph type="min">{{ description }}</app-paragraph>
+  </div>
+  <app-colored-line></app-colored-line>
 </div>

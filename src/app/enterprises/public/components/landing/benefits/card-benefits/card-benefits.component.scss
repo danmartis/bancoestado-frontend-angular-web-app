@@ -1,0 +1,12 @@
+@import '../../../../../../../scss/_vars';
+
+:host {
+  .benefit__item {
+      .card__icon-container {
+        max-width: 100px;
+        margin: auto;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+      }
+  }
+}
