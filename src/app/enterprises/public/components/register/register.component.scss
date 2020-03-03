@@ -1,5 +1,48 @@
+@import '../../../../../scss/_vars';
+
 .enterprises__register {
   .hero-title {
-    
+    margin-top: 3rem;
+    font-size: 3rem;
+    line-height: 3.5rem;
+    @media (max-width: 997.99px) {
+        margin-top: 1rem;
+        font-size: 2.5rem;
+        line-height: 3rem;
+    }
+    .serv {
+      color: $color-action;
+    }
+  }
+  .row-light:first-child {
+    margin-top: 3rem;
+  }
+  .row-light {
+    background-color: #ffffff;
+    border-radius: $card-border-radius;
+    margin: 16px auto;
+    padding: 16px 8px;;
+
+    label {
+      font-weight: bold;
+    }
+  }
+  .row-submit div:first-child {
+    order: 1;
+  }
+  .row-submit div:last-child {
+    order: 2;
+  }
+
+  @media (max-width: 575.99px) {
+    .row-submit div:first-child, .row-submit div:last-child {
+      text-align: center;
+    }
+    .row-submit div:first-child {
+      order: 2;
+    }
+    .row-submit div:last-child {
+      order: 1;
+    }
   }
 }

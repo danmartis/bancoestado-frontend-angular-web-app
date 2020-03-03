@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "node server.js",
-    "build": "ng build --base-href=/apps/se-portal-empresas/",
+    "build": "ng build",
     "test": "ng test  --code-coverage --no-watch",
     "lint": "ng lint",
     "e2e": "ng e2e",

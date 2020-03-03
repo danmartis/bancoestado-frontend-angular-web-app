@@ -21,6 +21,8 @@ export class InputComponent implements OnInit, OnChanges {
   @Input() typeOptions: '' | 'listOrder' | 'list' = '';
 
   @Input() className: string = '';
+  @Input() idName: string = '';
+
 
   @Input() status: 'valid' | 'invalid' | '' = '';
   @Input() invalidText: string = 'Tienes un error';
