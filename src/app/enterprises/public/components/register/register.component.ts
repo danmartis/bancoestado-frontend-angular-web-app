@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { RegistrerService } from './services/register.service';
+import { Register } from './models/register.model';
 
 @Component({
   selector: 'app-register',
@@ -12,8 +14,10 @@ export class RegisterComponent implements OnInit {
   registerForm: FormGroup;
   
   formInvalid: boolean = false;
+  register: Register;
 
-  constructor(private _formBuilder: FormBuilder) { }
+  constructor(private _formBuilder: FormBuilder,
+              private _registrerService: RegistrerService) { }
 
   ngOnInit() {
 
@@ -45,6 +49,19 @@ export class RegisterComponent implements OnInit {
 
     else {
      this.formInvalid = false;
+
+     const data = this.registerForm.getRawValue();
+
+     this.register = data;
+       console.log(this.register)
+     this._registrerService.addRegister(data)
+     .then( (res) => {
+       console.log(res);
+     })
+     .catch( (err)=> {
+       console.log(err);
+     })
+
     }
 
   }
