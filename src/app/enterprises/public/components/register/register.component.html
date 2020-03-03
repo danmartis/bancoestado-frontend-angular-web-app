@@ -15,7 +15,7 @@
         </div> <!-- /.col -->
       </div> <!-- /.row -->
     </div> <!-- /.container -->
-    <form action="">
+    <form name="registerForm" novalidate [formGroup]="registerForm">
 
       <div class="container">
         <div class="row">
@@ -25,10 +25,14 @@
         </div> <!-- /.row -->
         <div class="row">
           <div class="col-lg-4 col-md-6 col-sm-12">
-            <app-input type="text" placeholder="Razón social"></app-input>
+            <app-input type="text" placeholder="Razón social"  formControlName="business_name" ngDefaultControl required></app-input>
           </div>
           <div class="col-lg-4 col-md-6 col-sm-12">
             <app-input type="text" placeholder="Rut"></app-input>
+
+            <span *ngIf="formInvalid">
+              {{ getMesaggeErrorUsername() }}
+            </span>
           </div> <!-- /.col -->
         </div> <!-- /.row -->
       </div> <!-- /.container -->

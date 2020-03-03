@@ -37,6 +37,7 @@ import { ParametroService } from '../app/domain/parametro.service';
 import { ComprobanteService } from './shared/services/comprobante.service';
 import { RegistroSeService } from './shared/services/registro-se.service';
 import { SharedModule } from './shared/shared.module';
+import { EnterprisesModule } from './enterprises/enterprises.module';
 
 @NgModule({
   declarations: [
@@ -64,11 +65,13 @@ import { SharedModule } from './shared/shared.module';
     AppRoutingModule,
     NgxUsefulSwiperModule,
     NgbModule,
+    EnterprisesModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
     NgxTinySliderModule,
-    SharedModule
+    SharedModule,
+
   ],
   providers: [BusquedasService, ConveniosService, CuentasService, ParametroService, ComprobanteService, RegistroSeService],
   bootstrap: [AppComponent]

@@ -14,6 +14,9 @@ import { BenefitsComponent } from './components/landing/benefits/benefits.compon
 import { FeatureComponent } from './components/landing/feature/feature.component';
 import { CardBenefitsComponent } from './components/landing/benefits/card-benefits/card-benefits.component';
 import { RegisterComponent } from './components/register/register.component';
+import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [
@@ -33,7 +36,10 @@ import { RegisterComponent } from './components/register/register.component';
   imports: [
     CommonModule,
     PublicRoutingModule,
-    SharedModule
+    SharedModule,
+    FormsModule,
+    ReactiveFormsModule,
+
   ]
 })
 export class PublicModule { }
