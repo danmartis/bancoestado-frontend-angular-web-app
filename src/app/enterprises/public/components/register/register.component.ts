@@ -53,7 +53,7 @@ export class RegisterComponent implements OnInit {
      const data = this.registerForm.getRawValue();
 
      this.register = data;
-       console.log(this.register)
+     
      this._registrerService.addRegister(data)
      .then( (res) => {
        console.log(res);
@@ -67,39 +67,33 @@ export class RegisterComponent implements OnInit {
   }
   getMesaggeErrorBussinesName(){
 
-    console.log(this.f.business_name.invalid)
     return this.f.business_name.getError('required')? '*' : '';    
   }
 
   getMesaggeErrorRut(){
 
-    console.log(this.f.rut.invalid)
     return this.f.rut.getError('required')? '*' : '';    
   }
 
 
   getMesaggeErrorName(){
 
-    console.log(this.f.name.invalid)
     return this.f.name.getError('required')? '*' : '';    
   }
 
   getMesaggeErrorLastName(){
 
-    console.log(this.f.last_name.invalid)
     return this.f.last_name.getError('required')? '*' : '';    
   }
 
   getMesaggeErrorEmail(){
 
-    console.log(this.f.email.invalid)
     return this.f.email.getError('required')? '*' : '';    
   }
 
   
   getMesaggeErrorPhone(){
 
-    console.log(this.f.phone.invalid)
     return this.f.phone.getError('required')? '*' : '';    
   }
 
