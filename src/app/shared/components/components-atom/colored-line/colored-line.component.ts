@@ -9,8 +9,13 @@ export class ColoredLineComponent implements OnInit {
 
   @Input() idName : string = '';
   @Input() className : string = '';
-  @Input() horizontal : '' | 'left' | 'right' | 'center' = '';
-  @Input() vertical : '' | 'up' | 'down' | 'down' = '';
+  @Input() lineColor : string = '';
+  @Input() horizontalAlign : 'left' | 'right' | 'center' | '' = 'center' ;
+  @Input() length : '' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'all' | '' = 'all';
+  @Input() thickness : '' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl' | '' = 'md';
+  @Input() spacerTop : '' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl' | '' = 'md';
+  @Input() spacerbottom : '' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl' | '' = 'md';
+
 
   constructor() { }
 

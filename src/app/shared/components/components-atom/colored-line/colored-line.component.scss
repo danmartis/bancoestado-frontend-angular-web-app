@@ -1,0 +1,81 @@
+:host {
+  .colored-line {
+    margin: 1rem;
+    .line {
+      border-bottom: 4px solid;
+    }
+
+    $sizesX: 
+      "xs" 30px, 
+      "sm" 50px, 
+      "md" 80px, 
+      "lg" 120px, 
+      "xl" 180px, 
+      "all" 100%;
+
+    @each $sizeTerm, $size in $sizesX {
+      [length="#{$sizeTerm}"] {
+        width: #{$size};
+      }
+    }
+
+    $sizesY: 
+      "xs" 1px, 
+      "sm" 2px, 
+      "md" 3px, 
+      "lg" 4px, 
+      "xl" 5px, 
+      "xxl" 6px;
+
+    @each $sizeTerm, $size in $sizesY {
+      [thickness="#{$sizeTerm}"] {
+        border-bottom: #{$size} solid;
+      }
+    }
+
+    $horizontaAlign: "center", "left", "right";
+
+    @each $align in $horizontaAlign {
+      @if ($align == "center") {
+        [horizontal="#{$align}"] {
+          margin: auto;
+        }
+      } @else if ($align == "right") {
+        [horizontal="#{$align}"] {
+          float: #{$align};
+        }
+      }
+    }
+
+    $min_space: 8;
+
+    $spacerTop: 
+    "xs"  #{$min_space}px,
+    "sm"  #{$min_space*2}px,
+    "md"  #{$min_space*3}px,
+    "lg"  #{$min_space*4}px,
+    "xl"  #{$min_space*5}px,
+    "xxl" #{$min_space*6}px;
+
+    @each $sizeTerm, $space in $spacerTop {
+      [spacer-top="#{$sizeTerm}"] {
+        padding-top: #{$space};
+      }
+    }
+
+    $spacerBottom: 
+    "xs"  #{$min_space}px,
+    "sm"  #{$min_space*2}px,
+    "md"  #{$min_space*3}px,
+    "lg"  #{$min_space*4}px,
+    "xl"  #{$min_space*5}px,
+    "xxl" #{$min_space*6}px;
+
+    @each $sizeTerm, $space in $spacerBottom {
+      [spacer-bottom="#{$sizeTerm}"] {
+        margin-bottom: #{$space};
+      }
+    }
+
+  }
+}

@@ -1,1 +1,13 @@
-<div ></div>
+<div [id]="idName"
+  class="colored-line {{ className }}"  
+  >
+  <div 
+    class="line"
+    [style.borderColor]="lineColor"
+    length="sm"
+    horizontal="center"
+    thickness="md"
+    spacer-top="lg"
+    spacer-bottom="sm"
+  ></div>
+</div>
