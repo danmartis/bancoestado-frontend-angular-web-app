@@ -11,4 +11,4 @@ phases:
 artifacts:
   files:
     - '**/*'
-  base-directory: 'dist/se-portal-empresas'
+  base-directory: 'dist/se-portal-empresas-app'
