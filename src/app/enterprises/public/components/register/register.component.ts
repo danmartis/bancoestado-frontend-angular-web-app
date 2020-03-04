@@ -24,13 +24,13 @@ export class RegisterComponent implements OnInit {
     //this.registerForm = this.createRegisterForm();
 
     this.registerForm = this._formBuilder.group({
-      business_name: ['', [Validators.required]], 
-      rut:  ['', [Validators.required]], 
-      name:  ['', [Validators.required]], 
-      last_name: ['', [Validators.required]], 
+      business_name: ['', [Validators.required, Validators.maxLength(50)]], 
+      rut:  ['', [Validators.required, Validators.maxLength(50)]], 
+      name:  ['', [Validators.required, Validators.maxLength(50)]], 
+      last_name: ['', [Validators.required, Validators.maxLength(50)]], 
       email:  ['', [Validators.required, Validators.email]], 
-      phone: ['', [Validators.required]],
-      position: ['', [Validators.required]], 
+      phone: ['', [Validators.required, Validators.maxLength(10)]],
+      position: ['', [Validators.required, Validators.maxLength(50)]], 
 
     });
 
@@ -100,6 +100,15 @@ export class RegisterComponent implements OnInit {
   getMesaggeErrorPosition(){
 
     return this.f.position.getError('required')? '*' : '';    
+  }
+
+  numberOnly(event): boolean {
+    const charCode = (event.which) ? event.which : event.keyCode;
+    if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+      return false;
+    }
+    return true;
+
   }
 
 
