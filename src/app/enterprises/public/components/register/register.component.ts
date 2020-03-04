@@ -67,39 +67,39 @@ export class RegisterComponent implements OnInit {
   }
   getMesaggeErrorBussinesName(){
 
-    return this.f.business_name.getError('required')? '*' : '';    
+    return this.f.business_name.getError('required')? 'Este campo es requerido' : '';    
   }
 
   getMesaggeErrorRut(){
 
-    return this.f.rut.getError('required')? '*' : '';    
+    return this.f.rut.getError('required')? 'Este campo es requerido' : '';    
   }
 
 
   getMesaggeErrorName(){
 
-    return this.f.name.getError('required')? '*' : '';    
+    return this.f.name.getError('required')? 'Este campo es requerido' : '';    
   }
 
   getMesaggeErrorLastName(){
 
-    return this.f.last_name.getError('required')? '*' : '';    
+    return this.f.last_name.getError('required')? 'Este campo es requerido' : '';    
   }
 
   getMesaggeErrorEmail(){
 
-    return this.f.email.getError('required')? '*' : '';    
+    return this.f.email.getError('required')? 'Este campo es requerido' : '';    
   }
 
   
   getMesaggeErrorPhone(){
 
-    return this.f.phone.getError('required')? '*' : '';    
+    return this.f.phone.getError('required')? 'Este campo es requerido' : '';    
   }
 
   getMesaggeErrorPosition(){
 
-    return this.f.position.getError('required')? '*' : '';    
+    return this.f.position.getError('required')? 'Este campo es requerido' : '';    
   }
 
   numberOnly(event): boolean {
