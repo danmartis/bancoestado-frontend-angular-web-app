@@ -66,43 +66,44 @@ export class RegisterComponent implements OnInit {
     }
 
   }
+
   getMesaggeErrorBussinesName(){
 
-    return this.f.business_name.getError('required')? '*' : '';    
+    return this.f.business_name.getError('required')? 'Este campo es requerido' : '';    
   }
 
   getMesaggeErrorRut(){
 
     console.log(this.f.rut)
-    return this.f.rut.getError('required')? '*' : this.f.rut.getError('invalidRut')? 'rut' : '';    
+    return this.f.rut.getError('required')? 'Este campo es requerido' : this.f.rut.getError('invalidRut')? 'Rut invalido' : '';    
   }
 
 
 
   getMesaggeErrorName(){
 
-    return this.f.name.getError('required')? '*' : '';    
+    return this.f.name.getError('required')? 'Este campo es requerido' : '';    
   }
 
   getMesaggeErrorLastName(){
 
-    return this.f.last_name.getError('required')? '*' : '';    
+    return this.f.last_name.getError('required')? 'Este campo es requerido' : '';    
   }
 
   getMesaggeErrorEmail(){
 
-    return this.f.email.getError('required')? '*' : '';    
+    return this.f.email.getError('required')? 'Este campo es requerido' : '';    
   }
 
   
   getMesaggeErrorPhone(){
 
-    return this.f.phone.getError('required')? '*' : '';    
+    return this.f.phone.getError('required')? 'Este campo es requerido' : '';    
   }
 
   getMesaggeErrorPosition(){
 
-    return this.f.position.getError('required')? '*' : '';    
+    return this.f.position.getError('required')? 'Este campo es requerido' : '';    
   }
 
   numberOnly(event): boolean {
@@ -114,5 +115,25 @@ export class RegisterComponent implements OnInit {
 
   }
 
+  _keyUp(event: any) {
+    const pattern = /[0-9\+\-\ ]/;
+    let inputChar = String.fromCharCode(event.key);
+
+    if (!pattern.test(inputChar)) {
+      // invalid character, prevent input
+      event.preventDefault();
+    }
+}
+
+public inputValidator(event: any) {
+    //console.log(event.target.value);
+    const pattern = /^[a-zA-Z0-9]*$/;   
+    //let inputChar = String.fromCharCode(event.charCode)
+    if (!pattern.test(event.target.value)) {
+      event.target.value = event.target.value.replace(/[^a-zA-Z0-9]/g, "");
+      // invalid character, prevent input
+
+    }
+  }
 
 }

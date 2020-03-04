@@ -31,21 +31,12 @@
                   <app-label>Datos de la empresa</app-label>
                 </div> <!-- /.col -->
                 <div class="col-lg-4 col-md-6 col-sm-12">
-                  <app-input  idName="enterprises__register__name" type="text" formControlName="business_name" ngDefaultControl placeholder="Razón social"  ></app-input>
+                  <app-input [invalidText]="getMesaggeErrorBussinesName()" icon="none" status="{{ f.business_name.hasError('required') && formInvalid ? 'invalid' : '' }}" idName="enterprises__register__name" type="text" formControlName="business_name" ngDefaultControl placeholder="Razón social"></app-input>
                 </div>
-                <span *ngIf="f.business_name.hasError('required') && formInvalid">
-                 {{ getMesaggeErrorBussinesName() }}
-                </span>
                  <!-- /.col -->
                 <div class="col-lg-4 col-md-6 col-sm-12">
-                  <app-input idName="enterprises__register__rut" name="rut" type="text" formatRut validateRut  placeholder="Rut"  formControlName="rut" ngDefaultControl></app-input>
-                </div>
-                <span *ngIf="f.rut.hasError('required') || f.rut.hasError('invalidRut')">
-                  <span *ngIf="formInvalid">
-                    {{ getMesaggeErrorRut() }}
-
-                  </span>
-                </span> <!-- /.col -->
+                  <app-input [invalidText]="getMesaggeErrorRut()" icon="none" status="{{ ( f.rut.hasError('invalidRut') || f.rut.hasError('required') ) && formInvalid ? 'invalid' : ''  }}" (input)="inputValidator($event)" idName="enterprises__register__rut" type="text" placeholder="Rut"  formControlName="rut" ngDefaultControl></app-input>
+                </div> <!-- /.col -->
                 <div class="offset-lg-4 offset-sm-12"></div> <!-- /.col -->
               </div> <!-- /.row -->
 
@@ -54,36 +45,20 @@
                   <app-label>Datos de contacto</app-label>
                 </div> <!-- /.col -->
                 <div class="col-lg-4 col-md-6 col-sm-12">
-                  <app-input idName="enterprises__register__person-name" type="text" formControlName="name" ngDefaultControl  placeholder="Nombre"></app-input>
-                </div>
-                <span *ngIf="f.name.hasError('required') && formInvalid">
-                  {{ getMesaggeErrorName() }}
-                </span> <!-- /.col -->
+                  <app-input  [invalidText]="getMesaggeErrorName()" icon="none" status="{{ f.name.hasError('required') && formInvalid ? 'invalid' : '' }}" idName="enterprises__register__person-name" type="text" formControlName="name" ngDefaultControl  placeholder="Nombre"></app-input>
+                </div> <!-- /.col -->
                 <div class="col-lg-4 col-md-6 col-sm-12">
-                  <app-input idName="enterprises__register__person-lastname" type="text"  formControlName="last_name" ngDefaultControl placeholder="Apellido"></app-input>
-                </div>
-                <span *ngIf="f.last_name.hasError('required') && formInvalid">
-                  {{ getMesaggeErrorLastName() }}
-                </span> <!-- /.col -->
+                  <app-input  [invalidText]="getMesaggeErrorLastName()" icon="none" status="{{ f.last_name.hasError('required') && formInvalid ? 'invalid' : '' }}" idName="enterprises__register__person-lastname" type="text"  formControlName="last_name" ngDefaultControl placeholder="Apellido"></app-input>
+                </div> <!-- /.col -->
                 <div class="col-lg-4 col-md-6 col-sm-12">
-                  <app-input idName="enterprises__register__person-email" type="email"  formControlName="email" ngDefaultControl placeholder="Correo Electrónico"></app-input>
-                </div>
-                <span *ngIf="f.email.hasError('required') && formInvalid">
-                  {{ getMesaggeErrorEmail() }}
-                </span>
-                <!-- /.col -->
+                  <app-input  [invalidText]="getMesaggeErrorEmail()" icon="none" status="{{ f.email.hasError('required') && formInvalid ? 'invalid' : '' }}" idName="enterprises__register__person-email" type="email"  formControlName="email" ngDefaultControl placeholder="Correo Electrónico"></app-input>
+                </div> <!-- /.col -->
                 <div class="col-lg-4 col-md-6 col-sm-12">
-                  <app-input idName="enterprises__register__person-phone" type="text" maxlength="10" formControlName="phone" ngDefaultControl placeholder="Teléfono" (keypress)="numberOnly($event)"></app-input>
-                </div>
-                <span *ngIf="f.phone.hasError('required') && formInvalid">
-                  {{ getMesaggeErrorPhone() }}
-                </span>
+                  <app-input  [invalidText]="getMesaggeErrorPhone()" icon="none" status="{{ f.phone.hasError('required') && formInvalid ? 'invalid' : '' }}" idName="enterprises__register__person-phone" type="text" maxlength="10" formControlName="phone" ngDefaultControl placeholder="Teléfono" (keypress)="numberOnly($event)"></app-input>
+                </div> <!-- /.col -->
                 <div class="col-lg-4 col-md-6 col-sm-12">
-                  <app-input idName="enterprises__register__person-position" type="text" formControlName="position" ngDefaultControl  placeholder="Cargo"></app-input>
-                </div>
-                <span *ngIf="f.position.hasError('required') && formInvalid">
-                  {{ getMesaggeErrorPosition() }}
-                </span> <!-- /.col -->
+                  <app-input  [invalidText]="getMesaggeErrorPosition()" icon="none" status="{{ f.position.hasError('required') && formInvalid ? 'invalid' : '' }}" idName="enterprises__register__person-position" type="text" formControlName="position" ngDefaultControl  placeholder="Cargo"></app-input>
+                </div> <!-- /.col -->
                 <div class="offset-lg-6 offset-md-6"></div> <!-- /.col -->
               </div> <!-- /.row -->
               

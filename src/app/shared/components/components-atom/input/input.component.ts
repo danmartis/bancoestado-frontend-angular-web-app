@@ -61,13 +61,15 @@ export class InputComponent implements OnInit, OnChanges {
   }
 
   getStatusIcon() {
-    switch (this.status) {
-      case 'valid':
-        return 'check_circle';
-      case 'invalid':
-        return 'cancel';
-      default:
-        return '';
+    if(this.icon != 'none') {
+      switch (this.status) {
+        case 'valid':
+          return 'check_circle';
+        case 'invalid':
+          return 'cancel';
+        default:
+          return '';
+      }
     }
   }
 
