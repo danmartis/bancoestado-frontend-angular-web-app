@@ -1,0 +1,38 @@
+@import '../../../../../../../scss/_vars';
+
+:host {
+  .benefit__item {
+    display: flex;
+    flex-wrap: wrap;
+    @media (max-width: $media-max-lg) {
+      
+    }
+
+    .benefit__item__1 {
+      width: 100%;
+    }
+    .benefit__item__2 {
+      width: 100%;
+    }
+    .card__icon-container {
+      margin: 1rem auto;
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+      img {
+        height: 50px;
+        max-width: 50px;
+
+      }
+    }
+    .card__title {
+      @media (min-width: $media-min-lg) {
+        text-align: center;
+      }
+      
+    }
+    .card__description {
+      min-height: 60px;
+    }
+    
+  } // .benefit_item
+}
