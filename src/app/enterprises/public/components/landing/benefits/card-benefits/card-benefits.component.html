@@ -1,3 +1,19 @@
-<div class="beneficios__item" style="background: #dedede;height: 500px;">
-
+<div class="benefit__item">
+  <div class="benefit__item__1">
+    <div class="card__icon-container">
+      <img src="{{ cardData.iconSrc }}" alt="{{ cardData.title }}">
+    </div>
+  </div>
+  <div class="benefit__item__2">
+    <div class="card__title">
+      <h3>{{ cardData.title }}</h3>
+    </div>
+    <div class="card__description">
+      <app-paragraph type="min">{{ cardData.description }}</app-paragraph>
+    </div>
+    <app-colored-line
+      [lineColor]="cardData.lineColor"
+      [length] = "'sm'"
+      horizontal="center" [spacerTop]="'sm'"></app-colored-line>
+  </div>
 </div>

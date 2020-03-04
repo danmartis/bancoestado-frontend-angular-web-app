@@ -1,4 +1,4 @@
-<section class="landing__beneficios">
+<section class="landing__benefits">
   <div class="container">
     <div class="row">
       <div class="col-12">
@@ -7,16 +7,15 @@
         </h3>
       </div>
     </div>
-    <div class="row landing__beneficios__items">
-      <div class="col-sm-12 col-md-6 col-lg-4">
-        <app-card-benefits></app-card-benefits>
-      </div>
-      <div class="col-sm-12 col-md-6 col-lg-4">
-        <app-card-benefits></app-card-benefits>
-      </div>
-      <div class="col-sm-12 col-md-6 col-lg-4">
-        <app-card-benefits></app-card-benefits>
+
+    <!-- Pruebas Cards -->
+    <div class="row benefit__items">
+      <div class="col-md-12 col-lg-4 mt-2 mb-2" *ngFor="let benefit of benefits">
+        <app-card-default>
+          <app-card-benefits [cardData]="benefit"></app-card-benefits>
+        </app-card-default>
       </div>
     </div>
+
   </div>
 </section>

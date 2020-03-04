@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="68px" height="28px" viewBox="0 0 68 28" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 61.2 (89653) - https://sketch.com -->
+    <title>Group 11</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Artboard" transform="translate(0.000000, -12.000000)" fill="#1E63F8">
+            <g id="Group-11" transform="translate(0.000000, 12.000000)">
+                <path d="M33.9037042,46.5612358 C34.1828697,46.8420849 34.5623758,47 34.9577775,47 C35.3521856,47 35.7316917,46.8420849 36.0108572,46.5612358 L48.5633693,33.9340208 C49.1455436,33.3483356 49.1455436,32.3998452 48.5633693,31.8141599 C47.981195,31.2284746 47.0383906,31.2284746 46.4562163,31.8141599 L36.3645331,41.9657051 L36.4358974,-17.5008056 C36.4358974,-18.3293604 35.7682846,-19 34.9456902,-19 C34.1221024,-19 33.455483,-18.3293604 33.455483,-17.5008056 L33.3841186,41.7977953 L23.5437837,31.8981148 C22.9616094,31.3124295 22.018805,31.3124295 21.4366307,31.8981148 C20.8544564,32.4838001 20.8544564,33.4322904 21.4366307,34.0179757 L33.9037042,46.5612358 Z" id="Combined-Shape" transform="translate(35.000000, 14.000000) rotate(-90.000000) translate(-35.000000, -14.000000) "></path>
+                <circle id="Oval" stroke="#FFFFFF" stroke-width="2" cx="44" cy="14" r="6"></circle>
+                <circle id="Oval" stroke="#FFFFFF" stroke-width="2" cx="25" cy="14" r="6"></circle>
+                <circle id="Oval" stroke="#FFFFFF" stroke-width="2" cx="6" cy="14" r="6"></circle>
+            </g>
+        </g>
+    </g>
+</svg>

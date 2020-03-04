@@ -44,15 +44,31 @@ $h-footer-mobile: 18rem;
 $h-footer-mobile-wrap: 10rem;
 $h-footer-desktop: 9.4rem;
 $h-footer-desktop-wrap: 10.4rem;
+
+// media breakpoints para min-width
+$media-min-xs: 480px; // media query personalizada para dispositivos muy pequeños
+$media-min-sm: 576px;
+$media-min-md: 768px;
+$media-min-lg: 992px;
+$media-min-xl: 1200px;
+// media breakpoints para max-width
+$media-max-xs: 480px; // media query personalizada para dispositivos muy pequeños
+$media-max-sm: 575.98px;
+$media-max-md: 767.98px;
+$media-max-lg: 991.98px;
+$media-max-xl: 1199.98px;
+
+
+
 @mixin main-with-header {
-    @media (max-width: 767.99999px) {
+    @media (max-width: $media-max-md) {
         margin-top: 5rem;
         display: block;
     }
 }
 
 @mixin main-without-header-footer {
-    @media (min-width: 768px) {
+    @media (min-width: $media-min-md) {
         margin-top: -10rem;
     }
     display: block;

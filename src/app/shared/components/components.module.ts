@@ -85,6 +85,7 @@ import { DropdownComponent } from './dropdown/dropdown.component';
 import { SelectSeComponent } from './components-atom/select-se/select-se.component';
 import { NgxTinySliderModule } from 'ngx-tiny-slider';
 import { HelpPrefooterComponent } from './help-prefooter/help-prefooter.component';
+import { ColoredLineComponent } from './components-atom/colored-line/colored-line.component';
 
 @NgModule({
   declarations: [ButtonComponent, CardAccountComponent,
@@ -105,7 +106,9 @@ import { HelpPrefooterComponent } from './help-prefooter/help-prefooter.componen
     ShowMoreComponent, TextareaComponent, CalltoactionComponent,
     CardAccountHistoryComponent,
     CardAccountTypeAComponent, CardAccountTypeBComponent, CardAccountDetailComponentNew,
-    CardAccountHistoryGroupComponent, Button2Component, GraphDisplayValueComponent, ModalIconComponent, CardRegisterSuccessComponent, DropdownComponent, SelectSeComponent, HelpPrefooterComponent],
+    CardAccountHistoryGroupComponent, Button2Component, GraphDisplayValueComponent, ModalIconComponent, CardRegisterSuccessComponent, DropdownComponent, SelectSeComponent, HelpPrefooterComponent, 
+    ColoredLineComponent
+  ],
   imports: [
     CommonModule,
     RouterModule,
@@ -137,7 +140,7 @@ import { HelpPrefooterComponent } from './help-prefooter/help-prefooter.componen
     ModalTitleComponent, PageTitleComponent, ParagraphComponent, CardMethodPaymentComponent,
     RadioComponent, CardVoucherComponent, MessagePaymentComponent, InfoPaymentComponent,
     DetailsPaymentComponent, EmptyAreasComponent, CapsuleComponent, HeaderMainComponent, SelectSeComponent, NgxTinySliderModule,
-    HelpPrefooterComponent
+    HelpPrefooterComponent, ColoredLineComponent
   ],
 })
 export class ComponentsModule { }
