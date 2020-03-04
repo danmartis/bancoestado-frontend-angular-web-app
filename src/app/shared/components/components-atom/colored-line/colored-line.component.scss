@@ -5,7 +5,7 @@
       border-bottom: 4px solid;
     }
 
-    $sizesX: 
+    $length-items: 
       "xs" 30px, 
       "sm" 50px, 
       "md" 80px, 
@@ -13,13 +13,13 @@
       "xl" 180px, 
       "all" 100%;
 
-    @each $sizeTerm, $size in $sizesX {
-      [length="#{$sizeTerm}"] {
+    @each $size-term, $size in $length-items {
+      &[length="#{$size-term}"] .line {
         width: #{$size};
       }
     }
 
-    $sizesY: 
+    $thikness-items: 
       "xs" 1px, 
       "sm" 2px, 
       "md" 3px, 
@@ -27,55 +27,54 @@
       "xl" 5px, 
       "xxl" 6px;
 
-    @each $sizeTerm, $size in $sizesY {
-      [thickness="#{$sizeTerm}"] {
+    @each $size-term, $size in $thikness-items {
+      &[thickness="#{$size-term}"] .line {
         border-bottom: #{$size} solid;
       }
     }
 
-    $horizontaAlign: "center", "left", "right";
+    $horizonta-align-items: "center", "left", "right";
 
-    @each $align in $horizontaAlign {
+    @each $align in $horizonta-align-items {
       @if ($align == "center") {
-        [horizontal="#{$align}"] {
+        &[horizontal="#{$align}"] .line {
           margin: auto;
         }
       } @else if ($align == "right") {
-        [horizontal="#{$align}"] {
+        &[horizontal="#{$align}"] .line {
           float: #{$align};
         }
       }
     }
 
-    $min_space: 8;
+    $min-space: 8;
 
-    $spacerTop: 
-    "xs"  #{$min_space}px,
-    "sm"  #{$min_space*2}px,
-    "md"  #{$min_space*3}px,
-    "lg"  #{$min_space*4}px,
-    "xl"  #{$min_space*5}px,
-    "xxl" #{$min_space*6}px;
+    $spacer-top-items: 
+    "xs"  #{$min-space}px,
+    "sm"  #{$min-space*2}px,
+    "md"  #{$min-space*3}px,
+    "lg"  #{$min-space*4}px,
+    "xl"  #{$min-space*5}px,
+    "xxl" #{$min-space*6}px;
 
-    @each $sizeTerm, $space in $spacerTop {
-      [spacer-top="#{$sizeTerm}"] {
+    @each $size-term, $space in $spacer-top-items {
+      &[spacer-top="#{$size-term}"] .line {
         padding-top: #{$space};
       }
     }
 
-    $spacerBottom: 
-    "xs"  #{$min_space}px,
-    "sm"  #{$min_space*2}px,
-    "md"  #{$min_space*3}px,
-    "lg"  #{$min_space*4}px,
-    "xl"  #{$min_space*5}px,
-    "xxl" #{$min_space*6}px;
+    $spacer-bottom: 
+    "xs"  #{$min-space}px,
+    "sm"  #{$min-space*2}px,
+    "md"  #{$min-space*3}px,
+    "lg"  #{$min-space*4}px,
+    "xl"  #{$min-space*5}px,
+    "xxl" #{$min-space*6}px;
 
-    @each $sizeTerm, $space in $spacerBottom {
-      [spacer-bottom="#{$sizeTerm}"] {
+    @each $size-term, $space in $spacer-bottom {
+      &[spacer-bottom="#{$size-term}"] .line {
         margin-bottom: #{$space};
       }
     }
-
   }
 }

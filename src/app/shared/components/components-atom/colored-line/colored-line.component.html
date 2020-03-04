@@ -1,13 +1,13 @@
 <div [id]="idName"
   class="colored-line {{ className }}"  
+  [attr.length]="length"
+  [attr.horizontal]="horizontalAlign"
+  [attr.thickness]="thickness"
+  [attr.spacer-top]="spacerTop"
+  [attr.spacer-bottom]="spacerbottom"
   >
   <div 
     class="line"
     [style.borderColor]="lineColor"
-    length="sm"
-    horizontal="center"
-    thickness="md"
-    spacer-top="lg"
-    spacer-bottom="sm"
   ></div>
 </div>

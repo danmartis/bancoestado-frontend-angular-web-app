@@ -16,11 +16,6 @@ export class CardBenefitsComponent implements OnInit {
     lineColor: string
   };
   ;
-  /*
-  @Input() iconSrc: string = '/assets/imgs/svg/icon-estrella-bg.svg';
-  @Input() title: string = 'Título';
-  @Input() description: string = 'Lorem ipsum dolor sit amet consectetur adipisicing elit.';
-  */
 
   constructor() { }
 
