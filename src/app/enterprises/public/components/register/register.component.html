@@ -31,17 +31,20 @@
                   <app-label>Datos de la empresa</app-label>
                 </div> <!-- /.col -->
                 <div class="col-lg-4 col-md-6 col-sm-12">
-                  <app-input idName="enterprises__register__name" type="text" formControlName="business_name" ngDefaultControl placeholder="Razón social"></app-input>
+                  <app-input  idName="enterprises__register__name" type="text" formControlName="business_name" ngDefaultControl placeholder="Razón social"  ></app-input>
                 </div>
                 <span *ngIf="f.business_name.hasError('required') && formInvalid">
                  {{ getMesaggeErrorBussinesName() }}
                 </span>
                  <!-- /.col -->
                 <div class="col-lg-4 col-md-6 col-sm-12">
-                  <app-input idName="enterprises__register__rut" type="text" placeholder="Rut"  formControlName="rut" ngDefaultControl></app-input>
+                  <app-input idName="enterprises__register__rut" name="rut" type="text" formatRut validateRut  placeholder="Rut"  formControlName="rut" ngDefaultControl></app-input>
                 </div>
-                <span *ngIf="f.rut.hasError('required') && formInvalid">
-                  {{ getMesaggeErrorRut() }}
+                <span *ngIf="f.rut.hasError('required') || f.rut.hasError('invalidRut')">
+                  <span *ngIf="formInvalid">
+                    {{ getMesaggeErrorRut() }}
+
+                  </span>
                 </span> <!-- /.col -->
                 <div class="offset-lg-4 offset-sm-12"></div> <!-- /.col -->
               </div> <!-- /.row -->

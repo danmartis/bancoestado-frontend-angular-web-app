@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { RegistrerService } from './services/register.service';
 import { Register } from './models/register.model';
+import { RutValidator } from 'ng2-rut';
 
 @Component({
   selector: 'app-register',
@@ -10,14 +11,14 @@ import { Register } from './models/register.model';
 })
 export class RegisterComponent implements OnInit {
 
-
   registerForm: FormGroup;
   
   formInvalid: boolean = false;
   register: Register;
 
   constructor(private _formBuilder: FormBuilder,
-              private _registrerService: RegistrerService) { }
+              private _registrerService: RegistrerService,
+              private rutValidator: RutValidator) { }
 
   ngOnInit() {
 
@@ -25,7 +26,7 @@ export class RegisterComponent implements OnInit {
 
     this.registerForm = this._formBuilder.group({
       business_name: ['', [Validators.required, Validators.maxLength(50)]], 
-      rut:  ['', [Validators.required, Validators.maxLength(50)]], 
+      rut:  ['', [Validators.required, Validators.maxLength(50), this.rutValidator]], 
       name:  ['', [Validators.required, Validators.maxLength(50)]], 
       last_name: ['', [Validators.required, Validators.maxLength(50)]], 
       email:  ['', [Validators.required, Validators.email]], 
@@ -72,8 +73,10 @@ export class RegisterComponent implements OnInit {
 
   getMesaggeErrorRut(){
 
-    return this.f.rut.getError('required')? '*' : '';    
+    console.log(this.f.rut)
+    return this.f.rut.getError('required')? '*' : this.f.rut.getError('invalidRut')? 'rut' : '';    
   }
+
 
 
   getMesaggeErrorName(){

@@ -16,7 +16,7 @@ import { CardBenefitsComponent } from './components/landing/benefits/card-benefi
 import { RegisterComponent } from './components/register/register.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
+import { Ng2Rut } from 'ng2-rut';
 
 @NgModule({
   declarations: [
@@ -39,6 +39,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     SharedModule,
     FormsModule,
     ReactiveFormsModule,
+    Ng2Rut
 
   ]
 })
