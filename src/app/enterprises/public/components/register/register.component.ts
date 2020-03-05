@@ -127,10 +127,10 @@ export class RegisterComponent implements OnInit {
 
 public inputValidator(event: any) {
     //console.log(event.target.value);
-    const pattern = /^[a-zk-Z0-9]*$/;   
+    const pattern = /^[0-9\k\K]*$/;   
     //let inputChar = String.fromCharCode(event.charCode)
     if (!pattern.test(event.target.value)) {
-      event.target.value = event.target.value.replace(/[^a-zkZ0-9]/g, "");
+      event.target.value = event.target.value.replace(/[^0-9\k\K]/g, "");
       // invalid character, prevent input
 
     }
