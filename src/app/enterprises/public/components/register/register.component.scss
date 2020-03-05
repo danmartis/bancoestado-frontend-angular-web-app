@@ -45,4 +45,41 @@
       order: 1;
     }
   }
+
+  //modal
+  #enterprises__register__modal {
+    .modal_section__body {
+      .icon-container {
+        background-color: rgb(154, 230, 154);
+        border-radius: 80px;
+        width: 80px;
+        height: 80px;
+        margin: 8px auto 24px auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        .icon {
+          max-width: 30px;
+        }
+      }
+      .text-container {
+        .register__modal__title {
+          color: $color-primary;
+          text-align: center;
+        }
+        .register__modal__subtitle {
+          color: $color-primary;
+          font-weight: normal;
+          text-align: center;
+        }
+      }
+      .btn-container {
+        margin: 2rem auto 1rem auto;
+        text-align: center;  
+        .modal-btn {
+          margin: 0 2rem;
+        }
+      }
+    }
+  }
 }
