@@ -47,24 +47,10 @@
                 </div>
                 <!-- /.col -->
                 <div class="col-lg-4 col-md-6 col-sm-12">
-                  <app-input
-                    [invalidText]="getMesaggeErrorRut()"
-                    icon="none"
-                    status="{{
-                      f.rut.hasError('required') && formInvalid ? 'invalid' : ''
-                    }}"
-                    idName="enterprises__register__rut"
-                    type="text"
-                    placeholder="Rut"
-                    formControlName="rut"
-                    ngDefaultControl
-                  ></app-input>
-                </div>
-                <!-- /.col -->
-                <div class="offset-lg-4 offset-sm-12"></div>
-                <!-- /.col -->
-              </div>
-              <!-- /.row -->
+                  <app-input [invalidText]="getMesaggeErrorRut()" icon="none" status="{{ ( f.rut.hasError('invalidRut') || f.rut.hasError('required') ) && formInvalid ? 'invalid' : ''  }}" maxlength="9" (input)="inputValidator($event)" idName="enterprises__register__rut" type="text" placeholder="Rut"  formControlName="rut" ngDefaultControl></app-input>
+                </div> <!-- /.col -->
+                <div class="offset-lg-4 offset-sm-12"></div> <!-- /.col -->
+              </div> <!-- /.row -->
 
               <div class="row row-light">
                 <div class="col-12">
@@ -142,25 +128,11 @@
                 </div>
                 <!-- /.col -->
                 <div class="col-lg-4 col-md-6 col-sm-12">
-                  <app-input
-                    [invalidText]="getMesaggeErrorPosition()"
-                    icon="none"
-                    status="{{
-                      f.rut.hasError('required') && formInvalid ? 'invalid' : ''
-                    }}"
-                    idName="enterprises__register__person-position"
-                    type="text"
-                    formControlName="position"
-                    ngDefaultControl
-                    placeholder="Cargo"
-                  ></app-input>
-                </div>
-                <!-- /.col -->
-                <div class="offset-lg-6 offset-md-6"></div>
-                <!-- /.col -->
-              </div>
-              <!-- /.row -->
-
+                  <app-input  [invalidText]="getMesaggeErrorPosition()" icon="none" status="{{ f.position.hasError('required') && formInvalid ? 'invalid' : '' }}" idName="enterprises__register__person-position" type="text" formControlName="position" ngDefaultControl  placeholder="Cargo"></app-input>
+                </div> <!-- /.col -->
+                <div class="offset-lg-6 offset-md-6"></div> <!-- /.col -->
+              </div> <!-- /.row -->
+              
               <div class="row row-submit">
                 <div
                   class="offset-md-4 col-md-4 offset-sm-2 col-sm-5 text-right"
@@ -180,7 +152,7 @@
                     idName="enterprises__register__btn-submit"
                     (click)="
                       btnSendData();
-                      closeListOpenSingle([''], 'enterprises__register__modal')
+                     
                     "
                     >Enviar</app-button
                   >
