@@ -1,4 +1,10 @@
-<button class="button" [ngClass]="getClassName()" [disabled]="disabled">
-        <i *ngIf="type === 'back'" class="material-icons md-24">keyboard_arrow_left</i>
-        <ng-content></ng-content>
+<button 
+  [id]="idName"
+  class="button {{ className }}"
+  [ngClass]="getClassName()"
+  [disabled]="disabled">
+  <i *ngIf="type === 'back'" class="material-icons md-24"
+    >keyboard_arrow_left</i
+  >
+  <ng-content></ng-content>
 </button>
