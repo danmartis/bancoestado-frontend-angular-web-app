@@ -86,6 +86,8 @@ import { SelectSeComponent } from './components-atom/select-se/select-se.compone
 import { NgxTinySliderModule } from 'ngx-tiny-slider';
 import { HelpPrefooterComponent } from './help-prefooter/help-prefooter.component';
 import { ColoredLineComponent } from './components-atom/colored-line/colored-line.component';
+import { TopBarComponent } from './top-bar/top-bar.component';
+import { HeaderLandingComponent } from './header-landing/header-landing.component';
 
 @NgModule({
   declarations: [ButtonComponent, CardAccountComponent,
@@ -107,7 +109,7 @@ import { ColoredLineComponent } from './components-atom/colored-line/colored-lin
     CardAccountHistoryComponent,
     CardAccountTypeAComponent, CardAccountTypeBComponent, CardAccountDetailComponentNew,
     CardAccountHistoryGroupComponent, Button2Component, GraphDisplayValueComponent, ModalIconComponent, CardRegisterSuccessComponent, DropdownComponent, SelectSeComponent, HelpPrefooterComponent, 
-    ColoredLineComponent
+    ColoredLineComponent, TopBarComponent, HeaderLandingComponent
   ],
   imports: [
     CommonModule,
@@ -140,7 +142,7 @@ import { ColoredLineComponent } from './components-atom/colored-line/colored-lin
     ModalTitleComponent, PageTitleComponent, ParagraphComponent, CardMethodPaymentComponent,
     RadioComponent, CardVoucherComponent, MessagePaymentComponent, InfoPaymentComponent,
     DetailsPaymentComponent, EmptyAreasComponent, CapsuleComponent, HeaderMainComponent, SelectSeComponent, NgxTinySliderModule,
-    HelpPrefooterComponent, ColoredLineComponent
+    HelpPrefooterComponent, ColoredLineComponent, TopBarComponent, HeaderLandingComponent
   ],
 })
 export class ComponentsModule { }

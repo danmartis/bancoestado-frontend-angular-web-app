@@ -1,0 +1,50 @@
+<header id="header-landing" class="header header--sesion" [ngClass]="['header--' + type, sidebarShadow ? 'header--shadow' : 'header--without-shadow']">
+  <app-top-bar></app-top-bar>
+    <div class="header__accesos">
+        <figure class="header__logotipo">
+            <img src="assets/imgs/logo-ServiEstado-horizontal.png" (click)="goToLanding()" alt="Logotipo ServiEstado" style="cursor: pointer">
+        </figure>
+
+        <div class="header__mobile">
+            <figure class="header__user">
+                <img src="assets/imgs/usuario.png" alt="Foto o imagen del cliente" class="sidebar__avatar">
+            </figure>
+            <div class="header__burger">
+                <button class="header__button-menu" [ngClass]="sidebarStatus ? 'header__button-menu--open' : 'header__button-menu--close'" (click)="toggleSidebarStatus()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <nav class="menu-principal">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <ul class="header__menu">
+                        <li class="header__item">
+                            <a routerLink="/" class="header__link">Inicio</a>
+                        </li>
+                        <li class="header__item">
+                            <a routerLink="/nosotros" class="header__link">Quienes Somos</a>
+                        </li>
+                        <li class="header__item">
+                          <a href="/" class="header__link">Ayuda</a>
+                        </li>
+                        <li class="header__item">
+                          <a href="/" class="header__link login" >Ingresar</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+</header>
+
+
+
+
+
+<app-sidebar [status]="getSidebarStatus()"></app-sidebar>
