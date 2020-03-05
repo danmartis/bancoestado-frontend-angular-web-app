@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { RegistrerService } from './services/register.service';
 import { Register } from './models/register.model';
+import { ModalService } from 'src/app/shared/services/modal.service';
 
 @Component({
   selector: 'app-register',
@@ -16,13 +17,16 @@ export class RegisterComponent implements OnInit {
   formInvalid: boolean = false;
   register: Register;
 
+  closeListOpenSingle(closeList: Array<string>, open: string) {
+    this.modalService.closeListOpenSingle(closeList, open);
+  }
+
   constructor(private _formBuilder: FormBuilder,
+              protected modalService:ModalService,
               private _registrerService: RegistrerService) { }
 
   ngOnInit() {
-
-    //this.registerForm = this.createRegisterForm();
-
+   
     this.registerForm = this._formBuilder.group({
       business_name: ['', [Validators.required, Validators.maxLength(50)]], 
       rut:  ['', [Validators.required, Validators.maxLength(50)]], 
