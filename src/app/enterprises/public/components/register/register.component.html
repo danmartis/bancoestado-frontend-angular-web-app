@@ -95,11 +95,8 @@
                   <app-input
                     [invalidText]="getMesaggeErrorEmail()"
                     icon="none"
-                    status="{{
-                      f.email.hasError('required') && formInvalid
-                        ? 'invalid'
-                        : ''
-                    }}"
+
+                    status="{{ ( f.email.hasError('pattern') || f.email.hasError('required') ) && formInvalid ? 'invalid' : ''  }}"
                     idName="enterprises__register__person-email"
                     type="email"
                     formControlName="email"

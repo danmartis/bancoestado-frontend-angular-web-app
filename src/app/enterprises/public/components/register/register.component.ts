@@ -16,6 +16,8 @@ export class RegisterComponent implements OnInit {
   
   formInvalid: boolean = false;
   register: Register;
+  emailPattern = "[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}";
+
 
   closeListOpenSingle(closeList: Array<string>, open: string) {
     this.modalService.closeListOpenSingle(closeList, open);
@@ -33,7 +35,7 @@ export class RegisterComponent implements OnInit {
       rut:  ['', [Validators.required, Validators.maxLength(50), this.rutValidator]], 
       name:  ['', [Validators.required, Validators.maxLength(50)]], 
       last_name: ['', [Validators.required, Validators.maxLength(50)]], 
-      email:  ['', [Validators.required, Validators.email]], 
+      email:  ['', [Validators.required, Validators.pattern(this.emailPattern)]], 
       phone: ['', [Validators.required, Validators.maxLength(10)]],
       position: ['', [Validators.required, Validators.maxLength(50)]], 
 
@@ -83,8 +85,7 @@ export class RegisterComponent implements OnInit {
     console.log(this.f.rut)
     return this.f.rut.getError('required')? 'Este campo es requerido' : this.f.rut.getError('invalidRut')? 'Rut invalido' : '';    
   }
-
-
+  
 
   getMesaggeErrorName(){
 
@@ -97,8 +98,10 @@ export class RegisterComponent implements OnInit {
   }
 
   getMesaggeErrorEmail(){
+    console.log(this.f.email)
 
-    return this.f.email.getError('required')? 'Este campo es requerido' : '';    
+    return this.f.email.getError('required')? 'Este campo es requerido' : this.f.email.getError('pattern')? 'Email invalido' : '';    
+
   }
 
   
