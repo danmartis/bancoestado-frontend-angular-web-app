@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { RegistrerService } from './services/register.service';
 import { Register } from './models/register.model';
+import { ModalService } from 'src/app/shared/services/modal.service';
 import { RutValidator } from 'ng2-rut';
 
 @Component({
@@ -16,14 +17,17 @@ export class RegisterComponent implements OnInit {
   formInvalid: boolean = false;
   register: Register;
 
+  closeListOpenSingle(closeList: Array<string>, open: string) {
+    this.modalService.closeListOpenSingle(closeList, open);
+  }
+
   constructor(private _formBuilder: FormBuilder,
               private _registrerService: RegistrerService,
-              private rutValidator: RutValidator) { }
+              private rutValidator: RutValidator,
+              private modalService: ModalService) { }
 
   ngOnInit() {
-
-    //this.registerForm = this.createRegisterForm();
-
+   
     this.registerForm = this._formBuilder.group({
       business_name: ['', [Validators.required, Validators.maxLength(50)]], 
       rut:  ['', [Validators.required, Validators.maxLength(50), this.rutValidator]], 
@@ -58,6 +62,8 @@ export class RegisterComponent implements OnInit {
      this._registrerService.addRegister(data)
      .then( (res) => {
        console.log(res);
+
+       this.closeListOpenSingle([''], 'enterprises__register__modal')
      })
      .catch( (err)=> {
        console.log(err);
