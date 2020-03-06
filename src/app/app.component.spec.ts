@@ -1,15 +1,15 @@
 import { TestBed, async } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
-import { LoginFlowComponent } from './components/components-organisms/login-flow/login-flow.component';
-import { ModalBenefitsComponent } from './components/components-organisms/modal-benefits/modal-benefits.component';
-import { ModalComponent } from './components/components-organisms/modal/modal.component';
-import { ButtonComponent } from './components/components-atom/button/button.component';
-import { InputComponent } from './components/components-atom/input/input.component';
-import { ParagraphComponent } from './components/components-atom/paragraph/paragraph.component';
-import { ModalTitleComponent } from './components/components-atom/modal-title/modal-title.component';
-import { ImageComponent } from './components/components-atom/image/image.component';
-import { IconComponent } from './components/components-atom/icon/icon.component';
+import { LoginFlowComponent } from './shared/components/components-organisms/login-flow/login-flow.component';
+import { ModalBenefitsComponent } from './shared/components/components-organisms/modal-benefits/modal-benefits.component';
+import { ModalComponent } from './shared/components/components-organisms/modal/modal.component';
+import { ButtonComponent } from './shared/components/components-atom/button/button.component';
+import { InputComponent } from './shared/components/components-atom/input/input.component';
+import { ParagraphComponent } from './shared/components/components-atom/paragraph/paragraph.component';
+import { ModalTitleComponent } from './shared/components/components-atom/modal-title/modal-title.component';
+import { ImageComponent } from './shared/components/components-atom/image/image.component';
+import { IconComponent } from './shared/components/components-atom/icon/icon.component';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
