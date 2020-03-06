@@ -1,28 +1,28 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ProofPaymentComponent } from './proof-payment.component';
-import { FooterDefaultComponent } from 'src/app/components/footer-default/footer-default.component';
-import { PageComponent } from 'src/app/components/components-atom/page/page.component';
-import { VoucherGroupComponent } from 'src/app/components/components-organisms/voucher-group/voucher-group.component';
-import { HeaderMainComponent } from 'src/app/components/header-main/header-main.component';
-import { BackButtonPageComponent } from 'src/app/components/components-atom/back-button-page/back-button-page.component';
-import { ButtonComponent } from 'src/app/components/components-atom/button/button.component';
-import { CardVoucherComponent } from 'src/app/components/card-voucher/card-voucher.component';
-import { ParagraphComponent } from 'src/app/components/components-atom/paragraph/paragraph.component';
-import { CardAccountDetailComponent } from 'src/app/components/card-account-detail/card-account-detail.component';
-import { MessagePaymentComponent } from 'src/app/components/message-payment/message-payment.component';
-import { IconComponent } from 'src/app/components/components-atom/icon/icon.component';
-import { SidebarComponent } from 'src/app/components/sidebar/sidebar.component';
-import { CardDefaultComponent } from 'src/app/components/components-atom/card-default/card-default.component';
-import { CheckboxComponent } from 'src/app/components/components-atom/checkbox/checkbox.component';
+import { FooterDefaultComponent } from 'src/app/shared/components/footer-default/footer-default.component';
+import { PageComponent } from 'src/app/shared/components/components-atom/page/page.component';
+import { VoucherGroupComponent } from 'src/app/shared/components/components-organisms/voucher-group/voucher-group.component';
+import { HeaderMainComponent } from 'src/app/shared/components/header-main/header-main.component';
+import { BackButtonPageComponent } from 'src/app/shared/components/components-atom/back-button-page/back-button-page.component';
+import { ButtonComponent } from 'src/app/shared/components/components-atom/button/button.component';
+import { CardVoucherComponent } from 'src/app/shared/components/card-voucher/card-voucher.component';
+import { ParagraphComponent } from 'src/app/shared/components/components-atom/paragraph/paragraph.component';
+import { CardAccountDetailComponent } from 'src/app/shared/components/card-account-detail/card-account-detail.component';
+import { MessagePaymentComponent } from 'src/app/shared/components/message-payment/message-payment.component';
+import { IconComponent } from 'src/app/shared/components/components-atom/icon/icon.component';
+import { SidebarComponent } from 'src/app/shared/components/sidebar/sidebar.component';
+import { CardDefaultComponent } from 'src/app/shared/components/components-atom/card-default/card-default.component';
+import { CheckboxComponent } from 'src/app/shared/components/components-atom/checkbox/checkbox.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { CapsuleComponent } from 'src/app/components/capsule/capsule.component';
+import { CapsuleComponent } from 'src/app/shared/components/capsule/capsule.component';
 import { RouterTestingModule } from '@angular/router/testing';
 import { ParametroService } from '../../../domain/parametro.service';
-import { ImageComponent } from 'src/app/components/components-atom/image/image.component';
-import { ModalTitleComponent } from 'src/app/components/components-atom/modal-title/modal-title.component';
-import { InputComponent } from 'src/app/components/components-atom/input/input.component';
-import { ModalComponent } from 'src/app/components/components-organisms/modal/modal.component';
+import { ImageComponent } from 'src/app/shared/components/components-atom/image/image.component';
+import { ModalTitleComponent } from 'src/app/shared/components/components-atom/modal-title/modal-title.component';
+import { InputComponent } from 'src/app/shared/components/components-atom/input/input.component';
+import { ModalComponent } from 'src/app/shared/components/components-organisms/modal/modal.component';
 
 describe('ProofPaymentComponent', () => {
   let component: ProofPaymentComponent;
