@@ -18,7 +18,6 @@ export class RegisterComponent implements OnInit {
   register: Register;
   emailPattern = "[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}";
 
-
   closeListOpenSingle(closeList: Array<string>, open: string) {
     this.modalService.closeListOpenSingle(closeList, open);
   }
@@ -27,7 +26,6 @@ export class RegisterComponent implements OnInit {
               private _registrerService: RegistrerService,
               private rutValidator: RutValidator,
               private modalService: ModalService) { }
-
   ngOnInit() {
    
     this.registerForm = this._formBuilder.group({
@@ -40,7 +38,6 @@ export class RegisterComponent implements OnInit {
       position: ['', [Validators.required, Validators.maxLength(50)]], 
 
     });
-
 
   }
 
@@ -82,13 +79,11 @@ export class RegisterComponent implements OnInit {
 
   getMesaggeErrorRut(){
 
-    console.log(this.f.rut)
     return this.f.rut.getError('required')? 'Este campo es requerido' : this.f.rut.getError('invalidRut')? 'Rut invalido' : '';    
   }
   
 
   getMesaggeErrorName(){
-
     return this.f.name.getError('required')? 'Este campo es requerido' : '';    
   }
 
@@ -98,20 +93,15 @@ export class RegisterComponent implements OnInit {
   }
 
   getMesaggeErrorEmail(){
-    console.log(this.f.email)
-
     return this.f.email.getError('required')? 'Este campo es requerido' : this.f.email.getError('pattern')? 'Email invalido' : '';    
 
   }
-
   
   getMesaggeErrorPhone(){
-
     return this.f.phone.getError('required')? 'Este campo es requerido' : '';    
   }
 
   getMesaggeErrorPosition(){
-
     return this.f.position.getError('required')? 'Este campo es requerido' : '';    
   }
 
@@ -121,7 +111,6 @@ export class RegisterComponent implements OnInit {
       return false;
     }
     return true;
-
   }
 
   _keyUp(event: any) {
