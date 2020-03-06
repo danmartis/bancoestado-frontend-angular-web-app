@@ -14,13 +14,19 @@
         min-width: 150px;
         text-align: center;
         &.lg-full {
-            width: 90%;
+            @media (max-width: $media-max-md) {
+                width: 90%;
+            }
         }
         &.md-full {
-            width: 90%;
+            @media (max-width: $media-max-md) {
+                width: 90%;
+            }
         }
         &.sm-full {
-            width: 90%;
+            @media (max-width: $media-max-md) {
+                width: 90%;
+            }
         }
     }
 }

@@ -17,10 +17,14 @@
   }
 
   .order-sm-2 {
-    .text-right {
+    .hero-text-contaienr {
       max-width: 500px;
       padding-top: 16px;
       margin: auto;
+      text-align: right;
+      @media (max-width: $media-max-md) {
+        text-align: center;
+      }
     }
   }
 
