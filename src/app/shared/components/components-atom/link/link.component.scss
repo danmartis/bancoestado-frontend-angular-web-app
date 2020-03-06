@@ -13,7 +13,13 @@
         min-height: 48px;
         min-width: 150px;
         text-align: center;
-        &.full {
+        &.lg-full {
+            width: 90%;
+        }
+        &.md-full {
+            width: 90%;
+        }
+        &.sm-full {
             width: 90%;
         }
     }
