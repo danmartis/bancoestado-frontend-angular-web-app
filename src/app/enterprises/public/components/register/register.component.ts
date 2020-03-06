@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { RegistrerService } from './services/register.service';
 import { Register } from './models/register.model';
+import { ModalService } from 'src/app/shared/services/modal.service';
+import { RutValidator } from 'ng2-rut';
 
 @Component({
   selector: 'app-register',
@@ -10,25 +12,30 @@ import { Register } from './models/register.model';
 })
 export class RegisterComponent implements OnInit {
 
-
   registerForm: FormGroup;
   
   formInvalid: boolean = false;
   register: Register;
+  emailPattern = "[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}";
+
+
+  closeListOpenSingle(closeList: Array<string>, open: string) {
+    this.modalService.closeListOpenSingle(closeList, open);
+  }
 
   constructor(private _formBuilder: FormBuilder,
-              private _registrerService: RegistrerService) { }
+              private _registrerService: RegistrerService,
+              private rutValidator: RutValidator,
+              private modalService: ModalService) { }
 
   ngOnInit() {
-
-    //this.registerForm = this.createRegisterForm();
-
+   
     this.registerForm = this._formBuilder.group({
       business_name: ['', [Validators.required, Validators.maxLength(50)]], 
-      rut:  ['', [Validators.required, Validators.maxLength(50)]], 
+      rut:  ['', [Validators.required, Validators.maxLength(50), this.rutValidator]], 
       name:  ['', [Validators.required, Validators.maxLength(50)]], 
       last_name: ['', [Validators.required, Validators.maxLength(50)]], 
-      email:  ['', [Validators.required, Validators.email]], 
+      email:  ['', [Validators.required, Validators.pattern(this.emailPattern)]], 
       phone: ['', [Validators.required, Validators.maxLength(10)]],
       position: ['', [Validators.required, Validators.maxLength(50)]], 
 
@@ -57,6 +64,8 @@ export class RegisterComponent implements OnInit {
      this._registrerService.addRegister(data)
      .then( (res) => {
        console.log(res);
+
+       this.closeListOpenSingle([''], 'enterprises__register__modal')
      })
      .catch( (err)=> {
        console.log(err);
@@ -65,6 +74,7 @@ export class RegisterComponent implements OnInit {
     }
 
   }
+
   getMesaggeErrorBussinesName(){
 
     return this.f.business_name.getError('required')? 'Este campo es requerido' : '';    
@@ -72,9 +82,10 @@ export class RegisterComponent implements OnInit {
 
   getMesaggeErrorRut(){
 
-    return this.f.rut.getError('required')? 'Este campo es requerido' : '';    
+    console.log(this.f.rut)
+    return this.f.rut.getError('required')? 'Este campo es requerido' : this.f.rut.getError('invalidRut')? 'Rut invalido' : '';    
   }
-
+  
 
   getMesaggeErrorName(){
 
@@ -87,8 +98,10 @@ export class RegisterComponent implements OnInit {
   }
 
   getMesaggeErrorEmail(){
+    console.log(this.f.email)
 
-    return this.f.email.getError('required')? 'Este campo es requerido' : '';    
+    return this.f.email.getError('required')? 'Este campo es requerido' : this.f.email.getError('pattern')? 'Email invalido' : '';    
+
   }
 
   
@@ -111,5 +124,25 @@ export class RegisterComponent implements OnInit {
 
   }
 
+  _keyUp(event: any) {
+    const pattern = /[0-9\+\-\ ]/;
+    let inputChar = String.fromCharCode(event.key);
+
+    if (!pattern.test(inputChar)) {
+      // invalid character, prevent input
+      event.preventDefault();
+    }
+}
+
+public inputValidator(event: any) {
+    //console.log(event.target.value);
+    const pattern = /^[0-9\k\K]*$/;   
+    //let inputChar = String.fromCharCode(event.charCode)
+    if (!pattern.test(event.target.value)) {
+      event.target.value = event.target.value.replace(/[^0-9\k\K]/g, "");
+      // invalid character, prevent input
+
+    }
+  }
 
 }

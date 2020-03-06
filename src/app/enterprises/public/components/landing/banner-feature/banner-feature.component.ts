@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { GestorContenidoService } from '../../../../../shared/services/gestor-contenido.service';
 
 @Component({
@@ -8,23 +8,9 @@ import { GestorContenidoService } from '../../../../../shared/services/gestor-co
 })
 export class BannerFeatureComponent implements OnInit {
 
+  @Input() data : string;
   constructor(private gestorContenido: GestorContenidoService) { }
 
   ngOnInit() {
-    const resultado = this.contenido();
-    console.log('resultado',resultado);
-  }
-
-  async contenido(){
-    
-    await this.gestorContenido.gestorContenido().subscribe( res => {
-      console.log('res.getDetalle()', res);
-      return res.getDetalle();
-    }),
-    err => {
-      console.log('err', err);
-      return err;
-    }
-
   }
 }
