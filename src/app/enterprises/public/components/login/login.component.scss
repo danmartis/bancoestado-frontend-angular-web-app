@@ -1,0 +1,19 @@
+@import '../../../../../scss/_vars';
+
+:host {
+  .card-page-body {
+    .card-page-body__img {
+      max-width: 100px;
+      margin: 0 auto 1rem auto;
+    }
+    .card-page-body__form {
+      form {
+        margin: 1rem auto;
+      }
+    }
+  }
+  #enterprises__login__client {
+    font-size: 14px;
+    font-weight: bold;
+  }
+}

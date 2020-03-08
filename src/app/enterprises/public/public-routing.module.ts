@@ -7,6 +7,7 @@ import { WhatWeDoComponent } from './components/what-we-do/what-we-do.component'
 import { BranchOfficesComponent } from './components/branch-offices/branch-offices.component';
 import { HelpComponent } from './components/help/help.component';
 import { RegisterComponent } from './components/register/register.component';
+import { LoginComponent } from './components/login/login.component';
 
 const routes: Routes = [
   {
@@ -18,7 +19,8 @@ const routes: Routes = [
       { path: 'qué hacemos', component: WhatWeDoComponent },
       { path: 'sucursales', component: BranchOfficesComponent },
       { path: 'ayuda', component: HelpComponent },
-      { path: 'registro', component: RegisterComponent }
+      { path: 'registro', component: RegisterComponent },
+      { path: 'iniciar-sesion', component: LoginComponent }
     ]
   }
 ];
