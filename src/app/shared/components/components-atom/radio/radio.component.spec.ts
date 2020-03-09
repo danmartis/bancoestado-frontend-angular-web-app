@@ -23,12 +23,12 @@ describe('RadioComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('handlerChange', () => {
-    const event = {
-      target : {
-        value : 'on'
-      }
-    }
-    component.handlerChange(event);
-  });
+  // it('handlerChange', () => {
+  //   const event = {
+  //     target : {
+  //       value : 'on'
+  //     }
+  //   }
+  //   component.handlerChange(event);
+  // });
 });
