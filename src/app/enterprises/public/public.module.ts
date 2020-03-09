@@ -18,6 +18,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Ng2Rut } from 'ng2-rut';
 import { LoginComponent } from './components/login/login.component';
+import { TutorialsComponent } from './components/help/tutorials/tutorials.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { LoginComponent } from './components/login/login.component';
     FeatureComponent,
     CardBenefitsComponent,
     RegisterComponent,
-    LoginComponent
+    LoginComponent,
+    TutorialsComponent
   ],
   imports: [
     CommonModule,
