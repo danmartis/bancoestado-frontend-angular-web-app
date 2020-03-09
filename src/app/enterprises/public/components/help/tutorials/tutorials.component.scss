@@ -3,7 +3,49 @@
 @import '../../../../../../scss/_public';
 
 .tutoriales{
-    margin: 6em 0 0 0;
+    margin: 3em 0 0 0;
+
+    .tutoriales__items {
+      .tutoriales__item {
+        .item-card-slider {
+          width: 100%;
+          margin: 16px;
+          @media (max-width: $media-max-md) {
+            height: unset;
+            margin: 16px 0;
+          }
+
+          .item-card-slider__icon-play {
+            display: flex;
+            right: unset;
+            cursor: pointer;
+          }
+
+          .item-card-slider-image {
+            height: unset;
+            display: flex;
+            flex-wrap: wrap;
+            overflow: hidden;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            img {
+            }
+            .item-card-slider__icon-play {
+              height: 60px;
+              width: 60px;
+              position: absolute;
+            }
+          }
+
+          .item-card-slider-text-primary {
+            margin-bottom: 24px;
+            height: 90px;
+          }
+
+        }
+      }
+    }
 }
 
 .slider-animation{
@@ -42,16 +84,7 @@
     }
 }
 
-
-.item-card-slider-help {
-    padding: 1.5rem;
-    width: 300px;
-
-    @media (max-width: 768px) {
-        width: 280px;
-    }
-}
-
+/*
 .item-card-slider__icon-play{
     height: 60px;
     position: absolute;
@@ -61,3 +94,4 @@
     margin: 0 auto 0 auto;
     width: 60px;
 }
+*/

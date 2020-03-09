@@ -1,5 +1,4 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { NgxTinySliderSettingsInterface } from 'ngx-tiny-slider';
 import { ModalService } from 'src/app/shared/services/modal.service';
 
 @Component({
@@ -13,33 +12,32 @@ export class TutorialsComponent implements OnInit {
 
   protected question : string = '';
   // https://www.npmjs.com/package/ngx-tiny-slider
-  tinySliderConfig: NgxTinySliderSettingsInterface;
   constructor(protected modalService:ModalService) { }
 
   videoItems : any = [
     {
-      category: 'Categoría',
-      title: 'Video Título 1',
+      category: 'Categoría A',
+      title: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo laudantium ipsam officiis minus quos.',
+      description: '',
+      videoId: 'yigaZe45uaA',
+      thumb: "background-image: url(https://img.youtube.com/vi/yigaZe45uaA/0.jpg)"
+    },
+    {
+      category: 'Categoría B',
+      title: 'Video Título 2',
       description: '',
       videoId: 'yigaZe45uaA',
       thumb: "https://img.youtube.com/vi/yigaZe45uaA/0.jpg"
     },
     {
-      category: 'Categoría',
-      title: 'Video Título 1',
+      category: 'Categoría B',
+      title: 'Video Título 3',
       description: '',
       videoId: 'yigaZe45uaA',
       thumb: "https://img.youtube.com/vi/yigaZe45uaA/0.jpg"
     },
     {
-      category: 'Categoría',
-      title: 'Video Título 1',
-      description: '',
-      videoId: 'yigaZe45uaA',
-      thumb: "https://img.youtube.com/vi/yigaZe45uaA/0.jpg"
-    },
-    {
-      category: 'Categoría',
+      category: 'Categoría 4',
       title: 'Video Título 1',
       description: '',
       videoId: 'yigaZe45uaA',
@@ -48,24 +46,7 @@ export class TutorialsComponent implements OnInit {
   ];
 
   ngOnInit() {
-    this.tinySliderConfig = {
-      arrowKeys: true,
-      autoWidth: true,
-      gutter: 15,
-      controls: false,
-      items: 4,
-      mouseDrag: true,
-      slideBy: 'page',
-      responsive: {
-        "350": {
-          "items": 3,
-          "controls": false
-        },
-        "500": {
-          "items": 3
-        }
-      },
-    };
+
   }
 
   changeQuestion(question) {
