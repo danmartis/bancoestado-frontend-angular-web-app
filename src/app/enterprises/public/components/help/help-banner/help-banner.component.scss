@@ -1,0 +1,83 @@
+@import '../../../../../../scss/_vars';
+@import '../../../../../../scss/_mixins';
+@import '../../../../../../scss/_public';
+
+:host {
+  .enterprises__help__banner {
+    background-color: #1e63f8;
+    color: #fff;
+    margin: 0;
+    overflow: hidden;
+    padding: 4em 0 4em 0;
+    position: relative;
+    text-align: center;
+    .titulo-seccion {
+      @media (max-width: $media-max-md) {
+        width: 90%;
+      }
+      h2 {
+        text-align: center;
+      }
+    }
+    .subtitulo-seccion {
+      p {
+        font-weight: lighter;
+      }
+    }
+
+    &:before, &:after {
+      content: "";
+      background-color: rgba(255, 255, 255, 0.15);
+      border-radius: 50%;
+      display: inline-block;
+      height: 1000px;
+      width: 1000px;
+      position: absolute;
+      bottom: -105%;
+      left: -55%;
+      transition: all 0.3s ease;
+      @media (max-width: $media-max-lg) {
+        height: 800px;
+        width:  800px;
+      }
+      @media (max-width: $media-max-md) {
+        height: 600px;
+        width:  600px;
+        left: -70%;
+      }
+      @media (max-width: $media-max-sm) {
+        height: 400px;
+        width:  400px;
+        left: -55%;
+        bottom: -20%;
+      }
+      @media (max-width: $media-max-xs) {
+        height: 400px;
+        width:  400px;
+        left: -80%;
+        bottom: 10%;
+      }
+    }
+    &:after {
+      bottom: -330%;
+      left: inherit;
+      right: -45%;
+      @media (max-width: $media-max-lg) {
+        right: -45%;
+        bottom: -180%;
+      }
+      @media (max-width: $media-max-md) {
+        right: -50%;
+        bottom: -110%;
+      }
+      @media (max-width: $media-max-sm) {
+        right: -30%;
+        bottom: -80%;
+      }
+      @media (max-width: $media-max-xs) {
+        right: -70%;
+        bottom: -85%;
+      }
+    }
+  }
+}
