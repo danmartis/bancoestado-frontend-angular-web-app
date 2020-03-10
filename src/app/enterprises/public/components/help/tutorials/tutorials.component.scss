@@ -1,0 +1,97 @@
+@import '../../../../../../scss/_vars';
+@import '../../../../../../scss/_mixins';
+@import '../../../../../../scss/_public';
+
+.tutoriales{
+    margin: 3em 0 0 0;
+
+    .tutoriales__items {
+      .tutoriales__item {
+        .item-card-slider {
+          width: 100%;
+          margin: 16px;
+          @media (max-width: $media-max-md) {
+            height: unset;
+            margin: 16px 0;
+          }
+
+          .item-card-slider__icon-play {
+            display: flex;
+            right: unset;
+            cursor: pointer;
+          }
+
+          .item-card-slider-image {
+            height: unset;
+            display: flex;
+            flex-wrap: wrap;
+            overflow: hidden;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            img {
+            }
+            .item-card-slider__icon-play {
+              height: 60px;
+              width: 60px;
+              position: absolute;
+            }
+          }
+
+          .item-card-slider-text-primary {
+            margin-bottom: 24px;
+            height: 90px;
+          }
+
+        }
+      }
+    }
+}
+
+.slider-animation{
+    margin:  2em auto 4em auto;
+
+    @media (max-width: 480px) {
+        margin:  1em auto 4em auto;
+    }
+}
+
+
+.item-card-slider-title{
+    color: #24272D;
+    @include font-size(20);
+    @include line-height(24);
+    margin: 1em 0 1.5em 0;
+}
+
+.item-card-slider-question{
+    color: #6B9EFF;
+    @include font-size(16);
+    @include line-height(24);
+    font-weight: 400;
+    margin: .5em 0 0 0;
+}
+
+.item-card-slider-icon{
+    background-color: #F7F9FC;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    i{
+       color: #6B9EFF;
+       @include font-size(28);
+    }
+}
+
+/*
+.item-card-slider__icon-play{
+    height: 60px;
+    position: absolute;
+    top: 65px;
+    left: 0;
+    right: 0;
+    margin: 0 auto 0 auto;
+    width: 60px;
+}
+*/

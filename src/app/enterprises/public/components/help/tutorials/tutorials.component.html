@@ -1,0 +1,37 @@
+<section [id]="id" class="tutoriales">
+  <div class="container">
+
+    <div class="row">
+      <div class="col-12 mt-4">
+        <div class="titulo-seccion">
+          <app-page-title type="public-x2">Tutoriales de ayuda</app-page-title>
+        </div>
+      </div>
+    </div> <!-- /.row -->
+
+    <div class="row tutoriales__items">
+      <div class="col-lg-4 col-md-6 col-sm-12 tutoriales__item" *ngFor="let videoItem of videoItems">
+        <div class="item">
+          <div class="item-card-slider">
+            
+            <div
+              class="item-card-slider-image"
+              (click)="closeListOpenSingle([], 'modal-video-public')"
+            >
+              <img
+                class="item-card-slider__icon-play"
+                src="../../../../assets/imgs/svg/icon-play-circle.svg"
+                alt="Icono de play sobre la foto"
+              />
+              <img src="https://img.youtube.com/vi/{{ videoItem.videoId }}/0.jpg" alt="{{ videoItem.title }}">
+            </div>
+            <div class="item-card-slider-text-min">{{ videoItem.category }}</div>
+            <div class="item-card-slider-text-primary">
+              {{ videoItem.title }}
+            </div>
+          </div>
+        </div>
+      </div> <!-- /.col -->
+    </div> <!-- /.row -->
+  </div> <!-- /.container -->
+</section>
