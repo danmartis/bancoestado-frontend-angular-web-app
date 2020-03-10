@@ -13,7 +13,6 @@ export class LandingComponent implements OnInit {
   private dataBenefits = new Array();
   private dataFeature = new Array();
 
-  
   constructor(protected modalService:ModalService,private gestorContenido: GestorContenidoService) { }
 
   ngOnInit() {
