@@ -8,7 +8,7 @@ import { GestorContenidoService } from '../../../../../shared/services/gestor-co
 })
 export class BannerFeatureComponent implements OnInit {
 
-  @Input() data : string;
+  @Input() banners : string;
   constructor(private gestorContenido: GestorContenidoService) { }
 
   ngOnInit() {
