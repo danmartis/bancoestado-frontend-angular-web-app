@@ -8,9 +8,9 @@
       </div>
       <div class="col-12 no-gutter">
         <div class="slider-animation">
-          <ngx-tiny-slider [config]="tinySliderConfig">
+          <ngx-tiny-slider #ngxSlider [config]="tinySliderConfig">
             <ng-container class="items">
-              <div class="item" *ngFor="let faqItem of faqItems">
+              <div class="item" #carouselItemList *ngFor="let faqItem of faqItems">
                 <div class="item-card-slider item-card-slider-help">
                   <div class="item-card-slider-icon">
                     <i class="material-icons md-36">{{ faqItem.icon }}</i>
@@ -19,10 +19,10 @@
                   <div class="preguntas__items">
                     <div class="item-card-slider-question" *ngFor="let faq of faqItem.items">
                       {{ faq.question }}
-                    </div>
-                  </div>
-                </div>
-              </div>
+                    </div> <!--/.item-card-slider-question -->
+                  </div> <!--/.preguntas__items -->
+                </div> <!--/.item-card-slider -->
+              </div> <!--/.item -->
             </ng-container>
           </ngx-tiny-slider>
         </div>

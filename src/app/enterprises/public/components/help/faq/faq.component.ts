@@ -1,18 +1,25 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChildren, ViewChild, QueryList, ElementRef, AfterViewInit } from '@angular/core';
 import { NgxTinySliderSettingsInterface } from 'ngx-tiny-slider';
 import { ModalService } from 'src/app/shared/services/modal.service';
+import { NgxTinySliderComponent } from 'ngx-tiny-slider/lib/ngx-tiny-slider.component';
 
 @Component({
   selector: 'app-faq',
   templateUrl: './faq.component.html',
   styleUrls: ['./faq.component.scss']
 })
-export class FaqComponent implements OnInit {
+export class FaqComponent implements OnInit, AfterViewInit {
 
   protected question : string = '';
   // https://www.npmjs.com/package/ngx-tiny-slider
-  tinySliderConfig: NgxTinySliderSettingsInterface;
+  tinySliderConfig: any; // NgxTinySliderSettingsInterface;
   constructor(protected modalService:ModalService) { }
+
+  @ViewChildren('carouselItemList')
+  private carouselItemList:QueryList<any>;
+
+  @ViewChild('ngxSlider', {static: false})
+  private ngxSlider:any;
 
   faqItems : any = [
     {
@@ -133,6 +140,9 @@ export class FaqComponent implements OnInit {
  
   ngOnInit() {
     this.tinySliderConfig = {
+      waiteForDom: true,
+      //preventScrollOnTouch: 'auto',
+      preventScrollOnTouch: 'force',
       arrowKeys: true,
       autoWidth: true,
       gutter: 15,
@@ -141,7 +151,7 @@ export class FaqComponent implements OnInit {
       mouseDrag: true,
       slideBy: 'page',
       responsive: {
-        "350": {
+        "250": {
           "items": 3,
           "controls": false
         },
@@ -157,6 +167,16 @@ export class FaqComponent implements OnInit {
   }
   closeListOpenSingle(closeList: Array<string>, open: string) {
     this.modalService.closeListOpenSingle(closeList, open);
+  }
+
+  
+
+  ngAfterViewInit(): void {
+      this.carouselItemList.changes.subscribe(() => this.ngxSlider.domReady.next());
+      if (this.faqItems != null) {
+        // @ts-ignore
+        this.ngxSlider.domReady.next();
+      }
   }
 
 }
