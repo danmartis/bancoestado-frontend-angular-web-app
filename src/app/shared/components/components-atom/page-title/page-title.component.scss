@@ -57,6 +57,9 @@
             @include line-height(24);
             font-weight: 600;
         }
+        &.white-color{
+            color: #fff;
+        }
 
         &.history {
             color: rgb(4, 44, 92);
