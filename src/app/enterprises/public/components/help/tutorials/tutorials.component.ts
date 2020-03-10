@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ModalService } from 'src/app/shared/services/modal.service';
+import { GestorContenidoService } from '../../../../../shared/services/gestor-contenido.service';
 
 @Component({
   selector: 'app-tutorials',
@@ -10,46 +11,34 @@ export class TutorialsComponent implements OnInit {
 
   @Input() id : string = 'enterprises__help__tutorials';
 
+  private videoItems = new Array();
+  private title : string;
   protected question : string = '';
-  // https://www.npmjs.com/package/ngx-tiny-slider
-  constructor(protected modalService:ModalService) { }
 
-  videoItems : any = [
-    {
-      category: 'Categoría A',
-      title: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo laudantium ipsam officiis minus quos.',
-      description: '',
-      videoId: 'yigaZe45uaA'
-    },
-    {
-      category: 'Categoría B',
-      title: 'Video Título 2',
-      description: '',
-      videoId: 'IWr8_TmBVa4'
-    },
-    {
-      category: 'Categoría B',
-      title: 'Video Título 3',
-      description: '',
-      videoId: 'ihve3f3T4Qk'
-    },
-    {
-      category: 'Categoría 4',
-      title: 'Video Título 1',
-      description: '',
-      videoId: 'w58DA6sCVG8'
-    }
-  ];
+  // https://www.npmjs.com/package/ngx-tiny-slider
+  constructor(protected modalService:ModalService,private gestorContenido: GestorContenidoService) { }
 
   ngOnInit() {
-
+    this.contenido();
   }
 
   changeQuestion(question) {
     this.question = question;
   }
   closeListOpenSingle(closeList: Array<string>, open: string) {
+    console.log(open+ "mas "+ closeList)
     this.modalService.closeListOpenSingle(closeList, open);
+  }
+
+  async contenido(){
+    await this.gestorContenido.getVideos().subscribe( res => {
+      this.videoItems = res.getDetalle()['videoItems'];
+      this.title = res.getDetalle()['titleMain'];
+    }),
+    err => {
+      console.log('err', err);
+      return err;
+    }
   }
 
 }
