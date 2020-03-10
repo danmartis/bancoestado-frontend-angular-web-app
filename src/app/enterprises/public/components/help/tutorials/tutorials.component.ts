@@ -19,29 +19,25 @@ export class TutorialsComponent implements OnInit {
       category: 'Categoría A',
       title: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo laudantium ipsam officiis minus quos.',
       description: '',
-      videoId: 'yigaZe45uaA',
-      thumb: "background-image: url(https://img.youtube.com/vi/yigaZe45uaA/0.jpg)"
+      videoId: 'yigaZe45uaA'
     },
     {
       category: 'Categoría B',
       title: 'Video Título 2',
       description: '',
-      videoId: 'yigaZe45uaA',
-      thumb: "https://img.youtube.com/vi/yigaZe45uaA/0.jpg"
+      videoId: 'IWr8_TmBVa4'
     },
     {
       category: 'Categoría B',
       title: 'Video Título 3',
       description: '',
-      videoId: 'yigaZe45uaA',
-      thumb: "https://img.youtube.com/vi/yigaZe45uaA/0.jpg"
+      videoId: 'ihve3f3T4Qk'
     },
     {
       category: 'Categoría 4',
       title: 'Video Título 1',
       description: '',
-      videoId: 'yigaZe45uaA',
-      thumb: "https://img.youtube.com/vi/yigaZe45uaA/0.jpg"
+      videoId: 'w58DA6sCVG8'
     }
   ];
 
