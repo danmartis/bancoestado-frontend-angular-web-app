@@ -92,6 +92,9 @@
             @include font-size(14);
             @include line-height(20);
         }
+        &.white-color {
+            color: #fff;
+        }
 
         &.step {
             color: $color-primary;
