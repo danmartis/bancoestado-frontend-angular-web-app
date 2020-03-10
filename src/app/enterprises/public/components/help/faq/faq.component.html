@@ -1,0 +1,32 @@
+<section class="preguntas">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 mt-4">
+        <div class="titulo-seccion">
+          <app-page-title type="public-x2">Preguntas frecuentes</app-page-title>
+        </div>
+      </div>
+      <div class="col-12 no-gutter">
+        <div class="slider-animation">
+          <ngx-tiny-slider #ngxSlider [config]="tinySliderConfig">
+            <ng-container class="items">
+              <div class="item" #carouselItemList *ngFor="let faqItem of faqItems">
+                <div class="item-card-slider item-card-slider-help">
+                  <div class="item-card-slider-icon">
+                    <i class="material-icons md-36">{{ faqItem.icon }}</i>
+                  </div>
+                  <div class="item-card-slider-title">{{ faqItem.category }}</div>
+                  <div class="preguntas__items">
+                    <div class="item-card-slider-question" *ngFor="let faq of faqItem.items">
+                      {{ faq.question }}
+                    </div> <!--/.item-card-slider-question -->
+                  </div> <!--/.preguntas__items -->
+                </div> <!--/.item-card-slider -->
+              </div> <!--/.item -->
+            </ng-container>
+          </ngx-tiny-slider>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
