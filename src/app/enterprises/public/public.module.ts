@@ -19,6 +19,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Ng2Rut } from 'ng2-rut';
 import { LoginComponent } from './components/login/login.component';
 import { TutorialsComponent } from './components/help/tutorials/tutorials.component';
+import { FaqComponent } from './components/help/faq/faq.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { TutorialsComponent } from './components/help/tutorials/tutorials.compon
     CardBenefitsComponent,
     RegisterComponent,
     LoginComponent,
-    TutorialsComponent
+    TutorialsComponent,
+    FaqComponent
   ],
   imports: [
     CommonModule,
