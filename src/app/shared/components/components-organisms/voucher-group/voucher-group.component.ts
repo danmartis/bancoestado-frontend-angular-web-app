@@ -3,9 +3,9 @@ import { formatNumber, session, emailValidate, isSpecialCharacterEmail } from 's
 import { ParametroService } from '../../../../domain/parametro.service';
 import * as jsPDF from 'jspdf';
 import html2canvas from 'html2canvas';
-import { ModalService } from 'src/app/shared/services/modal.service';
+import { ModalService } from 'src/app/services/modal.service';
 import { colors, PaymentAccountAndGroupStatus } from 'src/app/shared/utils/options';
-import { ComprobanteService } from 'src/app/shared/services/comprobante.service';
+import { ComprobanteService } from 'src/app/services/comprobante.service';
 import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({

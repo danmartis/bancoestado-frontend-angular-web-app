@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { RegistrerService } from './services/register.service';
 import { Register } from './models/register.model';
-import { ModalService } from 'src/app/shared/services/modal.service';
+import { ModalService } from 'src/app/services/modal.service';
 import { RutValidator } from 'ng2-rut';
 
 @Component({

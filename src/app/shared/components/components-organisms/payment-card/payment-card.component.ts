@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { registeredPaymentMethods, changePaymentMethodList } from 'src/app/shared/utils/mock-data';
 import { PaymentMethod } from 'src/app/shared/utils/types';
-import { ModalService } from 'src/app/shared/services/modal.service';
+import { ModalService } from 'src/app/services/modal.service';
 
 @Component({
   selector: 'app-payment-card',

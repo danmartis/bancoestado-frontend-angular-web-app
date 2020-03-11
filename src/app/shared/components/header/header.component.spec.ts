@@ -5,6 +5,7 @@ import { SidebarComponent } from '../sidebar/sidebar.component';
 import { ButtonComponent } from '../components-atom/button/button.component';
 import { CapsuleComponent } from '../capsule/capsule.component';
 import { RouterTestingModule } from '@angular/router/testing';
+import { Button2Component } from '../button/button2/button2.component';
 
 describe('HeaderComponent', () => {
   let component: HeaderComponent;
@@ -16,7 +17,8 @@ describe('HeaderComponent', () => {
         HeaderComponent,
         SidebarComponent,
         ButtonComponent,
-        CapsuleComponent
+        CapsuleComponent,
+        Button2Component
        ],
        imports: [
         RouterTestingModule

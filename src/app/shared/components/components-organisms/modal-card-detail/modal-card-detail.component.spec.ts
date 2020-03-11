@@ -14,6 +14,8 @@ import { BackButtonComponent } from '../../components-atom/back-button/back-butt
 import { IconComponent } from '../../components-atom/icon/icon.component';
 import { CardDefaultComponent } from '../../components-atom/card-default/card-default.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { Button2Component } from '../../button/button2/button2.component';
+import { CardAccountDetailComponentNew } from '../../accounts/card-account-detail-new/card-account-detail-new.component';
 
 describe('ModalCardDetailComponent', () => {
   let component: ModalCardDetailComponent;
@@ -34,7 +36,9 @@ describe('ModalCardDetailComponent', () => {
         CardAccountDetailComponent,
         BackButtonComponent,
         IconComponent,
-        CardDefaultComponent
+        CardDefaultComponent,
+        Button2Component,
+        CardAccountDetailComponentNew
       ],
       imports: [
         NgbModule

@@ -30,12 +30,12 @@ import { ContactComponent } from './flow/profile/contact/contact.component';
 // modificaciones
 import { HttpClientModule } from '@angular/common/http';
 
-import { BusquedasService } from './shared/services/busquedas.service';
-import { ConveniosService } from './shared/services/convenios.service';
-import { CuentasService } from './shared/services/cuentas.service';
+import { BusquedasService } from './services/busquedas.service';
+import { ConveniosService } from './services/convenios.service';
+import { CuentasService } from './services/cuentas.service';
 import { ParametroService } from '../app/domain/parametro.service';
-import { ComprobanteService } from './shared/services/comprobante.service';
-import { RegistroSeService } from './shared/services/registro-se.service';
+import { ComprobanteService } from './services/comprobante.service';
+import { RegistroSeService } from './services/registro-se.service';
 import { SharedModule } from './shared/shared.module';
 import { EnterprisesModule } from './enterprises/enterprises.module';
 

@@ -23,6 +23,9 @@ import { ImageComponent } from 'src/app/shared/components/components-atom/image/
 import { ModalTitleComponent } from 'src/app/shared/components/components-atom/modal-title/modal-title.component';
 import { InputComponent } from 'src/app/shared/components/components-atom/input/input.component';
 import { ModalComponent } from 'src/app/shared/components/components-organisms/modal/modal.component';
+import { Button2Component } from 'src/app/shared/components/button/button2/button2.component';
+import { PageTitleComponent } from 'src/app/shared/components/components-atom/page-title/page-title.component';
+import { ModalIconComponent } from 'src/app/shared/components/modal-icon/modal-icon.component';
 
 describe('ProofPaymentComponent', () => {
   let component: ProofPaymentComponent;
@@ -51,6 +54,9 @@ describe('ProofPaymentComponent', () => {
         ModalTitleComponent,
         InputComponent,
         ModalComponent,
+        Button2Component,
+        PageTitleComponent,
+        ModalIconComponent
       ],
       imports: [
         NgbModule,

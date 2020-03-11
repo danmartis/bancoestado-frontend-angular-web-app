@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ModalService } from 'src/app/shared/services/modal.service';
-import { GestorContenidoService } from '../../../../shared/services/gestor-contenido.service';
+import { ModalService } from 'src/app/services/modal.service';
+import { GestorContenidoService } from '../../../../services/gestor-contenido.service';
 
 @Component({
   selector: 'app-landing',
@@ -9,8 +9,10 @@ import { GestorContenidoService } from '../../../../shared/services/gestor-conte
 })
 export class LandingComponent implements OnInit {
   
-  dataGestorContenido = new Array();
-  
+  private dataBanner = new Array();
+  private dataBenefits = new Array();
+  private dataFeature = new Array();
+
   constructor(protected modalService:ModalService,private gestorContenido: GestorContenidoService) { }
 
   ngOnInit() {
@@ -22,11 +24,16 @@ export class LandingComponent implements OnInit {
   }
 
   async contenido(){
-    await this.gestorContenido.gestorContenido().subscribe( res => {
-      res.getDetalle().forEach(element => {
-        this.dataGestorContenido[element.key] = element.value;
+    await this.gestorContenido.getLanding().subscribe( res => {
+      res.getDetalle()["banner"].forEach(element => {
+        this.dataBanner[element.key] = element.value;
       });
-      console.log('data', this.dataGestorContenido);
+     
+      this.dataBenefits = res.getDetalle()["benefits"];
+      
+      res.getDetalle()["feature"].forEach(element => {
+        this.dataFeature[element.key] = element.value;
+      });
     }),
     err => {
       console.log('err', err);

@@ -1,0 +1,27 @@
+<div [id]="id" class="container">
+  <app-card-page>
+    <div class="card-page-body">
+      <div class="card-page-body__img">
+        <img src="/assets/imgs/svg/icon-login.svg" alt="Iniciar Sesión">
+      </div>
+      <div class="card-page-body__form">
+        <app-paragraph type="primary"><strong>Iniciar sesión</strong></app-paragraph>
+        <app-paragraph type="min-sub-value">Para iniciar sesión ingresa los siguientes datos</app-paragraph>
+        <form>
+          <app-input type="rut" placeholder="Rut empresa"></app-input>
+          <app-input type="email" placeholder="Correo electrónico"></app-input>
+          <app-input type="password" placeholder="Contraseña"></app-input>
+          <app-button idName="enterprises__login__submit" type="auto-block-min-w-x2">Continuar</app-button>
+        </form>
+      </div>
+    </div>
+    <div class="card-page-footer">
+      <p class="text-center">
+        <small>
+          ¿Aún no eres cliente de BancoEstado?
+        </small>
+      </p>
+      <a id="enterprises__login__client" href="/empresas/#">Hazte cliente</a>
+    </div>
+  </app-card-page>
+</div>

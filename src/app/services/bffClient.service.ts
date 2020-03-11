@@ -5,7 +5,7 @@ import { HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
 import { DataResponse } from './dataResponse';
 import { Observable } from 'rxjs/Observable';
-import { Cliente } from '../../domain/cliente.class';
+import { Cliente } from '../domain/cliente.class';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/finally';

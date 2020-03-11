@@ -15,11 +15,13 @@ import { ImageComponent } from '../../components-atom/image/image.component';
 import { ModalTitleComponent } from '../../components-atom/modal-title/modal-title.component';
 import { InputComponent } from '../../components-atom/input/input.component';
 import { ModalComponent } from '../modal/modal.component';
-import { ComprobanteService } from 'src/app/shared/services/comprobante.service';
-import { ComprobanteServiceMock } from 'src/app/shared/services/comprobante.service.spec';
+import { ComprobanteService } from 'src/app/services/comprobante.service';
+import { ComprobanteServiceMock } from 'src/app/services/comprobante.service.spec';
 import { RouterTestingModule } from '@angular/router/testing';
 
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
+import { Button2Component } from '../../button/button2/button2.component';
+import { ModalIconComponent } from '../../modal-icon/modal-icon.component';
 
 describe('VoucherGroupComponent', () => {
   let component: VoucherGroupComponent;
@@ -41,6 +43,8 @@ describe('VoucherGroupComponent', () => {
         ModalTitleComponent,
         InputComponent,
         ModalComponent,
+        Button2Component,
+        ModalIconComponent
       ],
       imports: [
         NgbModule,

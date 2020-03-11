@@ -20,8 +20,8 @@ import { RadioComponent } from 'src/app/shared/components/components-atom/radio/
 import { SidebarComponent } from 'src/app/shared/components/sidebar/sidebar.component';
 import { RouterTestingModule } from '@angular/router/testing';
 import { ParametroService } from 'src/app/domain/parametro.service';
-import { ComprobanteService } from '../../../shared/services/comprobante.service';
-import { ComprobanteServiceMock } from '../../../shared/services/comprobante.service.spec';
+import { ComprobanteService } from '../../../services/comprobante.service';
+import { ComprobanteServiceMock } from '../../../services/comprobante.service.spec';
 
 describe('PaymentMethodComponent', () => {
   let component: PaymentMethodComponent;

@@ -7,6 +7,8 @@ import { ParagraphComponent } from '../../components-atom/paragraph/paragraph.co
 import { ModalTitleComponent } from '../../components-atom/modal-title/modal-title.component';
 import { ImageComponent } from '../../components-atom/image/image.component';
 import { IconComponent } from '../../components-atom/icon/icon.component';
+import { Button2Component } from '../../button/button2/button2.component';
+import { ModalIconComponent } from '../../modal-icon/modal-icon.component';
 
 describe('ModalErrorDefaultComponent', () => {
   let component: ModalErrorDefaultComponent;
@@ -21,7 +23,9 @@ describe('ModalErrorDefaultComponent', () => {
         ParagraphComponent,
         ModalTitleComponent,
         ImageComponent,
-        IconComponent
+        IconComponent,
+        Button2Component,
+        ModalIconComponent
       ]
     })
     .compileComponents();

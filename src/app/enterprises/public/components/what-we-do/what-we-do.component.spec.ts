@@ -16,6 +16,7 @@ import { NgxTinySliderModule } from 'ngx-tiny-slider';
 import { SidebarComponent } from 'src/app/shared/components/sidebar/sidebar.component';
 import { CapsuleComponent } from 'src/app/shared/components/capsule/capsule.component';
 import { RouterTestingModule } from '@angular/router/testing';
+import { Button2Component } from 'src/app/shared/components/button/button2/button2.component';
 
 describe('WhatWeDoComponent', () => {
   let component: WhatWeDoComponent;
@@ -35,7 +36,8 @@ describe('WhatWeDoComponent', () => {
         ImageComponent,
         CalltoactionComponent,
         SidebarComponent,
-        CapsuleComponent
+        CapsuleComponent,
+        Button2Component
       ],
       imports: [
         NgbModule,

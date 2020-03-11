@@ -2,7 +2,7 @@ import { Component, OnInit, AfterViewInit, Input, OnChanges } from '@angular/cor
 import { SwiperOptions } from 'swiper';
 import * as introJs from 'intro.js/intro.js';
 
-import { ModalService } from 'src/app/shared/services/modal.service';
+import { ModalService } from 'src/app/services/modal.service';
 
 import { getElementFromArray, session, formatNumber } from 'src/app/shared/utils/utils';
 import { PaymentAccount, ClientNumber, PaymentFee } from 'src/app/shared/utils/types';

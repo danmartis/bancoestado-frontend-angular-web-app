@@ -17,6 +17,12 @@ import { RegisterComponent } from './components/register/register.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Ng2Rut } from 'ng2-rut';
+import { LoginComponent } from './components/login/login.component';
+import { TutorialsComponent } from './components/help/tutorials/tutorials.component';
+import { FaqComponent } from './components/help/faq/faq.component';
+import { HelpBannerComponent } from './components/help/help-banner/help-banner.component';
+import { HelpSearchComponent } from './components/help/help-search/help-search.component';
+import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +37,13 @@ import { Ng2Rut } from 'ng2-rut';
     BenefitsComponent,
     FeatureComponent,
     CardBenefitsComponent,
-    RegisterComponent
+    RegisterComponent,
+    LoginComponent,
+    TutorialsComponent,
+    FaqComponent,
+    HelpBannerComponent,
+    HelpSearchComponent,
+    ResetPasswordComponent
   ],
   imports: [
     CommonModule,

@@ -92,6 +92,9 @@
             @include font-size(14);
             @include line-height(20);
         }
+        &.white-color {
+            color: #fff;
+        }
 
         &.step {
             color: $color-primary;
@@ -102,6 +105,9 @@
             text-align: center;
             margin-bottom: 40px;
             padding: 0 1em;
+        }
+        &.lh-20 {
+            line-height: 20px;
         }
     }
 }

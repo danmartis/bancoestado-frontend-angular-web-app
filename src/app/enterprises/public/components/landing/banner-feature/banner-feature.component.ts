@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { GestorContenidoService } from '../../../../../shared/services/gestor-contenido.service';
+import { GestorContenidoService } from '../../../../../services/gestor-contenido.service';
 
 @Component({
   selector: 'app-banner-feature',
@@ -8,7 +8,7 @@ import { GestorContenidoService } from '../../../../../shared/services/gestor-co
 })
 export class BannerFeatureComponent implements OnInit {
 
-  @Input() data : string;
+  @Input() banners : string;
   constructor(private gestorContenido: GestorContenidoService) { }
 
   ngOnInit() {

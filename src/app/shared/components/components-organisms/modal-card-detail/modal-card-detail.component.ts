@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { ModalService } from 'src/app/shared/services/modal.service';
+import { ModalService } from 'src/app/services/modal.service';
 import { getIsNotNull, formatNumber } from 'src/app/shared/utils/utils';
 import { PaymentAccount } from 'src/app/shared/utils/types';
 

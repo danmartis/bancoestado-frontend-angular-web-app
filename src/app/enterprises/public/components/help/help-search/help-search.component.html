@@ -1,0 +1,25 @@
+<section class="main-info">
+  <div class="container">
+    <div class="row text-center">
+      <div class="col-12">
+        <div class="titulo-seccion">
+          <app-page-title type="public-x2">¿Necesitas ayuda?</app-page-title>
+        </div>
+      </div>
+      <div class="col-12 offset-md-2 col-md-8">
+        <app-paragraph type="page-public">Consulta aquí</app-paragraph>
+      </div>
+      <div class="col-12 offset-md-2 col-md-8 mt-4">
+        <app-input
+          type="text"
+          icon="search"
+          placeholder="Escriba sus preguntas aquí"
+          name="question"
+          [value]="question"
+          (onChange)="changeQuestion($event)"
+          [isDrop]="true"
+        ></app-input>
+      </div>
+    </div>
+  </div>
+</section>

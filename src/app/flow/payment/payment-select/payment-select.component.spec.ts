@@ -14,6 +14,10 @@ import { ButtonComponent } from 'src/app/shared/components/components-atom/butto
 import { SidebarComponent } from 'src/app/shared/components/sidebar/sidebar.component';
 import { CapsuleComponent } from 'src/app/shared/components/capsule/capsule.component';
 import { RouterTestingModule } from '@angular/router/testing';
+import { Button2Component } from 'src/app/shared/components/button/button2/button2.component';
+import { PageTitleComponent } from 'src/app/shared/components/components-atom/page-title/page-title.component';
+import { DropdownComponent } from 'src/app/shared/components/dropdown/dropdown.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 describe('PaymentSelectComponent', () => {
   let component: PaymentSelectComponent;
@@ -34,10 +38,14 @@ describe('PaymentSelectComponent', () => {
         IconComponent,
         ButtonComponent,
         SidebarComponent,
-        CapsuleComponent
+        CapsuleComponent,
+        Button2Component,
+        PageTitleComponent,
+        DropdownComponent
       ],
       imports: [
-        RouterTestingModule
+        RouterTestingModule,
+        NgbModule
       ]
     })
     .compileComponents();

@@ -18,6 +18,8 @@ import { InputComponent } from 'src/app/shared/components/components-atom/input/
 import { SidebarComponent } from 'src/app/shared/components/sidebar/sidebar.component';
 import { CapsuleComponent } from 'src/app/shared/components/capsule/capsule.component';
 import { RouterTestingModule } from '@angular/router/testing';
+import { SelectSeComponent } from 'src/app/shared/components/components-atom/select-se/select-se.component';
+import { Button2Component } from 'src/app/shared/components/button/button2/button2.component';
 
 describe('AboutComponent', () => {
   let component: AboutComponent;
@@ -40,7 +42,9 @@ describe('AboutComponent', () => {
         ButtonComponent,
         InputComponent,
         SidebarComponent,
-        CapsuleComponent
+        CapsuleComponent,
+        SelectSeComponent,
+        Button2Component
       ],
       imports: [
         NgbModule,

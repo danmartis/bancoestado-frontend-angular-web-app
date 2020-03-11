@@ -20,6 +20,12 @@ import { RadioComponent } from 'src/app/shared/components/components-atom/radio/
 import { SidebarComponent } from 'src/app/shared/components/sidebar/sidebar.component';
 import { CapsuleComponent } from 'src/app/shared/components/capsule/capsule.component';
 import { RouterTestingModule } from '@angular/router/testing';
+import { Button2Component } from 'src/app/shared/components/button/button2/button2.component';
+import { ModalIconComponent } from 'src/app/shared/components/modal-icon/modal-icon.component';
+import { PageTitleComponent } from 'src/app/shared/components/components-atom/page-title/page-title.component';
+import { DropdownComponent } from 'src/app/shared/components/dropdown/dropdown.component';
+
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 describe('PaymentEnrollComponent', () => {
   let component: PaymentEnrollComponent;
@@ -28,7 +34,8 @@ describe('PaymentEnrollComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
-        RouterTestingModule
+        RouterTestingModule,
+        NgbModule
       ],
       declarations: [ 
         PaymentEnrollComponent,
@@ -48,7 +55,11 @@ describe('PaymentEnrollComponent', () => {
         IconComponent,
         RadioComponent,
         SidebarComponent,
-        CapsuleComponent
+        CapsuleComponent,
+        Button2Component,
+        ModalIconComponent,
+        PageTitleComponent,
+        DropdownComponent
       ]
     })
     .compileComponents();

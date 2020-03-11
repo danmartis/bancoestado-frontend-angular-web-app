@@ -13,5 +13,20 @@
         min-height: 48px;
         min-width: 150px;
         text-align: center;
+        &.lg-full {
+            @media (max-width: $media-max-md) {
+                width: 90%;
+            }
+        }
+        &.md-full {
+            @media (max-width: $media-max-md) {
+                width: 90%;
+            }
+        }
+        &.sm-full {
+            @media (max-width: $media-max-md) {
+                width: 90%;
+            }
+        }
     }
 }

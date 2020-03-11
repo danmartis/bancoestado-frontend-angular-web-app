@@ -6,29 +6,21 @@
 -->
 
 <app-page type="dark">
-  <app-banner-feature></app-banner-feature>
+    <app-banner-feature [banners]="dataBanner"></app-banner-feature>
 
-  <app-benefits></app-benefits>
+    <app-benefits [benefits]="dataBenefits"></app-benefits>
 
-  <app-feature></app-feature>
+    <app-feature [features]="dataFeature"></app-feature>
 
-  <app-help-prefooter></app-help-prefooter>
+    <app-help-prefooter></app-help-prefooter>
 </app-page>
 
 <app-footer-default></app-footer-default>
 
 <app-modal name="modal-video-public" type="video">
-  <div class="modal_section__body text-center">
-    <div class="video-responsive video-responsive--no-border-radius">
-      <iframe
-        _ngcontent-srp-c41=""
-        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen=""
-        frameborder="0"
-        height="315"
-        src="https://www.youtube.com/embed/yigaZe45uaA"
-        width="560"
-      ></iframe>
+    <div class="modal_section__body text-center">
+        <div class="video-responsive video-responsive--no-border-radius">
+            <iframe _ngcontent-srp-c41="" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" frameborder="0" height="315" src="https://www.youtube.com/embed/yigaZe45uaA" width="560"></iframe>
+        </div>
     </div>
-  </div>
 </app-modal>

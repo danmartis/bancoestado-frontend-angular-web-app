@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgxTinySliderSettingsInterface } from 'ngx-tiny-slider';
-import { ModalService } from 'src/app/shared/services/modal.service';
+import { ModalService } from 'src/app/services/modal.service';
 
 @Component({
   selector: 'app-help',

@@ -109,7 +109,7 @@ import { HeaderLandingComponent } from './header-landing/header-landing.componen
     CardAccountHistoryComponent,
     CardAccountTypeAComponent, CardAccountTypeBComponent, CardAccountDetailComponentNew,
     CardAccountHistoryGroupComponent, Button2Component, GraphDisplayValueComponent, ModalIconComponent, CardRegisterSuccessComponent, DropdownComponent, SelectSeComponent, HelpPrefooterComponent, 
-    ColoredLineComponent, TopBarComponent, HeaderLandingComponent
+    ColoredLineComponent, TopBarComponent, HeaderLandingComponent, CardPageComponent
   ],
   imports: [
     CommonModule,
@@ -142,7 +142,8 @@ import { HeaderLandingComponent } from './header-landing/header-landing.componen
     ModalTitleComponent, PageTitleComponent, ParagraphComponent, CardMethodPaymentComponent,
     RadioComponent, CardVoucherComponent, MessagePaymentComponent, InfoPaymentComponent,
     DetailsPaymentComponent, EmptyAreasComponent, CapsuleComponent, HeaderMainComponent, SelectSeComponent, NgxTinySliderModule,
-    HelpPrefooterComponent, ColoredLineComponent, TopBarComponent, HeaderLandingComponent
+    HelpPrefooterComponent, ColoredLineComponent, TopBarComponent, HeaderLandingComponent,
+    CardPageComponent
   ],
 })
 export class ComponentsModule { }

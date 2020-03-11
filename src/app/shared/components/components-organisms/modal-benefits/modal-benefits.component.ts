@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ModalService } from 'src/app/shared/services/modal.service';
+import { ModalService } from 'src/app/services/modal.service';
 import { colors } from 'src/app/shared/utils/options';
 import { Router, ActivatedRoute } from '@angular/router';
 

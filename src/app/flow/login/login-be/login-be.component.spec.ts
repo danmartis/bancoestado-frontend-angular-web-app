@@ -21,6 +21,10 @@ import { IconComponent } from 'src/app/shared/components/components-atom/icon/ic
 import { RadioComponent } from 'src/app/shared/components/components-atom/radio/radio.component';
 import { CapsuleComponent } from 'src/app/shared/components/capsule/capsule.component';
 import { RouterTestingModule } from '@angular/router/testing';
+import { Button2Component } from 'src/app/shared/components/button/button2/button2.component';
+import { ModalIconComponent } from 'src/app/shared/components/modal-icon/modal-icon.component';
+import { DropdownComponent } from 'src/app/shared/components/dropdown/dropdown.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 describe('LoginBeComponent', () => {
   let component: LoginBeComponent;
@@ -49,10 +53,14 @@ describe('LoginBeComponent', () => {
         SidebarComponent,
         IconComponent,
         RadioComponent,
-        CapsuleComponent
+        CapsuleComponent,
+        Button2Component,
+        ModalIconComponent,
+        DropdownComponent
       ],
       imports: [
-        RouterTestingModule
+        RouterTestingModule,
+        NgbModule
       ]
     })
     .compileComponents();

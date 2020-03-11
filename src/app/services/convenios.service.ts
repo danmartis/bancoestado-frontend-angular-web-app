@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { DataResponse } from './dataResponse';
 import { Observable } from 'rxjs/Observable';
-import { environment } from '../../../environments/environment';
+import { environment } from '../../environments/environment';
 import { BffClientService } from './bffClient.service';
 
 import 'rxjs/add/operator/map';
