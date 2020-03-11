@@ -1,9 +1,12 @@
 @import '../../../../../scss/_vars';
 
 :host {
+  .container {
+    padding-top: 3rem;
+  }
   .card-page-body {
     .card-page-body__img {
-      max-width: 100px;
+      max-width: 80px;
       margin: 0 auto 1rem auto;
     }
     .card-page-body__form {
