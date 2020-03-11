@@ -7,8 +7,8 @@ import { DataResponse } from './dataResponse';
   })
   export class GestorContenidoService extends BffClientService {
   
-    public urlPath = 'http://se-empresas-bff-desa.us-east-1.elasticbeanstalk.com/bff/se-bff-empresas/v1/gestor-contenido/';
-    //public urlPath = 'http://localhost:3000/bff/se-bff-empresas/v1/gestor-contenido/';
+    // public urlPath = 'http://se-empresas-bff-desa.us-east-1.elasticbeanstalk.com/bff/se-bff-empresas/v1/gestor-contenido/';
+    public urlPath = 'http://localhost:3000/bff/se-bff-empresas/v1/gestor-contenido/';
   
     public getLanding(): Observable<DataResponse> {
       const urlApi = this.urlPath+"landing";
