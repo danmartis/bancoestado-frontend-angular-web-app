@@ -148,9 +148,7 @@
                     type="auto-block-min-w-x2"
                     idName="enterprises__register__btn-submit"
                     (click)="
-                      btnSendData();
-                      ( !f.rut.hasError('invalidRut') || !f.rut.hasError('required') ) && !formInvalid && closeListOpenSingle([''], 'enterprises__register__modal');
-                    "
+                      btnSendData()"
                     >Enviar</app-button
                   >
                 </div>
