@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PaymentBank } from 'src/app/shared/utils/types';
 import { paymentMethodList } from 'src/app/shared/utils/mock-data';
-import { ModalService } from 'src/app/shared/services/modal.service';
+import { ModalService } from 'src/app/services/modal.service';
 
 @Component({
   selector: 'app-payment-enroll',

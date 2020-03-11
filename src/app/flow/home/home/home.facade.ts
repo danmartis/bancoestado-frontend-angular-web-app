@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { ConveniosService } from '../../../shared/services/convenios.service';
-import { CuentasService } from '../../../shared/services/cuentas.service';
+import { ConveniosService } from '../../../services/convenios.service';
+import { CuentasService } from '../../../services/cuentas.service';
 import { BusquedaAvanzada } from '../../../domain/busquedaAvanzada.class';
-import { BusquedasService } from '../../../shared/services/busquedas.service';
+import { BusquedasService } from '../../../services/busquedas.service';
 import { PaymentAccount } from 'src/app/shared/utils/types';
 import { Convenio } from 'src/app/domain/convenio.class';
 

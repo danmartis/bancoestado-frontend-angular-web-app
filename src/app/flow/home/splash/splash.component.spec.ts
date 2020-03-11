@@ -8,6 +8,7 @@ import { BulletStepComponent } from 'src/app/shared/components/bullet-step/bulle
 import { ImageComponent } from 'src/app/shared/components/components-atom/image/image.component';
 import { IconComponent } from 'src/app/shared/components/components-atom/icon/icon.component';
 import { BackButtonComponent } from 'src/app/shared/components/components-atom/back-button/back-button.component';
+import { Button2Component } from 'src/app/shared/components/button/button2/button2.component';
 
 describe('SplashComponent', () => {
   let component: SplashComponent;
@@ -23,7 +24,8 @@ describe('SplashComponent', () => {
         BulletStepComponent,
         ImageComponent,
         IconComponent,
-        BackButtonComponent
+        BackButtonComponent,
+        Button2Component
       ]
     })
     .compileComponents();

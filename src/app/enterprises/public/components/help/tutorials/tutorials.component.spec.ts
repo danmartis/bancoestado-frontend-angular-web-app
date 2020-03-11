@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { TutorialsComponent } from './tutorials.component';
+import { PageTitleComponent } from 'src/app/shared/components/components-atom/page-title/page-title.component';
 
 describe('TutorialsComponent', () => {
   let component: TutorialsComponent;
@@ -8,7 +9,10 @@ describe('TutorialsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TutorialsComponent ]
+      declarations: [ 
+        TutorialsComponent,
+        PageTitleComponent
+      ]
     })
     .compileComponents();
   }));

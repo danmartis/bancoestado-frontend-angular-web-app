@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { formatDate, formatNumber} from 'src/app/shared/utils/utils';
 import { accounts as _accounts, groups as _groups } from 'src/app/shared/utils/mock-data';
-import { ModalService } from 'src/app/shared/services/modal.service';
+import { ModalService } from 'src/app/services/modal.service';
 
 
 @Component({

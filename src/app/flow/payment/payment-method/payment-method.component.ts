@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ModalService } from 'src/app/shared/services/modal.service';
+import { ModalService } from 'src/app/services/modal.service';
 import { ActivatedRoute, Router } from "@angular/router";
 import { session } from 'src/app/shared/utils/utils';
 import { paymentMethodList } from 'src/app/shared/utils/mock-data';
@@ -8,7 +8,7 @@ import { PaymentBank } from 'src/app/shared/utils/types';
 import { ParametroService } from '../../../domain/parametro.service';
 import { PaymentAccount } from 'src/app/shared/utils/types';
 
-import { ComprobanteService } from '../../../shared/services/comprobante.service';
+import { ComprobanteService } from '../../../services/comprobante.service';
 import { comprobante } from '../../../domain/comprobante.class';
 import { colors, PaymentAccountAndGroupStatus } from 'src/app/shared/utils/options';
 

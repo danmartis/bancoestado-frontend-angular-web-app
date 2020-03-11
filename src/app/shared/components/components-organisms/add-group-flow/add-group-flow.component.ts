@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { IconGroup } from 'src/app/shared/utils/types';
 import { getIconsList, getPaymentAccountList } from 'src/app/shared/utils/utils';
-import { ModalService } from 'src/app/shared/services/modal.service';
+import { ModalService } from 'src/app/services/modal.service';
 import { colors } from 'src/app/shared/utils/options';
 import { accounts } from 'src/app/shared/utils/mock-data';
 

@@ -17,6 +17,8 @@ import { CardPageComponent } from 'src/app/shared/components/components-atom/car
 import { IconComponent } from 'src/app/shared/components/components-atom/icon/icon.component';
 import { SidebarComponent } from 'src/app/shared/components/sidebar/sidebar.component';
 import { RouterTestingModule } from '@angular/router/testing';
+import { ModalIconComponent } from 'src/app/shared/components/modal-icon/modal-icon.component';
+import { Button2Component } from 'src/app/shared/components/button/button2/button2.component';
 
 describe('LoginSeComponent', () => {
   let component: LoginSeComponent;
@@ -40,7 +42,9 @@ describe('LoginSeComponent', () => {
         InputComponent,
         CardPageComponent,
         IconComponent,
-        SidebarComponent
+        SidebarComponent,
+        ModalIconComponent,
+        Button2Component
       ],
       imports: [
         RouterTestingModule

@@ -1,5 +1,5 @@
 import { Component, OnInit, HostListener, HostBinding, Input, Output, EventEmitter } from '@angular/core';
-import { ModalService } from 'src/app/shared/services/modal.service';
+import { ModalService } from 'src/app/services/modal.service';
 
 @Component({
   selector: 'app-modal-splash',

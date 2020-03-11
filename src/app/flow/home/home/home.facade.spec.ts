@@ -1,4 +1,4 @@
-import { HomeFacade } from './home.facade';
+/*import { HomeFacade } from './home.facade';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { ConveniosService } from 'src/app/shared/services/convenios.service';
 import { ConveniosServiceMock } from 'src/app/shared/services/convenios.service.spec';
@@ -181,4 +181,4 @@ describe('HomeFacade', () => {
     it('metodo buscarNumeroCliente', () => {
         component.buscarNumeroCliente(101,'');
     });
-})
+})*/

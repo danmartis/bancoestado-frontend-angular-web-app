@@ -1,8 +1,8 @@
 import { Component, OnInit, HostListener } from '@angular/core';
-import { ModalService } from 'src/app/shared/services/modal.service';
+import { ModalService } from 'src/app/services/modal.service';
 import { emailValidate, isSpecialCharacterEmail, isNumber, validatePassSE, validateNameRegSE } from 'src/app/shared/utils/utils';
 import { colors, PaymentAccountAndGroupStatus } from 'src/app/shared/utils/options';
-import { RegistroSeService } from 'src/app/shared/services/registro-se.service';
+import { RegistroSeService } from 'src/app/services/registro-se.service';
 
 @Component({
   selector: 'app-login-flow-se',

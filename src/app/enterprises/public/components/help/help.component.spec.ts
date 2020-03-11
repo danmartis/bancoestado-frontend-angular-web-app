@@ -16,6 +16,11 @@ import { ButtonComponent } from 'src/app/shared/components/components-atom/butto
 import { SidebarComponent } from 'src/app/shared/components/sidebar/sidebar.component';
 import { CapsuleComponent } from 'src/app/shared/components/capsule/capsule.component';
 import { RouterTestingModule } from '@angular/router/testing';
+import { ModalComponent } from 'src/app/shared/components/components-organisms/modal/modal.component';
+import { HelpPrefooterComponent } from 'src/app/shared/components/help-prefooter/help-prefooter.component';
+import { Button2Component } from 'src/app/shared/components/button/button2/button2.component';
+import { TutorialsComponent } from './tutorials/tutorials.component';
+import { IconComponent } from 'src/app/shared/components/components-atom/icon/icon.component';
 
 describe('HelpComponent', () => {
   let component: HelpComponent;
@@ -35,7 +40,12 @@ describe('HelpComponent', () => {
         HeaderMainComponent,
         ButtonComponent,
         SidebarComponent,
-        CapsuleComponent
+        CapsuleComponent,
+        ModalComponent,
+        HelpPrefooterComponent,
+        Button2Component,
+        TutorialsComponent,
+        IconComponent
       ],
       imports: [
         NgbModule,

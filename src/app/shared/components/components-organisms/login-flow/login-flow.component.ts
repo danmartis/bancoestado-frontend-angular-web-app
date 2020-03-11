@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { emailValidate } from 'src/app/shared/utils/utils';
-import { ModalService } from 'src/app/shared/services/modal.service';
+import { ModalService } from 'src/app/services/modal.service';
 
 @Component({
   selector: 'app-login-flow',

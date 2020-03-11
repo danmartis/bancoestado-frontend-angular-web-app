@@ -18,6 +18,9 @@ import { CardDefaultComponent } from '../../components-atom/card-default/card-de
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RouterTestingModule } from '@angular/router/testing';
 import { ParametroService } from 'src/app/domain/parametro.service';
+import { Button2Component } from '../../button/button2/button2.component';
+import { ModalIconComponent } from '../../modal-icon/modal-icon.component';
+import { CardAccountTypeAComponent } from '../../accounts/card-account-type-a/card-account-type-a.component';
 
 describe('AddGroupFlowComponent', () => {
   let component: AddGroupFlowComponent;
@@ -41,7 +44,10 @@ describe('AddGroupFlowComponent', () => {
         BackButtonComponent,
         CardAccountDetailComponent,
         CheckboxComponent,
-        CardDefaultComponent
+        CardDefaultComponent,
+        Button2Component,
+        ModalIconComponent,
+        CardAccountTypeAComponent
        ],
        imports: [
          NgbModule,

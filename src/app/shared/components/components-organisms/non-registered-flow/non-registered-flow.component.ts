@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { PaymentAccount } from 'src/app/shared/utils/types';
 import { colors, PaymentAccountAndGroupStatus } from 'src/app/shared/utils/options';
-import { ModalService } from 'src/app/shared/services/modal.service';
+import { ModalService } from 'src/app/services/modal.service';
 
 @Component({
   selector: 'app-non-registered-flow',

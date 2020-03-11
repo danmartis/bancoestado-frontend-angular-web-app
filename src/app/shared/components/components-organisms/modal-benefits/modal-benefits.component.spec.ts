@@ -8,6 +8,7 @@ import { ModalTitleComponent } from '../../components-atom/modal-title/modal-tit
 import { ButtonComponent } from '../../components-atom/button/button.component';
 import { ImageComponent } from '../../components-atom/image/image.component';
 import { RouterTestingModule } from '@angular/router/testing';
+import { Button2Component } from '../../button/button2/button2.component';
 
 describe('ModalBenefitsComponent', () => {
   let component: ModalBenefitsComponent;
@@ -22,7 +23,8 @@ describe('ModalBenefitsComponent', () => {
         IconComponent,
         ModalTitleComponent,
         ButtonComponent,
-        ImageComponent
+        ImageComponent,
+        Button2Component
       ],
       imports: [
         RouterTestingModule

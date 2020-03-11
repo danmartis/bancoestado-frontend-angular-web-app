@@ -10,8 +10,8 @@ import { ImageComponent } from '../../components-atom/image/image.component';
 import { InputComponent } from '../../components-atom/input/input.component';
 import { CardPageComponent } from '../../components-atom/card-page/card-page.component';
 import { IconComponent } from '../../components-atom/icon/icon.component';
-import { RegistroSeService } from '../../../services/registro-se.service';
-import { RegistroSeServiceMock } from '../../../services/registro-se.service.spec';
+import { RegistroSeService } from '../../../../services/registro-se.service';
+import { RegistroSeServiceMock } from '../../../../services/registro-se.service.spec';
 
 describe('LoginFlowSeComponent', () => {
   let component: LoginFlowSeComponent;

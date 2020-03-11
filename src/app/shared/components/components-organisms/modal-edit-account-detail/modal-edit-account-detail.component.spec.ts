@@ -8,6 +8,7 @@ import { ParagraphComponent } from '../../components-atom/paragraph/paragraph.co
 import { ModalTitleComponent } from '../../components-atom/modal-title/modal-title.component';
 import { BackButtonComponent } from '../../components-atom/back-button/back-button.component';
 import { IconComponent } from '../../components-atom/icon/icon.component';
+import { Button2Component } from '../../button/button2/button2.component';
 
 describe('ModalEditAccountDetailComponent', () => {
   let component: ModalEditAccountDetailComponent;
@@ -23,7 +24,8 @@ describe('ModalEditAccountDetailComponent', () => {
         ParagraphComponent,
         ModalTitleComponent,
         BackButtonComponent,
-        IconComponent
+        IconComponent,
+        Button2Component
       ]
     })
     .compileComponents();

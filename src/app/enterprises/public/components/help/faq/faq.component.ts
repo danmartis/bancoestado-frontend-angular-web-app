@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChildren, ViewChild, QueryList, ElementRef, AfterViewInit } from '@angular/core';
 import { NgxTinySliderSettingsInterface } from 'ngx-tiny-slider';
-import { ModalService } from 'src/app/shared/services/modal.service';
-import { GestorContenidoService } from '../../../../../shared/services/gestor-contenido.service';
+import { ModalService } from 'src/app/services/modal.service';
+import { GestorContenidoService } from '../../../../../services/gestor-contenido.service';
 import { NgxTinySliderComponent } from 'ngx-tiny-slider/lib/ngx-tiny-slider.component';
 
 @Component({
