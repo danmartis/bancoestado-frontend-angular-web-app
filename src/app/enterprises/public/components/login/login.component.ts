@@ -56,12 +56,12 @@ export class LoginComponent implements OnInit {
     console.log(this.f.password)
      
      this._loginService.loginUser(data)
-     .then( (res) => {
+     .then( (res: any) => {
        console.log(res);
 
      
-      if(res.changePassword){
-      //  this.router.navigate(['/empresas/registro'])
+      if(res.data.changePassword){
+      this.router.navigate(['/empresas/cambiar-clave'])
 
       }
 
