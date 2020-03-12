@@ -146,7 +146,7 @@ export class FaqComponent implements OnInit, AfterViewInit {
   // ];
  
   ngOnInit() {
-
+    this.contenido();
     this.tinySliderConfig = {
       waiteForDom: true,
       //preventScrollOnTouch: 'auto',
@@ -168,7 +168,7 @@ export class FaqComponent implements OnInit, AfterViewInit {
         }
       },
     };
-    this.contenido();
+    
   }
 
   async contenido(){
