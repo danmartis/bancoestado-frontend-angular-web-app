@@ -32,7 +32,7 @@ export class LoginComponent implements OnInit {
 
   }
 
-  get f() { return this.loginForm.controls; }
+  get f() { return this.loginForm.controls }
 
 
   btnSendData(){
@@ -41,9 +41,7 @@ export class LoginComponent implements OnInit {
 
       this.formInvalid = true;
 
-     
-
-      console.log( this.formInvalid  ,  this.loginForm)
+    
     }
 
     else {
@@ -61,12 +59,18 @@ export class LoginComponent implements OnInit {
 
      
       if(res.data.changePassword){
+
+      this._loginService.changePassword = true;
+
+
       this.router.navigate(['/empresas/cambiar-clave'])
 
       }
 
       else {
-       // this.router.navigate(['/empresas/registro'])
+
+        this._loginService.changePassword = false;
+        this.router.navigate(['/empresas/resumen'])
 
       }
 
@@ -75,8 +79,6 @@ export class LoginComponent implements OnInit {
      .catch( (err)=> {
        console.log(err);
 
-
-       this.f.rut.setErrors({'userNotFound': true});
      })
 
     }

@@ -7,6 +7,9 @@ import {
   AbstractControl,
   ValidationErrors
 } from "@angular/forms";
+import { Router } from '@angular/router';
+import { DashboardService } from '../dashboard/services/dashboard.service';
+import { typeWithParameters } from '@angular/compiler/src/render3/util';
 
 @Component({
   selector: "app-reset-password",
@@ -17,7 +20,7 @@ export class ResetPasswordComponent implements OnInit {
   resetPassForm: FormGroup;
   formInvalid: boolean = false;
 
-  constructor(private _formBuilder: FormBuilder) {}
+  constructor(private _formBuilder: FormBuilder,  private router: Router, private _dashboardService: DashboardService) {}
 
   ngOnInit() {
     this.resetPassForm = this._formBuilder.group({
@@ -64,10 +67,16 @@ export class ResetPasswordComponent implements OnInit {
   btnSendData() {
     if (this.resetPassForm.invalid) {
       this.formInvalid = true;
+
+      console.log('jaja', this.resetPassForm)
     } else {
       this.formInvalid = false;
 
       const data = this.resetPassForm.getRawValue();
+
+      console.log(data)
+
+      this.router.navigate(['/empresas/resumen'])
 
       /* 
      this._registrerService.addRegister(data)
@@ -142,7 +151,7 @@ export const notNumberValidator: ValidatorFn = (
     console.log("not number in: ", password.value);
     return {passwordNotNumber: true }
   } else {
-    return {passwordNotNumber: false}
+    return null
   }
 
 };
