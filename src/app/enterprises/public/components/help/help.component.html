@@ -19,12 +19,12 @@
         </div>
     </section>
 
-    <app-help-banner></app-help-banner>
+    <app-help-banner [faqItems]="faqItems"></app-help-banner>
 
     <app-help-search *ngIf="false"></app-help-search>
 
 
-    <app-faq></app-faq>
+    <app-faq [faqItems]="faqItems"></app-faq>
 
 
     <app-tutorials></app-tutorials>

@@ -3,14 +3,14 @@
     <div class="row">
       <div class="col-12 mt-4">
         <div class="titulo-seccion">
-          <app-page-title type="public-x2">{{ title }}</app-page-title>
+          <app-page-title type="public-x2">{{ faqItems.title }}</app-page-title>
         </div>
       </div>
       <div class="col-12 no-gutter">
         <div class="slider-animation">
           <ngx-tiny-slider #ngxSlider [config]="tinySliderConfig">
             <ng-container class="items">
-              <div class="item" #carouselItemList *ngFor="let faqItem of faqItems">
+              <div class="item" *ngFor="let faqItem of faqItems.content">
                 <div class="item-card-slider item-card-slider-help">
                   <div class="item-card-slider-icon">
                     <i class="material-icons md-36">{{ faqItem.icon }}</i>
