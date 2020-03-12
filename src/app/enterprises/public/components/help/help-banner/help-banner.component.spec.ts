@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { HelpBannerComponent } from './help-banner.component';
+import { ParagraphComponent } from 'src/app/shared/components/components-atom/paragraph/paragraph.component';
+import { PageTitleComponent } from 'src/app/shared/components/components-atom/page-title/page-title.component';
 
 describe('HelpBannerComponent', () => {
   let component: HelpBannerComponent;
@@ -8,7 +10,11 @@ describe('HelpBannerComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ HelpBannerComponent ]
+      declarations: [ 
+        HelpBannerComponent,
+        ParagraphComponent,
+        PageTitleComponent
+      ]
     })
     .compileComponents();
   }));
