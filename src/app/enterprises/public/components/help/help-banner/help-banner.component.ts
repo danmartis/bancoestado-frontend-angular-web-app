@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, Input } from '@angular/core';
 
 @Component({
   selector: 'app-help-banner',
@@ -8,6 +8,9 @@ import { Component, OnInit } from '@angular/core';
 export class HelpBannerComponent implements OnInit {
 
   constructor() { }
+
+  @ViewChild("faqItems", { static: true })
+  @Input() faqItems: string;
 
   ngOnInit() {
   }

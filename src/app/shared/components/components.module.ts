@@ -88,7 +88,7 @@ import { HelpPrefooterComponent } from './help-prefooter/help-prefooter.componen
 import { ColoredLineComponent } from './components-atom/colored-line/colored-line.component';
 import { TopBarComponent } from './top-bar/top-bar.component';
 import { HeaderLandingComponent } from './header-landing/header-landing.component';
-
+import { RutMaskDirective } from 'src/app/enterprises/public/directives/rut-format.directive'
 @NgModule({
   declarations: [ButtonComponent, CardAccountComponent,
     CardDefaultComponent, CheckboxComponent,
@@ -109,7 +109,7 @@ import { HeaderLandingComponent } from './header-landing/header-landing.componen
     CardAccountHistoryComponent,
     CardAccountTypeAComponent, CardAccountTypeBComponent, CardAccountDetailComponentNew,
     CardAccountHistoryGroupComponent, Button2Component, GraphDisplayValueComponent, ModalIconComponent, CardRegisterSuccessComponent, DropdownComponent, SelectSeComponent, HelpPrefooterComponent, 
-    ColoredLineComponent, TopBarComponent, HeaderLandingComponent, CardPageComponent
+    ColoredLineComponent, TopBarComponent, HeaderLandingComponent, CardPageComponent, RutMaskDirective
   ],
   imports: [
     CommonModule,
@@ -143,7 +143,7 @@ import { HeaderLandingComponent } from './header-landing/header-landing.componen
     RadioComponent, CardVoucherComponent, MessagePaymentComponent, InfoPaymentComponent,
     DetailsPaymentComponent, EmptyAreasComponent, CapsuleComponent, HeaderMainComponent, SelectSeComponent, NgxTinySliderModule,
     HelpPrefooterComponent, ColoredLineComponent, TopBarComponent, HeaderLandingComponent,
-    CardPageComponent
+    CardPageComponent, RutMaskDirective
   ],
 })
 export class ComponentsModule { }

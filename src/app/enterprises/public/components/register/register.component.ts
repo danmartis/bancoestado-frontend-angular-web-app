@@ -8,7 +8,8 @@ import { RutValidator } from 'ng2-rut';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.scss']
+  styleUrls: ['./register.component.scss'],
+
 })
 export class RegisterComponent implements OnInit {
 
@@ -40,6 +41,8 @@ export class RegisterComponent implements OnInit {
     });
 
   }
+
+
 
   get f() { return this.registerForm.controls; }
 
@@ -133,11 +136,7 @@ export class RegisterComponent implements OnInit {
 
     }
   }
-
-
-
 }
-
 
 export const rutNotValid: ValidatorFn = (
   control: AbstractControl
@@ -147,8 +146,6 @@ export const rutNotValid: ValidatorFn = (
   }
 
   const rut = control.parent.get("rut");
-
-
   let valor = rut.value.replace(/\./g, "");
   let valorDespejado = valor.replace("-", "");
   let cuerpo = valorDespejado.slice(0, -1);

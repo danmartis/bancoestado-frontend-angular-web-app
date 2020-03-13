@@ -23,7 +23,6 @@ import { FaqComponent } from './components/help/faq/faq.component';
 import { HelpBannerComponent } from './components/help/help-banner/help-banner.component';
 import { HelpSearchComponent } from './components/help/help-search/help-search.component';
 import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
-import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -44,8 +43,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
     FaqComponent,
     HelpBannerComponent,
     HelpSearchComponent,
-    ResetPasswordComponent,
-    DashboardComponent
+    ResetPasswordComponent
   ],
   imports: [
     CommonModule,

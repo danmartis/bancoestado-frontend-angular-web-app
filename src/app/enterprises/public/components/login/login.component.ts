@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { LoginService } from './services/login.service';
 import { Validators, FormBuilder, FormGroup, ValidatorFn, AbstractControl, ValidationErrors } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ModalService } from '../../../../services/modal.service';
 
 @Component({
   selector: 'app-login',
@@ -12,7 +13,7 @@ export class LoginComponent implements OnInit {
 
   id : string = "enterprises__login";
 
-  constructor(private _loginService: LoginService, private _formBuilder: FormBuilder,   private router: Router) { }
+  constructor(private _loginService: LoginService, private _formBuilder: FormBuilder,   private router: Router, private modalService: ModalService) { }
 
   loginForm: FormGroup;
   

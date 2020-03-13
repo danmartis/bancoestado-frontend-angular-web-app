@@ -58,4 +58,28 @@
       <a id="enterprises__login__client" href="/empresas/#">Hazte cliente</a>
     </div>
   </app-card-page>
+  <app-modal [name]="modalName" [id]="modalName">
+    <div class="modal_section__header"></div>
+    <div class="modal_section__body">
+      <div class="icon-container">
+        <img class="icon" src="/assets/imgs/svg/icon-info.svg" alt="Advertencia" />
+      </div>
+      <div class="text-container">
+        <h3 class="register__modal__title">
+          Datos incorrectos
+        </h3>
+        <p class="register__modal__subtitle">
+          Favor revísalos e ingresa nuevamente
+        </p>
+      </div>
+      <div class="btn-container">
+        <app-link id="enterprises__register__modal__cta">
+          <div class="modal-btn">
+            Aceptar
+          </div>
+        </app-link>
+      </div>
+    </div>
+    <div class="modal_section__footer"></div>
+  </app-modal>
 </div>

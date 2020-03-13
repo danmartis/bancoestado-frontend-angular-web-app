@@ -1,6 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { FaqComponent } from './faq.component';
+import { NgxTinySliderModule } from 'ngx-tiny-slider';
+import { PageTitleComponent } from 'src/app/shared/components/components-atom/page-title/page-title.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 describe('FaqComponent', () => {
   let component: FaqComponent;
@@ -8,7 +11,15 @@ describe('FaqComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ FaqComponent ]
+      imports : [ 
+        NgxTinySliderModule,
+        NgbModule
+      ],
+      declarations: [ 
+        FaqComponent,
+        PageTitleComponent,
+        PageTitleComponent
+      ]
     })
     .compileComponents();
   }));
@@ -19,7 +30,7 @@ describe('FaqComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  fit('should create', () => {
     expect(component).toBeTruthy();
   });
 });

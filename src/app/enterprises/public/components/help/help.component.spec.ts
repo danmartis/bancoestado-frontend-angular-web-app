@@ -21,6 +21,9 @@ import { HelpPrefooterComponent } from 'src/app/shared/components/help-prefooter
 import { Button2Component } from 'src/app/shared/components/button/button2/button2.component';
 import { TutorialsComponent } from './tutorials/tutorials.component';
 import { IconComponent } from 'src/app/shared/components/components-atom/icon/icon.component';
+import { FaqComponent } from './faq/faq.component';
+import { HelpSearchComponent } from './help-search/help-search.component';
+import { HelpBannerComponent } from './help-banner/help-banner.component';
 
 describe('HelpComponent', () => {
   let component: HelpComponent;
@@ -45,7 +48,10 @@ describe('HelpComponent', () => {
         HelpPrefooterComponent,
         Button2Component,
         TutorialsComponent,
-        IconComponent
+        IconComponent,
+        FaqComponent,
+        HelpSearchComponent,
+        HelpBannerComponent
       ],
       imports: [
         NgbModule,
