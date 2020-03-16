@@ -28,11 +28,11 @@ export class FaqComponent implements OnInit, AfterViewInit {
   @ViewChild("ngxSlider", { static: false })
   private ngxSlider: any;
 
-  // @ViewChild("faqItems", { static: true })
-  @Input() faqItems: string;
+  @Input() questionsTitle: string;
+
+  @Input() questionsData: string;
 
   ngOnInit() {
-    // this.contenido();
     this.tinySliderConfig = {
       waiteForDom: true,
       //preventScrollOnTouch: 'auto',
@@ -56,8 +56,8 @@ export class FaqComponent implements OnInit, AfterViewInit {
     };
   }
 
-  changeQuestion(faqItems) {
-    this.faqItems = faqItems;
+  changeQuestion(questionsData) {
+    this.questionsData = questionsData;
   }
   closeListOpenSingle(closeList: Array<string>, open: string) {
     this.modalService.closeListOpenSingle(closeList, open);
@@ -67,9 +67,9 @@ export class FaqComponent implements OnInit, AfterViewInit {
     this.carouselItemList.changes.subscribe(() =>
       this.ngxSlider.domReady.next()
     );
-    if (this.faqItems != null) {
+    if (this.questionsData != null) {
       // @ts-ignore
-      this.ngxSlider.domReady.next();
+      this.ngxSlider.domReady.next(); 
     }
   }
 }

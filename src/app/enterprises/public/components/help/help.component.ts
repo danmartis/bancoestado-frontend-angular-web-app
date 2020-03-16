@@ -10,17 +10,19 @@ export class HelpComponent implements OnInit {
 
   constructor(private gestorContenido: GestorContenidoService) { }
   
-  @ViewChild("faqItems", { static: true })
-  private faqItems = new Array();
+  private questionsTitle = new Array();
+
+  private bannerContent = new Array();
+
+  @ViewChild("questionsData", { static: true })
+  private questionsData = new Array();
 
   async contenidoPreguntas() {
     await this.gestorContenido.getQuestions().subscribe(res => {
-      this.faqItems = res.getDetalle();
-      this.faqItems[res.getDetalle()].forEach(element => {
-        this.faqItems[element.content] = element.content.forEach(element => {
-          this.faqItems[element.items] = element.items;
-        });
-      });
+      this.questionsTitle = res.getDetalle()["questionsTitle"]
+      this.bannerContent = res.getDetalle()
+
+      this.questionsData = res.getDetalle()["content"];
     }), err => {
       return err.message;
     };
