@@ -3,26 +3,26 @@
     <div class="row">
       <div class="col-12 mt-4">
         <div class="titulo-seccion">
-          <app-page-title type="public-x2">{{ faqItems.questionsTitle }}</app-page-title>
+          <app-page-title type="public-x2">{{ questionsTitle }}</app-page-title>
         </div>
       </div>
       <div class="col-12 no-gutter">
         <div class="slider-animation">
           <ngx-tiny-slider #ngxSlider [config]="tinySliderConfig">
             <ng-container class="items">
-              <div class="item" *ngFor="let faqItem of faqItems.content">
+              <div class="item" *ngFor="let qd of questionsData">
                 <div class="item-card-slider item-card-slider-help">
                   <div class="item-card-slider-icon">
-                    <i class="material-icons md-36">{{ faqItem.icon }}</i>
+                    <i class="material-icons md-36">{{ qd.icon }}</i>
                   </div>
-                  <div class="item-card-slider-title">{{ faqItem.category }}</div>
+                  <div class="item-card-slider-title">{{ qd.category }}</div>
                   <div class="preguntas__items">
-                    <div class="item-card-slider-question" *ngFor="let faq of faqItem.items">
-                      {{ faq.question }} 
-                    </div> <!--/.item-card-slider-question -->
-                  </div> <!--/.preguntas__items -->
-                </div> <!--/.item-card-slider -->
-              </div> <!--/.item -->
+                    <div class="item-card-slider-question" *ngFor="let qd of qd.items">
+                      {{ qd.question }} 
+                    </div> 
+                  </div> 
+                </div> 
+             </div>  
             </ng-container>
           </ngx-tiny-slider>
         </div>
