@@ -5,6 +5,10 @@ import { CardPageComponent } from 'src/app/shared/components/components-atom/car
 import { ButtonComponent } from 'src/app/shared/components/components-atom/button/button.component';
 import { InputComponent } from 'src/app/shared/components/components-atom/input/input.component';
 import { ParagraphComponent } from 'src/app/shared/components/components-atom/paragraph/paragraph.component';
+import { ModalComponent } from 'src/app/shared/components/components-organisms/modal/modal.component';
+import { LinkComponent } from 'src/app/shared/components/components-atom/link/link.component';
+import { IconComponent } from 'src/app/shared/components/components-atom/icon/icon.component';
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('LoginComponent', () => {
   let component: LoginComponent;
@@ -12,12 +16,18 @@ describe('LoginComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports: [
+        RouterTestingModule
+      ],
       declarations: [ 
         LoginComponent,
         CardPageComponent,
         ButtonComponent,
         InputComponent,
-        ParagraphComponent
+        ParagraphComponent,
+        ModalComponent,
+        LinkComponent,
+        IconComponent
       ]
     })
     .compileComponents();

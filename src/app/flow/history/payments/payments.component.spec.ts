@@ -28,6 +28,12 @@ import { BackButtonComponent } from 'src/app/shared/components/components-atom/b
 import { CapsuleComponent } from 'src/app/shared/components/capsule/capsule.component';
 import { RouterTestingModule } from '@angular/router/testing';
 import { ParametroService } from 'src/app/domain/parametro.service';
+import { CardAccountHistoryComponent } from 'src/app/shared/components/accounts/card-account-history/card-account-history.component';
+import { CardAccountHistoryGroupComponent } from 'src/app/shared/components/accounts/card-account-history-group/card-account-history-group.component';
+import { GraphDisplayValueComponent } from 'src/app/shared/components/graph-display-value/graph-display-value.component';
+import { ModalIconComponent } from 'src/app/shared/components/modal-icon/modal-icon.component';
+import { Button2Component } from 'src/app/shared/components/button/button2/button2.component';
+import { CardAccountTypeAComponent } from 'src/app/shared/components/accounts/card-account-type-a/card-account-type-a.component';
 
 describe('PaymentsComponent', () => {
   let component: PaymentsComponent;
@@ -58,7 +64,13 @@ describe('PaymentsComponent', () => {
         ModalComponent,
         SidebarComponent,
         BackButtonComponent,
-        CapsuleComponent
+        CapsuleComponent,
+        CardAccountHistoryComponent,
+        CardAccountHistoryGroupComponent,
+        GraphDisplayValueComponent,
+        ModalIconComponent,
+        Button2Component,
+        CardAccountTypeAComponent
       ],
       imports: [
         NgbModule,
