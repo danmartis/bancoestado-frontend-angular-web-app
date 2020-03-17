@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { LoginService } from './services/login.service';
 import { Validators, FormBuilder, FormGroup, ValidatorFn, AbstractControl, ValidationErrors } from '@angular/forms';
 import { Router } from '@angular/router';
-import { ModalService } from '../../../../services/modal.service';
+import { ModalService } from 'src/app/services/modal.service';
 
 @Component({
   selector: 'app-login',
@@ -13,22 +13,23 @@ export class LoginComponent implements OnInit {
 
   id : string = "enterprises__login";
 
-  modalName : string = "enterprises__login__modal__invalid-data";
-
-  constructor(private modalService: ModalService, private _loginService: LoginService, private _formBuilder: FormBuilder,   private router: Router) { }
+  constructor(private _loginService: LoginService, private modalService: ModalService, private _formBuilder: FormBuilder,   private router: Router) { }
 
   loginForm: FormGroup;
   
   formInvalid: boolean = false;
   emailPattern = "[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}";
 
-
-
+  modalName : string = "enterprises__login__modal__invalid-data";
 
   closeListOpenSingle(closeList: Array<string>, open: string) {
     this.modalService.closeListOpenSingle(closeList, open);
   }
 
+  invalidLoginModal() {
+    console.log('hola')
+    this.modalService.toggle(this.modalName);
+  }
 
 
 
@@ -44,7 +45,7 @@ export class LoginComponent implements OnInit {
 
   }
 
-  get f() { return this.loginForm.controls }
+  get f() { return this.loginForm.controls; }
 
 
   btnSendData(){
@@ -53,9 +54,9 @@ export class LoginComponent implements OnInit {
 
       this.formInvalid = true;
 
+     
 
-      console.log( this.loginForm)
-    
+      console.log( this.formInvalid  ,  this.loginForm)
     }
 
     else {
@@ -68,23 +69,17 @@ export class LoginComponent implements OnInit {
     console.log(this.f.password)
      
      this._loginService.loginUser(data)
-     .then( (res: any) => {
+     .then( (res) => {
        console.log(res);
 
      
-      if(res.data.changePassword){
-
-      this._loginService.changePassword = true;
-
-
-      this.router.navigate(['/empresas/cambiar-clave'])
+      if(res.changePassword){
+      //  this.router.navigate(['/empresas/registro'])
 
       }
 
       else {
-
-        this._loginService.changePassword = false;
-        this.router.navigate(['/empresas/resumen'])
+       // this.router.navigate(['/empresas/registro'])
 
       }
 
@@ -93,17 +88,12 @@ export class LoginComponent implements OnInit {
      .catch( (err)=> {
        console.log(err);
 
-       this.invalidLoginModal()
 
+       this.f.rut.setErrors({'userNotFound': true});
      })
 
     }
 
-  }
-
-  invalidLoginModal() {
-   
-    this.modalService.toggle(this.modalName);
   }
 
   
