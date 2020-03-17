@@ -43,7 +43,7 @@
 <app-modal name="modal-video-public" type="video">
     <div class="modal_section__body text-center">
         <div class="video-responsive video-responsive--no-border-radius">
-            <iframe _ngcontent-srp-c41="" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" frameborder="0" height="315" [src]="urlVideo()" width="560"></iframe>
+            <iframe _ngcontent-srp-c41="" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" frameborder="0" height="315" [src]="idVideo | youtubeSafeUrl" width="560"></iframe>
         </div>
     </div>
 </app-modal>
