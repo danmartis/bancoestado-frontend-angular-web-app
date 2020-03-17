@@ -24,6 +24,11 @@ import { BackButtonComponent } from '../components-atom/back-button/back-button.
 import { CardDefaultComponent } from '../components-atom/card-default/card-default.component';
 import { RouterTestingModule } from '@angular/router/testing';
 import { ParametroService } from 'src/app/domain/parametro.service';
+import { CardAccountTypeBComponent } from '../accounts/card-account-type-b/card-account-type-b.component';
+import { DropdownComponent } from '../dropdown/dropdown.component';
+import { Button2Component } from '../button/button2/button2.component';
+import { ModalIconComponent } from '../modal-icon/modal-icon.component';
+import { CardAccountTypeAComponent } from '../accounts/card-account-type-a/card-account-type-a.component';
 
 describe('AccountGroupComponent', () => {
   let component: AccountGroupComponent;
@@ -53,7 +58,11 @@ describe('AccountGroupComponent', () => {
         BadgeComponent,
         BackButtonComponent,
         CardDefaultComponent,
-        
+        CardAccountTypeBComponent,
+        DropdownComponent,
+        Button2Component,
+        ModalIconComponent,
+        CardAccountTypeAComponent
       ],
       imports: [
         NgbModule,
