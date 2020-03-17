@@ -47,12 +47,18 @@
                 </div>
                 <!-- /.col -->
                 <div class="col-lg-4 col-md-6 col-sm-12">
+
+
+
                   <app-input 
                     [invalidText]="getMesaggeErrorRut()" 
-                    icon="none"  
-                    status="{{ ( f.rut.hasError('required') || f.rut.hasError('rutInvalid') ) && formInvalid ? 'invalid' : ''  }}" 
+                   
+                    status="{{ ( f.rut.hasError('required') || f.rut.hasError('rutInvalid') ) && formInvalid ? 'invalid' :  ( !f.rut.hasError('required') || !f.rut.hasError('rutInvalid') ) && formInvalid? 'valid': ''  }}" 
                     maxlength="12"
                     rutMaskInput
+                    [value]="f.rut.value"
+
+                    (keyup.backspace)= "onBackspace()"
                     idName="enterprises__register__rut" 
                     type="text" placeholder="Rut"  
                     formControlName="rut" 

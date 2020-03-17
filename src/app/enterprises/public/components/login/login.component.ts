@@ -13,12 +13,23 @@ export class LoginComponent implements OnInit {
 
   id : string = "enterprises__login";
 
-  constructor(private _loginService: LoginService, private _formBuilder: FormBuilder,   private router: Router, private modalService: ModalService) { }
+  modalName : string = "enterprises__login__modal__invalid-data";
+
+  constructor(private modalService: ModalService, private _loginService: LoginService, private _formBuilder: FormBuilder,   private router: Router) { }
 
   loginForm: FormGroup;
   
   formInvalid: boolean = false;
   emailPattern = "[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}";
+
+
+
+
+  closeListOpenSingle(closeList: Array<string>, open: string) {
+    this.modalService.closeListOpenSingle(closeList, open);
+  }
+
+
 
 
   ngOnInit() {
@@ -42,6 +53,8 @@ export class LoginComponent implements OnInit {
 
       this.formInvalid = true;
 
+
+      console.log( this.loginForm)
     
     }
 
@@ -80,10 +93,17 @@ export class LoginComponent implements OnInit {
      .catch( (err)=> {
        console.log(err);
 
+       this.invalidLoginModal()
+
      })
 
     }
 
+  }
+
+  invalidLoginModal() {
+   
+    this.modalService.toggle(this.modalName);
   }
 
   

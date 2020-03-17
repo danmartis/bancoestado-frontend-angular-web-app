@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators, ValidatorFn, AbstractControl, ValidationErrors } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, ValidatorFn, AbstractControl, ValidationErrors, NgControlStatus } from '@angular/forms';
 import { RegisterService } from './services/register.service';
 import { Register } from './models/register.model';
 import { ModalService } from 'src/app/services/modal.service';
@@ -101,7 +101,8 @@ export class RegisterComponent implements OnInit {
   }
 
   getMesaggeErrorPhone() {
-    return this.f.phone.getError('required') ? 'Este campo es requerido' : '';
+    return this.f.phone.getError(
+      'required') ? 'Este campo es requerido' : '';
   }
 
   getMesaggeErrorPosition() {
@@ -116,7 +117,25 @@ export class RegisterComponent implements OnInit {
     return true;
   }
 
+  onBackspace(){
+
+
+    const value =  this.f.rut.value;
+
+    if  (value.match(/\./g, '')) {
+     
+    const dot = this.f.rut.value.replace(/\./g, '');
+    const div = dot.replace(/\-/g, '')
+    this.f.rut.setValue(div)
+    }
+
+
+
+    
+  }
+
   _keyUp(event: any) {
+  
     const pattern = /[0-9\+\-\ ]/;
     let inputChar = String.fromCharCode(event.key);
 
@@ -133,9 +152,9 @@ export class RegisterComponent implements OnInit {
     if (!pattern.test(event.target.value)) {
       event.target.value = event.target.value.replace(/[^0-9\k\K]/g, "");
       // invalid character, prevent input
-
     }
   }
+
 }
 
 export const rutNotValid: ValidatorFn = (
@@ -152,6 +171,7 @@ export const rutNotValid: ValidatorFn = (
   let dv = valorDespejado.slice(-1).toUpperCase();
   let rutEmpresa = valorDespejado.slice(0, 2);
   console.log(`Rut empresa: ${rutEmpresa}`);
+
   if (cuerpo.length < 7) {
     return { rutInvalid: true }
   } else if (rutEmpresa < 50) {
@@ -175,5 +195,6 @@ export const rutNotValid: ValidatorFn = (
   if (dvEsperado != dv) {
     return { rutInvalid: true }
   }
+  
   return { rutInvalid: null }
 };
