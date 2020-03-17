@@ -10,6 +10,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
 import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { HelpDetailsComponent } from './components/help/help-details/help-details.component';
 
 const routes: Routes = [
   {
@@ -24,7 +25,8 @@ const routes: Routes = [
       { path: 'registro', component: RegisterComponent },
       { path: 'iniciar-sesion', component: LoginComponent },
       { path: 'cambiar-clave', component: ResetPasswordComponent },
-      { path: 'resumen', component: DashboardComponent }
+      { path: 'resumen', component: DashboardComponent },
+      { path: 'ayuda/detalles', component: HelpDetailsComponent }
     ]
   }
 ];
