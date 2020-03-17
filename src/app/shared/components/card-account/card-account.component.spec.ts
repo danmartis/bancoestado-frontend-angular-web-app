@@ -2,6 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CardAccountComponent } from './card-account.component';
 import { IconComponent } from '../components-atom/icon/icon.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 describe('CardAccountComponent', () => {
   let component: CardAccountComponent;
@@ -9,6 +10,9 @@ describe('CardAccountComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports : [
+        NgbModule
+      ],
       declarations: [ 
         CardAccountComponent,
         IconComponent

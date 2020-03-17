@@ -21,6 +21,7 @@ import { CardBenefitsComponent } from './benefits/card-benefits/card-benefits.co
 import { CardDefaultComponent } from 'src/app/shared/components/components-atom/card-default/card-default.component';
 import { ColoredLineComponent } from 'src/app/shared/components/components-atom/colored-line/colored-line.component';
 import { GestorContenidoService } from 'src/app/services/gestor-contenido.service';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 //import { GestorContenidoServiceMock } from 'src/app/services/gestor-contenido.service.spec';
 
 describe('LandingComponent', () => {
@@ -51,7 +52,8 @@ describe('LandingComponent', () => {
         ColoredLineComponent
       ],
       imports: [
-        RouterTestingModule
+        RouterTestingModule,
+        HttpClientTestingModule
       ],
       providers: [
         //{ provide: GestorContenidoService, useClass: GestorContenidoServiceMock },
