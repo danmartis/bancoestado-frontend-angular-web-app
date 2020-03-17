@@ -10,6 +10,8 @@ import { ParagraphComponent } from './shared/components/components-atom/paragrap
 import { ModalTitleComponent } from './shared/components/components-atom/modal-title/modal-title.component';
 import { ImageComponent } from './shared/components/components-atom/image/image.component';
 import { IconComponent } from './shared/components/components-atom/icon/icon.component';
+import { Button2Component } from './shared/components/button/button2/button2.component';
+import { ModalIconComponent } from './shared/components/modal-icon/modal-icon.component';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
@@ -27,7 +29,9 @@ describe('AppComponent', () => {
         ParagraphComponent,
         ModalTitleComponent,
         ImageComponent,
-        IconComponent
+        IconComponent,
+        Button2Component,
+        ModalIconComponent
       ],
     }).compileComponents();
   }));

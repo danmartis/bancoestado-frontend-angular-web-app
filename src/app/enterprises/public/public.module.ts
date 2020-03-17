@@ -23,6 +23,8 @@ import { FaqComponent } from './components/help/faq/faq.component';
 import { HelpBannerComponent } from './components/help/help-banner/help-banner.component';
 import { HelpSearchComponent } from './components/help/help-search/help-search.component';
 import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import {VideoPipe} from "./components/help/tutorials/video.pipe";
 
 @NgModule({
   declarations: [
@@ -43,7 +45,9 @@ import { ResetPasswordComponent } from './components/reset-password/reset-passwo
     FaqComponent,
     HelpBannerComponent,
     HelpSearchComponent,
-    ResetPasswordComponent
+    ResetPasswordComponent,
+    DashboardComponent,
+    VideoPipe
   ],
   imports: [
     CommonModule,
@@ -53,6 +57,7 @@ import { ResetPasswordComponent } from './components/reset-password/reset-passwo
     ReactiveFormsModule,
     Ng2Rut
 
-  ]
+  ],
+  exports:[VideoPipe]
 })
 export class PublicModule { }

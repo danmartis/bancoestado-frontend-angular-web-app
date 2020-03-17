@@ -9,6 +9,7 @@ import { HelpComponent } from './components/help/help.component';
 import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
 import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 const routes: Routes = [
   {
@@ -22,7 +23,8 @@ const routes: Routes = [
       { path: 'ayuda', component: HelpComponent },
       { path: 'registro', component: RegisterComponent },
       { path: 'iniciar-sesion', component: LoginComponent },
-      { path: 'cambiar-contrasena', component: ResetPasswordComponent }
+      { path: 'cambiar-contrasena', component: ResetPasswordComponent },
+      { path: 'resumen', component: DashboardComponent }
     ]
   }
 ];

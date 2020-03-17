@@ -2,19 +2,20 @@ import { Component, OnInit } from '@angular/core';
 import { ModalService } from 'src/app/services/modal.service';
 
 @Component({
-  selector: 'app-landing',
-  templateUrl: './landing.component.html',
-  styleUrls: ['./landing.component.scss']
+  selector: 'app-dashboard',
+  templateUrl: './dashboard.component.html',
+  styleUrls: ['./dashboard.component.scss']
 })
-export class LandingComponent implements OnInit {
+export class DashboardComponent implements OnInit {
 
-  constructor(protected modalService:ModalService) { }
-
-  ngOnInit() {
-  }
-  
   closeListOpenSingle(closeList: Array<string>, open: string) {
     this.modalService.closeListOpenSingle(closeList, open);
+  }
+
+  constructor(private modalService: ModalService) { }
+
+  ngOnInit() {
+    
   }
 
 }

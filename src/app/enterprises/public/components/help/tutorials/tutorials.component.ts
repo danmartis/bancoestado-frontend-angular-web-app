@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ModalService } from 'src/app/services/modal.service';
 import { GestorContenidoService } from 'src/app/services/gestor-contenido.service';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-tutorials',
@@ -11,12 +12,14 @@ export class TutorialsComponent implements OnInit {
 
   @Input() id : string = 'enterprises__help__tutorials';
 
-  private videoItems = new Array();
-  private title : string;
-  protected question : string = '';
+  videoItems = new Array();
+  title : string;
+  question : string = '';
+  show = 3;
+  idVideo : string;
+  static question: string;
 
-  // https://www.npmjs.com/package/ngx-tiny-slider
-  constructor(protected modalService:ModalService,private gestorContenido: GestorContenidoService) { }
+  constructor(protected modalService:ModalService,private gestorContenido: GestorContenidoService,private sanitizer:DomSanitizer) { }
 
   ngOnInit() {
     this.contenido();
@@ -25,10 +28,14 @@ export class TutorialsComponent implements OnInit {
   changeQuestion(question) {
     this.question = question;
   }
-  closeListOpenSingle(closeList: Array<string>, open: string) {
-    console.log(open+ "mas "+ closeList)
+  closeListOpenSingle(closeList: Array<string>, open: string, id: string) {
+    this.idVideo = id;
     this.modalService.closeListOpenSingle(closeList, open);
   }
+
+  // urlVideo(){
+  //   return this.sanitizer.bypassSecurityTrustResourceUrl("https://www.youtube.com/embed/"+this.idVideo);
+  // }
 
   async contenido(){
     await this.gestorContenido.getVideos().subscribe( res => {

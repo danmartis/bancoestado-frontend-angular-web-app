@@ -1,7 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+<<<<<<< HEAD
 import { LoginService } from './services/login.service';
 import { Validators, FormBuilder, FormGroup, ValidatorFn, AbstractControl, ValidationErrors } from '@angular/forms';
 import { Router } from '@angular/router';
+=======
+import { ModalService } from '../../../../services/modal.service';
+>>>>>>> dbfdc6aa2fdc7c2bca5c5006204b103a3291f18c
 
 @Component({
   selector: 'app-login',
@@ -12,6 +16,7 @@ export class LoginComponent implements OnInit {
 
   id : string = "enterprises__login";
 
+<<<<<<< HEAD
   constructor(private _loginService: LoginService, private _formBuilder: FormBuilder,   private router: Router) { }
 
   loginForm: FormGroup;
@@ -19,6 +24,20 @@ export class LoginComponent implements OnInit {
   formInvalid: boolean = false;
   emailPattern = "[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}";
 
+=======
+  modalName : string = "enterprises__login__modal__invalid-data";
+
+  closeListOpenSingle(closeList: Array<string>, open: string) {
+    this.modalService.closeListOpenSingle(closeList, open);
+  }
+
+  invalidLoginModal() {
+    console.log('hola')
+    this.modalService.toggle(this.modalName);
+  }
+
+  constructor(private modalService: ModalService) { }
+>>>>>>> dbfdc6aa2fdc7c2bca5c5006204b103a3291f18c
 
   ngOnInit() {
    

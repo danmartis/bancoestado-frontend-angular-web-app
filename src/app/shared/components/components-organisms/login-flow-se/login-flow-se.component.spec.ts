@@ -12,6 +12,8 @@ import { CardPageComponent } from '../../components-atom/card-page/card-page.com
 import { IconComponent } from '../../components-atom/icon/icon.component';
 import { RegistroSeService } from '../../../../services/registro-se.service';
 import { RegistroSeServiceMock } from '../../../../services/registro-se.service.spec';
+import { Button2Component } from '../../button/button2/button2.component';
+import { ModalIconComponent } from '../../modal-icon/modal-icon.component';
 
 describe('LoginFlowSeComponent', () => {
   let component: LoginFlowSeComponent;
@@ -29,7 +31,9 @@ describe('LoginFlowSeComponent', () => {
         ImageComponent,
         InputComponent,
         CardPageComponent,
-        IconComponent
+        IconComponent,
+        Button2Component,
+        ModalIconComponent
        ],
        providers: [
         { provide: RegistroSeService, useClass: RegistroSeServiceMock },

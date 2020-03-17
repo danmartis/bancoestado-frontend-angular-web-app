@@ -13,13 +13,21 @@ import { InputComponent } from '../../components-atom/input/input.component';
 import { CardPageComponent } from '../../components-atom/card-page/card-page.component';
 import { IconComponent } from '../../components-atom/icon/icon.component';
 import { RadioComponent } from '../../components-atom/radio/radio.component';
+import { ModalIconComponent } from '../../modal-icon/modal-icon.component';
+import { Button2Component } from '../../button/button2/button2.component';
+import { DropdownComponent } from '../../dropdown/dropdown.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 describe('LoginFlowBeComponent', () => {
   let component: LoginFlowBeComponent;
   let fixture: ComponentFixture<LoginFlowBeComponent>;
 
   beforeEach(async(() => {
+    
     TestBed.configureTestingModule({
+      imports: [
+        NgbModule
+      ],
       declarations: [ 
         LoginFlowBeComponent,
         ModalComponent,
@@ -36,7 +44,10 @@ describe('LoginFlowBeComponent', () => {
         ModalComponent,
         CardPageComponent,
         IconComponent,
-        RadioComponent
+        RadioComponent,
+        Button2Component,
+        ModalIconComponent,
+        DropdownComponent
       ]
     })
     .compileComponents();

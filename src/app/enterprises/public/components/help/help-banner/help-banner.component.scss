@@ -8,9 +8,15 @@
     color: #fff;
     margin: 0;
     overflow: hidden;
-    padding: 4em 0 4em 0;
+    padding: 6em 0 6em 0;
     position: relative;
     text-align: center;
+    @media (max-width: $media-max-md) {
+      padding: 4em 0 4em 0;
+    }
+    @media (max-width: $media-max-sm) {
+      padding: 3em 0 3em 0;
+    }
     .titulo-seccion {
       @media (max-width: $media-max-md) {
         width: 90%;

@@ -22,6 +22,10 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { ParametroService } from 'src/app/domain/parametro.service';
 import { ComprobanteService } from '../../../services/comprobante.service';
 import { ComprobanteServiceMock } from '../../../services/comprobante.service.spec';
+import { ModalIconComponent } from 'src/app/shared/components/modal-icon/modal-icon.component';
+import { Button2Component } from 'src/app/shared/components/button/button2/button2.component';
+import { DropdownComponent } from 'src/app/shared/components/dropdown/dropdown.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 describe('PaymentMethodComponent', () => {
   let component: PaymentMethodComponent;
@@ -48,10 +52,14 @@ describe('PaymentMethodComponent', () => {
         HeaderMainComponent,
         IconComponent,
         RadioComponent,
-        SidebarComponent
+        SidebarComponent,
+        Button2Component,
+        ModalIconComponent,
+        DropdownComponent
       ],
       imports : [
-        RouterTestingModule
+        RouterTestingModule,
+        NgbModule
       ],
       providers: [
         { provide: ParametroService, useClass: ParametroServiceMock },
