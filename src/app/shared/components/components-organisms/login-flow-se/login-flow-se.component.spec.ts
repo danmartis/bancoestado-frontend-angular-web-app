@@ -14,6 +14,7 @@ import { RegistroSeService } from '../../../../services/registro-se.service';
 import { RegistroSeServiceMock } from '../../../../services/registro-se.service.spec';
 import { Button2Component } from '../../button/button2/button2.component';
 import { ModalIconComponent } from '../../modal-icon/modal-icon.component';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 describe('LoginFlowSeComponent', () => {
   let component: LoginFlowSeComponent;
@@ -21,6 +22,9 @@ describe('LoginFlowSeComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports : [
+        HttpClientTestingModule
+      ],
       declarations: [ 
         LoginFlowSeComponent,
         ModalComponent,

@@ -12,11 +12,11 @@
           [value]="f.rut.value" 
           placeholder="Rut empresa"
           [invalidText]="getMesaggeErrorRut()"
-          maxlength="12"
           status="{{
             f.rut.hasError('required') && formInvalid ? 'invalid' : ''
-            }}"
+          }}"
           formControlName="rut"
+         
           ngDefaultControl></app-input>
           <app-input type="email" placeholder="Correo electrónico"
           [invalidText]="getMesaggeErrorEmail()"
@@ -73,7 +73,7 @@
         </p>
       </div>
       <div class="btn-container">
-        <app-link idName="enterprises__register__modal__cta">
+        <app-link id="enterprises__register__modal__cta">
           <div class="modal-btn">
             Aceptar
           </div>

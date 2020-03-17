@@ -26,6 +26,7 @@ import { ModalIconComponent } from 'src/app/shared/components/modal-icon/modal-i
 import { Button2Component } from 'src/app/shared/components/button/button2/button2.component';
 import { DropdownComponent } from 'src/app/shared/components/dropdown/dropdown.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 describe('PaymentMethodComponent', () => {
   let component: PaymentMethodComponent;
@@ -59,7 +60,8 @@ describe('PaymentMethodComponent', () => {
       ],
       imports : [
         RouterTestingModule,
-        NgbModule
+        NgbModule,
+        HttpClientTestingModule
       ],
       providers: [
         { provide: ParametroService, useClass: ParametroServiceMock },
