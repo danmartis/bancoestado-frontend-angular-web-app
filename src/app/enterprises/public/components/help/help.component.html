@@ -18,13 +18,13 @@
             </div>
         </div>
     </section>
-
-    <app-help-banner></app-help-banner>
+    
+    <app-help-banner [bannerContent]="bannerContent" ></app-help-banner>
 
     <app-help-search *ngIf="false"></app-help-search>
 
 
-    <app-faq></app-faq>
+    <app-faq [questionsTitle]="questionsTitle" [questionsData]="questionsData"></app-faq>
 
 
     <app-tutorials></app-tutorials>

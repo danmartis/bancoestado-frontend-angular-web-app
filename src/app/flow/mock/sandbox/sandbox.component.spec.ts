@@ -18,6 +18,15 @@ import { ImageComponent } from 'src/app/shared/components/components-atom/image/
 import { SidebarComponent } from 'src/app/shared/components/sidebar/sidebar.component';
 import { CheckboxComponent } from 'src/app/shared/components/components-atom/checkbox/checkbox.component';
 import { RouterTestingModule } from '@angular/router/testing';
+import { Button2Component } from 'src/app/shared/components/button/button2/button2.component';
+import { SelectSeComponent } from 'src/app/shared/components/components-atom/select-se/select-se.component';
+import { FooterDefaultComponent } from 'src/app/shared/components/footer-default/footer-default.component';
+import { ModalIconComponent } from 'src/app/shared/components/modal-icon/modal-icon.component';
+import { InputComponent } from 'src/app/shared/components/components-atom/input/input.component';
+import { CardAccountTypeBComponent } from 'src/app/shared/components/accounts/card-account-type-b/card-account-type-b.component';
+import { CardAccountTypeAComponent } from 'src/app/shared/components/accounts/card-account-type-a/card-account-type-a.component';
+import { DropdownComponent } from 'src/app/shared/components/dropdown/dropdown.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 describe('SandboxComponent', () => {
   let component: SandboxComponent;
@@ -42,10 +51,19 @@ describe('SandboxComponent', () => {
         ModalTitleComponent,
         ImageComponent,
         SidebarComponent,
-        CheckboxComponent
+        CheckboxComponent,
+        Button2Component,
+        SelectSeComponent,
+        FooterDefaultComponent,
+        ModalIconComponent,
+        InputComponent,
+        CardAccountTypeBComponent,
+        CardAccountTypeAComponent,
+        DropdownComponent
       ],
       imports: [
-        RouterTestingModule
+        RouterTestingModule,
+        NgbModule
       ]
     })
     .compileComponents();

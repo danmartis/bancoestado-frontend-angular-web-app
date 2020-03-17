@@ -15,6 +15,9 @@ import { CheckboxComponent } from '../../components-atom/checkbox/checkbox.compo
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RouterTestingModule } from '@angular/router/testing';
 import { ParametroService } from 'src/app/domain/parametro.service';
+import { Button2Component } from '../../button/button2/button2.component';
+import { CardAccountTypeAComponent } from '../../accounts/card-account-type-a/card-account-type-a.component';
+import { ModalIconComponent } from '../../modal-icon/modal-icon.component';
 
 describe('NonRegisteredFlowComponent', () => {
   let component: NonRegisteredFlowComponent;
@@ -34,7 +37,10 @@ describe('NonRegisteredFlowComponent', () => {
         PageTitleComponent,
         BackButtonComponent,
         CardDefaultComponent,
-        CheckboxComponent
+        CheckboxComponent,
+        Button2Component,
+        CardAccountTypeAComponent,
+        ModalIconComponent
       ],
       imports: [
         NgbModule,

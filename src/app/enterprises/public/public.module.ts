@@ -24,6 +24,7 @@ import { HelpBannerComponent } from './components/help/help-banner/help-banner.c
 import { HelpSearchComponent } from './components/help/help-search/help-search.component';
 import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import {VideoPipe} from "./components/help/tutorials/video.pipe";
 import { HelpDetailsComponent } from './components/help/help-details/help-details.component';
 
 @NgModule({
@@ -47,6 +48,7 @@ import { HelpDetailsComponent } from './components/help/help-details/help-detail
     HelpSearchComponent,
     ResetPasswordComponent,
     DashboardComponent,
+    VideoPipe,
     HelpDetailsComponent,
   ],
   imports: [
@@ -57,6 +59,7 @@ import { HelpDetailsComponent } from './components/help/help-details/help-detail
     ReactiveFormsModule,
     Ng2Rut
 
-  ]
+  ],
+  exports:[VideoPipe,HelpBannerComponent]
 })
 export class PublicModule { }

@@ -12,6 +12,8 @@ export class HelpDetailsComponent implements OnInit {
 
   selectedQuestion: boolean = false;
 
+  private bannerContent = new Array();
+
   onSelectQuestion() {
     this.selectedQuestion = !this.selectedQuestion;
   }
@@ -29,15 +31,7 @@ export class HelpDetailsComponent implements OnInit {
     await this.gestorContenido.getQuestions().subscribe(res => {
 
       this.faqItems = res.getDetalle()["content"];
-      console.log(this.faqItems)
-      /*
-      this.faqItems.forEach(element => {
-        console.log(element);
-        this.faqItems[element.items] = element.items.forEach(element => {
-          this.faqItems[element.question] = element.question;
-        });
-      });
-      */
+      this.bannerContent = res.getDetalle();
     }),
       err => {
         return err.message;

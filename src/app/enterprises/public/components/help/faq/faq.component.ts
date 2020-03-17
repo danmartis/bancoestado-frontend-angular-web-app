@@ -4,12 +4,11 @@ import {
   ViewChildren,
   ViewChild,
   QueryList,
-  ElementRef,
-  AfterViewInit
+  AfterViewInit,
+  Input
 } from "@angular/core";
 import { NgxTinySliderSettingsInterface } from "ngx-tiny-slider";
 import { ModalService } from "src/app/services/modal.service";
-import { GestorContenidoService } from "../../../../../services/gestor-contenido.service";
 import { NgxTinySliderComponent } from "ngx-tiny-slider/lib/ngx-tiny-slider.component";
 
 @Component({
@@ -20,11 +19,8 @@ import { NgxTinySliderComponent } from "ngx-tiny-slider/lib/ngx-tiny-slider.comp
 export class FaqComponent implements OnInit, AfterViewInit {
   protected question: string = "";
   // https://www.npmjs.com/package/ngx-tiny-slider
-  tinySliderConfig: any; // NgxTinySliderSettingsInterface;
-  constructor(
-    protected modalService: ModalService,
-    private gestorContenido: GestorContenidoService
-  ) { }
+  public tinySliderConfig: any; // NgxTinySliderSettingsInterface;
+  constructor(protected modalService: ModalService) { }
 
   @ViewChildren("carouselItemList")
   private carouselItemList: QueryList<any>;
@@ -32,30 +28,11 @@ export class FaqComponent implements OnInit, AfterViewInit {
   @ViewChild("ngxSlider", { static: false })
   private ngxSlider: any;
 
-  @ViewChild("faqItems", { static: false})
-  public faqItems = new Array();
+  @Input() questionsTitle: string;
 
-  public title: string;
-
-  async contenido() {
-    await this.gestorContenido.getQuestions().subscribe(res => {
-      this.title = res.getDetalle()["questions-title"];
-
-      this.faqItems = res.getDetalle()["content"];
-
-      this.faqItems.forEach(element => {
-        this.faqItems[element.items] = element.items.forEach(element => {
-          this.faqItems[element.question] = element.question;
-        });
-      });
-    }),
-      err => {
-        return err.message;
-      };
-  }
+  @Input() questionsData: string;
 
   ngOnInit() {
-    this.contenido();
     this.tinySliderConfig = {
       waiteForDom: true,
       //preventScrollOnTouch: 'auto',
@@ -79,8 +56,8 @@ export class FaqComponent implements OnInit, AfterViewInit {
     };
   }
 
-  changeQuestion(faqItems) {
-    this.faqItems = faqItems;
+  changeQuestion(questionsData) {
+    this.questionsData = questionsData;
   }
   closeListOpenSingle(closeList: Array<string>, open: string) {
     this.modalService.closeListOpenSingle(closeList, open);
@@ -88,12 +65,11 @@ export class FaqComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit(): void {
     this.carouselItemList.changes.subscribe(() =>
-
       this.ngxSlider.domReady.next()
     );
-    if (this.faqItems != null) {
+    if (this.questionsData != null) {
       // @ts-ignore
-      this.ngxSlider.domReady.next();
+      this.ngxSlider.domReady.next(); 
     }
   }
 }

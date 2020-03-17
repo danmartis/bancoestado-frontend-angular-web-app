@@ -9,6 +9,20 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { ButtonComponent } from 'src/app/shared/components/components-atom/button/button.component';
 import { SidebarComponent } from 'src/app/shared/components/sidebar/sidebar.component';
 import { CapsuleComponent } from 'src/app/shared/components/capsule/capsule.component';
+import { PageComponent } from 'src/app/shared/components/components-atom/page/page.component';
+import { ModalComponent } from 'src/app/shared/components/components-organisms/modal/modal.component';
+import { BannerFeatureComponent } from './banner-feature/banner-feature.component';
+import { FeatureComponent } from './feature/feature.component';
+import { BenefitsComponent } from './benefits/benefits.component';
+import { HelpPrefooterComponent } from 'src/app/shared/components/help-prefooter/help-prefooter.component';
+import { Button2Component } from 'src/app/shared/components/button/button2/button2.component';
+import { IconComponent } from 'src/app/shared/components/components-atom/icon/icon.component';
+import { CardBenefitsComponent } from './benefits/card-benefits/card-benefits.component';
+import { CardDefaultComponent } from 'src/app/shared/components/components-atom/card-default/card-default.component';
+import { ColoredLineComponent } from 'src/app/shared/components/components-atom/colored-line/colored-line.component';
+import { GestorContenidoService } from 'src/app/services/gestor-contenido.service';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+//import { GestorContenidoServiceMock } from 'src/app/services/gestor-contenido.service.spec';
 
 describe('LandingComponent', () => {
   let component: LandingComponent;
@@ -24,10 +38,25 @@ describe('LandingComponent', () => {
         HeaderMainComponent,
         ButtonComponent,
         SidebarComponent,
-        CapsuleComponent
+        CapsuleComponent,
+        PageComponent,
+        ModalComponent,
+        BannerFeatureComponent,
+        FeatureComponent,
+        BenefitsComponent,
+        HelpPrefooterComponent,
+        Button2Component,
+        IconComponent,
+        CardBenefitsComponent,
+        CardDefaultComponent,
+        ColoredLineComponent
       ],
       imports: [
-        RouterTestingModule
+        RouterTestingModule,
+        HttpClientTestingModule
+      ],
+      providers: [
+        //{ provide: GestorContenidoService, useClass: GestorContenidoServiceMock },
       ]
     })
     .compileComponents();

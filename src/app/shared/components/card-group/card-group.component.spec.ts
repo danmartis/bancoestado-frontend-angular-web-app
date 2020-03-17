@@ -5,6 +5,8 @@ import { IconComponent } from '../components-atom/icon/icon.component';
 import { IconGroupComponent } from '../components-atom/icon-group/icon-group.component';
 import { CheckboxComponent } from '../components-atom/checkbox/checkbox.component';
 import { ParagraphComponent } from '../components-atom/paragraph/paragraph.component';
+import { DropdownComponent } from '../dropdown/dropdown.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 describe('CardGroupComponent', () => {
   let component: CardGroupComponent;
@@ -12,13 +14,17 @@ describe('CardGroupComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ 
+      imports: [
+          NgbModule
+      ],
+      declarations: [
         CardGroupComponent,
         IconComponent,
         IconGroupComponent,
         CheckboxComponent,
-        ParagraphComponent
-       ]
+        ParagraphComponent,
+        DropdownComponent
+      ]   
     })
     .compileComponents();
   }));

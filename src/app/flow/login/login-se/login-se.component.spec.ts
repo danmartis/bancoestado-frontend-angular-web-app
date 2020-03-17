@@ -19,6 +19,7 @@ import { SidebarComponent } from 'src/app/shared/components/sidebar/sidebar.comp
 import { RouterTestingModule } from '@angular/router/testing';
 import { ModalIconComponent } from 'src/app/shared/components/modal-icon/modal-icon.component';
 import { Button2Component } from 'src/app/shared/components/button/button2/button2.component';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 describe('LoginSeComponent', () => {
   let component: LoginSeComponent;
@@ -47,7 +48,8 @@ describe('LoginSeComponent', () => {
         Button2Component
       ],
       imports: [
-        RouterTestingModule
+        RouterTestingModule,
+        HttpClientTestingModule
       ]
     })
     .compileComponents();

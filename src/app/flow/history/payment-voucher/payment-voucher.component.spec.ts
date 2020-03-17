@@ -22,6 +22,9 @@ import { SidebarComponent } from 'src/app/shared/components/sidebar/sidebar.comp
 import { CapsuleComponent } from 'src/app/shared/components/capsule/capsule.component';
 import { RouterTestingModule } from '@angular/router/testing';
 import { ParametroService } from 'src/app/domain/parametro.service';
+import { CardAccountHistoryComponent } from 'src/app/shared/components/accounts/card-account-history/card-account-history.component';
+import { CardAccountHistoryGroupComponent } from 'src/app/shared/components/accounts/card-account-history-group/card-account-history-group.component';
+import { Button2Component } from 'src/app/shared/components/button/button2/button2.component';
 
 describe('PaymentsComponent', () => {
   let component: PaymentVoucherComponent;
@@ -48,7 +51,10 @@ describe('PaymentsComponent', () => {
         CheckboxComponent,
         ButtonComponent,
         SidebarComponent,
-        CapsuleComponent
+        CapsuleComponent,
+        CardAccountHistoryComponent,
+        CardAccountHistoryGroupComponent,
+        Button2Component
       ],
       imports: [
         NgbModule,

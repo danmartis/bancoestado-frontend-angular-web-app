@@ -23,6 +23,10 @@ import { InputComponent } from 'src/app/shared/components/components-atom/input/
 import { ModalComponent } from 'src/app/shared/components/components-organisms/modal/modal.component';
 import { ModalTitleComponent } from 'src/app/shared/components/components-atom/modal-title/modal-title.component';
 import { ImageComponent } from 'src/app/shared/components/components-atom/image/image.component';
+import { Button2Component } from 'src/app/shared/components/button/button2/button2.component';
+import { PageTitleComponent } from 'src/app/shared/components/components-atom/page-title/page-title.component';
+import { ModalIconComponent } from 'src/app/shared/components/modal-icon/modal-icon.component';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 describe('ProofPaymentGroupComponent', () => {
   let component: ProofPaymentGroupComponent;
@@ -50,11 +54,15 @@ describe('ProofPaymentGroupComponent', () => {
         InputComponent,
         ModalComponent,
         ModalTitleComponent,
-        ImageComponent
+        ImageComponent,
+        Button2Component,
+        PageTitleComponent,
+        ModalIconComponent
       ],
       imports: [
         NgbModule,
-        RouterTestingModule
+        RouterTestingModule,
+        HttpClientTestingModule
       ],
       providers: [
         { provide: ParametroService, useClass: ParametroServiceMock }
