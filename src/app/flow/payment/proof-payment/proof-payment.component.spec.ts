@@ -26,6 +26,7 @@ import { ModalComponent } from 'src/app/shared/components/components-organisms/m
 import { Button2Component } from 'src/app/shared/components/button/button2/button2.component';
 import { PageTitleComponent } from 'src/app/shared/components/components-atom/page-title/page-title.component';
 import { ModalIconComponent } from 'src/app/shared/components/modal-icon/modal-icon.component';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 describe('ProofPaymentComponent', () => {
   let component: ProofPaymentComponent;
@@ -60,7 +61,8 @@ describe('ProofPaymentComponent', () => {
       ],
       imports: [
         NgbModule,
-        RouterTestingModule
+        RouterTestingModule,
+        HttpClientTestingModule
       ],
       providers: [
         { provide: ParametroService, useClass: ParametroServiceMock }
