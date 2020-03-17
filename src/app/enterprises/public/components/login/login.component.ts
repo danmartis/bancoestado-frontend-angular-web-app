@@ -13,18 +13,18 @@ export class LoginComponent implements OnInit {
 
   id : string = "enterprises__login";
 
-  constructor(private _loginService: LoginService, private modalService: ModalService, private _formBuilder: FormBuilder,   private router: Router) { }
-
-  loginForm: FormGroup;
-  
-  formInvalid: boolean = false;
-  emailPattern = "[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}";
-
   modalName : string = "enterprises__login__modal__invalid-data";
 
   closeListOpenSingle(closeList: Array<string>, open: string) {
     this.modalService.closeListOpenSingle(closeList, open);
   }
+
+  constructor(private modalService: ModalService, private _loginService: LoginService, private _formBuilder: FormBuilder,   private router: Router) { }
+
+  loginForm: FormGroup;
+  
+  formInvalid: boolean = false;
+  emailPattern = "[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}";
 
   invalidLoginModal() {
     console.log('hola')
@@ -68,17 +68,21 @@ export class LoginComponent implements OnInit {
     console.log(this.f.password)
      
      this._loginService.loginUser(data)
-     .then( (res) => {
+     .then( (res: any) => {
        console.log(res);
 
      
-      if(res.changePassword){
-      //  this.router.navigate(['/empresas/registro'])
+      if(res.data.changePassword){
+
+        this._loginService.changePassword = true;
+      this.router.navigate(['/empresas/cambiar-clave'])
 
       }
 
       else {
-       // this.router.navigate(['/empresas/registro'])
+       this.router.navigate(['/empresas/resumen'])
+       this._loginService.changePassword = false;
+
 
       }
 
@@ -88,7 +92,7 @@ export class LoginComponent implements OnInit {
        console.log(err);
 
 
-       this.f.rut.setErrors({'userNotFound': true});
+      this.invalidLoginModal()
      })
 
     }
