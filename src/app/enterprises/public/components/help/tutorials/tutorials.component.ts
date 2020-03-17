@@ -12,11 +12,12 @@ export class TutorialsComponent implements OnInit {
 
   @Input() id : string = 'enterprises__help__tutorials';
 
-  private videoItems = new Array();
-  private title : string;
-  protected question : string = '';
-  protected show = 3;
-  protected idVideo : string;
+  videoItems = new Array();
+  title : string;
+  question : string = '';
+  show = 3;
+  idVideo : string;
+  static question: string;
 
   constructor(protected modalService:ModalService,private gestorContenido: GestorContenidoService,private sanitizer:DomSanitizer) { }
 
@@ -32,9 +33,9 @@ export class TutorialsComponent implements OnInit {
     this.modalService.closeListOpenSingle(closeList, open);
   }
 
-  urlVideo(){
-    return this.sanitizer.bypassSecurityTrustResourceUrl("https://www.youtube.com/embed/"+this.idVideo);
-  }
+  // urlVideo(){
+  //   return this.sanitizer.bypassSecurityTrustResourceUrl("https://www.youtube.com/embed/"+this.idVideo);
+  // }
 
   async contenido(){
     await this.gestorContenido.getVideos().subscribe( res => {
