@@ -37,8 +37,14 @@ import { GestorContenidoService } from 'src/app/services/gestor-contenido.servic
   });
 
   it('changeQuestion Test', () => {
-    component.changeQuestion('testQuestion');
-    expect(component.question).toBe('testQuestion');
+    const question = "testQuestion";
+    component.changeQuestion(question);
   });
 
+  it('closeListOpenSingle', () => {
+    const closeList = ["modal-added-account"];
+    const open = 'modal-client-number';
+    const idVideo = "IWr8_TmBVa4";
+    component.closeListOpenSingle(closeList,open,idVideo);
+  });
 });
