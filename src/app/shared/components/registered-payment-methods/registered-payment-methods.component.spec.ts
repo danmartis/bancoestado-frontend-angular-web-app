@@ -12,6 +12,10 @@ import { BackButtonComponent } from '../components-atom/back-button/back-button.
 import { IconComponent } from '../components-atom/icon/icon.component';
 import { RadioComponent } from '../components-atom/radio/radio.component';
 import { ImageComponent } from '../components-atom/image/image.component';
+import { Button2Component } from '../button/button2/button2.component';
+import { ParagraphComponent } from '../components-atom/paragraph/paragraph.component';
+import { DropdownComponent } from '../dropdown/dropdown.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 describe('RegisteredPaymentMethodsComponent', () => {
   let component: RegisteredPaymentMethodsComponent;
@@ -19,6 +23,9 @@ describe('RegisteredPaymentMethodsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports: [
+        NgbModule
+      ],
       declarations: [ 
         RegisteredPaymentMethodsComponent,
         PaymentCardComponent,
@@ -32,7 +39,10 @@ describe('RegisteredPaymentMethodsComponent', () => {
         IconComponent,
         BackButtonComponent,
         RadioComponent,
-        ImageComponent
+        ImageComponent,
+        Button2Component,
+        ParagraphComponent,
+        DropdownComponent
       ]
     })
     .compileComponents();
