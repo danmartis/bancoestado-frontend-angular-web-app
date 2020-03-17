@@ -22,6 +22,7 @@ describe('HelpBannerComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(HelpBannerComponent);
     component = fixture.componentInstance;
+    component.bannerContent = ''
     fixture.detectChanges();
   });
 
