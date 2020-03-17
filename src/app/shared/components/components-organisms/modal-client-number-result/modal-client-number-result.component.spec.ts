@@ -5,6 +5,7 @@ import { ModalComponent } from '../modal/modal.component';
 import { ButtonComponent } from '../../components-atom/button/button.component';
 import { IconComponent } from '../../components-atom/icon/icon.component';
 import { ParagraphComponent } from '../../components-atom/paragraph/paragraph.component';
+import { Button2Component } from '../../button/button2/button2.component';
 
 describe('ModalClientNumberResultComponent', () => {
   let component: ModalClientNumberResultComponent;
@@ -17,7 +18,8 @@ describe('ModalClientNumberResultComponent', () => {
         ModalComponent,
         ButtonComponent,
         IconComponent,
-        ParagraphComponent
+        ParagraphComponent,
+        Button2Component
       ]
     })
     .compileComponents();

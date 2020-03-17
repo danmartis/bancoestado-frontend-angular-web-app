@@ -11,6 +11,9 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { ButtonComponent } from 'src/app/shared/components/components-atom/button/button.component';
 import { SidebarComponent } from 'src/app/shared/components/sidebar/sidebar.component';
 import { CapsuleComponent } from 'src/app/shared/components/capsule/capsule.component';
+import { BackButtonPageComponent } from 'src/app/shared/components/components-atom/back-button-page/back-button-page.component';
+import { Button2Component } from 'src/app/shared/components/button/button2/button2.component';
+import { IconComponent } from 'src/app/shared/components/components-atom/icon/icon.component';
 
 describe('NotFoundComponent', () => {
   let component: NotFoundComponent;
@@ -28,7 +31,10 @@ describe('NotFoundComponent', () => {
         HeaderMainComponent,
         ButtonComponent,
         SidebarComponent,
-        CapsuleComponent
+        CapsuleComponent,
+        BackButtonPageComponent,
+        Button2Component,
+        IconComponent
       ],
       imports: [
         RouterTestingModule

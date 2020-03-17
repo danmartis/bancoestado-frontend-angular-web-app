@@ -11,6 +11,10 @@ import { IconComponent } from '../../components-atom/icon/icon.component';
 import { RadioComponent } from '../../components-atom/radio/radio.component';
 import { ImageComponent } from '../../components-atom/image/image.component';
 import { PaymentMethodType } from 'src/app/shared/utils/options';
+import { Button2Component } from '../../button/button2/button2.component';
+import { ParagraphComponent } from '../../components-atom/paragraph/paragraph.component';
+import { DropdownComponent } from '../../dropdown/dropdown.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 describe('PaymentCardComponent', () => {
   let component: PaymentCardComponent;
@@ -18,6 +22,9 @@ describe('PaymentCardComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports: [
+        NgbModule
+      ],
       declarations: [ 
         PaymentCardComponent,
         ModalBottomComponent,
@@ -28,7 +35,10 @@ describe('PaymentCardComponent', () => {
         BackButtonComponent,
         IconComponent,
         RadioComponent,
-        ImageComponent
+        ImageComponent,
+        Button2Component,
+        ParagraphComponent,
+        DropdownComponent
       ]
     })
     .compileComponents();

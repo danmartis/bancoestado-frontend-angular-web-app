@@ -5,6 +5,7 @@ import { InputComponent } from '../../components-atom/input/input.component';
 import { ParagraphComponent } from '../../components-atom/paragraph/paragraph.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from "@angular/forms";
+import { SelectSeComponent } from '../../components-atom/select-se/select-se.component';
 
 describe('ProfileFormComponent', () => {
   let component: ProfileFormComponent;
@@ -15,7 +16,8 @@ describe('ProfileFormComponent', () => {
       declarations: [ 
         ProfileFormComponent,
         InputComponent,
-        ParagraphComponent
+        ParagraphComponent,
+        SelectSeComponent
       ],
       imports: [
         NgbModule,

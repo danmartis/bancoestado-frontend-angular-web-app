@@ -1,6 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { HelpSearchComponent } from './help-search.component';
+import { InputComponent } from 'src/app/shared/components/components-atom/input/input.component';
+import { ParagraphComponent } from 'src/app/shared/components/components-atom/paragraph/paragraph.component';
+import { PageTitleComponent } from 'src/app/shared/components/components-atom/page-title/page-title.component';
 
 describe('HelpSearchComponent', () => {
   let component: HelpSearchComponent;
@@ -8,7 +11,12 @@ describe('HelpSearchComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ HelpSearchComponent ]
+      declarations: [ 
+        HelpSearchComponent,
+        InputComponent,
+        ParagraphComponent,
+        PageTitleComponent
+      ]
     })
     .compileComponents();
   }));
