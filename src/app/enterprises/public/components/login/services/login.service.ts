@@ -8,6 +8,8 @@ import { User } from './model/login.model';
 })
 export class LoginService {
 
+  changePassword: boolean = false;
+
   constructor(private _httpClient: HttpClient,
     ) { }
 

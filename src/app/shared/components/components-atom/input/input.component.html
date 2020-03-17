@@ -15,8 +15,7 @@
 
         <i *ngIf="getStatusIcon() !== ''" class="material-icons">{{getStatusIcon()}}</i>
         <i *ngIf="getIconName() !== ''" class="material-icons">{{getIconName()}}</i>
-        <!--<input [disabled]="disabled" [value]="value" [type]="type" [placeholder]="getAttribute('placeholder')" (input)="handlerChange($event)" />-->
-        <input [id]="idName" [disabled]="disabled" [value]="value" [type]="type" [attr.maxlength]="maxlength" [attr.size]="size" [placeholder]="getAttribute('placeholder')" (input)="handlerChange($event)" />
+        <input [id]="idName" [disabled]="disabled" [value]="value" [type]="type" [attr.maxlength]="maxlength" [attr.size]="size" [placeholder]="getAttribute('placeholder')"  (input)="handlerChange($event)" />
     </div>
     <small *ngIf="status === 'invalid'">{{invalidText}}</small>
 </div>

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalService } from 'src/app/services/modal.service';
+import { DashboardService } from './services/dashboard.service';
+import { LoginService } from '../login/services/login.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -12,10 +14,26 @@ export class DashboardComponent implements OnInit {
     this.modalService.closeListOpenSingle(closeList, open);
   }
 
-  constructor(private modalService: ModalService) { }
+  constructor(private modalService: ModalService, private _dashboardService: DashboardService, private _loginService: LoginService) { }
 
   ngOnInit() {
+
+    if(this._loginService.changePassword){
+
+      
+    setTimeout(() => {
+      this.closeListOpenSingle([''], 'enterprises__dashboard__welcome-modal')
+    }, 1000);
+
+    }
+
+
+
+
+
     
   }
+
+
 
 }

@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ModalService } from '../../../../services/modal.service';
+import { LoginService } from './services/login.service';
+import { Validators, FormBuilder, FormGroup, ValidatorFn, AbstractControl, ValidationErrors } from '@angular/forms';
+import { Router } from '@angular/router';
+import { ModalService } from 'src/app/services/modal.service';
 
 @Component({
   selector: 'app-login',
@@ -9,6 +12,13 @@ import { ModalService } from '../../../../services/modal.service';
 export class LoginComponent implements OnInit {
 
   id : string = "enterprises__login";
+
+  constructor(private _loginService: LoginService, private modalService: ModalService, private _formBuilder: FormBuilder,   private router: Router) { }
+
+  loginForm: FormGroup;
+  
+  formInvalid: boolean = false;
+  emailPattern = "[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}";
 
   modalName : string = "enterprises__login__modal__invalid-data";
 
@@ -21,7 +31,6 @@ export class LoginComponent implements OnInit {
     this.modalService.toggle(this.modalName);
   }
 
-  constructor(private modalService: ModalService) { }
 
   ngOnInit() {
    

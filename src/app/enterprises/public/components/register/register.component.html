@@ -47,7 +47,23 @@
                 </div>
                 <!-- /.col -->
                 <div class="col-lg-4 col-md-6 col-sm-12">
-                  <app-input [invalidText]="getMesaggeErrorRut()" icon="none" status="{{ ( f.rut.hasError('invalidRut') || f.rut.hasError('required') ) && formInvalid ? 'invalid' : ''  }}" maxlength="9" (input)="inputValidator($event)" idName="enterprises__register__rut" type="text" placeholder="Rut"  formControlName="rut" ngDefaultControl></app-input>
+
+
+
+                  <app-input 
+                    [invalidText]="getMesaggeErrorRut()" 
+                   
+                    status="{{ ( f.rut.hasError('required') || f.rut.hasError('rutInvalid') ) && formInvalid ? 'invalid' :  ( !f.rut.hasError('required') || !f.rut.hasError('rutInvalid') ) && formInvalid? 'valid': ''  }}" 
+                    maxlength="12"
+                    rutMaskInput
+                    [value]="f.rut.value"
+
+                    (keyup.backspace)="onBackspace()"
+                    idName="enterprises__register__rut" 
+                    type="text" placeholder="Rut"  
+                    formControlName="rut" 
+                    ngDefaultControl></app-input>
+                    
                 </div> <!-- /.col -->
                 <div class="offset-lg-4 offset-sm-12"></div> <!-- /.col -->
               </div> <!-- /.row -->

@@ -23,7 +23,7 @@ const routes: Routes = [
       { path: 'ayuda', component: HelpComponent },
       { path: 'registro', component: RegisterComponent },
       { path: 'iniciar-sesion', component: LoginComponent },
-      { path: 'cambiar-contrasena', component: ResetPasswordComponent },
+      { path: 'cambiar-clave', component: ResetPasswordComponent },
       { path: 'resumen', component: DashboardComponent }
     ]
   }
