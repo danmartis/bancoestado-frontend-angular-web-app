@@ -4,7 +4,7 @@ import { HttpClient } from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
-export class RegistrerService {
+export class RegisterService {
 
   constructor(private _httpClient: HttpClient,
     ) { }

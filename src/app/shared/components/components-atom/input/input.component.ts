@@ -11,6 +11,7 @@ export class InputComponent implements OnInit, OnChanges {
   @Input() mode: '' | 'wrapper' = '';
   @Input() type: '' | 'text' | 'email' | 'password' = 'text';
   @Input() icon: string;
+  
   @Input() iconSrc: string = '';
   @Input() iconLeft: string;
   @Input() placeholder: string;
@@ -22,7 +23,6 @@ export class InputComponent implements OnInit, OnChanges {
 
   @Input() className: string = '';
   @Input() idName: string = '';
-
 
   @Input() status: 'valid' | 'invalid' | '' = '';
   @Input() invalidText: string = 'Tienes un error';
