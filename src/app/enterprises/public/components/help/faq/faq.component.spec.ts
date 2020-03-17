@@ -1,4 +1,4 @@
-/*import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { FaqComponent } from './faq.component';
 import { NgxTinySliderModule } from 'ngx-tiny-slider';
@@ -34,4 +34,3 @@ describe('FaqComponent', () => {
     expect(component).toBeTruthy();
   });
 });
-*/
