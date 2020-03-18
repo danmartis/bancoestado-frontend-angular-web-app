@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 
-import { RegistrerService } from './register.service';
+import { RegisterService } from './register.service';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 describe('registerService', () => {
@@ -11,7 +11,7 @@ describe('registerService', () => {
   }));
 
   it('should be created', () => {
-    const service: RegistrerService = TestBed.get(RegistrerService);
+    const service: RegisterService = TestBed.get(RegisterService);
     expect(service).toBeTruthy();
   });
 });

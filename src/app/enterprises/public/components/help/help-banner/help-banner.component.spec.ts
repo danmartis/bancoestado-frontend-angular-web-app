@@ -3,6 +3,8 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { HelpBannerComponent } from './help-banner.component';
 import { ParagraphComponent } from 'src/app/shared/components/components-atom/paragraph/paragraph.component';
 import { PageTitleComponent } from 'src/app/shared/components/components-atom/page-title/page-title.component';
+import { GestorContenidoService } from 'src/app/services/gestor-contenido.service';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 describe('HelpBannerComponent', () => {
   let component: HelpBannerComponent;

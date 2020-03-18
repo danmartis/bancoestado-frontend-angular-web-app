@@ -12,11 +12,11 @@ export class TutorialsComponent implements OnInit {
 
   @Input() id : string = 'enterprises__help__tutorials';
 
-  videoItems = new Array();
-  title : string;
-  question : string = '';
-  show = 3;
-  idVideo : string;
+  private videoItems = new Array();
+  private title : string;
+  protected question : string = '';
+  private show = 3;
+  private idVideo : string;
   static question: string;
 
   constructor(protected modalService:ModalService,private gestorContenido: GestorContenidoService,private sanitizer:DomSanitizer) { }
