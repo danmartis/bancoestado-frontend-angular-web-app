@@ -31,6 +31,10 @@ export class LoginComponent implements OnInit {
     this.modalService.toggle(this.modalName);
   }
 
+  closeModal() {
+    this.modalService.toggle(this.modalName);
+  }
+
 
   ngOnInit() {
    

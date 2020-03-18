@@ -52,14 +52,20 @@ export class RegisterComponent implements OnInit {
     if (this.registerForm.invalid) {
 
       this.formInvalid = true;
+
+      console.log('invalid', this.registerForm)
     }
 
     else {
       this.formInvalid = false;
 
+      console.log('valid', this.registerForm)
+
+
       const data = this.registerForm.getRawValue();
 
       this.register = data;
+    
 
       this._registrerService.addRegister(data)
         .then((res) => {
@@ -196,5 +202,5 @@ export const rutNotValid: ValidatorFn = (
     return { rutInvalid: true }
   }
   
-  return { rutInvalid: null }
+  return null;
 };
