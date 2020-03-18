@@ -14,11 +14,14 @@ export class HelpDetailsComponent implements OnInit {
 
   private bannerContent = new Array();
 
+  private show = 3;
+
   onSelectQuestion() {
     this.selectedQuestion = !this.selectedQuestion;
   }
 
   onSelectCat(catId) {
+    this.show = 3;
     this.selectedCat = catId;
   }
 

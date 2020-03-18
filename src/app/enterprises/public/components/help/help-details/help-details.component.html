@@ -1,42 +1,33 @@
 <app-help-banner [bannerContent]="bannerContent"></app-help-banner>
 
 <app-page type="public">
-  <div class="container help__details">
-    <div class="row">
-      <div class="col-lg-4 col-md-12 help__details__menu__items">
-        <div class="help__details__menu__item"
-          *ngFor="let item of faqItems; let i = index"
-          (click)="onSelectCat(i)"
-          [ngClass]="{'category--open': i === 0, 'category--closed': i !== 0}">
-          <div class="item__icon">
-            <i class="material-icons md-36">{{ item.icon }}</i>
-          </div>
-          <div class="item__title"><span>{{ item.category }}</span></div>
-        </div>
-      </div>
-      <div class="col-lg-8 col-md-12">
-        <div class="help__cat-selected" 
-          *ngFor="let item of faqItems; let i = index"
-          [attr.catId]="i"
-          [ngClass]="{'faq-cat--open': i === selectedCat, 'faq-cat--closed': i !== selectedCat}">
-          <h2 class="cat-selected__title">{{ item.category }}</h2>
-          <div class="cat-selected__question__items">
-            <div class="cat-selected__question__item"
-              *ngFor="let q of item.items"
-              [ngClass]="{'question--open': selectedQuestion, 'question--closed': !selectedQuestion}"
-              (click)="onSelectQuestion()">
-              <h4 class="item__question">
-                {{ q.question }}
-                <i class="material-icons md-24">keyboard_arrow_down</i>
-              </h4>
-              <p class="item__answer">{{ q.answer }}</p>
+    <div class="container help__details">
+        <div class="row">
+            <div class="col-lg-4 col-md-12 help__details__menu__items">
+                <div class="help__details__menu__item" *ngFor="let item of faqItems; let i = index" (click)="onSelectCat(i)" [ngClass]="{'category--open': i === 0, 'category--closed': i !== 0}">
+                    <div class="item__icon">
+                        <i class="material-icons md-36">{{ item.icon }}</i>
+                    </div>
+                    <div class="item__title"><span>{{ item.category }}</span></div>
+                </div>
             </div>
-          </div>
-          <div class="help__cat-selected__btn-cont">
-            <app-button2 id="help__cat-selected__btn-see-more-{{ i }}">Ver más preguntas</app-button2>
-          </div>
+            <div class="col-lg-8 col-md-12">
+                <div class="help__cat-selected" *ngFor="let item of faqItems; let i = index" [attr.catId]="i" [ngClass]="{'faq-cat--open': i === selectedCat, 'faq-cat--closed': i !== selectedCat}">
+                    <h2 class="cat-selected__title">{{ item.category }}</h2>
+                    <div class="cat-selected__question__items" *ngFor="let q of item.items |slice:0:show">
+                        <div class="cat-selected__question__item" [ngClass]="{'question--open': selectedQuestion, 'question--closed': !selectedQuestion}" (click)="onSelectQuestion()">
+                            <h4 class="item__question">
+                                {{ q.question }}
+                                <i class="material-icons md-24">keyboard_arrow_down</i>
+                            </h4>
+                            <p class="item__answer">{{ q.answer }}</p>
+                        </div>
+                    </div>
+                    <div class="help__cat-selected__btn-cont">
+                        <app-button2 *ngIf="show+1<=item.items.length" (click)="show = show+3" id="help__cat-selected__btn-see-more-{{ i }}">Ver más preguntas</app-button2>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
 </app-page>
