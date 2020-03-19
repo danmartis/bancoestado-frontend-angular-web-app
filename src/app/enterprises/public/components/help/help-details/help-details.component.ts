@@ -45,4 +45,8 @@ export class HelpDetailsComponent implements OnInit {
     this.contenido();
   }
 
+  fun(id){
+    return true;
+  }
+
 }

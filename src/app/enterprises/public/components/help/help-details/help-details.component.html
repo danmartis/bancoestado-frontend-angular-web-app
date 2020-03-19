@@ -4,23 +4,23 @@
     <div class="container help__details">
         <div class="row">
             <div class="col-lg-4 col-md-12 help__details__menu__items">
-                <div class="help__details__menu__item" *ngFor="let item of faqItems; let i = index" (click)="onSelectCat(i)" [ngClass]="{'category--open': i === 0, 'category--closed': i !== 0}">
+                <div class="help__details__menu__item" *ngFor="let itemMenu of faqItems; let x = index" (click)="onSelectCat(x)" [ngClass]="{'category--open': x === 0, 'category--closed': x !== 0}">
                     <div class="item__icon">
-                        <i class="material-icons md-36">{{ item.icon }}</i>
+                        <i class="material-icons md-36">{{ itemMenu.icon }}</i>
                     </div>
-                    <div class="item__title"><span>{{ item.category }}</span></div>
+                    <div class="item__title"><span>{{ itemMenu.category }}</span></div>
                 </div>
             </div>
             <div class="col-lg-8 col-md-12">
                 <div class="help__cat-selected" *ngFor="let item of faqItems; let i = index" [attr.catId]="i" [ngClass]="{'faq-cat--open': i === selectedCat, 'faq-cat--closed': i !== selectedCat}">
                     <h2 class="cat-selected__title">{{ item.category }}</h2>
-                    <div class="cat-selected__question__items" *ngFor="let q of item.items |slice:0:show">
-                        <div class="cat-selected__question__item" [ngClass]="{'question--open': selectedQuestion, 'question--closed': !selectedQuestion}" (click)="onSelectQuestion()">
+                    <div class="cat-selected__question__items">
+                        <div class="cat-selected__question__item" *ngFor="let q of item.items |slice:0:show" [ngClass]="{'question--open': q.id, 'question--closed': !q.id}" (click)="q.id=!q.id">
                             <h4 class="item__question">
                                 {{ q.question }}
                                 <i class="material-icons md-24">keyboard_arrow_down</i>
                             </h4>
-                            <p class="item__answer">{{ q.answer }}</p>
+                            <p class="item__answer">{{ q.answer }} </p>
                         </div>
                     </div>
                     <div class="help__cat-selected__btn-cont">
@@ -30,4 +30,5 @@
             </div>
         </div>
     </div>
+
 </app-page>
