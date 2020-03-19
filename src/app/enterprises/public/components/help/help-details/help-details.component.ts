@@ -8,7 +8,7 @@ import { GestorContenidoService } from "../../../../../services/gestor-contenido
 })
 export class HelpDetailsComponent implements OnInit {
 
-  selectedCat: number = this.gestorContenido.selectItem;
+  selectedCat: number = this.gestorContenido.selectItem - 1;
 
   selectedQuestion: boolean = false;
   questionOpen: number = this.gestorContenido.selectQuestion;
@@ -19,11 +19,16 @@ export class HelpDetailsComponent implements OnInit {
 
   onSelectQuestion() {
     this.selectedQuestion = !this.selectedQuestion;
+  
   }
 
   onSelectCat(catId) {
     this.show = 3;
     this.selectedCat = catId;
+
+   this.questionOpen = 0 
+
+    
   }
 
   protected question: string = "";

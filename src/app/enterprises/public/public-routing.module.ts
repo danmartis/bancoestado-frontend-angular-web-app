@@ -27,7 +27,7 @@ const routes: Routes = [
       { path: 'iniciar-sesion', component: LoginComponent },
       { path: 'cambiar-clave', component: ResetPasswordComponent },
       { path: 'resumen', component: DashboardComponent },
-      { path: 'ayuda/detalles/:idItem/:idQuestion', component: HelpDetailsComponent,
+      { path: 'ayuda/detalles/grupo/:idItem/pregunta/:idQuestion', component: HelpDetailsComponent,
       resolve  : {
         data: GestorContenidoService
     } }
