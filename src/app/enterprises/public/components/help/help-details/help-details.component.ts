@@ -25,7 +25,8 @@ export class HelpDetailsComponent implements OnInit {
   onSelectCat(catId) {
     this.show = 3;
     this.selectedCat = catId;
-    this.questionOpen = 0 
+
+   this.questionOpen = 0 
 
     
   }
