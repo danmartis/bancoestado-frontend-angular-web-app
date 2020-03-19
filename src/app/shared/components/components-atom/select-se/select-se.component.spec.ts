@@ -22,4 +22,16 @@ describe('SelectSeComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('onClick', () => {
+    component.onClick();
+  });
+
+  it('selectOption', () => {
+    const item = {
+      label: '',
+      sufix:''
+    }
+    component.selectOption(item);
+  });
 });
