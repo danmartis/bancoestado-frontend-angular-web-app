@@ -18,7 +18,8 @@ const routes: Routes = [
     path: '',
     component: ContainerPublicComponent,
     children: [
-      { path: '', component: LandingComponent },
+      { path: '', redirectTo: 'empresas', pathMatch: 'full' },
+      { path: 'empresas', component: LandingComponent },
       { path: 'nosotros', component: AboutComponent },
       { path: 'qué hacemos', component: WhatWeDoComponent },
       { path: 'sucursales', component: BranchOfficesComponent },
