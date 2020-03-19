@@ -1,0 +1,10 @@
+<div class="cat-selected__question__item"
+  [ngClass]="{'question--open': selectedQuestion, 'question--closed': !selectedQuestion}">
+  <h4 class="item__question">
+    <a (click)="onSelectQuestion()">
+      {{ q.question }}
+      <i class="material-icons md-24">keyboard_arrow_down</i>
+    </a>
+  </h4>
+  <p class="item__answer">{{ q.answer }}</p>
+</div>

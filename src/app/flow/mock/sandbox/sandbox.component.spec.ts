@@ -93,4 +93,13 @@ describe('SandboxComponent', () => {
     component.closeListOpenSingle(closeList,open);
   });
 
+  it('handlerChangeSearch', () => {
+    const data = {};
+    component.handlerChangeSearch(data);
+  });
+
+  it('onClick', () => {
+    component.onClick();
+  });
+
 });

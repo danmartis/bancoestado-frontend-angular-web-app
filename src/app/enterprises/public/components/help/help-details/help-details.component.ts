@@ -10,15 +10,10 @@ export class HelpDetailsComponent implements OnInit {
 
   selectedCat: number = 0;
 
-  selectedQuestion: boolean = false;
-
   private bannerContent = new Array();
-
+  
   private show = 3;
-
-  onSelectQuestion() {
-    this.selectedQuestion = !this.selectedQuestion;
-  }
+  
 
   onSelectCat(catId) {
     this.show = 3;

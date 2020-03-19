@@ -1,0 +1,28 @@
+@import '../../../../../../../scss/vars';
+@import '../../../../../../../scss/public';
+
+:host {
+  .help__cat-selected {
+  
+    &.faq-cat {
+      &--open {
+        opacity: 1;
+        transition: opacity .3s, height .3s;
+        height: unset;
+      }
+      &--closed {
+        opacity: 0;
+        transition: opacity .3s, height .3s;
+        height: 0;
+      }
+    } // .faq-cat
+    .cat-selected__title {
+      margin-top: 0;
+      color: $color-action;
+    }
+    .help__cat-selected__btn-cont {
+      margin-top: 64px;
+      margin-bottom: 64px;
+    }
+  }
+}
