@@ -10,6 +10,15 @@
       }
     }
     .help__details__menu__items {
+
+      @media (max-width: $media-max-lg) {
+        &.hide {
+          display: none;
+        }
+        &.show {
+          display: block;
+        }
+      }
       
       .help__details__menu__item {
         display: flex;
@@ -42,6 +51,15 @@
     }
 
     .help__details__faq__items {
+      @media (max-width: $media-max-lg) {
+        display: none;
+        &.hide {
+          display: none;
+        }
+        &.show {
+          display: block;
+        }
+      }
 
       #help__details__menu__items__btn-back {
         margin: 2rem 0;
