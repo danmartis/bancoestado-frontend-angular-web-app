@@ -8,6 +8,12 @@ import { LinkComponent } from 'src/app/shared/components/components-atom/link/li
 import { ButtonComponent } from 'src/app/shared/components/components-atom/button/button.component';
 import { InputComponent } from 'src/app/shared/components/components-atom/input/input.component';
 import { ParagraphComponent } from 'src/app/shared/components/components-atom/paragraph/paragraph.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RutMaskDirective } from '../../directives/rut-format.directive';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { SharedModule } from 'src/app/shared/shared.module';
+import { IconComponent } from 'src/app/shared/components/components-atom/icon/icon.component';
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('RegisterComponent', () => {
   let component: RegisterComponent;
@@ -15,15 +21,16 @@ describe('RegisterComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports: [
+        FormsModule,
+        ReactiveFormsModule,
+        HttpClientTestingModule,
+        RouterTestingModule,
+        SharedModule,
+      ],
       declarations: [ 
         RegisterComponent,
-        PageComponent,
-        LabelComponent,
-        ModalComponent,
-        LinkComponent,
-        ButtonComponent,
-        InputComponent,
-        ParagraphComponent
+        
       ]
     })
     .compileComponents();

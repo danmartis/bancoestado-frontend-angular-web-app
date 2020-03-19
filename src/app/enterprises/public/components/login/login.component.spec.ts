@@ -9,7 +9,8 @@ import { ModalComponent } from 'src/app/shared/components/components-organisms/m
 import { LinkComponent } from 'src/app/shared/components/components-atom/link/link.component';
 import { IconComponent } from 'src/app/shared/components/components-atom/icon/icon.component';
 import { RouterTestingModule } from '@angular/router/testing';
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 describe('LoginComponent', () => {
   let component: LoginComponent;
   let fixture: ComponentFixture<LoginComponent>;
@@ -17,7 +18,10 @@ describe('LoginComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
-        RouterTestingModule
+        RouterTestingModule,
+        FormsModule,
+        ReactiveFormsModule,
+        HttpClientTestingModule
       ],
       declarations: [ 
         LoginComponent,
@@ -27,7 +31,8 @@ describe('LoginComponent', () => {
         ParagraphComponent,
         ModalComponent,
         LinkComponent,
-        IconComponent
+        IconComponent,
+
       ]
     })
     .compileComponents();

@@ -5,6 +5,7 @@ import { ModalComponent } from 'src/app/shared/components/components-organisms/m
 import { LinkComponent } from 'src/app/shared/components/components-atom/link/link.component';
 import { IconComponent } from 'src/app/shared/components/components-atom/icon/icon.component';
 import { RouterTestingModule } from '@angular/router/testing'
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 describe('DashboardComponent', () => {
   let component: DashboardComponent;
@@ -13,13 +14,15 @@ describe('DashboardComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
-        RouterTestingModule
+        RouterTestingModule,
+        HttpClientTestingModule
       ],
       declarations: [ 
         DashboardComponent,
         ModalComponent,
         LinkComponent,
-        IconComponent
+        IconComponent,
+        
       ]
     })
     .compileComponents();
