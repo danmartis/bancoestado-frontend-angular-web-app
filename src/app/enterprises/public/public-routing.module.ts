@@ -11,13 +11,15 @@ import { LoginComponent } from './components/login/login.component';
 import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { HelpDetailsComponent } from './components/help/help-details/help-details.component';
+import { GestorContenidoService } from 'src/app/services/gestor-contenido.service';
 
 const routes: Routes = [
   {
     path: '',
     component: ContainerPublicComponent,
     children: [
-      { path: '', component: LandingComponent },
+      { path: '', redirectTo: 'empresas', pathMatch: 'full' },
+      { path: 'empresas', component: LandingComponent },
       { path: 'nosotros', component: AboutComponent },
       { path: 'qué hacemos', component: WhatWeDoComponent },
       { path: 'sucursales', component: BranchOfficesComponent },
@@ -26,7 +28,10 @@ const routes: Routes = [
       { path: 'iniciar-sesion', component: LoginComponent },
       { path: 'cambiar-clave', component: ResetPasswordComponent },
       { path: 'resumen', component: DashboardComponent },
-      { path: 'ayuda/detalles', component: HelpDetailsComponent }
+      { path: 'ayuda/detalles/grupo/:idItem/pregunta/:idQuestion', component: HelpDetailsComponent,
+      resolve  : {
+        data: GestorContenidoService
+    } }
     ]
   }
 ];

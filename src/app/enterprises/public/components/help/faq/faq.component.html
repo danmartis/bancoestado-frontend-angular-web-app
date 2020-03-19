@@ -17,8 +17,8 @@
                   </div>
                   <div class="item-card-slider-title">{{ qd.category }}</div>
                   <div class="preguntas__items">
-                    <div class="item-card-slider-question" routerLink="/empresas/ayuda/detalles" *ngFor="let qd of qd.items">
-                      <a>{{ qd.question }}</a>
+                    <div class="item-card-slider-question" *ngFor="let qd of qd.items">
+                      <a   (click)="handleFaqDetail(qd)">{{ qd.question }}</a>
                     </div> 
                   </div> 
                 </div> 

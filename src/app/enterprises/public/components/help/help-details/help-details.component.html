@@ -23,9 +23,30 @@
             <div class="help__cat-selected__btn-cont">
               <app-button2 *ngIf="show+1<=item.items.length" (click)="show = show+3" id="help__cat-selected__btn-see-more-{{ i }}">Ver más preguntas</app-button2>
             </div>
+<<<<<<< HEAD
           </div>
         </app-question-items>
       </div>
+=======
+            <div class="col-lg-8 col-md-12">
+                <div class="help__cat-selected" *ngFor="let item of faqItems; let i = index" [attr.catId]="i" [ngClass]="{'faq-cat--open': i === selectedCat, 'faq-cat--closed': i !== selectedCat}">
+                    <h2 class="cat-selected__title">{{ item.category }}</h2>
+                    <div class="cat-selected__question__items">
+                        <div class="cat-selected__question__item" *ngFor="let q of item.items |slice:0:show" [ngClass]="{'question--open': questionOpen == q.id, 'question--closed': false}" (click)="openQuestion(q.id)">
+                            <h4 class="item__question">
+                                {{ q.question }}
+                                <i class="material-icons md-24">keyboard_arrow_down</i>
+                            </h4>
+                            <p class="item__answer">{{ q.answer }} </p>
+                        </div>
+                    </div>
+                    <div class="help__cat-selected__btn-cont">
+                        <app-button2 *ngIf="show+1<=item.items.length" (click)="show = show+3" id="help__cat-selected__btn-see-more-{{ i }}">Ver más preguntas</app-button2>
+                    </div>
+                </div>
+            </div>
+        </div>
+>>>>>>> feature/SBM-71-FMUJICA
     </div>
   </div>
 

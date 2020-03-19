@@ -4,20 +4,38 @@ import { GestorContenidoService } from "../../../../../services/gestor-contenido
 @Component({
   selector: 'app-help-details',
   templateUrl: './help-details.component.html',
-  styleUrls: ['./help-details.component.scss']
+  styleUrls: ['./help-details.component.scss'],
 })
 export class HelpDetailsComponent implements OnInit {
 
-  selectedCat: number = 0;
+  selectedCat: number = this.gestorContenido.selectItem - 1;
 
+<<<<<<< HEAD
+=======
+  selectedQuestion: boolean = false;
+  questionOpen: number = this.gestorContenido.selectQuestion;
+
+>>>>>>> feature/SBM-71-FMUJICA
   private bannerContent = new Array();
   
   private show = 3;
+<<<<<<< HEAD
   
+=======
+
+  onSelectQuestion() {
+    this.selectedQuestion = !this.selectedQuestion;
+  
+  }
+>>>>>>> feature/SBM-71-FMUJICA
 
   onSelectCat(catId) {
     this.show = 3;
     this.selectedCat = catId;
+
+   this.questionOpen = 0 
+
+    
   }
 
   protected question: string = "";
@@ -29,6 +47,10 @@ export class HelpDetailsComponent implements OnInit {
     await this.gestorContenido.getQuestions().subscribe(res => {
 
       this.faqItems = res.getDetalle()["content"];
+
+      console.log( this.faqItems)
+
+      console.log()
       this.bannerContent = res.getDetalle();
     }),
       err => {
@@ -38,10 +60,29 @@ export class HelpDetailsComponent implements OnInit {
 
   ngOnInit() {
     this.contenido();
+
+    
+
+  
+  }
+
+  openQuestion(id){
+
+
+    console.log(id)
+    if(this.questionOpen === id){
+      this.questionOpen = 0;
+    } else {
+      this.questionOpen = id
+    }
+  
+
   }
 
   fun(id){
-    return true;
+
+    console.log(id)
+   
   }
 
 }
