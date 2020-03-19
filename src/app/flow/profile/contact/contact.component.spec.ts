@@ -67,4 +67,20 @@ describe('ContactComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('closeListOpenSingle', () => {
+    const closeList = ["modal-added-account"];
+    const open = 'modal-client-number';
+    component.closeListOpenSingle(closeList,open);
+  });
+
+  it('changeReason', () => {
+    const reason = '';
+    component.changeReason(reason);
+  });
+
+  it('changePhone', () => {
+    const phone = '';
+    component.changePhone(phone);
+  });
 });
