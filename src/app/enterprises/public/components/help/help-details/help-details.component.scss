@@ -5,14 +5,12 @@
   .help__details {
     >.row {
       margin: 3rem 0;
+      @media (max-width: $media-max-lg) {
+        margin: 0;
+      }
     }
     .help__details__menu__items {
-      #help__details__menu__items__btn-back {
-        display: none;
-        @media (max-width: $media-max-lg) {
-          display: block;
-        }
-      }
+      
       .help__details__menu__item {
         display: flex;
         align-items: center;
@@ -44,6 +42,24 @@
     }
 
     .help__details__faq__items {
+
+      #help__details__menu__items__btn-back {
+        margin: 2rem 0;
+        display: none;
+        color: $color-primary;
+        font-size: 14px;
+        i {
+          background: $color-action;
+          border-radius: 50%;
+          padding: 1px;
+          color: white;
+          vertical-align: bottom;
+          margin-right: 8px;
+        }
+        @media (max-width: $media-max-lg) {
+          display: block;
+        }
+      }
 
       .help__cat-selected {
   
