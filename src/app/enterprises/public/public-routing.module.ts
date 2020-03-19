@@ -11,6 +11,7 @@ import { LoginComponent } from './components/login/login.component';
 import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { HelpDetailsComponent } from './components/help/help-details/help-details.component';
+import { GestorContenidoService } from 'src/app/services/gestor-contenido.service';
 
 const routes: Routes = [
   {
@@ -26,7 +27,10 @@ const routes: Routes = [
       { path: 'iniciar-sesion', component: LoginComponent },
       { path: 'cambiar-clave', component: ResetPasswordComponent },
       { path: 'resumen', component: DashboardComponent },
-      { path: 'ayuda/detalles', component: HelpDetailsComponent }
+      { path: 'ayuda/detalles/:idItem/:idQuestion', component: HelpDetailsComponent,
+      resolve  : {
+        data: GestorContenidoService
+    } }
     ]
   }
 ];

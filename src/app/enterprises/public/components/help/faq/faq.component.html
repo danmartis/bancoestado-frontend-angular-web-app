@@ -11,6 +11,10 @@
           <ngx-tiny-slider #ngxSlider [config]="tinySliderConfig">
             <ng-container class="items">
               <div class="item" *ngFor="let qd of questionsData">
+
+             
+
+                
                 <div class="item-card-slider item-card-slider-help">
                   <div class="item-card-slider-icon">
                     <i class="material-icons md-36">{{ qd.icon }}</i>
@@ -18,10 +22,12 @@
                   <div class="item-card-slider-title">{{ qd.category }}</div>
                   <div class="preguntas__items">
                     <div class="item-card-slider-question" *ngFor="let qd of qd.items">
-                      <a>{{ qd.question }}</a>
+                      <a   (click)="handleFaqDetail(qd)">{{ qd.question }}</a>
                     </div> 
                   </div> 
                 </div> 
+
+        
              </div>  
             </ng-container>
           </ngx-tiny-slider>

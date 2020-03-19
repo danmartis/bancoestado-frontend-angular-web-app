@@ -15,7 +15,7 @@
                 <div class="help__cat-selected" *ngFor="let item of faqItems; let i = index" [attr.catId]="i" [ngClass]="{'faq-cat--open': i === selectedCat, 'faq-cat--closed': i !== selectedCat}">
                     <h2 class="cat-selected__title">{{ item.category }}</h2>
                     <div class="cat-selected__question__items">
-                        <div class="cat-selected__question__item" *ngFor="let q of item.items |slice:0:show" [ngClass]="{'question--open': q.id, 'question--closed': !q.id}" (click)="q.id=!q.id">
+                        <div class="cat-selected__question__item" *ngFor="let q of item.items |slice:0:show" [ngClass]="{'question--open': questionOpen == q.views, 'question--closed': false}" (click)="openQuestion(q.views)">
                             <h4 class="item__question">
                                 {{ q.question }}
                                 <i class="material-icons md-24">keyboard_arrow_down</i>

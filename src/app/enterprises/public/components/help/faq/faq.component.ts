@@ -10,6 +10,9 @@ import {
 import { NgxTinySliderSettingsInterface } from "ngx-tiny-slider";
 import { ModalService } from "src/app/services/modal.service";
 import { NgxTinySliderComponent } from "ngx-tiny-slider/lib/ngx-tiny-slider.component";
+import { Router } from '@angular/router';
+import { GestorContenidoService } from 'src/app/services/gestor-contenido.service';
+
 
 @Component({
   selector: "app-faq",
@@ -20,7 +23,7 @@ export class FaqComponent implements OnInit, AfterViewInit {
   protected question: string = "";
   // https://www.npmjs.com/package/ngx-tiny-slider
   public tinySliderConfig: any; // NgxTinySliderSettingsInterface;
-  constructor(protected modalService: ModalService) { }
+  constructor(protected modalService: ModalService, private router: Router, private gestorContenidoService: GestorContenidoService) { }
 
   @ViewChildren("carouselItemList")
   private carouselItemList: QueryList<any>;
@@ -71,5 +74,15 @@ export class FaqComponent implements OnInit, AfterViewInit {
       // @ts-ignore
       this.ngxSlider.domReady.next(); 
     }
+  }
+
+  handleFaqDetail(item){
+    console.log('item', item)
+
+    this.gestorContenidoService.selectItem = 1;
+    this.router.navigate(['/empresas/ayuda/detalles/1/'+ item.views])
+
+
+
   }
 }
