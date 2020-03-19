@@ -26,6 +26,9 @@ import { ResetPasswordComponent } from './components/reset-password/reset-passwo
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import {VideoPipe} from "./components/help/tutorials/video.pipe";
 import { HelpDetailsComponent } from './components/help/help-details/help-details.component';
+import { QuestionComponent } from './components/help/help-details/question/question.component';
+import { QuestionItemsComponent } from './components/help/help-details/question-items/question-items.component';
+import { QuestionsMenuComponent } from './components/help/help-details/questions-menu/questions-menu.component';
 
 @NgModule({
   declarations: [
@@ -50,6 +53,9 @@ import { HelpDetailsComponent } from './components/help/help-details/help-detail
     DashboardComponent,
     VideoPipe,
     HelpDetailsComponent,
+    QuestionComponent,
+    QuestionItemsComponent,
+    QuestionsMenuComponent,
   ],
   imports: [
     CommonModule,

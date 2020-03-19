@@ -1,0 +1,7 @@
+<div class="help__details__menu__item"          
+  [ngClass]="{'category--open': i === selectedCat, 'category--closed': i !== selectedCat}">
+  <div class="item__icon">
+    <i class="material-icons md-36">{{ item.icon }}</i>
+  </div>
+  <div class="item__title"><span>{{ item.category }}</span></div>
+</div>

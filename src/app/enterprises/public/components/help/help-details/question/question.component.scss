@@ -1,0 +1,59 @@
+@import '../../../../../../../scss/vars';
+@import '../../../../../../../scss/public';
+
+:host {
+  .cat-selected__question__item {
+    margin: 2rem 0;
+    .item {
+      &__question {
+        color: $color-primary;
+        a {
+          cursor: pointer;
+        }
+        i {
+          background-color: rgb(241, 241, 241);
+          color: $color-action;
+          border-radius: 50%;
+          width: 30px;
+          height: 30px;
+          padding: 4px 3px;
+          margin-left: 1rem;
+          vertical-align: middle;
+        }
+      }
+      &__answer {
+        margin-left: 8px;
+        color: $color-primary;
+        font-size: 14px;
+        height: 0;
+        opacity: 0;
+        transition: height .7s, opacity .3s;
+      }
+    }
+    &.question {
+      &--open {
+        .item {
+          &__answer {
+            height: 100%;
+            opacity: 1;
+          }
+        }
+      }
+      &--closed {
+        .item {
+          &__answer {
+            height: 0;
+            opacity: 0;
+            transition: height .2s, opacity .3s;
+            display: none;
+          }
+        }
+        h4 {
+          i.material-icons {
+            transform: rotate(180deg);
+          }
+        }
+      }
+    }
+  }
+}

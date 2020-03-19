@@ -1,0 +1,6 @@
+<div class="help__cat-selected" 
+  [attr.catId]="i"
+  [ngClass]="{'faq-cat--open': i === selectedCat, 'faq-cat--closed': i !== selectedCat}">
+  <h2 class="cat-selected__title">{{ item.category }}</h2>
+  <ng-content select=".cat-selected__question__items"></ng-content>
+</div>
