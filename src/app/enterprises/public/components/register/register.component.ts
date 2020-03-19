@@ -140,26 +140,6 @@ export class RegisterComponent implements OnInit {
     
   }
 
-  _keyUp(event: any) {
-  
-    const pattern = /[0-9\+\-\ ]/;
-    let inputChar = String.fromCharCode(event.key);
-
-    if (!pattern.test(inputChar)) {
-      // invalid character, prevent input
-      event.preventDefault();
-    }
-  }
-
-  public inputValidator(event: any) {
-    //console.log(event.target.value);
-    const pattern = /^[0-9\k\K]*$/;
-    //let inputChar = String.fromCharCode(event.charCode)
-    if (!pattern.test(event.target.value)) {
-      event.target.value = event.target.value.replace(/[^0-9\k\K]/g, "");
-      // invalid character, prevent input
-    }
-  }
 
 }
 
