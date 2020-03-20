@@ -24,8 +24,6 @@ export class HelpDetailsComponent implements OnInit {
     this.questionOpen = 0;
   }
   
-
-
   async contenido() {
     await this.gestorContenido.getQuestions().subscribe(res => {
 

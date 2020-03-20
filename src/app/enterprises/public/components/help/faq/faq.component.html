@@ -16,11 +16,14 @@
                     <i class="material-icons md-36">{{ qd.icon }}</i>
                   </div>
                   <div class="item-card-slider-title">{{ qd.category }}</div>
-                  <div class="preguntas__items">
-                    <div class="item-card-slider-question" *ngFor="let qd of qd.items">
-                      <a   (click)="handleFaqDetail(qd)">{{ qd.question }}</a>
+                  <div class="preguntas__items" *ngFor="let qd of qd.items">
+                    <div class="item-card-slider-question">
+                      <a (click)="handleFaqDetail(qd)">{{ qd.question }}</a>
                     </div> 
-                  </div> 
+                    <div *ngFor="let qd of qd.detail">
+                      <a (click)="handleGroupDetail(qd)">{{ qd.viewMore }}</a>
+                    </div>
+                  </div>
                 </div> 
              </div>  
             </ng-container>
