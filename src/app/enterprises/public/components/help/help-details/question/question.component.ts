@@ -7,6 +7,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class QuestionComponent implements OnInit {
 
+  @Input() questionOpen: any;
   @Input() q: any;
 
   selectedQuestion: boolean = false;
@@ -21,4 +22,12 @@ export class QuestionComponent implements OnInit {
     this.selectedQuestion = !this.selectedQuestion;
   }
 
+  openQuestion(id){
+    console.log(id);
+    if(this.questionOpen === id){
+      this.questionOpen = 0;
+    } else {
+      this.questionOpen = id
+    }
+  }
 }

@@ -9,39 +9,22 @@ import { GestorContenidoService } from "../../../../../services/gestor-contenido
 export class HelpDetailsComponent implements OnInit {
 
   selectedCat: number = this.gestorContenido.selectItem - 1;
-
-<<<<<<< HEAD
-=======
-  selectedQuestion: boolean = false;
   questionOpen: number = this.gestorContenido.selectQuestion;
-
->>>>>>> feature/SBM-71-FMUJICA
-  private bannerContent = new Array();
-  
-  private show = 3;
-<<<<<<< HEAD
-  
-=======
-
-  onSelectQuestion() {
-    this.selectedQuestion = !this.selectedQuestion;
-  
-  }
->>>>>>> feature/SBM-71-FMUJICA
-
-  onSelectCat(catId) {
-    this.show = 3;
-    this.selectedCat = catId;
-
-   this.questionOpen = 0 
-
-    
-  }
-
-  protected question: string = "";
   public faqItems = new Array();
+  protected bannerContent = new Array();
+  
+  // Abre en mínimo de preguntas a mostrar
+  protected show = 5;
 
   constructor(private gestorContenido: GestorContenidoService) { }
+
+  onSelectCat(catId) {
+    this.show = 5;
+    this.selectedCat = catId;
+    this.questionOpen = 0;
+  }
+  
+
 
   async contenido() {
     await this.gestorContenido.getQuestions().subscribe(res => {
@@ -60,29 +43,5 @@ export class HelpDetailsComponent implements OnInit {
 
   ngOnInit() {
     this.contenido();
-
-    
-
-  
   }
-
-  openQuestion(id){
-
-
-    console.log(id)
-    if(this.questionOpen === id){
-      this.questionOpen = 0;
-    } else {
-      this.questionOpen = id
-    }
-  
-
-  }
-
-  fun(id){
-
-    console.log(id)
-   
-  }
-
 }

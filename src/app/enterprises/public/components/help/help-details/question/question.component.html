@@ -1,5 +1,6 @@
 <div class="cat-selected__question__item"
-  [ngClass]="{'question--open': selectedQuestion, 'question--closed': !selectedQuestion}">
+  [ngClass]="{'question--open': questionOpen == q.id, 'question--closed': false}"
+  (click)="openQuestion(q.id)">
   <h4 class="item__question">
     <a (click)="onSelectQuestion()">
       {{ q.question }}
@@ -8,3 +9,7 @@
   </h4>
   <p class="item__answer">{{ q.answer }}</p>
 </div>
+
+<!--
+  [ngClass]="{'question--open': selectedQuestion, 'question--closed': !selectedQuestion}"
+-->
