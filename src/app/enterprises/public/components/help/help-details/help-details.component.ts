@@ -9,33 +9,21 @@ import { GestorContenidoService } from "../../../../../services/gestor-contenido
 export class HelpDetailsComponent implements OnInit {
 
   selectedCat: number = this.gestorContenido.selectItem - 1;
-
-  selectedQuestion: boolean = false;
   questionOpen: number = this.gestorContenido.selectQuestion;
-
-  private bannerContent = new Array();
-
-  private show = 3;
-
-  onSelectQuestion() {
-    this.selectedQuestion = !this.selectedQuestion;
-  
-  }
-
-  onSelectCat(catId) {
-    this.show = 3;
-    this.selectedCat = catId;
-
-   this.questionOpen = 0 
-
-    
-  }
-
-  protected question: string = "";
   public faqItems = new Array();
+  protected bannerContent = new Array();
+  
+  // Abre en mínimo de preguntas a mostrar
+  protected show = 5;
 
   constructor(private gestorContenido: GestorContenidoService) { }
 
+  onSelectCat(catId) {
+    this.show = 5;
+    this.selectedCat = catId;
+    this.questionOpen = 0;
+  }
+  
   async contenido() {
     await this.gestorContenido.getQuestions().subscribe(res => {
 
@@ -53,29 +41,5 @@ export class HelpDetailsComponent implements OnInit {
 
   ngOnInit() {
     this.contenido();
-
-    
-
-  
   }
-
-  openQuestion(id){
-
-
-    console.log(id)
-    if(this.questionOpen === id){
-      this.questionOpen = 0;
-    } else {
-      this.questionOpen = id
-    }
-  
-
-  }
-
-  fun(id){
-
-    console.log(id)
-   
-  }
-
 }

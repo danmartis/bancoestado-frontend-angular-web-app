@@ -72,18 +72,20 @@ export class FaqComponent implements OnInit, AfterViewInit {
     );
     if (this.questionsData != null) {
       // @ts-ignore
-      this.ngxSlider.domReady.next(); 
+      this.ngxSlider.domReady.next();
     }
   }
 
-  handleFaqDetail(item){
-    console.log('item', item)
-
+  handleFaqDetail(item) {
+    console.log('item', item);
     this.gestorContenidoService.selectItem = item.idGroup;
     this.gestorContenidoService.selectQuestion = item.id
-    this.router.navigate(['/empresas/ayuda/detalles/grupo/' + this.gestorContenidoService.selectItem  + '/pregunta/' + this.gestorContenidoService.selectQuestion])
+    this.router.navigate([`/empresas/ayuda/detalles/categoria/${this.gestorContenidoService.selectItem}/pregunta/${this.gestorContenidoService.selectQuestion}`]);
+  }
 
-
-
+  handleGroupDetail(item) {
+    console.log('item', item);
+    this.gestorContenidoService.selectItem = item.idGroup;
+    this.router.navigate([`/empresas/ayuda/detalles/categoria/${this.gestorContenidoService.selectItem}`]);
   }
 }

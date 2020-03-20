@@ -10,7 +10,6 @@
           [item]="item"
           [selectedCat]="selectedCat"
           (click)="onSelectCat(i)"></app-questions-menu>
-        
       </div>
       <div class="col-lg-8 col-md-12 help__details__faq__items">
         <a
@@ -19,9 +18,9 @@
         </a>
         <app-question-items *ngFor="let item of faqItems; let i = index" [i]="i" [item]="item" [selectedCat]="selectedCat">
           <div class="cat-selected__question__items">
-            <app-question *ngFor="let q of item.items; let k = index" [q]="q"></app-question>
+            <app-question *ngFor="let q of item.items | slice : 0 : show; let k = index" [q]="q" [questionOpen]="questionOpen"></app-question>
             <div class="help__cat-selected__btn-cont">
-              <app-button2 *ngIf="show+1<=item.items.length" (click)="show = show+3" id="help__cat-selected__btn-see-more-{{ i }}">Ver más preguntas</app-button2>
+              <app-button2 *ngIf="show + 1 <= item.items.length" (click)="show = show+3" id="help__cat-selected__btn-see-more-{{ i }}">Ver más preguntas</app-button2>
             </div>
           </div>
         </app-question-items>
