@@ -16,11 +16,6 @@ export class QuestionComponent implements OnInit {
   
   ngOnInit() {
   }
-  
-  
-  onSelectQuestion() {
-    this.selectedQuestion = !this.selectedQuestion;
-  }
 
   openQuestion(id){
     console.log(id);
