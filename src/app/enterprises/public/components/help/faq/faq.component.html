@@ -19,10 +19,10 @@
                   <div class="preguntas__items" *ngFor="let qd of qd.items">
                     <div class="item-card-slider-question">
                       <a (click)="handleFaqDetail(qd)">{{ qd.question }}</a>
-                    </div> 
-                    <div *ngFor="let qd of qd.detail">
-                      <a (click)="handleGroupDetail(qd)">{{ qd.viewMore }}</a>
                     </div>
+                  </div> 
+                  <div class="item-card-slider-help__btn">
+                    <a id="preguntas__cat-btn__{{ qd.id }}" (click)="handleGroupDetail(qd)">Ver más <i class="material-icons md-24">keyboard_backspace</i></a>
                   </div>
                 </div> 
              </div>  

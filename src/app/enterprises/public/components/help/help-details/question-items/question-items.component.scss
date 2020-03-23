@@ -12,13 +12,18 @@
       }
       &--closed {
         opacity: 0;
-        transition: opacity .3s, height .3s;
         height: 0;
       }
     } // .faq-cat
     .cat-selected__title {
       margin-top: 0;
       color: $color-action;
+      @media (max-width: $media-max-md) {
+        font-size: 2.5rem;
+      }
+      @media (max-width: $media-max-sm) {
+        font-size: 2rem;
+      }
     }
     .help__cat-selected__btn-cont {
       margin-top: 64px;
