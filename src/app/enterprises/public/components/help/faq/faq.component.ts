@@ -66,12 +66,9 @@ export class FaqComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit(): void {
     this.carouselItemList.changes.subscribe(() =>
-      this.ngxSlider.domReady.next()
+      //this.ngxSlider.domReady.next()
+      this.questionsData != null && this.ngxSlider.domReady.next()
     );
-    if (this.questionsData != null) {
-      // @ts-ignore
-      this.ngxSlider.domReady.next();
-    }
   }
 
   handleFaqDetail(item) {
