@@ -1,6 +1,6 @@
 <div class="cat-selected__question__item" [ngClass]="{'question--open': questionOpen == q.id, 'question--closed': questionOpen != q.id}" (click)="openQuestion(q.id)">
     <h4 class="item__question">
-        <a (click)="onSelectQuestion()">
+        <a>
       {{ q.question }}
       <i class="material-icons md-24">keyboard_arrow_down</i>
     </a>
