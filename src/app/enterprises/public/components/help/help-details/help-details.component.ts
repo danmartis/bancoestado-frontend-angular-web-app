@@ -12,16 +12,21 @@ export class HelpDetailsComponent implements OnInit {
   questionOpen: number = this.gestorContenido.selectQuestion;
   public faqItems = new Array();
   protected bannerContent = new Array();
-  
   // Abre en mínimo de preguntas a mostrar
   protected show = 5;
+  protected showMenuCatMobile : boolean = false;
 
   constructor(private gestorContenido: GestorContenidoService) { }
+
+  ngOnInit() {
+    this.contenido();
+  }
 
   onSelectCat(catId) {
     this.show = 5;
     this.selectedCat = catId;
     this.questionOpen = 0;
+    this.showMenuCatMobile = false;
   }
   
   async contenido() {
@@ -34,12 +39,12 @@ export class HelpDetailsComponent implements OnInit {
       console.log()
       this.bannerContent = res.getDetalle();
     }),
-      err => {
+      (err: { message: any; }) => {
         return err.message;
       };
   }
 
-  ngOnInit() {
-    this.contenido();
-  }
+  handleGoBack() {
+    this.showMenuCatMobile = true
+  }  
 }
