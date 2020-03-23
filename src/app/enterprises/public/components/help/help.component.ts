@@ -8,29 +8,24 @@ import { GestorContenidoService } from '../../../../services/gestor-contenido.se
 })
 export class HelpComponent implements OnInit {
 
+  @ViewChild("questionsData", { static: true })
+  protected questionsTitle = new Array();
+  protected bannerContent = new Array();
+  protected questionsData = new Array();
+
   constructor(private gestorContenido: GestorContenidoService) { }
   
-  private questionsTitle = new Array();
-
-  private bannerContent = new Array();
-
-  @ViewChild("questionsData", { static: true })
-  private questionsData = new Array();
+  ngOnInit() {
+    this.contenidoPreguntas();
+  }
 
   async contenidoPreguntas() {
     await this.gestorContenido.getQuestions().subscribe(res => {
       this.questionsTitle = res.getDetalle()["questionsTitle"]
-      this.bannerContent = res.getDetalle()
+      this.bannerContent = res.getDetalle();
 
       this.questionsData = res.getDetalle()["content"];
-      console.log(this.questionsData)
-    }), err => {
-      return err.message;
-    };
+    }), (err: any) => err.message;
   };
-
-  ngOnInit() {
-    this.contenidoPreguntas();
-  }
 
 }

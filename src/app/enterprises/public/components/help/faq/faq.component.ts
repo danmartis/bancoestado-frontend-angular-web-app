@@ -7,9 +7,9 @@ import {
   AfterViewInit,
   Input
 } from "@angular/core";
-import { NgxTinySliderSettingsInterface } from "ngx-tiny-slider";
+// import { NgxTinySliderSettingsInterface } from "ngx-tiny-slider";
 import { ModalService } from "src/app/services/modal.service";
-import { NgxTinySliderComponent } from "ngx-tiny-slider/lib/ngx-tiny-slider.component";
+// import { NgxTinySliderComponent } from "ngx-tiny-slider/lib/ngx-tiny-slider.component";
 import { Router } from '@angular/router';
 import { GestorContenidoService } from 'src/app/services/gestor-contenido.service';
 
@@ -20,20 +20,18 @@ import { GestorContenidoService } from 'src/app/services/gestor-contenido.servic
   styleUrls: ["./faq.component.scss"]
 })
 export class FaqComponent implements OnInit, AfterViewInit {
+
+  @Input() questionsTitle: string;
+  @Input() questionsData: string;
   protected question: string = "";
   // https://www.npmjs.com/package/ngx-tiny-slider
   public tinySliderConfig: any; // NgxTinySliderSettingsInterface;
-  constructor(protected modalService: ModalService, private router: Router, private gestorContenidoService: GestorContenidoService) { }
-
   @ViewChildren("carouselItemList")
   private carouselItemList: QueryList<any>;
-
   @ViewChild("ngxSlider", { static: false })
   private ngxSlider: any;
 
-  @Input() questionsTitle: string;
-
-  @Input() questionsData: string;
+  constructor(protected modalService: ModalService, private router: Router, private gestorContenidoService: GestorContenidoService) { }
 
   ngOnInit() {
     this.tinySliderConfig = {
