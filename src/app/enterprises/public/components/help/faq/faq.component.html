@@ -19,10 +19,10 @@
                   <div class="preguntas__items" *ngFor="let qd of qd.items">
                     <div class="item-card-slider-question">
                       <a (click)="handleFaqDetail(qd)">{{ qd.question }}</a>
-                    </div> 
-                    <div *ngFor="let qd of qd.detail">
-                      <a (click)="handleGroupDetail(qd)">{{ qd.viewMore }}</a>
                     </div>
+                  </div> 
+                  <div>
+                    <a (click)="handleGroupDetail(qd)">Ver más</a>
                   </div>
                 </div> 
              </div>  

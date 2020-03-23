@@ -23,6 +23,7 @@ export class HelpComponent implements OnInit {
       this.bannerContent = res.getDetalle()
 
       this.questionsData = res.getDetalle()["content"];
+      console.log(this.questionsData)
     }), err => {
       return err.message;
     };

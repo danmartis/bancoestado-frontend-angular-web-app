@@ -85,7 +85,7 @@ export class FaqComponent implements OnInit, AfterViewInit {
 
   handleGroupDetail(item) {
     console.log('item', item);
-    this.gestorContenidoService.selectItem = item.idGroup;
+    this.gestorContenidoService.selectItem = item.id;
     this.router.navigate([`/empresas/ayuda/detalles/categoria/${this.gestorContenidoService.selectItem}`]);
   }
 }
