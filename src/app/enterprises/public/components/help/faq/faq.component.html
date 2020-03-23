@@ -21,8 +21,8 @@
                       <a (click)="handleFaqDetail(qd)">{{ qd.question }}</a>
                     </div>
                   </div> 
-                  <div>
-                    <a (click)="handleGroupDetail(qd)">Ver más</a>
+                  <div class="item-card-slider-help__btn">
+                    <a id="preguntas__cat-btn__{{ qd.id }}" (click)="handleGroupDetail(qd)">Ver más <i class="material-icons md-24">keyboard_backspace</i></a>
                   </div>
                 </div> 
              </div>  
