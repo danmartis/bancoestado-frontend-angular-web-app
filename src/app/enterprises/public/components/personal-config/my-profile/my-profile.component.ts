@@ -1,4 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { LoginService } from '../../login/services/login.service';
+import { User } from '../../login/services/model/login.model';
 
 @Component({
   selector: 'app-my-profile',
@@ -7,15 +9,22 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class MyProfileComponent implements OnInit {
 
-  @Input() isEditingProfile :boolean;
-  protected personalInfoItems : Object;
-  protected billerInfoItems : Array<any>;
-  protected contractInfoItems : Array<any>;
-  
-  
-  constructor() { }
-  
+  @Input() isEditingProfile: boolean;
+  protected personalInfoItems: Object;
+  protected billerInfoItems: Array<any>;
+  protected contractInfoItems: Array<any>;
+  protected _user: User;
+
+  constructor(private _loginService: LoginService) { }
+
+  getUserById() {
+    this._loginService.getUser(1)
+      .subscribe(user => this._user = user);
+      console.log(this._user);
+  }
+
   ngOnInit() {
+    this.getUserById();
     this.personalInfoItems = {
       'fixed': [
         {
