@@ -1,0 +1,19 @@
+@import '../../../../../../scss/_vars';
+@import '../../../../../../scss/_mixins';
+@import '../../../../../../scss/_public';
+
+:host {
+  .info-item {
+    margin: 16px 0 24px;
+    .info-item {
+      &__label {
+        color: $color-paragraph;
+        font-size: 14px;
+      }
+      &__value {
+        color: $color-primary;
+        font-size: 18px;
+      }
+    }
+  }
+}
