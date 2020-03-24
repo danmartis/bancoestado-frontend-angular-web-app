@@ -7,9 +7,9 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class HelpBannerComponent implements OnInit {
 
-  constructor() { }
+  @Input() bannerContent: any;
 
-  @Input() bannerContent: string;
+  constructor() { }
 
   ngOnInit() {
   }
