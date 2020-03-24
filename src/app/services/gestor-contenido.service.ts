@@ -3,6 +3,7 @@ import { Observable } from 'rxjs/Observable'
 import { BffClientService } from './bffClient.service';
 import { DataResponse } from './dataResponse';
 import { ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
+import { environment } from 'src/environments/environment.dev';
 @Injectable({
     providedIn: 'root'
   })
@@ -25,10 +26,10 @@ import { ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
     selectQuestion: number = 0;
   
     // public urlPath = 'http://se-empresas-bff-desa.us-east-1.elasticbeanstalk.com/bff/se-bff-empresas/v1/gestor-contenido/';
-    public urlPath = 'http://localhost:8000/bff/se-bff-empresas/v1/gestor-contenido/';
+   
   
     public getLanding(): Observable<DataResponse> {
-      const urlApi = this.urlPath+"landing";
+      const urlApi = environment.DOMAIN_LOCAL+"gestor-contenido/landing";
   
       return this.http.get(urlApi, { headers: this.getHeaders(), observe: 'response' })
         .map(this.okData)
@@ -36,7 +37,7 @@ import { ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
         .finally(() => {});
     }
     public getQuestions(): Observable<DataResponse> {
-      const urlApi = this.urlPath+"questions";
+      const urlApi = environment.DOMAIN_LOCAL+"gestor-contenido/questions";
     
       return this.http.get(urlApi, { headers: this.getHeaders(), observe: 'response' })
         .map(this.okData)
@@ -44,7 +45,7 @@ import { ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
         .finally(() => {});
     }
     public getQuestionsDetails(): Observable<DataResponse> {
-      const urlApi = this.urlPath+"question-details";
+      const urlApi = environment.DOMAIN_LOCAL+"gestor-contenido/question-details";
     
       return this.http.get(urlApi, { headers: this.getHeaders(), observe: 'response' })
         .map(this.okData)
@@ -52,7 +53,7 @@ import { ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
         .finally(() => {});
     }
     public getVideos(): Observable<DataResponse> {
-      const urlApi = this.urlPath+"videos";
+      const urlApi = environment.DOMAIN_LOCAL+"gestor-contenido/videos";
     
       return this.http.get(urlApi, { headers: this.getHeaders(), observe: 'response' })
         .map(this.okData)

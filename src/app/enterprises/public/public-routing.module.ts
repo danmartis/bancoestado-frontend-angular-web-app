@@ -12,6 +12,7 @@ import { ResetPasswordComponent } from './components/reset-password/reset-passwo
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { HelpDetailsComponent } from './components/help/help-details/help-details.component';
 import { GestorContenidoService } from 'src/app/services/gestor-contenido.service';
+import { AuthguardService } from 'src/app/services/helpers/authguard.service';
 
 const routes: Routes = [
   {
@@ -26,7 +27,7 @@ const routes: Routes = [
       { path: 'registro', component: RegisterComponent },
       { path: 'iniciar-sesion', component: LoginComponent },
       { path: 'cambiar-clave', component: ResetPasswordComponent },
-      { path: 'resumen', component: DashboardComponent },
+      { path: 'resumen', component: DashboardComponent, canActivate: [ AuthguardService ] },
       { path: 'ayuda/detalles', component: HelpDetailsComponent},
       { path: 'ayuda/detalles/categoria/:idItem', component: HelpDetailsComponent,
       resolve: {

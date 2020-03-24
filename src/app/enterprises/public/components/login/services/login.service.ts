@@ -1,7 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { environment } from 'src/environments/environment.dev';
-import { User } from './model/login.model';
+import { AuthService } from 'src/app/services/authentication/auth.service';
 
 @Injectable({
   providedIn: 'root'
@@ -10,17 +8,28 @@ export class LoginService {
 
   changePassword: boolean = false;
 
-  constructor(private _httpClient: HttpClient,
+  constructor( private _authService: AuthService
     ) { }
 
-  loginUser(login): Promise<User> {
+  loginUser(login){
     console.log(login)
-    return new Promise((resolve, reject) => {
-        this._httpClient.post(environment.DOMAIN_LOCAL + 'login', login)
-            .subscribe((response: User) => {
-              console.log(response)
-                resolve(response);
-            }, reject);
-    });
+
+    login.rut.replace(".", "")
+
+    const newRut = login.rut.replace(".", "")
+  
+     console.log('newrut', newRut)
+
+     const obj = {rut:newRut , email: login.email, password: login.password}
+
+     this._authService.loginUser(obj)
+     .then((res) => {
+       console.log(res)
+     })
+     .catch((err) => {
+       console.log(err)
+     })
+
+
 }
 }
