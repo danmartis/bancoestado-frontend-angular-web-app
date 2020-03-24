@@ -23,8 +23,11 @@ export class HeaderLandingComponent implements OnInit {
   }
 
   onClick() {
+    /*
     const perfilDrop = document.getElementsByClassName('header__perfil__dropdown');
+    console.log(perfilDrop)
     perfilDrop[0].classList.remove('header__perfil__dropdown--active');
+    */
   }
   ngOnInit() {
     
