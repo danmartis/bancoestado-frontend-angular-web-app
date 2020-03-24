@@ -1,0 +1,37 @@
+:host {
+  .card-user {
+    margin: 0 auto 3rem;
+    max-width: 330px;
+    .profile-card {
+      min-height: 250px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      .profile-content {
+        width: 100%;
+      }
+      .avatar {
+        width: 100%;
+        background-color: #1e63f8;
+        border-radius: 50%;
+        height: 90px;
+        width: 90px;
+        margin: 0 auto 1rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #ffffff;
+        font-size: 32px;
+      }
+      .profile {
+        &__info {
+          width: 100%;
+        }
+        &__firstname {
+          margin-right: .5ch;
+        }
+      }
+    } // .profile-card
+  } // .card-user
+}

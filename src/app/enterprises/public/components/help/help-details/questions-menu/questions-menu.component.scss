@@ -6,6 +6,7 @@
     display: flex;
     align-items: center;
     margin-bottom: 24px;
+
     .item {
       &__icon {
         display: flex;
@@ -16,18 +17,32 @@
           background-color: rgb(241, 241, 241);;
           padding: 15px;
           border-radius: 50%;
-          color: $color-action;
           @include font-size(28);
         }
       }
       &__title {
-        color: $color-action;
+        color: $color-primary;
 
         span {
           cursor: pointer;
         }
       }
 
+    }
+
+    &.category {
+      &--open {
+        .item {
+          &__icon {
+            i {
+              color: $color-action;
+            }
+          }
+          &__title {
+            color: $color-action;
+          }
+        }
+      }
     }
   }
 }

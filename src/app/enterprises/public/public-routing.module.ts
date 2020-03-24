@@ -12,7 +12,11 @@ import { ResetPasswordComponent } from './components/reset-password/reset-passwo
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { HelpDetailsComponent } from './components/help/help-details/help-details.component';
 import { GestorContenidoService } from 'src/app/services/gestor-contenido.service';
+<<<<<<< HEAD
 import { AuthguardService } from 'src/app/services/helpers/authguard.service';
+=======
+import { PersonalConfigComponent } from './components/personal-config/personal-config.component';
+>>>>>>> aecdf9053b030efc9e83684944cafff848692ee8
 
 const routes: Routes = [
   {
@@ -36,7 +40,8 @@ const routes: Routes = [
       { path: 'ayuda/detalles/categoria/:idItem/pregunta/:idQuestion', component: HelpDetailsComponent,
       resolve  : {
         data: GestorContenidoService
-    } }
+    } },
+    { path: 'configuracion-personal', component: PersonalConfigComponent }
     ]
   }
 ];

@@ -11,12 +11,12 @@ import { DomSanitizer } from '@angular/platform-browser';
 export class TutorialsComponent implements OnInit {
 
   @Input() id : string = 'enterprises__help__tutorials';
-
-  private videoItems = new Array();
-  private title : string;
+  
+  protected videoItems = new Array();
+  protected title : string;
   protected question : string = '';
-  private show = 3;
-  private idVideo : string;
+  protected show = 3;
+  protected idVideo : string;
   static question: string;
 
   constructor(protected modalService:ModalService,private gestorContenido: GestorContenidoService,private sanitizer:DomSanitizer) { }
@@ -33,16 +33,12 @@ export class TutorialsComponent implements OnInit {
     this.modalService.closeListOpenSingle(closeList, open);
   }
 
-  // urlVideo(){
-  //   return this.sanitizer.bypassSecurityTrustResourceUrl("https://www.youtube.com/embed/"+this.idVideo);
-  // }
-
   async contenido(){
     await this.gestorContenido.getVideos().subscribe( res => {
       this.videoItems = res.getDetalle()['videoItems'];
       this.title = res.getDetalle()['titleMain'];
     }),
-    err => {
+    (err: any) => {
       console.log('err', err);
       return err;
     }

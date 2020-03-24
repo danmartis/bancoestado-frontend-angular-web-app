@@ -12,11 +12,14 @@
     .help__details__menu__items {
 
       @media (max-width: $media-max-lg) {
-        &.hide {
-          display: none;
+        &.hide-menu {
+          height: 0;
+          opacity: 0;
         }
-        &.show {
-          display: block;
+        &.show-menu {
+          height: unset;
+          opacity: 1;
+          transition: opacity .3s, height .3s;
         }
       }
       
@@ -24,21 +27,23 @@
     }
 
     .help__details__faq__items {
-      @media (max-width: $media-max-lg) {
-        display: none;
-        &.hide {
-          display: none;
-        }
-        &.show {
-          display: block;
-        }
+      &.hide-faq {
+        height: 0;
+        opacity: 0;
+      }
+      &.show-faq {
+        height: unset;
+        opacity: 1;
+        transition: opacity .3s, height .3s;
       }
 
       #help__details__menu__items__btn-back {
         margin: 2rem 0;
-        display: none;
         color: $color-primary;
         font-size: 14px;
+        span {
+          cursor: pointer;
+        }
         i {
           background: $color-action;
           border-radius: 50%;
@@ -47,8 +52,8 @@
           vertical-align: bottom;
           margin-right: 8px;
         }
-        @media (max-width: $media-max-lg) {
-          display: block;
+        @media (min-width: $media-max-lg) {
+          display: none;
         }
       }
     }

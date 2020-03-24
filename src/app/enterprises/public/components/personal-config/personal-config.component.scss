@@ -1,0 +1,71 @@
+@import '../../../../../scss/_vars';
+@import '../../../../../scss/_mixins';
+@import '../../../../../scss/_public';
+
+
+#personal-config {
+  margin-top: 3rem;
+
+  .personal-config__title {
+    color: $color_primary;
+    @media (max-width: $media-max-lg) {
+      text-align: center;
+    }
+  }
+
+  .personal-config__menu {
+
+    @media (max-width: $media-max-lg) {
+      text-align: center;
+    }
+
+    .menu-items {
+      .menu-item {
+        display: inline-block;
+        margin-top: 1rem;
+
+        @media (max-width: $media-max-sm) {
+        }
+        a {
+          padding: 4px 40px;
+          cursor: pointer;
+          font-size: 18px;
+          @media (max-width: $media-max-sm) {
+            padding: 4px 30px;
+          }
+          @media (max-width: $media-max-xs) {
+            padding: 4px 8px;
+            font-size: 16px;
+          }
+        }
+        &.active {
+          a {
+            border-bottom: 3px solid $color_primary;
+            color: $color_primary;
+            font-weight: bold;
+          }
+        }
+      }
+    }
+    margin-bottom: 3rem;
+
+    .config__menu__btn-edit__cont {
+      text-align: right;
+
+      @media (max-width: $media-max-lg) {
+        text-align: center;
+        margin-top: 3rem;
+      }
+      button {
+      }
+      span {
+        margin: 0 1rem;
+      }
+    }
+  } // .personal-config__menu
+
+  .personal-config__main-container {
+  
+    
+  } // .personal-config__main-container
+}
