@@ -73,6 +73,7 @@ import { InfoItemComponent } from './components/personal-config/info-item/info-i
     SharedModule,
     FormsModule,
     ReactiveFormsModule,
+    
 
   ],
   exports:[VideoPipe,HelpBannerComponent]
