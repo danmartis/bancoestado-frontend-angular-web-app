@@ -39,11 +39,13 @@ export class AuthService {
 
     return new Promise((resolve, reject) => {
         this._httpClient.post(environment.DOMAIN_LOCAL + 'login', {rut:newRut , email: login.email, password: login.password})
-            .subscribe((user: User) => {
-      
+            .subscribe((user: any) => {
 
-              localStorage.setItem('currentUser', JSON.stringify(user));
-              this.currentUserSubject.next(user);
+  
+      
+              
+              localStorage.setItem('currentUser', JSON.stringify(user.data.data));
+              this.currentUserSubject.next(user.data.data);
 
               console.log(' this.currentUserSubject',  this.currentUserSubject)
 

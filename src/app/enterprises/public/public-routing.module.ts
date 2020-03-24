@@ -26,7 +26,7 @@ const routes: Routes = [
       { path: 'ayuda', component: HelpComponent },
       { path: 'registro', component: RegisterComponent },
       { path: 'iniciar-sesion', component: LoginComponent },
-      { path: 'cambiar-clave', component: ResetPasswordComponent },
+      { path: 'cambiar-clave', component: ResetPasswordComponent , canActivate: [ AuthguardService ] },
       { path: 'resumen', component: DashboardComponent, canActivate: [ AuthguardService ] },
       { path: 'ayuda/detalles', component: HelpDetailsComponent},
       { path: 'ayuda/detalles/categoria/:idItem', component: HelpDetailsComponent,

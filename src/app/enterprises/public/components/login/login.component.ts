@@ -39,6 +39,9 @@ export class LoginComponent implements OnInit {
 
 
   ngOnInit() {
+
+console.log(this._authService.currentUserValue)
+    
    
     this.loginForm = this._formBuilder.group({
       rut: [ '76124890-1', [Validators.required, rutNotValid]], 
