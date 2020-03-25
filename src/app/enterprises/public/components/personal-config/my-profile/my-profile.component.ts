@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { LoginService } from '../../login/services/login.service';
 import { User } from '../../login/services/model/login.model';
+import { AuthService } from '../../../../../services/authentication/auth.service';
 
 @Component({
   selector: 'app-my-profile',
@@ -15,20 +15,26 @@ export class MyProfileComponent implements OnInit {
   protected contractInfoItems: Array<any>;
   protected _user: User;
 
-  constructor(private _loginService: LoginService) { }
+  messageError: string = "";
 
-  getUserById() {
-    this._loginService.getUser(1)
-      .subscribe(user => this._user = user);
-      console.log(this._user);
+  constructor(private _authService: AuthService) { }
+
+  async getCurrentUser() {
+    await this._authService.getCurrentUser(this._authService.currentUserValue.email, this._authService.currentUserValue.rut)
+      .subscribe((res: any) => {
+        this._user = res.data.data;
+        console.log(this._user);
+      });
+      return this._user;
   }
 
   ngOnInit() {
-    this.getUserById();
+    this.getCurrentUser();
+    console.log(this.getCurrentUser());
     this.personalInfoItems = {
       'fixed': [
         {
-          id: 'rut',
+          id: '1',
           label: 'Rut',
           value: '15.446.676-k'
         },

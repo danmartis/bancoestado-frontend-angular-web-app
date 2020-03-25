@@ -5,9 +5,12 @@ export interface User {
     rut: string;
     password: string;
     changePassword: boolean;
-    name: string;
-    last_name: string;
+    userRut: string;
+    birthday: Date;
     phone: number;
-    position: string;
+    address: string;
+    comuna: string;
+    city: string;
+    roles: string[];
     
 }

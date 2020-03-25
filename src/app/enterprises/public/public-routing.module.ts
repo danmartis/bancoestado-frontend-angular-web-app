@@ -13,22 +13,21 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { HelpDetailsComponent } from './components/help/help-details/help-details.component';
 import { GestorContenidoService } from 'src/app/services/gestor-contenido.service';
 import { PersonalConfigComponent } from './components/personal-config/personal-config.component';
-
+import { AuthguardService } from 'src/app/services/helpers/authguard.service';
 const routes: Routes = [
   {
     path: '',
     component: ContainerPublicComponent,
     children: [
-      { path: '', redirectTo: 'empresas', pathMatch: 'full' },
-      { path: 'empresas', component: LandingComponent },
+      { path: '', component: LandingComponent },
       { path: 'nosotros', component: AboutComponent },
       { path: 'qué hacemos', component: WhatWeDoComponent },
       { path: 'sucursales', component: BranchOfficesComponent },
       { path: 'ayuda', component: HelpComponent },
       { path: 'registro', component: RegisterComponent },
       { path: 'iniciar-sesion', component: LoginComponent },
-      { path: 'cambiar-clave', component: ResetPasswordComponent },
-      { path: 'resumen', component: DashboardComponent },
+      { path: 'cambiar-clave', component: ResetPasswordComponent , canActivate: [ AuthguardService ] },
+      { path: 'resumen', component: DashboardComponent, canActivate: [ AuthguardService ] },
       { path: 'ayuda/detalles', component: HelpDetailsComponent},
       { path: 'ayuda/detalles/categoria/:idItem', component: HelpDetailsComponent,
       resolve: {

@@ -21,7 +21,8 @@ describe('DashboardComponent', () => {
         DashboardComponent,
         ModalComponent,
         LinkComponent,
-        IconComponent
+        IconComponent,
+        
       ]
     })
     .compileComponents();

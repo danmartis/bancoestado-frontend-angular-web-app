@@ -16,7 +16,7 @@ import { CardBenefitsComponent } from './components/landing/benefits/card-benefi
 import { RegisterComponent } from './components/register/register.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { Ng2Rut } from 'ng2-rut';
+
 import { LoginComponent } from './components/login/login.component';
 import { TutorialsComponent } from './components/help/tutorials/tutorials.component';
 import { FaqComponent } from './components/help/faq/faq.component';
@@ -73,7 +73,7 @@ import { InfoItemComponent } from './components/personal-config/info-item/info-i
     SharedModule,
     FormsModule,
     ReactiveFormsModule,
-    Ng2Rut
+    
 
   ],
   exports:[VideoPipe,HelpBannerComponent]
