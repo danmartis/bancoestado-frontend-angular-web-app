@@ -13,25 +13,36 @@
         margin: 1em auto 4em auto;
       }
       .item {
-
         .item-card-slider {
           &-help {
             padding: 1.5rem;
             width: 300px;
-          
+            min-height: 400px;
+
             @media (max-width: $media-max-md) {
               width: 280px;
+              height: unset;
             }
 
             .item-card-slider-icon {
               color: $color-paragraph;
-              transition: color .3s ease-in-out;
+              transition: color 0.3s ease-in-out;
+            }
+
+            .item-card-slider-title {
+              color: #24272d;
+              @include font-size(20);
+              @include line-height(24);
+              margin: 1em 0 1.5em 0;
             }
 
             .item-card-slider-help__btn {
-              margin-top: 3rem;
+              position: absolute;
+              bottom: 1.5rem;
+              right: 2rem;
               a {
                 float: right;
+                transition: all 0.2s ease-in-out;
                 i {
                   transform: rotate(180deg);
                   color: #ffffff;
@@ -40,6 +51,7 @@
                   padding: 1px;
                   vertical-align: bottom;
                   margin-left: 8px;
+                  transition: all 0.2s ease-in-out;
                 }
               }
             }
@@ -48,7 +60,7 @@
           &:hover {
             .item-card-slider-icon {
               color: $color-action;
-              transition: color .3s ease-in-out;
+              transition: color 0.3s ease-in-out;
             }
           }
         }
@@ -57,24 +69,22 @@
   }
 }
 
-.item-card-slider-title {
-  color: #24272d;
-  @include font-size(20);
-  @include line-height(24);
-  margin: 1em 0 1.5em 0;
-}
-
 .item-card-slider-question {
   color: #6b9eff;
   @include font-size(16);
   @include line-height(24);
   font-weight: 400;
   margin: 0.5em 0 0 0;
-}
-
-.item-card-slider-question a:hover {
-  color: rgb(53, 105, 202);
-  cursor: pointer;
+  a {
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    transition: color 0.3s ease-in-out;
+    &:hover {
+      $hover-color: rgb(53, 105, 202);
+      border-bottom: 2px solid $hover-color;
+      color: $hover-color;
+    }
+  }
 }
 
 .item-card-slider-icon {
@@ -87,8 +97,6 @@
     @include font-size(28);
   }
 }
-
-
 
 .item-card-slider__icon-play {
   height: 60px;
