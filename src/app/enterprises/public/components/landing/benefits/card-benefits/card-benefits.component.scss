@@ -4,35 +4,80 @@
   .benefit__item {
     display: flex;
     flex-wrap: wrap;
+
     @media (max-width: $media-max-lg) {
-      
+      flex-wrap: nowrap;
+      align-items: center;
     }
 
     .benefit__item__1 {
       width: 100%;
+
+      @media (max-width: $media-max-lg) {
+        max-width: 100px;
+      }
+      @media (max-width: $media-max-xs) {
+        max-width: 45px;
+      }
+      @media (max-width: $media-max-xxs) {
+        max-width: 35px;
+      }
     }
     .benefit__item__2 {
       width: 100%;
+
+      @media (max-width: $media-max-lg) {
+        app-colored-line {
+          display: none;
+        }
+      }
     }
     .card__icon-container {
       margin: 1rem auto;
       padding-top: 1rem;
       padding-bottom: 1rem;
-      img {
-        height: 50px;
-        max-width: 50px;
 
+      @media (max-width: $media-max-xs) {
+        float: left;
+      }
+      img {
+        $size-icon: 50px;
+        height: $size-icon;
+        max-width: $size-icon;
+        @media (max-width: $media-max-xs) {
+          $size-icon: 35px;
+          max-width: $size-icon;
+        }
+        @media (max-width: $media-max-xxs) {
+          $size-icon: 25px;
+          max-width: $size-icon;
+        }
       }
     }
     .card__title {
       @media (min-width: $media-min-lg) {
         text-align: center;
       }
-      
+      h3 {
+        @media (max-width: $media-max-lg) {
+          margin-top: 8px;
+          margin-bottom: 8px;
+        }
+        @media (max-width: $media-max-xs) {
+          margin-top: 0;
+          margin-bottom: 2px;
+          font-size: 16px;
+        }
+        @media (max-width: $media-max-xxs) {
+          font-size: 14px;
+        }
+      }
     }
     .card__description {
       min-height: 60px;
+      @media (max-width: $media-max-lg) {
+        min-height: unset;
+      }
     }
-    
   } // .benefit_item
 }

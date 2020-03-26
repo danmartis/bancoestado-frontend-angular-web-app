@@ -1,20 +1,42 @@
+@import "../../../../../../scss/vars";
+
 .landing__feature {
   padding: 32px 0;
+
+  .hero-title {
+    margin-top: 3rem;
+    font-size: 3rem;
+    line-height: 3.5rem;
+    @media (max-width: $media-max-lg) {
+      margin-top: 1rem;
+      font-size: 2.5rem;
+      line-height: 3rem;
+    }
+  }
   .feature {
     &__row {
-      display: flex;
-      flex-wrap: wrap;
-      flex-direction: row;
       align-items: center;
     }
     &__col {
-      width: 50%;
+      @media (max-width: $media-max-lg) {
+        margin: 0 15px;
+      }
 
       &__text {
         max-width: 500px;
         margin: auto;
         &--right {
           text-align: right;
+          @media (max-width: $media-max-lg) {
+            text-align: left;
+          }
+        }
+      }
+
+      &__img {
+        @media (max-width: $media-max-lg) {
+          padding: 3rem 0 1rem;
+          margin: auto;
         }
       }
     }

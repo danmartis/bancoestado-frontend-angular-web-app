@@ -7,11 +7,12 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class BenefitsComponent implements OnInit {
 
-  @Input() benefits : string;
+  @Input() benefits : any;
 
   constructor() { }
 
   ngOnInit() {
+    
   }
 
 }

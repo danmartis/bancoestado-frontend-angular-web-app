@@ -18,10 +18,11 @@
 
   .order-sm-2 {
     .hero-text-contaienr {
-      max-width: 500px;
+      max-width: 550px;
       padding-top: 16px;
       margin: auto;
       text-align: right;
+      float: right;
       @media (max-width: $media-max-md) {
         text-align: center;
       }
@@ -30,9 +31,9 @@
 
   .feature {
     &__concept {
+      margin: auto;
       @media (max-width: $media-max-md) {
         max-width: 75%;
-        margin: auto;
       }
     }
   }

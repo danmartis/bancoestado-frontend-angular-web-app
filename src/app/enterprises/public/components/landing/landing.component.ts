@@ -9,9 +9,9 @@ import { GestorContenidoService } from '../../../../services/gestor-contenido.se
 })
 export class LandingComponent implements OnInit {
   
-  private dataBanner = new Array();
-  private dataBenefits = new Array();
-  private dataFeature = new Array();
+  protected dataBanner = new Array();
+  protected dataBenefits = new Array();
+  protected dataFeature = new Array();
 
   constructor(protected modalService:ModalService,private gestorContenido: GestorContenidoService) { }
 

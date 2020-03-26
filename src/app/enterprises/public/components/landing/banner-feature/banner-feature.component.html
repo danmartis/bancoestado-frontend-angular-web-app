@@ -1,24 +1,36 @@
 <section class="feature feature-banner">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-12 col-md-6 order-1 order-sm-1">
-                <div class="row">
-                    <figure class="feature__concept feature__concept--out">
-                        <img class="feature__image" src="assets/imgs/mujer_home.png" alt="Fotografia de personas saludando" />
-                    </figure>
-                </div>
-            </div>
-            <div class="col-12 col-md-6 order-2 order-sm-2">
-                <div class="hero-text-contaienr">
-                    <h1 class="hero-title">
-                        {{banners.BANNER_1}}
-                    </h1>
-                    <app-paragraph>{{banners.BANNER_2}} <span>{{banners.BANNER_3}}</span> {{banners.BANNER_4}} <span>{{banners.BANNER_5}}</span>.</app-paragraph>
-                    <div class="feature__action">
-                        <app-link to="registro" id="enterprises__feature-banner__cta" className="md-full" routerLink="/empresas/registros">{{banners.BANNER_6}}</app-link>
-                    </div>
-                </div>
-            </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 col-md-6 order-1 order-sm-1">
+        <figure class="feature__concept feature__concept--out">
+          <img
+            class="feature__image"
+            src="assets/imgs/mujer_home.png"
+            alt="Aplicación ServiEstado"
+          />
+        </figure>
+      </div>
+      <div class="col-12 col-md-6 order-2 order-sm-2">
+        <div class="hero-text-contaienr">
+          <h1 class="hero-title">
+            {{ banners.BANNER_1 }}
+          </h1>
+          <app-paragraph
+            >{{ banners.BANNER_2 }} <span>{{ banners.BANNER_3 }}</span>
+            {{ banners.BANNER_4 }} <span>{{ banners.BANNER_5 }}</span
+            >.</app-paragraph
+          >
+          <div class="feature__action">
+            <app-link
+              to="registro"
+              id="enterprises__feature-banner__cta"
+              className="md-full"
+              routerLink="/empresas/registros"
+              >{{ banners.BANNER_6 }}</app-link
+            >
+          </div>
         </div>
+      </div>
     </div>
+  </div>
 </section>

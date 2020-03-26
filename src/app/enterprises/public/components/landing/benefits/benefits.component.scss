@@ -1,11 +1,19 @@
 @import "../../../../../../scss/_vars";
 
 .landing__benefits {
-  @media (min-width: 1200px) {
-    margin-top: -3rem;
-  }
   .hero-title--sub {
     font-size: 1.5em;
     text-align: center;
+  }
+
+  .benefit__items {
+    max-width: 95%;
+    margin: auto;
+    @media (max-width: $media-max-xl) {
+      max-width: unset;
+    }
+    @media (max-width: $media-max-lg) {
+      max-width: 500px;
+    }
   }
 }
