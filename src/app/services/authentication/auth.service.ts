@@ -29,15 +29,8 @@ export class AuthService extends BffClientService {
 
   loginUser(login): Promise<User> {
     console.log(login);
-
-    login.rut.replace(/[.]/g, "");
-
-    const newRut = login.rut.replace(/[.]/g, "");
-
-    console.log("newrut", newRut);
-
     return new Promise((resolve, reject) => {
-      this._httpClient.post(environment.DOMAIN_LOCAL + "login", {rut: newRut, email: login.email, password: login.password})
+      this._httpClient.post(environment.DOMAIN_LOCAL + "login", {rut: login.rut, email: login.email, password: login.password})
         .subscribe((user: any) => {
           localStorage.setItem("currentUser", JSON.stringify(user.data.data));
           this.currentUserSubject.next(user.data.data);
@@ -53,18 +46,11 @@ export class AuthService extends BffClientService {
     this.currentUserSubject.next(user);
   }
 
-  getCurrentUser(email: string, rut:string): Promise<User> {
-    rut.replace(/[.]/g, "");
-
-    const newRut = rut.replace(/[.]/g, "");
-
-    return new Promise((res, rej) => {
-      this._httpClient.post(`${environment.DOMAIN_LOCAL}/maintainerUser/personalInformation`,{ email: email, rut: newRut })
-      .subscribe((user: any) => {
-        user = user.data.data;
-        res(user);
-      }, rej);
-    });
+  getCurrentUser(email: string, rut:string): Observable<User> {
+    return this._httpClient.post(`${environment.DOMAIN_LOCAL}/maintainerUser/personalInformation`,{ email: email, rut: rut })
+    .map((res: any) => res.data.data)
+    .catch(this.errorData)
+    .finally(() => { })
   };
       
 }

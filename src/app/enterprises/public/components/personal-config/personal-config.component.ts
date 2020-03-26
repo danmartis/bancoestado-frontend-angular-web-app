@@ -15,11 +15,7 @@ export class PersonalConfigComponent implements OnInit {
   constructor(private _authService: AuthService) { }
 
   ngOnInit() {
-    this.getCurrentUser().then(user => {
-      this._user = user;
-      console.log(this._user);
-      return this._user;
-    });
+    this.getCurrentUser()
   }
 
   handleEditProfile() {
@@ -31,11 +27,12 @@ export class PersonalConfigComponent implements OnInit {
       console.log('Save Profile changes')
     }
   }
-
+ 
   async getCurrentUser() {
     await this._authService.getCurrentUser(this._authService.currentUserValue.email, this._authService.currentUserValue.rut)
-      .then(_user => {
+      .subscribe(_user => {
         this._user = _user;
+        console.log(this._user)
       }), err => {
         return err;
       };

@@ -1,5 +1,4 @@
 export interface User {
-
     id: number;
     email: string;
     rut: string;
@@ -9,8 +8,10 @@ export interface User {
     birthday: Date;
     phone: number;
     address: string;
-    comuna: string;
+    comunne: string;
     city: string;
     roles: string[];
-    
+    company: string[];
+    contact: string,
+    contactType: string
 }

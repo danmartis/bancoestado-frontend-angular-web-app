@@ -67,7 +67,7 @@ export class MyProfileComponent implements OnInit {
       },
       {
         label: 'Perfil asignado ( Rol )',
-        value: 'Administrador'
+        value: this._user.roles[0].role
       },
       {
         label: 'Contacto para ServiEstado',
