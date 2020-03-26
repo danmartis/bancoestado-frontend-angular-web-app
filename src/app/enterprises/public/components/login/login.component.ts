@@ -48,7 +48,7 @@ console.log(this._authService.currentUserValue)
     
    
     this.loginForm = this._formBuilder.group({
-      rut: [ '76124890-1', [Validators.required, rutNotValid]], 
+      rut: [ '76.124.890-1', [Validators.required, rutNotValid]], 
       email:  ['claudio.monasterio@telefonica.com', [Validators.required, Validators.pattern(this.emailPattern)]], 
       password: ['', [Validators.required]],
     });

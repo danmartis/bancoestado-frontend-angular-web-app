@@ -1,50 +1,114 @@
-<header id="header-landing" class="header header--sesion" [ngClass]="['header--' + type, sidebarShadow ? 'header--shadow' : 'header--without-shadow']">
-    <app-top-bar></app-top-bar>
-      <div class="header__accesos">
+<header
+  id="header-landing"
+  class="header header--sesion"
+  [ngClass]="[
+    sidebarShadow ? 'header--shadow' : 'header--without-shadow']">
+  <app-top-bar></app-top-bar>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+
+        <div class="header__accesos">
           <figure class="header__logotipo">
-              <img src="assets/imgs/logo-ServiEstado-horizontal.png" (click)="goToLanding()" alt="Logotipo ServiEstado" style="cursor: pointer">
+            <img
+              src="assets/imgs/logo-ServiEstado-horizontal.png"
+              (click)="goToLanding()"
+              alt="Logotipo ServiEstado"
+              style="cursor: pointer"
+            />
           </figure>
-  
-          <div class="header__mobile">
-              <figure class="header__user">
-                  <img src="assets/imgs/usuario.png" alt="Foto o imagen del cliente" class="sidebar__avatar">
-              </figure>
-              <div class="header__burger">
-                  <button class="header__button-menu" [ngClass]="sidebarStatus ? 'header__button-menu--open' : 'header__button-menu--close'" (click)="toggleSidebarStatus()">
-                      <span></span>
-                      <span></span>
-                      <span></span>
-                  </button>
+        </div>
+
+
+        <nav class="menu-principal" [ngClass]="{ 'logged': isUserLoggedIn }">
+          <div *ngIf="isUserLoggedIn; then loggedBlock else notLoggedBlock"></div>
+        </nav>
+        <ng-template #loggedBlock>
+          <ul class="header__menu">
+            <li class="header__item"
+              *ngFor="let menuItem of privateMenu.menu">
+              <a [routerLink]="menuItem.route"
+                [ngClass]="{'login': menuItem.text === 'Ingresar'}"
+                routerLinkActive="active"
+                class="header__link">
+                {{ menuItem.text }}
+              </a>
+            </li>
+          </ul>
+          <div class="header__my-profile">
+            <a id="header__my-profile__menu-btn" (click)="perfilDropToggle($event)">
+              <div class="my-profile__avatar">
+                <img class="avatar" [src]="privateMenu.userData.img">
               </div>
+              <div class="my-profile__info">
+                <p class="info__name">{{ privateMenu.userData.name }}</p>
+                <p class="info__biller"><small>{{ privateMenu.userData.biller }}</small></p>
+              </div>
+              <div class="my-profile__menu">
+                <span class="material-icons">more_vert</span>
+              </div>
+            </a>
+            <div class="header__my-profile__dropdown">
+              <ul>
+                <li 
+                  *ngFor="let menu of privateMenu.userMenu">
+                  <a [routerLink]="menu.route">
+                    <span class="material-icons">{{ menu.icon }}</span>
+                    <span class="my-profile__dropdown__item">{{ menu.text }}</span>
+                  </a>
+                </li>
+                <li>
+                  <a 
+                    (click)="handleLogout()">
+                    <span class="material-icons">input</span>
+                    <span class="my-profile__dropdown__item">Salir</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
           </div>
+        </ng-template>
+        <ng-template #notLoggedBlock>
+          <ul class="header__menu">
+            <li class="header__item"
+              *ngFor="let menuItem of publicMenu">
+              <a [routerLink]="menuItem.route"
+                [ngClass]="{'login': menuItem.text === 'Ingresar'}"
+                routerLinkActive="active"
+                class="header__link">
+                {{ menuItem.text }}
+              </a>
+            </li>
+          </ul>
+        </ng-template>
+
+        <div class="header__mobile">
+          <figure class="header__user" *ngIf="isUserLoggedIn">
+              <img [src]="privateMenu.userData.img" [alt]="privateMenu.userData.img" class="sidebar__avatar">
+          </figure>
+          <div class="header__burger">
+              <button class="header__button-menu" [ngClass]="sidebarStatus ? 'header__button-menu--open' : 'header__button-menu--close'" (click)="toggleSidebarStatus()">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+              </button>
+          </div>
+        </div>
+
+
       </div>
-  
-      <nav class="menu-principal">
-          <div class="container">
-              <div class="row">
-                  <div class="col-12">
-                      <ul class="header__menu">
-                          <li class="header__item">
-                              <a routerLink="/" class="header__link">Inicio</a>
-                          </li>
-                          <li class="header__item">
-                              <a routerLink="/nosotros" class="header__link">Quienes Somos</a>
-                          </li>
-                          <li class="header__item">
-                            <a routerLink="/empresas/ayuda" class="header__link">Ayuda</a>
-                          </li>
-                          <li class="header__item">
-                            <a  routerLink="/empresas/iniciar-sesion" class="header__link login" >Ingresar</a>
-                          </li>
-                      </ul>
-                  </div>
-              </div>
-          </div>
-      </nav>
-  </header>
-  
-  
-  
-  
-  
+    </div>
+  </div>
+</header>
+
+<app-mobile-menu 
+[isUserLoggedIn]="isUserLoggedIn"
+[privateMenu]="privateMenu"
+[publicMenu]="publicMenu"
+[status]="getSidebarStatus()"
+(userLogoutEv)="handleLogout($event)"></app-mobile-menu>
+
+<!--
+
   <app-sidebar [status]="getSidebarStatus()"></app-sidebar>
+-->

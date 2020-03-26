@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { User } from '../login/services/model/login.model';
+import { AuthService } from '../../../../services/authentication/auth.service';
 
 @Component({
   selector: 'app-personal-config',
@@ -7,12 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PersonalConfigComponent implements OnInit {
 
-
+  protected _user: User;
   protected isEditingProfile : boolean = false;
 
-  constructor() { }
+  constructor(private _authService: AuthService) { }
 
   ngOnInit() {
+    this.getCurrentUser()
   }
 
   handleEditProfile() {
@@ -23,6 +26,17 @@ export class PersonalConfigComponent implements OnInit {
     } else {
       console.log('Save Profile changes')
     }
+  }
+ 
+  async getCurrentUser() {
+    await this._authService.getCurrentUser(this._authService.currentUserValue.email, this._authService.currentUserValue.rut)
+      .subscribe(_user => {
+        this._user = _user;
+        console.log(this._user)
+      }), err => {
+        return err;
+      };
+      return this._user;
   }
 
 }

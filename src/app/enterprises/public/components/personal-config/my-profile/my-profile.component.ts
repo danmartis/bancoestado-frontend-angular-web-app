@@ -7,53 +7,55 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class MyProfileComponent implements OnInit {
 
-  @Input() isEditingProfile :boolean;
-  protected personalInfoItems : Object;
-  protected billerInfoItems : Array<any>;
-  protected contractInfoItems : Array<any>;
-  
-  
+  @Input() isEditingProfile: boolean;
+  @Input() _user: any;
+  protected personalInfoItems: Object;
+  protected billerInfoItems: Array<any>;
+  protected contractInfoItems: Array<any>;
+
+  messageError: string = "";
+
   constructor() { }
-  
+
   ngOnInit() {
     this.personalInfoItems = {
       'fixed': [
         {
           id: 'rut',
           label: 'Rut',
-          value: '15.446.676-k'
+          value: this._user.rut
         },
         {
           id: 'email',
           label: 'Correo electrónico',
-          value: 'maria.martinez@email.com'
+          value: this._user.email
         },
       ],
       'editable': [
         {
           id: 'birthday',
           label: 'F. nacimiento',
-          value: '10/12/1986'
+          value: this._user.birthday
         },
         {
           id: 'phone',
           label: 'Teléfono',
-          value: '+56978811992'
+          value: this._user.phone
         },
         {
           id: 'address',
           label: 'Dirección',
-          value: 'Los Cerezos 89, Dpto 782'
+          value: this._user.address
         },
         {
           id: 'zone',
           label: 'Comuna',
-          value: 'Ñuñoa'
+          value: this._user.commune
         },
         {
           id: 'city',
           label: 'Ciudad',
-          value: 'Santiago, RM'
+          value: this._user.city
         }
       ]
     };
@@ -61,19 +63,19 @@ export class MyProfileComponent implements OnInit {
     this.billerInfoItems = [
       {
         label: 'Empresa',
-        value: 'Inmobiliaria Aconcagua, S.A.'
+        value: this._user.company[0].name
       },
       {
         label: 'Perfil asignado ( Rol )',
-        value: 'Administrador'
+        value: this._user.roles[0].role
       },
       {
         label: 'Contacto para ServiEstado',
-        value: 'Si'
+        value: this._user.contact
       },
       {
         label: 'Tipo de contacto',
-        value: 'Contacto operacional'
+        value: this._user.contactType
       }
     ];
     this.contractInfoItems = [
@@ -91,4 +93,5 @@ export class MyProfileComponent implements OnInit {
       },
     ];
   }
+
 }

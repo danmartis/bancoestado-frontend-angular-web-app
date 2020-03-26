@@ -30,14 +30,12 @@ const routes: Routes = [
       { path: 'resumen', component: DashboardComponent, canActivate: [ AuthguardService ] },
       { path: 'ayuda/detalles', component: HelpDetailsComponent},
       { path: 'ayuda/detalles/categoria/:idItem', component: HelpDetailsComponent,
-      resolve: {
-        data: GestorContenidoService
-       } },
+        resolve: { data: GestorContenidoService }
+      },
       { path: 'ayuda/detalles/categoria/:idItem/pregunta/:idQuestion', component: HelpDetailsComponent,
-      resolve  : {
-        data: GestorContenidoService
-    } },
-    { path: 'configuracion-personal', component: PersonalConfigComponent }
+        resolve  : { data: GestorContenidoService }
+      },
+      { path: 'configuracion-personal', component: PersonalConfigComponent },
     ]
   }
 ];
