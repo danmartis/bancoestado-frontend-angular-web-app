@@ -5,6 +5,8 @@ import { CardPageComponent } from 'src/app/shared/components/components-atom/car
 import { ButtonComponent } from 'src/app/shared/components/components-atom/button/button.component';
 import { InputComponent } from 'src/app/shared/components/components-atom/input/input.component';
 import { ParagraphComponent } from 'src/app/shared/components/components-atom/paragraph/paragraph.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('ResetPasswordComponent', () => {
   let component: ResetPasswordComponent;
@@ -12,6 +14,11 @@ describe('ResetPasswordComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports: [
+        FormsModule,
+        ReactiveFormsModule,
+        RouterTestingModule
+      ],
       declarations: [ 
         ResetPasswordComponent,
         CardPageComponent,

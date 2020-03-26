@@ -1,12 +1,17 @@
 export interface User {
-
+    id: number;
     email: string;
     rut: string;
     password: string;
     changePassword: boolean;
-    name: string;
-    last_name: string;
+    userRut: string;
+    birthday: Date;
     phone: number;
-    position: string;
-    
+    address: string;
+    comunne: string;
+    city: string;
+    roles: string[];
+    company: string[];
+    contact: string,
+    contactType: string
 }

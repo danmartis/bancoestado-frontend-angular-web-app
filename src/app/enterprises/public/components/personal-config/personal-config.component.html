@@ -31,7 +31,7 @@
 
 
     <section class="personal-config__main-container">
-      <app-my-profile [isEditingProfile]="isEditingProfile"></app-my-profile>
+      <app-my-profile *ngIf="_user" [_user]="_user" [isEditingProfile]="isEditingProfile"></app-my-profile>
     </section>
   </div>
 </app-page>

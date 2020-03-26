@@ -24,6 +24,8 @@ import { IconComponent } from 'src/app/shared/components/components-atom/icon/ic
 import { FaqComponent } from './faq/faq.component';
 import { HelpSearchComponent } from './help-search/help-search.component';
 import { HelpBannerComponent } from './help-banner/help-banner.component';
+import { VideoPipe } from './tutorials/video.pipe';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 describe('HelpComponent', () => {
   let component: HelpComponent;
@@ -51,13 +53,16 @@ describe('HelpComponent', () => {
         IconComponent,
         FaqComponent,
         HelpSearchComponent,
-        HelpBannerComponent
+        HelpBannerComponent,
+        VideoPipe
       ],
       imports: [
         NgbModule,
         FormsModule,
         NgxTinySliderModule,
-        RouterTestingModule
+        RouterTestingModule,
+        HttpClientTestingModule
+        
       ]
     })
     .compileComponents();

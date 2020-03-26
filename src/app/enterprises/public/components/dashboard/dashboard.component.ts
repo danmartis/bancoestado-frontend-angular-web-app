@@ -10,6 +10,8 @@ import { LoginService } from '../login/services/login.service';
 })
 export class DashboardComponent implements OnInit {
 
+  modalName = 'enterprises__dashboard__welcome-modal';
+
   closeListOpenSingle(closeList: Array<string>, open: string) {
     this.modalService.closeListOpenSingle(closeList, open);
   }
@@ -22,7 +24,7 @@ export class DashboardComponent implements OnInit {
 
       
     setTimeout(() => {
-      this.closeListOpenSingle([''], 'enterprises__dashboard__welcome-modal')
+      this.closeListOpenSingle([''],this.modalName)
     }, 1000);
 
     }
@@ -32,6 +34,10 @@ export class DashboardComponent implements OnInit {
 
 
     
+  }
+
+  closeModal() {
+    this.modalService.toggle(this.modalName);
   }
 
 

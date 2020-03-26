@@ -3,7 +3,7 @@ import { FormGroup, FormBuilder, Validators, ValidatorFn, AbstractControl, Valid
 import { RegisterService } from './services/register.service';
 import { Register } from './models/register.model';
 import { ModalService } from 'src/app/services/modal.service';
-import { RutValidator } from 'ng2-rut';
+
 
 @Component({
   selector: 'app-register',
@@ -25,7 +25,6 @@ export class RegisterComponent implements OnInit {
 
   constructor(private _formBuilder: FormBuilder,
     private _registrerService: RegisterService,
-    private rutValidator: RutValidator,
     private modalService: ModalService) { }
   ngOnInit() {
 
