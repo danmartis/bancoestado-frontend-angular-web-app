@@ -15,7 +15,10 @@ export class LoginComponent implements OnInit {
   id : string = "enterprises__login";
 
   modalName : string = "enterprises__login__modal__invalid-data";
-  messageError: '';
+
+
+  messageTitle:''
+messageDesc: ''
 
   closeListOpenSingle(closeList: Array<string>, open: string) {
     this.modalService.closeListOpenSingle(closeList, open);
@@ -28,6 +31,7 @@ export class LoginComponent implements OnInit {
   formInvalid: boolean = false;
   emailPattern = "[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}";
 
+  
   invalidLoginModal() {
     console.log('hola')
     this.modalService.toggle(this.modalName);
@@ -103,9 +107,11 @@ console.log(this._authService.currentUserValue)
        console.log(err);
 
        
-      this.messageError = err.error.data.message
-
+      this.messageTitle = err.error.data.data.titulo
+      this.messageDesc = err.error.data.data.descripcion
       this.invalidLoginModal()
+
+
      })
 
     }
