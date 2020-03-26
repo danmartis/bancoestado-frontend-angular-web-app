@@ -53,15 +53,18 @@ export class AuthService extends BffClientService {
     this.currentUserSubject.next(user);
   }
 
-  getCurrentUser(email: string, rut:string): Observable<User> {
+  getCurrentUser(email: string, rut:string): Promise<User> {
     rut.replace(/[.]/g, "");
 
     const newRut = rut.replace(/[.]/g, "");
 
-    return this._httpClient.post(`${environment.DOMAIN_LOCAL}/maintainerUser/personalInformation`,{ email: email, rut: newRut })
-    .map((res: any) => res)
-    .catch(this.errorData)
-    .finally(() => { })
+    return new Promise((res, rej) => {
+      this._httpClient.post(`${environment.DOMAIN_LOCAL}/maintainerUser/personalInformation`,{ email: email, rut: newRut })
+      .subscribe((user: any) => {
+        user = user.data.data;
+        res(user);
+      }, rej);
+    });
   };
       
 }

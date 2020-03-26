@@ -1,6 +1,4 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { User } from '../../login/services/model/login.model';
-import { AuthService } from '../../../../../services/authentication/auth.service';
 
 @Component({
   selector: 'app-my-profile',
@@ -10,65 +8,54 @@ import { AuthService } from '../../../../../services/authentication/auth.service
 export class MyProfileComponent implements OnInit {
 
   @Input() isEditingProfile: boolean;
+  @Input() _user: any;
   protected personalInfoItems: Object;
   protected billerInfoItems: Array<any>;
   protected contractInfoItems: Array<any>;
-  protected _user: User;
 
   messageError: string = "";
 
-  constructor(private _authService: AuthService) { }
-
-  async getCurrentUser() {
-    await this._authService.getCurrentUser(this._authService.currentUserValue.email, this._authService.currentUserValue.rut)
-      .subscribe((res: any) => {
-        this._user = res.data.data;
-        console.log(this._user);
-      });
-      return this._user;
-  }
+  constructor() { }
 
   ngOnInit() {
-    this.getCurrentUser();
-    console.log(this.getCurrentUser());
     this.personalInfoItems = {
       'fixed': [
         {
-          id: '1',
+          id: 'rut',
           label: 'Rut',
-          value: '15.446.676-k'
+          value: this._user.rut
         },
         {
           id: 'email',
           label: 'Correo electrónico',
-          value: 'maria.martinez@email.com'
+          value: this._user.email
         },
       ],
       'editable': [
         {
           id: 'birthday',
           label: 'F. nacimiento',
-          value: '10/12/1986'
+          value: this._user.birthday
         },
         {
           id: 'phone',
           label: 'Teléfono',
-          value: '+56978811992'
+          value: this._user.phone
         },
         {
           id: 'address',
           label: 'Dirección',
-          value: 'Los Cerezos 89, Dpto 782'
+          value: this._user.address
         },
         {
           id: 'zone',
           label: 'Comuna',
-          value: 'Ñuñoa'
+          value: this._user.comuna
         },
         {
           id: 'city',
           label: 'Ciudad',
-          value: 'Santiago, RM'
+          value: this._user.city
         }
       ]
     };
@@ -106,4 +93,5 @@ export class MyProfileComponent implements OnInit {
       },
     ];
   }
+
 }
