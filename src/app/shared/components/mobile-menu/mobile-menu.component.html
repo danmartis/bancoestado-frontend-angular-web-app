@@ -1,0 +1,73 @@
+<div id="mobile-menu"
+  class="sidebar"
+  [ngClass]="[getStatusCss()]">
+
+  <div class="sidebar__header">
+    <div *ngIf="isUserLoggedIn; then loggedHeaderBlock else notloggedHeaderBlock"></div>
+  </div>
+  <ng-template #loggedHeaderBlock>
+    <figure class="sidebar__user">
+      <img [src]="privateMenu.userData.img" [alt]="privateMenu.userData.name" class="sidebar__avatar">
+    </figure>
+    <p class="sidebar__name">{{ privateMenu.userData.name }}</p>
+    <p class="sidebar__email">{{ privateMenu.userData.biller }}</p>
+  </ng-template>
+  <ng-template #notloggedHeaderBlock>
+    <figure class="sidebar__logo">
+      <img (click)="goToLanding()" src="assets/imgs/logo-ServiEstado-horizontal.png" alt="ServiEstado" class="sidebar__avatar">
+    </figure>
+    <p class="sidebar__name"></p>
+    <p class="sidebar__email"></p>
+  </ng-template>
+  
+
+
+  <nav class="menu-principal" [ngClass]="{ 'logged': isUserLoggedIn }">
+    <ul class="header__menu">
+      <div *ngIf="isUserLoggedIn; then loggedBlock else notLoggedBlock"></div>
+    </ul>
+  </nav>
+  <ng-template #loggedBlock>
+    <li class="header__item"
+      *ngFor="let menuItem of privateMenu.menu">
+      <a [routerLink]="menuItem.route"
+        routerLinkActive="active"
+        class="header__link">
+        {{ menuItem.text }}
+      </a>
+    </li>
+    <li 
+      *ngFor="let menu of privateMenu.userMenu"
+      class="header__item">
+      <a [routerLink]="menu.route"
+        routerLinkActive="active"
+        class="header__link">
+        {{ menu.text }}
+      </a>
+    </li>
+    <li 
+      class="header__item">
+      <a (click)="userLogout()"
+        class="header__link">
+        Salir
+      </a>
+    </li>
+  </ng-template>
+  <ng-template #notLoggedBlock>
+    <li class="header__item"
+      *ngFor="let menuItem of publicMenu">
+      <a [routerLink]="menuItem.route"
+        [ngClass]="{'login': menuItem.text === 'Ingresar'}"
+        routerLinkActive="active"
+        class="header__link">
+        {{ menuItem.text }}
+      </a>
+    </li>
+    <li class="header__item go-se-people">
+      <a href="/"
+        class="header__link">
+        Ir a ServiEstado Personas
+      </a>
+    </li>
+  </ng-template>
+</div>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -11,34 +11,94 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class HeaderLandingComponent implements OnInit {
 
+
+  @Input() isUserLoggedIn : boolean;
+  @Input() publicMenuAsync : any;
+  @Input() privateMenuAsync : any;
+
+  protected publicMenu : any;
+  protected privateMenu : any;
+  protected userData : any;
+
   // false is close sidebar
   sidebarStatus : boolean = false;
   sidebarShadow : boolean = false;
-  constructor(private router: Router) { }
 
-  perfilDropToggle($event) {  
-    $event.stopPropagation();
-    const perfilDrop = document.getElementsByClassName('header__perfil__dropdown');
-    perfilDrop[0].classList.toggle('header__perfil__dropdown--active');
+
+  constructor(private router: Router) {
+
+    this.publicMenu = [
+      {
+        route: '/',
+        text: 'Inicio'
+      },
+      {
+        route: '/nosotros',
+        text: 'Quiénes Somos'
+      },
+      {
+        route: '/empresas/ayuda',
+        text: 'Ayuda'
+      },
+      {
+        route: '/empresas/iniciar-sesion',
+        text: 'Ingresar'
+      }, 
+    ];
+
+    this.privateMenu = {
+      menu: [
+        {
+          route: '/empresas/resumen',
+          text: 'Resumen'
+        },
+        {
+          route: '/empresas/convenios',
+          text: 'Mis Convenios'
+        },
+        {
+          route: '/empresas/nominas',
+          text: 'Nóminas'
+        },
+        {
+          route: '/empresas/reportes',
+          text: 'Reportes'
+        },
+      ],
+      userMenu: [
+        {
+          icon: 'perm_identity',
+          route: '/empresas/configuracion-personal',
+          text: 'Configuracion Personal'
+        }
+      ],
+      userData: {
+        img: 'assets/imgs/usuario.png',
+        name: 'Usuario Ejemplo',
+        biller: 'Empresa Ejemplo'
+      }
+    }
   }
 
-  onClick() {
-    /*
-    const perfilDrop = document.getElementsByClassName('header__perfil__dropdown');
-    console.log(perfilDrop)
-    perfilDrop[0].classList.remove('header__perfil__dropdown--active');
-    */
-  }
-  ngOnInit() {
-    
+  ngOnInit() {    
     window.addEventListener('scroll', (evt) => {
       const doc = document.documentElement;
-      // const left = (window.pageXOffset || doc.scrollLeft) - (doc.clientLeft || 0);
       const top = (window.pageYOffset || doc.scrollTop)  - (doc.clientTop || 0);
-      // console.log(top, left);
       this.sidebarShadow = top > 1;
     });
   }
+
+  perfilDropToggle($event: any) {  
+    $event.stopPropagation();
+    const perfilDrop = document.getElementsByClassName('header__my-profile__dropdown');
+    perfilDrop[0].classList.toggle('active');
+  }
+
+  onClick() {
+    const perfilDrop = document.getElementsByClassName('header__my-profile__dropdown');
+    perfilDrop[0] && perfilDrop[0].classList.remove('active');
+  }
+  
 
   toggleSidebarStatus() {
     this.sidebarStatus = !this.sidebarStatus;
@@ -53,6 +113,15 @@ export class HeaderLandingComponent implements OnInit {
   }
 
   goToLogin(){
-    this.router.navigate(['login/login-se']);
+    this.router.navigate(['/iniciar-sesion']);
+  }
+
+  handleLogout(loggedOut:boolean) {
+    if (this.isUserLoggedIn) {
+      this.isUserLoggedIn = loggedOut;
+      setTimeout(() => {
+        this.goToLanding();
+      }, 500);
+    }
   }
 }
