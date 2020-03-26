@@ -50,7 +50,7 @@ export class MyProfileComponent implements OnInit {
         {
           id: 'zone',
           label: 'Comuna',
-          value: this._user.comuna
+          value: this._user.commune
         },
         {
           id: 'city',
@@ -63,7 +63,7 @@ export class MyProfileComponent implements OnInit {
     this.billerInfoItems = [
       {
         label: 'Empresa',
-        value: 'Inmobiliaria Aconcagua, S.A.'
+        value: this._user.company[0].name
       },
       {
         label: 'Perfil asignado ( Rol )',
@@ -71,11 +71,11 @@ export class MyProfileComponent implements OnInit {
       },
       {
         label: 'Contacto para ServiEstado',
-        value: 'Si'
+        value: this._user.contact
       },
       {
         label: 'Tipo de contacto',
-        value: 'Contacto operacional'
+        value: this._user.contactType
       }
     ];
     this.contractInfoItems = [
