@@ -90,6 +90,7 @@ import { TopBarComponent } from './top-bar/top-bar.component';
 import { HeaderLandingComponent } from './header-landing/header-landing.component';
 import { RutMaskDirective } from 'src/app/enterprises/public/directives/rut-format.directive';
 import { CardUserComponent } from './components-organisms/card-user/card-user.component';
+import { MobileMenuComponent } from './mobile-menu/mobile-menu.component';
 @NgModule({
   declarations: [ButtonComponent, CardAccountComponent,
     CardDefaultComponent, CheckboxComponent,
@@ -110,7 +111,7 @@ import { CardUserComponent } from './components-organisms/card-user/card-user.co
     CardAccountHistoryComponent,
     CardAccountTypeAComponent, CardAccountTypeBComponent, CardAccountDetailComponentNew,
     CardAccountHistoryGroupComponent, Button2Component, GraphDisplayValueComponent, ModalIconComponent, CardRegisterSuccessComponent, DropdownComponent, SelectSeComponent, HelpPrefooterComponent, 
-    ColoredLineComponent, TopBarComponent, HeaderLandingComponent, CardPageComponent, RutMaskDirective, CardUserComponent
+    ColoredLineComponent, TopBarComponent, HeaderLandingComponent, CardPageComponent, RutMaskDirective, CardUserComponent, MobileMenuComponent
   ],
   imports: [
     CommonModule,

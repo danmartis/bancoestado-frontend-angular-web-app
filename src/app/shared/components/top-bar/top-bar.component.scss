@@ -1,5 +1,10 @@
+@import '../../../../scss/vars';
+
 #top-bar {
-  span {
+  @media (max-width: $media-max-lg) {
+    display: none;
+  }
+  a {
     float: right;
     background-color: #F7F9FC;
     padding: 4px 1rem;

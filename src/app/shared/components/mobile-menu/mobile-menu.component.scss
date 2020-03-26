@@ -1,0 +1,135 @@
+@import "../../../../scss/_vars";
+@import "../../../../scss/_mixins";
+
+:host {
+  .sidebar {
+    background-color: #fff;
+    box-shadow: 0 2px 38px 0 rgba(0, 0, 0, 0.07);
+    height: 100%;
+    max-width: 85%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    opacity: 1;
+    overflow-x: hidden;
+    transition: all 0.3s ease;
+    width: 100%;
+    z-index: 1000;
+    @media (min-width: $media-min-lg) {
+      display: none;
+    }
+
+    @media (min-width: $media-min-md) {
+      max-width: 65%;
+    }
+
+    &.sidebar--close {
+      left: -100%;
+      opacity: 0.5;
+      overflow: hidden;
+      //width: 50%;
+    }
+
+    &.sidebar--open {
+      padding: 1;
+      width: calc(100vw - 4rem);
+    }
+
+    &__header {
+      background-color: #f4f7fe;
+      max-height: 260px;
+      overflow: hidden;
+      padding: 5em 2em 2em 2em;
+      position: relative;
+      text-align: center;
+
+      @media (max-width: $media-max-md) {
+        padding: 4em 2em 2em 2em;
+      }
+    }
+
+    &__logo {
+      max-width: 300px;
+      margin: 3rem auto 2rem;
+      @media (max-width: $media-max-md) {
+        max-width: 250px;
+        margin: 1.5rem auto 1rem;
+      }
+      @media (max-width: $media-max-sm) {
+        max-width: 200px;
+        margin: 0 auto;
+      }
+    }
+
+    &__name {
+      color: $color-primary;
+      @include font-size(18);
+      @include line-height(24);
+      font-weight: 600;
+      margin: 1.1em 0 0 0;
+      position: relative;
+      text-shadow: 1px 1px 10px #f4f7fe;
+      z-index: 1;
+
+      @media (max-width: 320px) {
+        @include font-size(16);
+      }
+    }
+
+    &__email {
+      color: #77869e;
+      @include font-size(14);
+      @include line-height(24);
+      position: relative;
+      z-index: 1;
+    }
+
+    &__user{
+      border: 4px solid #fff;
+      border-radius: 50%;
+      height: 80px;
+      margin: 0 auto;
+      overflow: hidden;
+      width: 80px;
+      display: block;
+      box-shadow: 0 12px 13px 0 rgba(0, 0, 0, 0.07);
+    }
+
+    .header {
+      &__menu {
+        padding: 4rem;
+        @media (max-width: $media-max-sm) {
+          padding: 3rem 1.5rem;
+        }
+      }
+      &__item {
+        margin-bottom: 1.5rem;
+        .header__link {
+          padding: 0 4px;
+          color: inherit;
+          cursor: pointer;
+          &.login {
+            color: $color-action;
+            &:visited {
+              color: $color-action;
+            }
+          }
+          &:visited {
+            color: inherit;
+          }
+          &.active {
+            color: $color-primary;
+            border-bottom: 2px solid;
+          }
+        }
+        &.go-se-people {
+          $border-color: lighten($color-paragraph, 30%);
+          padding: 2rem 0;
+          border-top: 1px dashed $border-color;
+          border-bottom: 1px dashed $border-color;
+          margin-top: 2rem;
+        }
+      }
+    }
+  }
+}
