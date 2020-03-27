@@ -48,8 +48,8 @@ console.log(this._authService.currentUserValue)
     
    
     this.loginForm = this._formBuilder.group({
-      rut: [ '76.124.890-1', [Validators.required, rutNotValid]], 
-      email:  ['claudio.monasterio@telefonica.com', [Validators.required, Validators.pattern(this.emailPattern)]], 
+      rut: [ '', [Validators.required, rutNotValid]], 
+      email:  ['', [Validators.required, Validators.pattern(this.emailPattern)]], 
       password: ['', [Validators.required]],
     });
 
@@ -85,6 +85,8 @@ console.log(this._authService.currentUserValue)
      this._authService.loginUser(data)
       .then( (res: any) => {
        console.log(res);
+
+       this._authService.isLogged = true;
 
      
       if(res.data.data.changePassword){

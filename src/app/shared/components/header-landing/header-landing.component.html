@@ -20,8 +20,8 @@
         </div>
 
 
-        <nav class="menu-principal" [ngClass]="{ 'logged': isUserLoggedIn }">
-          <div *ngIf="isUserLoggedIn; then loggedBlock else notLoggedBlock"></div>
+        <nav class="menu-principal" [ngClass]="{ 'logged': _authServices.isLogged }">
+          <div *ngIf="_authServices.isLogged; then loggedBlock else notLoggedBlock"></div>
         </nav>
         <ng-template #loggedBlock>
           <ul class="header__menu">
@@ -83,7 +83,7 @@
         </ng-template>
 
         <div class="header__mobile">
-          <figure class="header__user" *ngIf="isUserLoggedIn">
+          <figure class="header__user" *ngIf="_authServices.isLogged">
               <img [src]="privateMenu.userData.img" [alt]="privateMenu.userData.img" class="sidebar__avatar">
           </figure>
           <div class="header__burger">
@@ -102,11 +102,11 @@
 </header>
 
 <app-mobile-menu 
-[isUserLoggedIn]="isUserLoggedIn"
+[isUserLoggedIn]="_authServices.isLogged"
 [privateMenu]="privateMenu"
 [publicMenu]="publicMenu"
 [status]="getSidebarStatus()"
-(userLogoutEv)="handleLogout($event)"></app-mobile-menu>
+(userLogoutEv)="handleLogout()"></app-mobile-menu>
 
 <!--
 
