@@ -1,12 +1,34 @@
-import { TestBed } from '@angular/core/testing';
 
 import { AuthService } from './auth.service';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+
 
 describe('AuthService', () => {
-  beforeEach(() => TestBed.configureTestingModule({}));
+  let component: AuthService;
+  let fixture: ComponentFixture<AuthService>;
 
-  it('should be created', () => {
-    const service: AuthService = TestBed.get(AuthService);
-    expect(service).toBeTruthy();
+  beforeEach(async(() => {
+    TestBed.configureTestingModule({
+      imports: [
+
+        HttpClientTestingModule
+      ],
+      declarations: [ 
+
+
+      ]
+    })
+    .compileComponents();
+  }));
+
+  beforeEach(() => {
+    fixture = TestBed.createComponent(AuthService);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
   });
 });

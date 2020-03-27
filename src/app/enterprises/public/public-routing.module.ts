@@ -35,7 +35,7 @@ const routes: Routes = [
       { path: 'ayuda/detalles/categoria/:idItem/pregunta/:idQuestion', component: HelpDetailsComponent,
         resolve  : { data: GestorContenidoService }
       },
-      { path: 'configuracion-personal', component: PersonalConfigComponent },
+      { path: 'configuracion-personal', component: PersonalConfigComponent ,  canActivate: [ AuthguardService ] },
     ]
   }
 ];

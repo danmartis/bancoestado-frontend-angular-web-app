@@ -34,7 +34,7 @@ export class AuthService extends BffClientService {
         .subscribe((user: any) => {
           localStorage.setItem("currentUser", JSON.stringify(user.data.data));
           this.currentUserSubject.next(user.data.data);
-
+          
           console.log(" this.currentUserSubject", this.currentUserSubject);
 
           resolve(user);
