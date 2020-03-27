@@ -7,8 +7,10 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class MyProfileComponent implements OnInit {
 
-  @Input() isEditingProfile: boolean;
-  @Input() _user: any;
+  @Input() 
+  isEditingProfile: boolean;
+  @Input() 
+  _user: any;
   protected personalInfoItems: Object;
   protected billerInfoItems: Array<any>;
   protected contractInfoItems: Array<any>;
