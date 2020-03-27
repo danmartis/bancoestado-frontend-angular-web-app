@@ -5,8 +5,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 
 describe('AuthService', () => {
-  let component: AuthService;
-  let fixture: ComponentFixture<AuthService>;
+
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -22,13 +21,9 @@ describe('AuthService', () => {
     .compileComponents();
   }));
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(AuthService);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+  it('should be created', () => {
+    const service: AuthService = TestBed.get(AuthService);
+    expect(service).toBeTruthy();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
 });
