@@ -61,5 +61,7 @@ describe('FaqComponent', () => {
     spyOn(component, "closeListOpenSingle")
     component.closeListOpenSingle(['testStringArray'], 'testString');
     expect(component.closeListOpenSingle).toHaveBeenCalledWith(['testStringArray'], 'testString');
+  
+    
   });
 });

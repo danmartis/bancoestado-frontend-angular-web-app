@@ -9,6 +9,7 @@ import { ParagraphComponent } from '../components-atom/paragraph/paragraph.compo
 import { CheckboxComponent } from '../components-atom/checkbox/checkbox.component';
 import { RouterTestingModule } from '@angular/router/testing';
 import { ParametroService } from 'src/app/domain/parametro.service';
+import { Router } from '@angular/router';
 
 describe('CardAccountDetailComponent', () => {
   let component: CardAccountDetailComponent;
@@ -88,7 +89,15 @@ describe('CardAccountDetailComponent', () => {
   });
 
   it('goToDetail', () => {
+
+    const router: Router = TestBed.get(Router);
+    spyOn(router, 'navigate');
     component.goToDetail();
+
+    expect(router.navigate).toHaveBeenCalledWith(['payment/proof-payment'], { queryParams: { retorno: 1, mostrarModalEnvio: 0 }});
+
+ 
+
   });
 
 });

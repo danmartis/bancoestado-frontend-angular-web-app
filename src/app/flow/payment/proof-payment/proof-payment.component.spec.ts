@@ -27,6 +27,7 @@ import { Button2Component } from 'src/app/shared/components/button/button2/butto
 import { PageTitleComponent } from 'src/app/shared/components/components-atom/page-title/page-title.component';
 import { ModalIconComponent } from 'src/app/shared/components/modal-icon/modal-icon.component';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { Router } from '@angular/router';
 
 describe('ProofPaymentComponent', () => {
   let component: ProofPaymentComponent;
@@ -82,7 +83,14 @@ describe('ProofPaymentComponent', () => {
   });
 
   it('goToHome', () => {
+   
+
+    const router: Router = TestBed.get(Router);
+    spyOn(router, 'navigate');
     component.goToHome();
+
+    expect(router.navigate).toHaveBeenCalledWith(['home-account/home']);
+
   });
 });
 

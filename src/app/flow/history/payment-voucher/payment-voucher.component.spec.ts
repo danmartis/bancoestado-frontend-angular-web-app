@@ -81,11 +81,13 @@ describe('PaymentsComponent', () => {
   it('getIconDetail first', () => {
     const sec = 'first';
     component.getIconDetail(sec);
+    expect(component).toBeTruthy();
   });
 
   it('getIconDetail second', () => {
     const sec = 'second';
     component.getIconDetail(sec);
+    expect(component).toBeTruthy();
   });
 
   it('getStatusDetail first', () => {
@@ -101,19 +103,23 @@ describe('PaymentsComponent', () => {
   it('toggleDetail first', () => {
     const sec = 'first';
     component.toggleDetail(sec);
+    expect(component).toBeTruthy();
   });
 
   it('toggleDetail second', () => {
     const sec = 'second';
     component.toggleDetail(sec);
+    expect(component).toBeTruthy();
   });
 
   it('formatNumber', () => {
     const n = 123;
     component.formatNumber(n);
+    expect(component).toBeTruthy();
   });
 
   it('haUnregistered', () => {
     component.haUnregistered();
+    expect(component).toBeTruthy();
   });
 });
