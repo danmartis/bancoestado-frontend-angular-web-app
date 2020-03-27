@@ -71,7 +71,6 @@ import { EnterprisesModule } from './enterprises/enterprises.module';
     HttpClientModule,
     NgxTinySliderModule,
     SharedModule,
-
   ],
   providers: [BusquedasService, ConveniosService, CuentasService, ParametroService, ComprobanteService, RegistroSeService],
   bootstrap: [AppComponent]
