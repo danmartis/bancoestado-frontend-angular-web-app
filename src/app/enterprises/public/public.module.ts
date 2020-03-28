@@ -73,7 +73,6 @@ import { WhatWeDoComponent } from './components/what-we-do/what-we-do.component'
     SharedModule,
     FormsModule,
     ReactiveFormsModule,
-    BrowserModule,
   ],
   exports: [
     ContainerPublicComponent,
