@@ -22,16 +22,17 @@
             </ul>
           </div>
           <div class="col-sm-12 col-lg-3 config__menu__btn-edit__cont">
-            <app-button *ngIf="!isEditingProfile" type="primary-outline-rounded" (click)="handleEditProfile()"><span>Editar mi Perfil</span></app-button>
-            <app-button *ngIf="isEditingProfile" type="primary-rounded" (click)="handleEditProfile()"><span>Guardar cambios</span></app-button>
+            <app-button *ngIf="!isEditingProfile" type="primary-outline-rounded" (click)="handleEditProfile()">
+              <span>Editar mi Perfil</span></app-button>
+            <app-button *ngIf="isEditingProfile" type="primary-rounded" (click)="handleEditProfile()"><span>Guardar
+                cambios</span></app-button>
           </div>
         </div>
       </div>
     </section>
 
-
     <section class="personal-config__main-container">
-      <app-my-profile *ngIf="_user && isEditingProfile" [_user]="_user" [isEditingProfile]="isEditingProfile"></app-my-profile>
+      <app-my-profile *ngIf="_user" [_user]="_user" [isEditingProfile]="isEditingProfile"></app-my-profile>
     </section>
   </div>
 </app-page>
