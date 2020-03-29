@@ -5,13 +5,13 @@ export interface User {
     password: string;
     changePassword: boolean;
     userRut: string;
-    birthday: Date;
-    phone: number;
+    birthday: string;
+    phone: string;
     address: string;
-    comunne: string;
+    commune: string;
     city: string;
-    roles: string[];
-    company: string[];
+    roles: any[];
+    company: any[];
     contact: string,
     contactType: string
 }
