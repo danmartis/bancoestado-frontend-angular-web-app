@@ -1,0 +1,22 @@
+@import '../../../../../../scss/vars';
+
+.avatar {
+  width: 100%;
+  border-radius: 50%;
+  height: 90px;
+  width: 90px;
+  margin: 0 auto 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ffffff;
+  font-size: 32px;
+  overflow: hidden;
+  background-color: $color-action;
+  $avatar-bg-colors: (
+    $color-service-electrical,
+    $color-service-other,
+    $color-service-water,
+    $color-service-teleco,
+  );  
+}

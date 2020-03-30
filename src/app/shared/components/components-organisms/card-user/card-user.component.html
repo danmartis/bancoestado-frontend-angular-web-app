@@ -1,15 +1,52 @@
 <div class="card-user">
   <app-card-default>
-    <div class="profile-card text-center">
-      <div class="profile-content">
-        <div class="avatar">
-          MM
+    <div class="profile-card text-center type--{{ profile }}">
+      <div class="information-item top"
+        *ngIf="topBadgeData !== '' && topBadge !== '' && topBadge !== 'none'">
+        <div [ngClass]="['top ' + topBadge, topBadge]">
+          <span>{{ topBadgeData }}</span>
         </div>
+      </div>
+      <div class="profile-card__menu"
+        *ngIf="profile === 'users-list'">
+        <span class="material-icons">more_vert</span>
+        <ul class="profile-card__menu__dropdown">
+          <li><a>Editar</a></li>
+          <li><a>Eliminar</a></li>
+        </ul>
+      </div>
+      <div class="profile-content">
+        <app-avatar [userData]="userData"></app-avatar>
+        <!--
+          <div class="avatar">
+            <div *ngIf="userData.img !== '' || userData.img === undefined; then avatarImgBlock else avatarTextBlock"></div>
+            <ng-template #avatarImgBlock>
+              <img [src]="userData.img" alt="Imagen de perfil del usuario">
+            </ng-template>
+            <ng-template #avatarTextBlock>
+              {{ userData.firstname.charAt(0) + ( userData.lastname.charAt(0) ? userData.lastname.charAt(0) : '') }}
+            </ng-template>
+          </div>
+        -->
         <div class="profile__info">
           <p class="profile__fullname text-center">
-            <span class="profile__firstname">María</span><span class="profile__lastname">Martinez</span>
+            <span class="profile__firstname">
+              {{ userData.firstname }}
+            </span>
+            <span class="profile__lastname">
+              {{ ( userData.lastname ? userData.lastname : '') }}
+            </span>
           </p>
-          <p class="profile__email text-center"><small>user@email.com</small></p>
+          <p class="profile__email text-center"><small>{{ userData.email }}</small></p>
+        </div>
+      </div>
+      <div class="information-item bottom"
+        *ngIf="bottomBadgeData !== '' && bottomBadge !== '' && bottomBadge !== 'none'">
+        <div [ngClass]="['bottom ' + bottomBadge, bottomBadge]">
+          <span
+            [ngClass]="{ 'admin': userData.userProfile === 'Administrador' }">
+            {{ bottomBadgeData }}
+          </span>
         </div>
       </div>
     </div>
