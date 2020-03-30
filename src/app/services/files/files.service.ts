@@ -13,17 +13,17 @@ export class FilesService {
   constructor(private _httpClient: HttpClient) { }
 
   convenantsDownload(fileName: any): any {
-    return this._httpClient.get(`${environment.DOMAIN_LOCAL}maintainerUser/assignedAgreements/?nameFile=${fileName}`, {responseType: 'blob'})
-    .subscribe((res: any) => {
-      let blob = new Blob([res], { type: 'application/pdf' });
-      saveAs(blob, `${fileName}.pdf`);
-      console.log(blob);
-      let downloadUrl = URL.createObjectURL(blob);
-      window.open(downloadUrl);
-    }, err => {
-      console.log(err);
-      return err;
-    });
+    return this._httpClient.get(`${environment.DOMAIN_LOCAL}maintainerUser/assignedAgreements/?nameFile=${fileName}`, { responseType: 'blob' })
+      .subscribe((res: any) => {
+        let blob = new Blob([res], { type: 'application/pdf' });
+        saveAs(blob, `${fileName}.pdf`);
+        console.log(blob);
+        let downloadUrl = URL.createObjectURL(blob);
+        window.open(downloadUrl);
+      }, err => {
+        console.log(err);
+        return err;
+      });
   };
 
 }
