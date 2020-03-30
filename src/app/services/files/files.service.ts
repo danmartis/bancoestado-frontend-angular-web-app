@@ -2,16 +2,15 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { saveAs } from 'file-saver';
 import { environment } from "src/environments/environment.dev";
-import { BffClientService } from '../bffClient.service';
 import { User } from "src/app/enterprises/public/components/login/services/model/login.model";
 
 @Injectable({
   providedIn: 'root'
 })
-export class FilesService extends BffClientService {
+export class FilesService {
   _user: User;
 
-  constructor(private _httpClient: HttpClient) { super(_httpClient) }
+  constructor(private _httpClient: HttpClient) { }
 
   convenantsDownload(fileName: any): any {
     return this._httpClient.get(`${environment.DOMAIN_LOCAL}maintainerUser/assignedAgreements/?nameFile=${fileName}`, {responseType: 'blob'})

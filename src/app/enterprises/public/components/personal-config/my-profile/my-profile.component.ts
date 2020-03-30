@@ -8,9 +8,9 @@ import { FilesService } from '../../../../../services/files/files.service';
 })
 export class MyProfileComponent implements OnInit {
 
-  @Input() 
+  @Input()
   isEditingProfile: boolean;
-  @Input() 
+  @Input()
   _user: any;
   protected personalInfoItems: Object;
   protected billerInfoItems: Array<any>;
@@ -22,9 +22,9 @@ export class MyProfileComponent implements OnInit {
   constructor(private _fileService: FilesService) { }
 
   isAdmin() {
-    for(let roles of this._user.roles) {
-      const admin = "Administrador"
-      if(roles.role.toString().match(admin)) {
+    for (let roles of this._user.roles) {
+      const admin = "Administrador";
+      if (roles.role.match(admin)) {
         return true;
       } else {
         return false;
@@ -117,7 +117,7 @@ export class MyProfileComponent implements OnInit {
     ];
 
     console.log(this.contractInfoItems)
-    
+
   }
 
 }
