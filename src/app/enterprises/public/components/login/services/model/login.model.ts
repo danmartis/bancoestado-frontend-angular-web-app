@@ -2,6 +2,8 @@ export interface User {
     id: number;
     email: string;
     rut: string;
+    firstName: string;
+    lastName: string
     password: string;
     changePassword: boolean;
     userRut: string;
@@ -11,6 +13,7 @@ export interface User {
     commune: string;
     city: string;
     roles: any[];
+    covenants: any[]
     company: any[];
     contact: string,
     contactType: string

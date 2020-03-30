@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { FilesService } from '../../../../../services/files/files.service';
 
 @Component({
   selector: 'app-my-profile',
@@ -14,12 +15,32 @@ export class MyProfileComponent implements OnInit {
   protected personalInfoItems: Object;
   protected billerInfoItems: Array<any>;
   protected contractInfoItems: Array<any>;
+  protected admin: string;
 
   messageError: string = "";
 
-  constructor() { }
+  constructor(private _fileService: FilesService) { }
+
+  isAdmin() {
+    for(let roles of this._user.roles) {
+      const admin = "Administrador"
+      if(roles.role.toString().match(admin)) {
+        return true;
+      } else {
+        return false;
+      }
+    }
+  }
+
+  async downloadFile(fileName: string) {
+    await this._fileService.convenantsDownload(fileName);
+    console.log(this._user.roles[0].role)
+    console.log(this._user["roles"].role)
+  }
 
   ngOnInit() {
+    this.isAdmin();
+    console.log(this.isAdmin());
     this.personalInfoItems = {
       'fixed': [
         {
@@ -83,17 +104,20 @@ export class MyProfileComponent implements OnInit {
     this.contractInfoItems = [
       {
         icon: 'description',
-        title: 'Deptos. Coquimbo ...',
+        title: this._user.covenants[0].nameFile,
         label: 'Fecha activación',
-        value: '10/07/2019'
+        value: this._user.covenants[0].activationDate
       },
       {
         icon: 'description',
-        title: 'Deptos. Zona Sur',
+        title: this._user.covenants[1].nameFile,
         label: 'Fecha activación',
-        value: '12/07/2019'
+        value: this._user.covenants[1].activationDate
       },
     ];
+
+    console.log(this.contractInfoItems)
+    
   }
 
 }

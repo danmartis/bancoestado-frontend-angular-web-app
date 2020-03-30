@@ -47,7 +47,8 @@
                 <div class="col-sm-12 col-lg-6" *ngFor="let info of contractInfoItems">
                   <div class="mini-card__item">
                     <div class="mini-card__icon">
-                      <i class="material-icons md-36">{{ info.icon }}</i>
+                      <i *ngIf="isAdmin()" class="material-icons md-36 download" (click)="this.downloadFile(info.title)">{{ info.icon }}</i>
+                      <i *ngIf="!isAdmin()" class="material-icons md-36">{{ info.icon }}</i>
                     </div>
                     <div class="mini-card__info">
                       <h3 class="mini-card__title">{{ info.title }}</h3>

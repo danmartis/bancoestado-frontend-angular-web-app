@@ -24,6 +24,7 @@
     "@types/intro.js": "^2.4.5",
     "core-js": "^3.5.0",
     "cors": "^2.8.4",
+    "file-saver": "^2.0.2",
     "helmet": "^3.13.0",
     "html2canvas": "^1.0.0-rc.5",
     "intro.js": "^2.9.3",
