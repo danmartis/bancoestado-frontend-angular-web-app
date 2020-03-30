@@ -24,7 +24,7 @@ export class MyProfileComponent implements OnInit {
   isAdmin() {
     for(let roles of this._user.roles) {
       const admin = "Administrador"
-      if(roles.role.toString().match(admin)) {
+      if(roles.role.match(admin)) {
         return true;
       } else {
         return false;
