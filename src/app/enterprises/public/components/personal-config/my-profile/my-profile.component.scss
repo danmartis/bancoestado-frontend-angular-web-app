@@ -3,6 +3,10 @@
 @import '../../../../../../scss/_public';
 
 :host {
+  .download:hover {
+    cursor: pointer;
+  }
+
   .personal-config__my-profile {
 
 
