@@ -13,7 +13,7 @@ export class MyProfileComponent implements OnInit {
   @Input() isEditingProfile: boolean;
   // @Input() _user: any;
   protected _user: User;
-  protected personalInfoItems: Object;
+  protected personalInfoItems: any;
   protected billerInfoItems: Array<any>;
   protected contractInfoItems: Array<any>;
   protected admin: string;

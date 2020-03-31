@@ -2,15 +2,13 @@
   <div class="container">
     <div class="row">
       <div class="col-sm-12 col-lg-4 panel__left">
-        <!--
-          <app-card-user
-          topBadge="{{ true ? 'top-left' : '' }}"
-          topBadgeData="Contacto"
-          bottomBadge="{{ true ? 'bottom-center' : '' }}"
-          bottomBadgeData="Administrador"
-          profile="user"
-          [userData]="userData"></app-card-user>
-        -->
+        <app-card-user
+        topBadge="{{ true ? 'top-left' : '' }}"
+        topBadgeData="Contacto"
+        bottomBadge="{{ true ? 'bottom-center' : '' }}"
+        bottomBadgeData="Administrador"
+        profile="user"
+        [userData]="userData"></app-card-user>
       </div>
       <div class="col-sm-12 col-lg-8 panel__right">
         <div class="personal-config__card-item">
@@ -20,18 +18,69 @@
             </div>
             <div class="container card__content">
               <div class="row">
-                <div class="col-sm-12 col-lg-6" *ngFor="let info of personalInfoItems.fixed">
-                  <app-info-item [info]="info"></app-info-item>
+                <div class="col-sm-12 col-lg-6">
+                  <app-info-item [info]="personalInfoItems.fixed[0]"></app-info-item>
                 </div>
-                <div 
-                  class="col-sm-12 col-lg-6" 
-                  *ngFor="let info of personalInfoItems.editable">
-                  <app-info-item isEditingProfile="isEditingProfile" *ngIf="!isEditingProfile; else elseIsEditingProfile;" [info]="info"></app-info-item>
-                  <ng-template #elseIsEditingProfile>
-                    <app-input idName="personal-config__my-profile__input-{{ info.id }}" placeholder="{{ info.label }}"></app-input>
-                  </ng-template>
+                <div class="col-sm-12 col-lg-6">    
+                  <app-info-item [info]="personalInfoItems.fixed[1]"></app-info-item>
                 </div>
               </div>
+              
+              <form *ngIf="isEditingProfile; else elseIsEditingProfile;">
+                <div class="row">
+                  <div class="col-sm-12 col-lg-6">
+                    <app-input
+                      idName="personal-config__my-profile__input-{{ personalInfoItems.editable[0].id }}"
+                      placeholder="{{ personalInfoItems.editable[0].label }}"></app-input>
+                  </div>
+                  <div class="col-sm-12 col-lg-6">
+                    <app-input
+                      idName="personal-config__my-profile__input-{{ personalInfoItems.editable[1].id }}"
+                      placeholder="{{ personalInfoItems.editable[1].label }}"></app-input>
+                  </div>
+                  <div class="col-sm-12 col-lg-6">
+                    <app-input
+                      idName="personal-config__my-profile__input-{{ personalInfoItems.editable[2].id }}"
+                      placeholder="{{ personalInfoItems.editable[2].label }}"></app-input>
+                  </div>
+                  <div class="col-sm-12 col-lg-6">
+                    <app-input
+                      idName="personal-config__my-profile__input-{{ personalInfoItems.editable[3].id }}"
+                      placeholder="{{ personalInfoItems.editable[3].label }}"></app-input>
+                  </div>
+                  <div class="col-sm-12 col-lg-6">
+                    <app-input
+                      idName="personal-config__my-profile__input-{{ personalInfoItems.editable[4].id }}"
+                      placeholder="{{ personalInfoItems.editable[4].label }}"></app-input>
+                  </div>
+                </div>
+              </form>
+              <ng-template #elseIsEditingProfile>
+
+                <div class="row">
+                  <div class="col-sm-12 col-lg-6">
+                    <app-info-item
+                      [info]="personalInfoItems.editable[0]"></app-info-item>
+                  </div>
+                  <div class="col-sm-12 col-lg-6">
+                    <app-info-item
+                    [info]="personalInfoItems.editable[1]"></app-info-item>
+                  </div>
+                  <div class="col-sm-12 col-lg-6">
+                    <app-info-item
+                    [info]="personalInfoItems.editable[2]"></app-info-item>
+                  </div>
+                  <div class="col-sm-12 col-lg-6">
+                    <app-info-item
+                    [info]="personalInfoItems.editable[3]"></app-info-item>
+                  </div>
+                  <div class="col-sm-12 col-lg-6">
+                    <app-info-item
+                    [info]="personalInfoItems.editable[4]"></app-info-item>
+                  </div>
+                </div>
+              </ng-template>
+
             </div>
           </app-card-default>
         </div>
