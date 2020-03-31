@@ -1,5 +1,8 @@
+@import '../../../../../scss/vars';
+
 :host {
   .card-user {
+    $color-badge-bg: #f6f6f6;
     margin: 0 auto 3rem;
     max-width: 330px;
     .profile-card {
@@ -8,28 +11,181 @@
       flex-wrap: wrap;
       justify-content: center;
       align-items: center;
+
+      .profile-card__menu {
+        //display: none;
+        cursor: pointer;
+        position: absolute;
+        top: 0;
+        right: 0;
+        margin: 1rem .7rem 0 0;
+        color: $color-paragraph;
+        -webkit-transition: all 0.2s ease-out !important;
+        transition: all 0.2s ease-out !important;
+
+        &:hover {
+          > span {
+            color: $color-action;
+          }
+        }
+
+        .profile-card__menu__dropdown {
+          position: absolute;
+          background-color: #ffffff;
+          padding: 4px;
+          border-radius: $base-border-radius;
+          box-shadow: 0rem 0.3rem 1.4375rem 0.2rem rgba(0, 0, 0, 0.07);
+          width: 110px;
+          right: 0;
+          opacity: 0;
+          visibility: hidden;
+          z-index: 999;
+          transform: translateY(-10px);
+          -webkit-transition: all 0.2s ease-out !important;
+          transition: all 0.2s ease-out !important;
+          li {
+            text-align: left;
+            padding: 0 1rem;
+            a {
+              cursor: pointer;
+              margin-bottom: 4px;
+              -webkit-transition: all 0.2s ease-out !important;
+              transition: all 0.2s ease-out !important;
+              font-size: 14px;
+              &:visited {
+                color: inherit;
+              }
+              &:hover {
+                color: $color-action;
+              }
+            }
+            &:first-child {
+              a {
+                margin-top: 8px;
+              }
+            }
+          }
+        }
+      }
+
+      .information-item {
+        position: absolute;
+        width: 100%;
+
+        span {
+          display: block;
+          color: #56647a;
+          border-radius: 50px;
+          padding: 0 16px;
+          background-color: $color-badge-bg;
+          &.admin {
+            background-color: #29cc97;
+            color: white;
+          }
+        }
+
+        &.top {
+          top: 0;
+          right: 0;
+          .top {
+            margin: 24px 24px 0 24px;
+            display: flex;
+            &-left {
+              justify-content: flex-start;
+            }
+            &-center {
+              justify-content: center;
+            }
+            &-right {
+              justify-content: flex-end;
+            }
+          }
+          span {
+            font-size: 13px;
+            line-height: 20px;
+            background-color: $color-badge-bg;
+          }
+        }
+
+        &.bottom {
+          bottom: 0;
+          right: 0;
+          .bottom {
+            margin: 0 24px 24px 24px;
+            display: flex;
+            &-left {
+              justify-content: flex-start;
+            }
+            &-center {
+              justify-content: center;
+            }
+            &-right {
+              justify-content: flex-end;
+            }
+          }
+          span {
+            min-width: 170px;
+            font-size: 14px;
+            line-height: 32px;
+          }
+        }
+        
+      }
+
       .profile-content {
         width: 100%;
       }
-      .avatar {
-        width: 100%;
-        background-color: #1e63f8;
-        border-radius: 50%;
-        height: 90px;
-        width: 90px;
-        margin: 0 auto 1rem;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        color: #ffffff;
-        font-size: 32px;
-      }
+      
+
+
+
       .profile {
         &__info {
           width: 100%;
         }
+        &__fullname, &__firstname, &__lastname {
+          color: $color-primary;
+        }
         &__firstname {
           margin-right: .5ch;
+        }
+        &__email {
+          line-height: 20px;
+          color: $color-paragraph;
+        }        
+      }
+
+      &.type {
+        &--user {
+          .information-item {
+            display: none;
+          }
+        }
+        &--users-list {
+          .profile-card__menu {
+            //display: block;
+
+            &:hover {
+              .profile-card__menu__dropdown {
+                opacity: 1;
+                visibility: visible;
+                transform: translateY(0px);
+              }
+            }
+            /*
+            .profile-card__menu__dropdown {
+              &.active {
+                opacity: 1;
+                visibility: visible;
+                transform: translateY(0px);
+              }
+            }
+            */
+          }
+
+        }
+        &--biller {
+          
         }
       }
     } // .profile-card

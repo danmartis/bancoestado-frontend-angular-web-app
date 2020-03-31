@@ -1,1 +1,66 @@
-<p>users works!</p>
+<div id="personal-config__users">
+
+  <div class="personal-config__users-container">
+
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12">
+
+          <div class="users__filters">
+            <select name="" id="personal-config__users__filter">
+              <option
+                id="personal-config__users__filter__val-all"
+                value="all">
+                Todos los usuarios
+              </option>
+              <option
+                *ngFor="let option of userTypes; let i = index;"
+                id="personal-config__users__filter__val-{{ option.value }}"
+                [value]="option.value">
+                {{ option.name }}
+              </option>
+            </select>
+          </div>
+          
+        </div>
+      </div>
+
+      <div class="row users__items">
+        <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3" *ngFor="let user of userItems; let i = index;">
+          <app-card-user
+            topBadge="{{ user.contact === 'Si' ? 'top-left' : '' }}"
+            topBadgeData="Contacto"
+            bottomBadge="bottom-center"
+            [bottomBadgeData]="user.userProfile"
+            profile="users-list"
+            [userData]="user"></app-card-user>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="container profiles-descriptions">
+      <div class="row">
+        <div class="col-sm-12">
+          <app-card-default>
+            <h3 class="personal-config__users__title">Tipos de perfiles y atributos</h3>
+            <p>
+              <span>Administrador: </span>
+              Creación, edición y eliminación de usuarios, descarga de documentos, autorización de prefacturas y facturas, visualización de documentos.
+            </p>
+            <p>
+              <span>Autorizador: </span>
+              Descarga de documentos, autorización de prefacturas y facturas, visualización de documentos.
+            </p>
+            <p>
+              <span>Operador: </span>
+              Visualización de documentos.
+            </p>
+          </app-card-default>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  
+</div>

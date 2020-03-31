@@ -12,8 +12,8 @@ import { ResetPasswordComponent } from './components/reset-password/reset-passwo
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { HelpDetailsComponent } from './components/help/help-details/help-details.component';
 import { GestorContenidoService } from 'src/app/services/gestor-contenido.service';
-import { PersonalConfigComponent } from './components/personal-config/personal-config.component';
 import { AuthguardService } from 'src/app/services/helpers/authguard.service';
+
 const routes: Routes = [
   {
     path: '',
@@ -35,7 +35,8 @@ const routes: Routes = [
       { path: 'ayuda/detalles/categoria/:idItem/pregunta/:idQuestion', component: HelpDetailsComponent,
         resolve  : { data: GestorContenidoService }
       },
-      { path: 'configuracion-personal', component: PersonalConfigComponent ,  canActivate: [ AuthguardService ] },
+      { path: 'configuracion-personal', loadChildren: () => import('./components/personal-config/personal-config.module').then(m => m.PersonalConfigModule),  canActivate: [ AuthguardService ] },
+      // { path: 'configuracion-personal', component: PersonalConfigComponent ,  canActivate: [ AuthguardService ] },
     ]
   }
 ];

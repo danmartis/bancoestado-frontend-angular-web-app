@@ -1,0 +1,77 @@
+@import '../../../../../../scss/_vars';
+@import '../../../../../../scss/_mixins';
+
+:host {
+
+  .personal-config__users {
+    &__title {
+      color: $color-primary;
+    }
+  }
+
+  .personal-config__users-container {
+    margin: 3rem 0;
+    .users__filters {
+
+      select {
+        width: 300px;
+        border-radius: $base-border-radius;
+        border: $color-input-border 1px solid;
+        padding: 1rem;
+        font-size: 0.875rem;
+        color: $color-input-text;
+        &:focus,
+        &:focus {
+            outline: none;
+            border-color: $color-action;
+        }
+        &[disabled] {
+            color: $color-text-disabled;
+            background-color: $color-input-border;
+        }
+
+        option {
+
+        }
+      }
+    }
+    .users__items {
+      padding: 3rem 0;
+    }
+
+    .profiles-descriptions {
+      p {
+        margin-bottom: 1rem;
+        font-size: 14px;
+        span {
+          color: $color-primary;
+          font-weight: bold;
+          font-size: 16px;
+        }
+      }
+    }
+  }
+
+
+  .personal-config__users__select {
+    width: 100%;
+    border-radius: $base-border-radius;
+    border: $color-input-border 1px solid;
+    padding: 1rem;
+    font-size: 0.875rem;
+    color: $color-input-text;
+    &:focus,
+    &:focus {
+        outline: none;
+        border-color: $color-action;
+    }
+    &[disabled] {
+        color: $color-text-disabled;
+        background-color: $color-input-border;
+    }
+
+    option {
+
+    }
+  }
+}

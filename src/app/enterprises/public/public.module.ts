@@ -29,11 +29,6 @@ import { HelpDetailsComponent } from './components/help/help-details/help-detail
 import { QuestionComponent } from './components/help/help-details/question/question.component';
 import { QuestionItemsComponent } from './components/help/help-details/question-items/question-items.component';
 import { QuestionsMenuComponent } from './components/help/help-details/questions-menu/questions-menu.component';
-import { PersonalConfigComponent } from './components/personal-config/personal-config.component';
-import { MyProfileComponent } from './components/personal-config/my-profile/my-profile.component';
-import { UsersComponent } from './components/personal-config/users/users.component';
-import { BillerComponent } from './components/personal-config/biller/biller.component';
-import { InfoItemComponent } from './components/personal-config/info-item/info-item.component';
 
 @NgModule({
   declarations: [
@@ -61,11 +56,6 @@ import { InfoItemComponent } from './components/personal-config/info-item/info-i
     QuestionComponent,
     QuestionItemsComponent,
     QuestionsMenuComponent,
-    PersonalConfigComponent,
-    MyProfileComponent,
-    UsersComponent,
-    BillerComponent,
-    InfoItemComponent,
   ],
   imports: [
     CommonModule,

@@ -26,7 +26,8 @@ export class HeaderLandingComponent implements OnInit {
   sidebarShadow : boolean = false;
 
 
-  constructor(private router: Router, private _authServices: AuthService) {
+  constructor(private router: Router, protected _authServices: AuthService) {
+    console.log(_authServices)
 
     this.publicMenu = [
       {

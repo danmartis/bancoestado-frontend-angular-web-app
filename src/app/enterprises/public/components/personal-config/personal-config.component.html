@@ -16,23 +16,113 @@
         <div class="row">
           <div class="col-sm-12 col-lg-9">
             <ul class="menu-items">
-              <li class="menu-item active"><a>Mi Perfil</a></li>
-              <li class="menu-item"><a>Usuarios</a></li>
-              <li class="menu-item"><a>Empresa</a></li>
+              <li class="menu-item"><a [routerLink]="['/empresas/configuracion-personal/mi-perfil']" routerLinkActive="active">Mi Perfil</a></li>
+              <li class="menu-item"><a [routerLink]="['/empresas/configuracion-personal/usuarios']" routerLinkActive="active">Usuarios</a></li>
+              <li class="menu-item"><a [routerLink]="['/empresas/configuracion-personal/empresa']" routerLinkActive="active">Empresa</a></li>
             </ul>
           </div>
           <div class="col-sm-12 col-lg-3 config__menu__btn-edit__cont">
-            <app-button *ngIf="!isEditingProfile" type="primary-outline-rounded" (click)="handleEditProfile()">
-              <span>Editar mi Perfil</span></app-button>
-            <app-button *ngIf="isEditingProfile" type="primary-rounded" (click)="handleEditProfile()"><span>Guardar
-                cambios</span></app-button>
+            <div [ngSwitch]="selectedMenuItem">
+              <div *ngSwitchCase="'mi-perfil'">
+                <app-button *ngIf="!isEditingProfile" type="primary-outline-rounded" (click)="handleEditProfile()"><span>Editar mi Perfil</span></app-button>
+                <app-button *ngIf="isEditingProfile" type="primary-rounded" (click)="handleEditProfile()"><span>Guardar cambios</span></app-button>
+              </div>
+              <div *ngSwitchCase="'usuarios'">
+                <app-button type="primary-outline-rounded" (click)="toggleModal()"><span>Nuevo usuario</span></app-button>
+              </div>
+              <div *ngSwitchDefault></div>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
     <section class="personal-config__main-container">
-      <app-my-profile *ngIf="_user" [_user]="_user" [isEditingProfile]="isEditingProfile"></app-my-profile>
+      <router-outlet></router-outlet>
     </section>
-  </div>
+
+    <!-- Personal Config Modal -->
+    <app-modal [name]="modalName" [id]="modalName">
+
+      <div class="modal_section__body">
+
+        <!-- Register New User -->
+        <div class="register-new-user" *ngIf="!newUserRegistered">
+          <div class="register-new-user__header">
+            <div class="icon-container new-user">
+              <i class="material-icons md-36">perm_identity</i>
+            </div>
+            <h3 class="personal-config__users__title text-center">Nuevo usuario</h3>
+            <p class="text-center">Ingresa los datos requeridos para crear un nuevo usuario para tu empresa.</p>
+          </div>
+          <form class="register-new-user__form">
+            <div class="form-group">
+              <label class="new-user__form__label--block" for="nombre">Nombre</label>
+              <app-input type="text" placeholder="Ejemplo: Juan"></app-input>
+            </div>
+            <div class="form-group">
+              <label class="new-user__form__label--block" for="email">Correo electrónico</label>
+              <app-input type="text" placeholder="Ejemplo: micorreo@email.com"></app-input>
+            </div>
+            <div class="form-group">
+              <label class="new-user__form__label--block" for="nombre">Perfil asignado ( Rol )</label>
+              <select name="" id="" class="personal-config__users__select">
+                <option
+                  id="personal-config__users__new-user__val-all"
+                  value="all">
+                  Todos los usuarios
+                </option>
+                <option
+                  *ngFor="let option of userTypes; let i = index;"
+                  id="personal-config__users__new-user__val-{{ option.value }}"
+                  [value]="option.value">
+                  {{ option.name }}
+                </option>
+              </select>
+            </div>
+            <div class="form-group assign-contact">
+              <input type="checkbox" name="" id="" class="" [value]="assignContact" (click)="handleAssignContact()">
+              <label for="">Asignar como contacto</label>
+            </div>
+            <div class="form-group" *ngIf="assignContact">
+              <label for="">Tipo de contacto</label>
+              <select name="" id="" class="personal-config__users__select">
+                <option value="">Contacto operacional</option>
+              </select>
+            </div>
+            <div class="form-group text-center register-new-user__form__btns">
+              <app-button type="auto-block-min-w-x2" (click)="handleCreateUser()">Crear usuario</app-button>
+              <a (click)="closeModal()">Cancelar</a>
+            </div>
+          </form>
+        </div>
+
+        <!-- Register New User Success -->
+        <div class="register-new-user--success" *ngIf="newUserRegistered">
+          <div class="icon-container success">
+            <img style="max-width: 200px; max-height: 200px;" class="icon" src="/assets/imgs/svg/icon-ok.svg" alt="Advertencia" />
+          </div>
+          <div class="text-container">
+            <h3 class="register__modal__title text-center">
+              Usuario creado
+            </h3>
+            <p class="register__modal__subtitle text-center">
+              Hemos enviado un correo de confirmación a <strong>usuario@email.com</strong> con una clave provisoria para que pueda acceder al portal empresa, crear su contraseña y completar su perfil.
+            </p>
+          </div>
+          <div class="btn-container">
+            <app-button
+              type="auto-block-min-w-x2"
+              (click)="handleUserRegCompleted()">
+              Continuar
+            </app-button>
+          </div>
+        </div>
+
+
+      </div> <!-- /.modal_section__body -->
+
+    </app-modal>
+    
+  </div> <!-- /#personal-config -->
 </app-page>
