@@ -11,8 +11,8 @@
         *ngIf="profile === 'users-list'">
         <span class="material-icons">more_vert</span>
         <ul class="profile-card__menu__dropdown">
-          <li><a>Editar</a></li>
-          <li><a>Eliminar</a></li>
+          <li><a (click)="handleEditUser()">Editar</a></li>
+          <li><a (click)="handleDeleteUser()">Eliminar</a></li>
         </ul>
       </div>
       <div class="profile-content">
@@ -30,7 +30,7 @@
         -->
         <div class="profile__info">
           <p class="profile__fullname text-center">
-            <span *ngIf="userData.firstname !== '' && userData.firstname !== undefines && userData.firstname !== null; then personBlock else billerBlock"></span>
+            <span *ngIf="userData.firstname !== '' && userData.firstname !== undefined && userData.firstname !== null; then personBlock else billerBlock"></span>
             <ng-template #personBlock>
               <span class="profile__firstname">
                 {{ userData.firstname }}
