@@ -30,14 +30,28 @@
         -->
         <div class="profile__info">
           <p class="profile__fullname text-center">
-            <span class="profile__firstname">
-              {{ userData.firstname }}
-            </span>
-            <span class="profile__lastname">
-              {{ ( userData.lastname ? userData.lastname : '') }}
-            </span>
+            <span *ngIf="userData.firstname !== '' && userData.firstname !== undefines && userData.firstname !== null; then personBlock else billerBlock"></span>
+            <ng-template #personBlock>
+              <span class="profile__firstname">
+                {{ userData.firstname }}
+              </span>
+              <span class="profile__lastname">
+                {{ ( userData.lastname ? userData.lastname : '') }}
+              </span>
+            </ng-template>
+            <ng-template #billerBlock>
+              <span class="profile__firstname">
+                {{ userData.name }}
+              </span>
+            </ng-template>
           </p>
-          <p class="profile__email text-center"><small>{{ userData.email }}</small></p>
+          <div *ngIf="userData.firstname !== '' && userData.firstname !== undefines && userData.firstname !== null; then personEmailBlock else billerRutBlock"></div>
+          <ng-template #personEmailBlock>
+            <p class="profile__email text-center"><small>{{ userData.email }}</small></p>
+          </ng-template>
+          <ng-template #billerRutBlock>
+            <p class="profile__email text-center"><small>{{ userData.rut }}</small></p>
+          </ng-template>
         </div>
       </div>
       <div class="information-item bottom"

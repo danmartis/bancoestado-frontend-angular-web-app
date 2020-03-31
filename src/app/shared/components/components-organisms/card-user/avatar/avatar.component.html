@@ -4,6 +4,12 @@
     <img [src]="userData.img" alt="Imagen de perfil del usuario">
   </ng-template>
   <ng-template #avatarTextBlock>
-    {{ userData.firstname.charAt(0) + ( userData.lastname.charAt(0) ? userData.lastname.charAt(0) : '') }}
+    <div *ngIf="userData.firstname !== '' && userData.firstname !== undefines && userData.firstname !== null; then personBlock else billerBlock"></div>
+    <ng-template #personBlock>
+      {{ userData.firstname.charAt(0) + ( userData.lastname.charAt(0) ? userData.lastname.charAt(0) : '') }}
+    </ng-template>
+    <ng-template #billerBlock>
+      {{ userData.name.split(' ') ? userData.name.split(' ')[0].charAt(0) + userData.name.split(' ')[1].charAt(0) : userData.name.charAt(0) }}
+    </ng-template>
   </ng-template>
 </div>
