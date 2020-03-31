@@ -27,6 +27,7 @@ import { Button2Component } from 'src/app/shared/components/button/button2/butto
 import { DropdownComponent } from 'src/app/shared/components/dropdown/dropdown.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { Router } from '@angular/router';
 
 describe('PaymentMethodComponent', () => {
   let component: PaymentMethodComponent;
@@ -93,10 +94,18 @@ describe('PaymentMethodComponent', () => {
     const closeList = ["modal-added-account"];
     const open = 'modal-client-number';
     component.closeListOpenSingle(closeList,open);
+    expect(component).toBeTruthy();
   });
 
   it('goToHome', () => {
+   
+
+    const router: Router = TestBed.get(Router);
+    spyOn(router, 'navigate');
     component.goToHome();
+
+    expect(router.navigate).toHaveBeenCalledWith(['home-account/home']);
+
   });
 
   it('goToProofPayment', () => {

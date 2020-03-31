@@ -39,9 +39,11 @@ describe('HeaderMainComponent', () => {
 
   it('toggleSidebarStatus', () => {
     component.toggleSidebarStatus();
+    expect(component).toBeTruthy();
   });
   
   it('getSidebarStatus', () => {
     component.getSidebarStatus();
+    expect(component).toBeTruthy();
   });
 });

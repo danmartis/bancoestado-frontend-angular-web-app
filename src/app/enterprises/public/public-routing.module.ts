@@ -35,7 +35,8 @@ const routes: Routes = [
       { path: 'ayuda/detalles/categoria/:idItem/pregunta/:idQuestion', component: HelpDetailsComponent,
         resolve  : { data: GestorContenidoService }
       },
-      { path: 'configuracion-personal', loadChildren: () => import('./components/personal-config/personal-config.module').then(m => m.PersonalConfigModule) },
+      { path: 'configuracion-personal', loadChildren: () => import('./components/personal-config/personal-config.module').then(m => m.PersonalConfigModule),  canActivate: [ AuthguardService ] },
+      // { path: 'configuracion-personal', component: PersonalConfigComponent ,  canActivate: [ AuthguardService ] },
     ]
   }
 ];

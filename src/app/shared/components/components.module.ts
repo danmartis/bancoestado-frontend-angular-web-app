@@ -151,5 +151,3 @@ import { AvatarComponent } from './components-organisms/card-user/avatar/avatar.
   ],
 })
 export class ComponentsModule { }
-
-

@@ -22,6 +22,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { Button2Component } from '../../button/button2/button2.component';
 import { ModalIconComponent } from '../../modal-icon/modal-icon.component';
+import { Router } from '@angular/router';
 
 describe('VoucherGroupComponent', () => {
   let component: VoucherGroupComponent;
@@ -159,7 +160,14 @@ describe('VoucherGroupComponent', () => {
   });
 
   it('goToHome', () => {
+   
+
+    const router: Router = TestBed.get(Router);
+    spyOn(router, 'navigate');
     component.goToHome();
+
+    expect(router.navigate).toHaveBeenCalledWith(['home-account/home']);
+
   });
 
 });

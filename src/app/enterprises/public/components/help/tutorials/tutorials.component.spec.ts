@@ -46,5 +46,6 @@ import { GestorContenidoService } from 'src/app/services/gestor-contenido.servic
     const open = 'modal-client-number';
     const idVideo = "IWr8_TmBVa4";
     component.closeListOpenSingle(closeList,open,idVideo);
+    expect(component).toBeTruthy();
   });
 });

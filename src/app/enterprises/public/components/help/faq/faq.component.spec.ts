@@ -7,6 +7,7 @@ import { PageTitleComponent } from 'src/app/shared/components/components-atom/pa
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { GestorContenidoService } from 'src/app/services/gestor-contenido.service';
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('FaqComponent', () => {
   let component: FaqComponent;
@@ -20,7 +21,8 @@ describe('FaqComponent', () => {
       imports : [ 
         NgxTinySliderModule,
         NgbModule,
-        HttpClientTestingModule
+        HttpClientTestingModule,
+        RouterTestingModule
       ],
       declarations: [ 
         FaqComponent,
@@ -59,5 +61,7 @@ describe('FaqComponent', () => {
     spyOn(component, "closeListOpenSingle")
     component.closeListOpenSingle(['testStringArray'], 'testString');
     expect(component.closeListOpenSingle).toHaveBeenCalledWith(['testStringArray'], 'testString');
+  
+    
   });
 });

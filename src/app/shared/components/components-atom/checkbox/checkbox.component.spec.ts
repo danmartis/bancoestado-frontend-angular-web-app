@@ -29,5 +29,6 @@ describe('CheckboxComponent', () => {
 
   it('onToggle', () => {
     component.onToggle();
+    expect(component).toBeTruthy();
   });
 });

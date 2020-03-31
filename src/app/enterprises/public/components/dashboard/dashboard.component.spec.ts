@@ -6,6 +6,7 @@ import { LinkComponent } from 'src/app/shared/components/components-atom/link/li
 import { IconComponent } from 'src/app/shared/components/components-atom/icon/icon.component';
 import { RouterTestingModule } from '@angular/router/testing';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { ComponentsModule } from 'src/app/shared/components/components.module';
 
 describe('DashboardComponent', () => {
   let component: DashboardComponent;
@@ -15,13 +16,12 @@ describe('DashboardComponent', () => {
     TestBed.configureTestingModule({
       imports: [
         RouterTestingModule,
-        HttpClientTestingModule
+        HttpClientTestingModule,
+        ComponentsModule
       ],
       declarations: [ 
         DashboardComponent,
-        ModalComponent,
-        LinkComponent,
-        IconComponent,
+
         
       ]
     })
@@ -42,5 +42,6 @@ describe('DashboardComponent', () => {
     const closeList = ["modal-added-account"];
     const open = 'modal-client-number';
     component.closeListOpenSingle(closeList,open);
+    expect(component).toBeTruthy();
   });
 });

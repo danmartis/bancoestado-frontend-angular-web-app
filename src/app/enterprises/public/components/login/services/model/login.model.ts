@@ -2,16 +2,19 @@ export interface User {
     id: number;
     email: string;
     rut: string;
+    firstName: string;
+    lastName: string
     password: string;
     changePassword: boolean;
     userRut: string;
-    birthday: Date;
-    phone: number;
+    birthday: string;
+    phone: string;
     address: string;
-    comunne: string;
+    commune: string;
     city: string;
-    roles: string[];
-    company: string[];
+    roles: any[];
+    covenants: any[]
+    company: any[];
     contact: string,
     contactType: string
 }

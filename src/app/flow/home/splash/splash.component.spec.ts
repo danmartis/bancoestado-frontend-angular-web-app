@@ -49,6 +49,7 @@ describe('SplashComponent', () => {
     const closeList = ["modal-added-account"];
     const open = 'modal-client-number';
     component.closeListOpenSingle(closeList,open);
+    expect(component).toBeTruthy();
   });
 
 });

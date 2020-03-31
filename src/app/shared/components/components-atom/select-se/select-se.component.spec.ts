@@ -25,6 +25,7 @@ describe('SelectSeComponent', () => {
 
   it('onClick', () => {
     component.onClick();
+    expect(component).toBeTruthy();
   });
 
   it('selectOption', () => {
@@ -33,5 +34,7 @@ describe('SelectSeComponent', () => {
       sufix:''
     }
     component.selectOption(item);
+
+    expect(component).toBeTruthy();
   });
 });

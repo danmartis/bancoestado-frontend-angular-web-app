@@ -63,8 +63,6 @@ import { QuestionsMenuComponent } from './components/help/help-details/questions
     SharedModule,
     FormsModule,
     ReactiveFormsModule,
-    
-
   ],
   exports:[VideoPipe,HelpBannerComponent]
 })

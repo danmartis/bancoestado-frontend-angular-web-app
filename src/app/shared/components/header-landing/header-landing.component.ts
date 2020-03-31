@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
+import { AuthService } from 'src/app/services/authentication/auth.service';
 
 @Component({
   selector: 'app-header-landing',
@@ -25,7 +26,8 @@ export class HeaderLandingComponent implements OnInit {
   sidebarShadow : boolean = false;
 
 
-  constructor(private router: Router) {
+  constructor(private router: Router, protected _authServices: AuthService) {
+    console.log(_authServices)
 
     this.publicMenu = [
       {
@@ -80,7 +82,8 @@ export class HeaderLandingComponent implements OnInit {
     }
   }
 
-  ngOnInit() {    
+  ngOnInit() {   
+    
     window.addEventListener('scroll', (evt) => {
       const doc = document.documentElement;
       const top = (window.pageYOffset || doc.scrollTop)  - (doc.clientTop || 0);
@@ -116,9 +119,11 @@ export class HeaderLandingComponent implements OnInit {
     this.router.navigate(['/iniciar-sesion']);
   }
 
-  handleLogout(loggedOut:boolean) {
-    if (this.isUserLoggedIn) {
-      this.isUserLoggedIn = loggedOut;
+  handleLogout() {
+    if (this._authServices.isLogged) {
+      this._authServices.isLogged = false;
+      localStorage.removeItem('currentUser');
+      
       setTimeout(() => {
         this.goToLanding();
       }, 500);

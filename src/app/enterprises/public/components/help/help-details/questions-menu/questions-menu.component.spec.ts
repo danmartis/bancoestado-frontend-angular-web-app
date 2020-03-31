@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { QuestionsMenuComponent } from './questions-menu.component';
+import { ComponentsModule } from 'src/app/shared/components/components.module';
 
 describe('QuestionsMenuComponent', () => {
   let component: QuestionsMenuComponent;
@@ -8,7 +9,8 @@ describe('QuestionsMenuComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ QuestionsMenuComponent ]
+      declarations: [ QuestionsMenuComponent ],
+      imports: [ComponentsModule]
     })
     .compileComponents();
   }));

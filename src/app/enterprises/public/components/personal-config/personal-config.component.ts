@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { User } from '../login/services/model/login.model';
-import { AuthService } from '../../../../services/authentication/auth.service';
+// import { User } from '../login/services/model/login.model';
+// import { AuthService } from '../../../../services/authentication/auth.service';
 import { ModalService } from '../../../../services/modal.service';
 
 @Component({
@@ -11,15 +11,16 @@ import { ModalService } from '../../../../services/modal.service';
 })
 export class PersonalConfigComponent implements OnInit {
 
-  protected _user: User;
+  // protected _user: User;
   protected isEditingProfile: boolean = false;
+
   protected userTypes: Array<any> = [];
   protected newUserRegistered: boolean = false;
   protected modalName: string = 'personal-config__modal';
   protected selectedMenuItem: string = 'mi-perfil';
   protected assignContact: boolean = false;
 
-  constructor(private _authService: AuthService, private modalService: ModalService, private router: Router) {
+  constructor(/*private _authService: AuthService,*/ private modalService: ModalService, private router: Router) {
     
     this.userTypes = [
       {
@@ -38,7 +39,7 @@ export class PersonalConfigComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getCurrentUser()
+    // this.getCurrentUser()
     this.menuItemSel();
     this.router.events.subscribe((val) => {
       this.menuItemSel();
@@ -57,8 +58,15 @@ export class PersonalConfigComponent implements OnInit {
 
   handleEditProfile() {
     this.isEditingProfile = !this.isEditingProfile;
+    console.log('personal-config this.isEditingProfile: ', this.isEditingProfile)
+    if (this.isEditingProfile) {
+      console.log('Editing Profile')
+    } else {
+      console.log('Save Profile changes')
+    }
   }
  
+  /*
   async getCurrentUser() {
     await this._authService.getCurrentUser(this._authService.currentUserValue.email, this._authService.currentUserValue.rut)
       .subscribe(_user => {
@@ -69,6 +77,7 @@ export class PersonalConfigComponent implements OnInit {
       };
       return this._user;
   }
+  */
 
   // MODAL
   toggleModal() {

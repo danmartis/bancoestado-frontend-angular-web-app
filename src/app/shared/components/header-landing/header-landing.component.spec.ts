@@ -7,6 +7,9 @@ import { CapsuleComponent } from '../capsule/capsule.component';
 import { Button2Component } from '../button/button2/button2.component';
 import { ButtonComponent } from '../components-atom/button/button.component';
 import { RouterTestingModule } from '@angular/router/testing';
+import { ComponentsModule } from '../components.module';
+import { MobileMenuComponent } from '../mobile-menu/mobile-menu.component';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 describe('HeaderLandingComponent', () => {
   let component: HeaderLandingComponent;
@@ -16,14 +19,15 @@ describe('HeaderLandingComponent', () => {
     TestBed.configureTestingModule({
       declarations: [ 
         HeaderLandingComponent,
-        SidebarComponent,
-        TopBarComponent,
-        CapsuleComponent,
-        Button2Component,
-        ButtonComponent
+        MobileMenuComponent,
+        TopBarComponent
+
+
       ],
       imports: [
-        RouterTestingModule
+        RouterTestingModule,
+        HttpClientTestingModule
+        
       ]
     })
     .compileComponents();

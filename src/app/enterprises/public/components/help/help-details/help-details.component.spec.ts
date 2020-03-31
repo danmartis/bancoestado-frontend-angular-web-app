@@ -8,6 +8,10 @@ import { ParagraphComponent } from 'src/app/shared/components/components-atom/pa
 import { PageTitleComponent } from 'src/app/shared/components/components-atom/page-title/page-title.component';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { RouterTestingModule } from '@angular/router/testing';
+import { ComponentsModule } from 'src/app/shared/components/components.module';
+import { QuestionsMenuComponent } from './questions-menu/questions-menu.component';
+import { QuestionItemsComponent } from './question-items/question-items.component';
+import { QuestionComponent } from './question/question.component';
 
 describe('HelpDetailsComponent', () => {
   let component: HelpDetailsComponent;
@@ -17,15 +21,15 @@ describe('HelpDetailsComponent', () => {
     TestBed.configureTestingModule({
       declarations: [
          HelpDetailsComponent,
-         PageComponent,
-         Button2Component,
-         HelpBannerComponent,
-         ParagraphComponent,
-         PageTitleComponent
+         QuestionsMenuComponent,
+         QuestionItemsComponent,
+         QuestionComponent,
+         HelpBannerComponent
         ],
         imports: [
           RouterTestingModule,
-          HttpClientTestingModule
+          HttpClientTestingModule,
+          ComponentsModule
         ],
     })
     .compileComponents();
