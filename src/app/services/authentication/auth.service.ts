@@ -30,7 +30,8 @@ export class AuthService extends BffClientService {
   loginUser(login): Promise<User> {
     console.log(login);
     return new Promise((resolve, reject) => {
-      this._httpClient.post(environment.DOMAIN_LOCAL + "login", {rut: login.rut, email: login.email, password: login.password})
+      let rut2 = login.rut.replace(/["."]/g, "");
+      this._httpClient.post(environment.DOMAIN_LOCAL + "login", {rut: rut2, email: login.email, password: login.password})
         .subscribe((user: any) => {
           localStorage.setItem("currentUser", JSON.stringify(user.data.data));
           this.currentUserSubject.next(user.data.data);
