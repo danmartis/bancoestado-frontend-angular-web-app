@@ -44,10 +44,17 @@
         margin: 1rem auto;
       }
 
+      @media (max-width: $media-max-xxs) {
+        padding: 1.5rem .5rem;
+      }
+
       .mini-card {
         &__icon {
           margin-right: 16px;
           color: $color-paragraph;
+          @media (max-width: $media-max-xxs) {
+            margin-right: 8px;
+          }
         }
         &__title {
           color: $color-primary;
@@ -60,6 +67,7 @@
         &__label, &__value {
           color: $color-paragraph;
           font-size: 14px;
+          font-family: 'Circular Std Book';
         }
       }
     }

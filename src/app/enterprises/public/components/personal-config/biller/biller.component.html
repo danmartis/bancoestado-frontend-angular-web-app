@@ -1,1 +1,79 @@
-<p>billers works!</p>
+<div class="personal-config__my-profile">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 col-lg-4 panel__left">
+        <!--
+        -->
+          <app-card-user
+          topBadge="top-left'"
+          [topBadgeData]="profile.status"
+          profile="biller"
+          [userData]="profile"></app-card-user>
+      </div>
+      <div class="col-sm-12 col-lg-8 panel__right">
+        <div class="personal-config__card-item">
+          <app-card-default>
+            <div class="card__item">
+              <div class="card__title">
+                <h3>Información Corporativa</h3>
+              </div>
+              <div class="container card__content">
+                <div class="row">
+                  <div class="col-sm-12 col-lg-4" *ngFor="let infoItem of info; let i = index;">
+                    <app-info-item [info]="infoItem"></app-info-item>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card__item">
+              <div class="card__title">
+                <h3>Representante Legal</h3>
+              </div>
+              <div class="container card__content">
+                <div class="row">
+                  <div class="col-sm-12 col-lg-6" *ngFor="let info of ceo">
+                    <div class="mini-card__item">
+                      <div class="mini-card__icon">
+                        <i class="material-icons md-36">{{ info.icon }}</i>
+                      </div>
+                      <div class="mini-card__info">
+                        <h3 class="mini-card__title">{{ info.name }}</h3>
+                        <p>
+                          <span class="mini-card__label">{{ info.rut }}</span>
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card__item">
+              <div class="card__title">
+                <h3>Documentos</h3>
+              </div>
+              <div class="container card__content">
+                <div class="row">
+                  <div class="col-sm-12 col-lg-6" *ngFor="let doc of documents">
+                    <div class="mini-card__item">
+                      <div class="mini-card__icon">
+                        <i class="material-icons md-36">{{ doc.icon }}</i>
+                      </div>
+                      <div class="mini-card__info">
+                        <h3 class="mini-card__title">{{ doc.name }}</h3>
+                        <p>
+                          <span class="mini-card__label">{{ doc.label }}</span>
+                          <span class="mini-card__value">{{ doc.value }}</span>
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </app-card-default>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+</div>

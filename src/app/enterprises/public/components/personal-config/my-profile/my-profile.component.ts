@@ -9,9 +9,10 @@ export class MyProfileComponent implements OnInit {
 
   @Input() isEditingProfile: boolean;
   @Input() _user: any;
-  protected personalInfoItems: Object;
+  protected personalInfoItems: any;
   protected billerInfoItems: Array<any>;
   protected contractInfoItems: Array<any>;
+  protected userData: Object;
 
   messageError: string = "";
 
@@ -23,39 +24,39 @@ export class MyProfileComponent implements OnInit {
         {
           id: 'rut',
           label: 'Rut',
-          value: this._user.rut
+          value: 'this._user.rut'
         },
         {
           id: 'email',
           label: 'Correo electrónico',
-          value: this._user.email
+          value: 'this._user.email'
         },
       ],
       'editable': [
         {
           id: 'birthday',
           label: 'F. nacimiento',
-          value: this._user.birthday
+          value: 'this._user.birthday'
         },
         {
           id: 'phone',
           label: 'Teléfono',
-          value: this._user.phone
+          value: 'this._user.phone'
         },
         {
           id: 'address',
           label: 'Dirección',
-          value: this._user.address
+          value: 'this._user.address'
         },
         {
           id: 'zone',
           label: 'Comuna',
-          value: this._user.commune
+          value: 'this._user.commune'
         },
         {
           id: 'city',
           label: 'Ciudad',
-          value: this._user.city
+          value: 'this._user.city'
         }
       ]
     };
@@ -63,19 +64,19 @@ export class MyProfileComponent implements OnInit {
     this.billerInfoItems = [
       {
         label: 'Empresa',
-        value: this._user.company[0].name
+        value: 'this._user.company[0].name'
       },
       {
         label: 'Perfil asignado ( Rol )',
-        value: this._user.roles[0].role
+        value: 'this._user.roles[0].role'
       },
       {
         label: 'Contacto para ServiEstado',
-        value: this._user.contact
+        value: 'this._user.contact'
       },
       {
         label: 'Tipo de contacto',
-        value: this._user.contactType
+        value: 'this._user.contactType'
       }
     ];
     this.contractInfoItems = [
@@ -92,6 +93,13 @@ export class MyProfileComponent implements OnInit {
         value: '12/07/2019'
       },
     ];
+
+    this.userData = {
+      firstname: 'Jane',
+      lastname: 'Doe',
+      img: '',
+      email: 'this._user.email'
+    };
   }
 
 }
