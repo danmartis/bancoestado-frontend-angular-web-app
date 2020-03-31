@@ -48,7 +48,7 @@ export class AuthService extends BffClientService {
   }
 
   getCurrentUser(email: string, rut:string): Observable<User> {
-    return this._httpClient.post(`${environment.DOMAIN_LOCAL}/maintainerUser/personalInformation`,{ email: email, rut: rut })
+    return this._httpClient.post(`${environment.DOMAIN_LOCAL}maintainerUser/personalInformation`,{ email: email, rut: rut })
     .map((res: any) => res.data.data)
     .catch(this.errorData)
     .finally(() => { })
