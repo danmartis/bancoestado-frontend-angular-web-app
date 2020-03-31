@@ -24,7 +24,7 @@ export class MyProfileComponent implements OnInit {
   constructor(private _authService: AuthService, private _fileService: FilesService) { }
 
   async getCurrentUser() {
-    await this._authService.getCurrentUser(this._authService.currentUserValue.email, "92.580.000-7")
+    await this._authService.getCurrentUser(this._authService.currentUserValue.email, this._authService.currentUserValue.rut)
       .subscribe(_user => {
         this._user = _user;
         console.log(this._user)
