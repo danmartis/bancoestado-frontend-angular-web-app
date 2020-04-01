@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 // import { User } from '../login/services/model/login.model';
 // import { AuthService } from '../../../../services/authentication/auth.service';
 import { ModalService } from '../../../../services/modal.service';
+import { PersonalConfigService } from './personal-config.service';
 
 import { PersonalService } from './services/personal.service';
 
@@ -17,12 +18,17 @@ export class PersonalConfigComponent implements OnInit {
  
   protected userTypes: Array<any> = [];
   protected newUserRegistered: boolean = false;
+  protected updateUser: boolean = false;
   protected modalName: string = 'personal-config__modal';
   protected selectedMenuItem: string = 'mi-perfil';
   protected assignContact: boolean = false;
 
+<<<<<<< HEAD
 
   constructor(private _personServices:PersonalService , private modalService: ModalService, private router: Router) {
+=======
+  constructor(/*private _authService: AuthService,*/ private modalService: ModalService, private router: Router, protected personalConfigService: PersonalConfigService) {
+>>>>>>> da81d782ca19e4fc8433f4416e1af5ca127cf491
     
     this.userTypes = [
       {
@@ -119,5 +125,10 @@ export class PersonalConfigComponent implements OnInit {
   handleAssignContact() {
     this.assignContact = !this.assignContact;
   }
+
+
+  // Manejo de eventos en USERS COMPONENTS para update y delete USER
+  // (editUserEv)="handleUpdateUser($event)"
+  // (deleteUserEv)="handleDeleteUser($event)"
 
 }
