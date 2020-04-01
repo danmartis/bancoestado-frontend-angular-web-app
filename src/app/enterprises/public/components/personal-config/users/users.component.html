@@ -33,7 +33,7 @@
             topBadge="{{ user.contact === 'Si' ? 'top-left' : '' }}"
             topBadgeData="Contacto"
             bottomBadge="bottom-center"
-            [bottomBadgeData]="user.userProfile"
+            [bottomBadgeData]="user.roles[0].role"
             profile="users-list"
             [userData]="user"></app-card-user>
         </div>

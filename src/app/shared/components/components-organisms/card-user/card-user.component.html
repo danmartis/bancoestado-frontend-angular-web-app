@@ -17,26 +17,15 @@
       </div>
       <div class="profile-content">
         <app-avatar [userData]="userData"></app-avatar>
-        <!--
-          <div class="avatar">
-            <div *ngIf="userData.img !== '' || userData.img === undefined; then avatarImgBlock else avatarTextBlock"></div>
-            <ng-template #avatarImgBlock>
-              <img [src]="userData.img" alt="Imagen de perfil del usuario">
-            </ng-template>
-            <ng-template #avatarTextBlock>
-              {{ userData.firstname.charAt(0) + ( userData.lastname.charAt(0) ? userData.lastname.charAt(0) : '') }}
-            </ng-template>
-          </div>
-        -->
         <div class="profile__info">
           <p class="profile__fullname text-center">
-            <span *ngIf="userData.firstname !== '' && userData.firstname !== undefined && userData.firstname !== null; then personBlock else billerBlock"></span>
+            <span *ngIf="userData.firstName !== '' && userData.firstName !== undefined && userData.firstName !== null; then personBlock else billerBlock"></span>
             <ng-template #personBlock>
               <span class="profile__firstname">
-                {{ userData.firstname }}
+                {{ userData.firstName }}
               </span>
               <span class="profile__lastname">
-                {{ ( userData.lastname ? userData.lastname : '') }}
+                {{ ( userData.lastName ? userData.lastName : '') }}
               </span>
             </ng-template>
             <ng-template #billerBlock>
@@ -45,7 +34,7 @@
               </span>
             </ng-template>
           </p>
-          <div *ngIf="userData.firstname !== '' && userData.firstname !== undefines && userData.firstname !== null; then personEmailBlock else billerRutBlock"></div>
+          <div *ngIf="userData.firstName !== '' && userData.firstName !== undefines && userData.firstName !== null; then personEmailBlock else billerRutBlock"></div>
           <ng-template #personEmailBlock>
             <p class="profile__email text-center"><small>{{ userData.email }}</small></p>
           </ng-template>
@@ -58,7 +47,7 @@
         *ngIf="bottomBadgeData !== '' && bottomBadge !== '' && bottomBadge !== 'none'">
         <div [ngClass]="['bottom ' + bottomBadge, bottomBadge]">
           <span
-            [ngClass]="{ 'admin': userData.userProfile === 'Administrador' }">
+            [ngClass]="{ 'admin': userData.roles[0].role === 'Administrador' }">
             {{ bottomBadgeData }}
           </span>
         </div>
