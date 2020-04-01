@@ -13,6 +13,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { HelpDetailsComponent } from './components/help/help-details/help-details.component';
 import { GestorContenidoService } from 'src/app/services/gestor-contenido.service';
 import { AuthguardService } from 'src/app/services/helpers/authguard.service';
+import { RecoverPassComponent } from './components/recover-pass/recover-pass.component';
 
 const routes: Routes = [
   {
@@ -27,6 +28,7 @@ const routes: Routes = [
       { path: 'registro', component: RegisterComponent },
       { path: 'iniciar-sesion', component: LoginComponent },
       { path: 'cambiar-clave', component: ResetPasswordComponent , canActivate: [ AuthguardService ] },
+      { path: 'recuperar-clave', component: RecoverPassComponent },
       { path: 'resumen', component: DashboardComponent, canActivate: [ AuthguardService ] },
       { path: 'ayuda/detalles', component: HelpDetailsComponent},
       { path: 'ayuda/detalles/categoria/:idItem', component: HelpDetailsComponent,

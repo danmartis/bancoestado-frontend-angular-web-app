@@ -1,1 +1,69 @@
-<p>recover-pass works!</p>
+<div [id]="id" class="container">
+    <app-card-page>
+      <div class="card-page-body">
+        <div class="card-page-body__img">
+          <img src="/assets/imgs/svg/icon-login.svg" alt="Iniciar Sesión">
+        </div>
+        <div class="card-page-body__form">
+          <app-paragraph type="primary"><strong>Recuperar contraseña</strong></app-paragraph>
+          <app-paragraph type="min-sub-value">Ingresa el rut de tu empresa y correo electrónico con el que te registraste en ServiEstado para enviarte una clave provisoria</app-paragraph>
+          <form [formGroup]="loginForm">
+            <app-input 
+            [invalidText]="getMesaggeErrorRut()" 
+           
+            status="{{ ( f.rut.hasError('required') || f.rut.hasError('rutInvalid') ) && formInvalid ? 'invalid' :  ( !f.rut.hasError('required') || !f.rut.hasError('rutInvalid') ) && formInvalid? 'valid': ''  }}" 
+            maxlength="12"
+            rutMaskInput
+            [value]="f.rut.value"
+  
+            (keyup.backspace)="onBackspace()"
+            idName="enterprises__register__rut" 
+            type="text" placeholder="Rut"  
+            formControlName="rut" 
+            ngDefaultControl></app-input>
+            <app-input type="email" placeholder="Correo electrónico" [invalidText]="getMesaggeErrorEmail()"
+              
+              status="{{ ( f.email.hasError('pattern') || f.email.hasError('required') ) && formInvalid ? 'invalid' : ''  }}"
+              formControlName="email" ngDefaultControl></app-input>
+
+  
+  
+            <app-button size="lg" type="auto-block-min-w-x2" idName="enterprises__login__btn-submit"
+              (click)="btnSendData()">Entrar</app-button>
+  
+  
+          </form>
+        </div>
+      </div>
+      <div class="card-page-footer">
+        <a id="enterprises__login__client" href="/empresas/#">Volver al inicio de sesión</a>
+      </div>
+    </app-card-page>
+    <app-modal [name]="modalName" [id]="modalName">
+      <div class="modal_section__header"></div>
+      <div class="modal_section__body">
+        <div class="icon-container">
+          <img class="icon" src="/assets/imgs/svg/icon-info.svg" alt="Advertencia" />
+        </div>
+        <div class="text-container">
+          <h3 class="register__modal__title">
+            {{ messageTitle }}
+  
+  
+          </h3>
+          <p class="register__modal__subtitle">
+  
+            {{ messageDesc }}
+          </p>
+        </div>
+        <div class="btn-container">
+          <app-button type="auto-block-min-w-x2" (click)="closeModal()">
+            <div class="modal-btn">
+              Aceptar
+            </div>
+          </app-button>
+        </div>
+      </div>
+      <div class="modal_section__footer"></div>
+    </app-modal>
+  </div>
