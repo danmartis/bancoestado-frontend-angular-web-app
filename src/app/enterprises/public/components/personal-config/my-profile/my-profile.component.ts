@@ -2,6 +2,8 @@ import { Component, OnInit, Input } from '@angular/core';
 import { FilesService } from '../../../../../services/files/files.service';
 import { User } from '../../login/services/model/login.model';
 import { AuthService } from '../../../../../services/authentication/auth.service';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { PersonalService } from '../services/personal.service';
 
 @Component({
   selector: 'app-my-profile',
@@ -10,7 +12,7 @@ import { AuthService } from '../../../../../services/authentication/auth.service
 })
 export class MyProfileComponent implements OnInit {
 
-  @Input() isEditingProfile: boolean;
+
   // @Input() _user: any;
   protected _user: User;
   protected personalInfoItems: any;
@@ -19,16 +21,20 @@ export class MyProfileComponent implements OnInit {
   protected admin: string;
   protected userData: Object;
 
+
+  
+
   messageError: string = "";
 
-  constructor(private _authService: AuthService, private _fileService: FilesService) { }
+  constructor(private _authService: AuthService, private _fileService: FilesService ,public _personalServices: PersonalService) { }
 
   async getCurrentUser() {
     await this._authService.getCurrentUser(this._authService.currentUserValue.email, this._authService.currentUserValue.rut)
       .subscribe(_user => {
         this._user = _user;
         console.log(this._user)
-        this.isAdmin()
+        this.isAdmin(),
+        this._personalServices.formPofile(this._user)
       }), err => {
         return err;
       };
@@ -51,9 +57,11 @@ export class MyProfileComponent implements OnInit {
   async downloadFile(fileName: string) {
     await this._fileService.convenantsDownload(fileName);
   }
-
   ngOnInit() {
     this.getCurrentUser()
+
+    
+    
     //this.isAdmin();
     //console.log(this.isAdmin());
     this.personalInfoItems = {
@@ -73,27 +81,28 @@ export class MyProfileComponent implements OnInit {
         {
           id: 'birthday',
           label: 'F. nacimiento',
-          value: ''
+          value: 'is._user.birthday'
         },
         {
           id: 'phone',
           label: 'Teléfono',
-          value: ''
+          value:  ''
         },
         {
           id: 'address',
           label: 'Dirección',
-          value: ''
+          value:  ''
         },
         {
           id: 'zone',
           label: 'Comuna',
-          value: ''
+          value:  ''
         },
         {
           id: 'city',
           label: 'Ciudad',
-          value: ''
+          value:  ''
+          
         }
       ]
     };
@@ -142,8 +151,45 @@ export class MyProfileComponent implements OnInit {
 
   }
 
+
+
+  getMesaggeErrorBirthday() {
+
+    return this._personalServices.f.birthday.getError('required') ? 'Este campo es requerido' : '';
+  }
+
+  getMesaggeErrorPhone() {
+
+    return this._personalServices.f.phone.getError('required') ? 'Este campo es requerido' : '';
+  }
+
+  getMesaggeErrorAddress() {
+
+    return this._personalServices.f.address.getError('required') ? 'Este campo es requerido' : '';
+  }
+
+  getMesaggeErrorZone() {
+
+    return this._personalServices.f.zone.getError('required') ? 'Este campo es requerido' : '';
+  }
+
+  getMesaggeErrorCity() {
+
+    return this._personalServices.f.city.getError('required') ? 'Este campo es requerido' : '';
+  }
+
+
+
+
   ngDoCheck() {
+
+    
+
+   
     if (this._user) {
+
+    
+      //this._personalServices.formPofile(this._user)
       this.personalInfoItems = {
         'fixed': [
           {

@@ -11,6 +11,7 @@ import { BffClientService } from '../bffClient.service';
 export class AuthService extends BffClientService {
   isLogged: boolean = false;
   loading: boolean = false;
+ 
   _user: User;
 
   private currentUserSubject: BehaviorSubject<User>;

@@ -29,6 +29,7 @@ import { HelpDetailsComponent } from './components/help/help-details/help-detail
 import { QuestionComponent } from './components/help/help-details/question/question.component';
 import { QuestionItemsComponent } from './components/help/help-details/question-items/question-items.component';
 import { QuestionsMenuComponent } from './components/help/help-details/questions-menu/questions-menu.component';
+import { RecoverPassComponent } from './components/recover-pass/recover-pass.component';
 
 @NgModule({
   declarations: [
@@ -56,6 +57,7 @@ import { QuestionsMenuComponent } from './components/help/help-details/questions
     QuestionComponent,
     QuestionItemsComponent,
     QuestionsMenuComponent,
+    RecoverPassComponent,
   ],
   imports: [
     CommonModule,

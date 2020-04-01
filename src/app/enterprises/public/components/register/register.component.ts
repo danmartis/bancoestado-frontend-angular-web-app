@@ -26,6 +26,7 @@ export class RegisterComponent implements OnInit {
   constructor(private _formBuilder: FormBuilder,
     private _registrerService: RegisterService,
     private modalService: ModalService) { }
+    
   ngOnInit() {
 
     this.registerForm = this._formBuilder.group({
