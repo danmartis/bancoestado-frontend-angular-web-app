@@ -50,8 +50,6 @@ export class MyProfileComponent implements OnInit {
 
   async downloadFile(fileName: string) {
     await this._fileService.convenantsDownload(fileName);
-    console.log(this._user.roles[0].role)
-    // console.log(this._user["roles"].role)
   }
 
   ngOnInit() {

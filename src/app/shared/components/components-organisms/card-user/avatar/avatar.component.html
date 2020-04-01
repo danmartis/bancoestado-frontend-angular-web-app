@@ -1,12 +1,12 @@
 <div class="avatar">
-  <div *ngIf="userData.img !== '' || userData.img === undefined; then avatarImgBlock else avatarTextBlock"></div>
+  <div *ngIf="userData.img !== '' || userData.img === undefined || userData.img === null; then avatarImgBlock else avatarTextBlock"></div>
   <ng-template #avatarImgBlock>
     <img [src]="userData.img" alt="Imagen de perfil del usuario">
   </ng-template>
   <ng-template #avatarTextBlock>
-    <div *ngIf="userData.firstname !== '' && userData.firstname !== undefines && userData.firstname !== null; then personBlock else billerBlock"></div>
+    <div *ngIf="userData.firstName !== '' && userData.firstName !== undefined && userData.firstName !== null; then personBlock else billerBlock"></div>
     <ng-template #personBlock>
-      {{ userData.firstname.charAt(0) + ( userData.lastname.charAt(0) ? userData.lastname.charAt(0) : '') }}
+      {{ userData.firstName.charAt(0) + ( userData.lastName.charAt(0) ? userData.lastName.charAt(0) : '') }}
     </ng-template>
     <ng-template #billerBlock>
       {{ userData.name.split(' ') ? userData.name.split(' ')[0].charAt(0) + userData.name.split(' ')[1].charAt(0) : userData.name.charAt(0) }}
