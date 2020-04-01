@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
+import { UsersService } from 'src/app/services/users/users.service';
+import { AuthService } from '../../../../../services/authentication/auth.service';
 @Component({
   selector: 'app-users',
   templateUrl: './users.component.html',
@@ -10,7 +11,7 @@ export class UsersComponent implements OnInit {
   protected userItems: Array<any> = [];
   protected userTypes: any = [];
   
-  constructor() {
+  constructor(private usersService: UsersService, private _authService: AuthService) {
     this.userTypes = [
       {
         name:'Administrador',
@@ -25,8 +26,9 @@ export class UsersComponent implements OnInit {
         value:'authorizdor'
       }
     ];
-
-    this.userItems = [
+   
+   this.getUsers();
+   /* this.userItems = [
       {
         img: '',
         firstname: 'Nombre 1',
@@ -59,10 +61,21 @@ export class UsersComponent implements OnInit {
         userProfile: 'Autorizador',
         contact: 'Si'
       },
-    ];
+    ];*/
   }
 
   ngOnInit() {
   } 
+
+  async getUsers() {
+    await this.usersService.getUsers(this._authService.currentUserValue.rut.replace('.', ''))
+      .subscribe(res => {
+        console.log(res.getDetalle().data)
+        this.userItems = res.getDetalle().data;
+      }), err => {
+        return err;
+      };
+  }
+ 
 
 }
