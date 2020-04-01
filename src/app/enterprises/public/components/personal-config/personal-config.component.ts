@@ -23,12 +23,8 @@ export class PersonalConfigComponent implements OnInit {
   protected selectedMenuItem: string = 'mi-perfil';
   protected assignContact: boolean = false;
 
-<<<<<<< HEAD
 
   constructor(private _personServices:PersonalService , private modalService: ModalService, private router: Router) {
-=======
-  constructor(/*private _authService: AuthService,*/ private modalService: ModalService, private router: Router, protected personalConfigService: PersonalConfigService) {
->>>>>>> da81d782ca19e4fc8433f4416e1af5ca127cf491
     
     this.userTypes = [
       {
