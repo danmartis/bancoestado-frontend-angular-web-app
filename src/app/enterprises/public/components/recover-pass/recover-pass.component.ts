@@ -18,6 +18,8 @@ export class RecoverPassComponent implements OnInit {
 
   modalName : string = "enterprises__login__modal__invalid-data";
 
+  modalNameSucces: string = "enterprises__login__modal__success-data";
+
 
   messageTitle:''
 messageDesc: ''
@@ -37,6 +39,11 @@ messageDesc: ''
   invalidLoginModal() {
     console.log('hola')
     this.modalService.toggle(this.modalName);
+  }
+
+  successModal() {
+    console.log('hola')
+    this.modalService.toggle(this.modalNameSucces);
   }
 
   closeModal() {
@@ -70,7 +77,7 @@ console.log(this._authService.currentUserValue)
 
      
 
-      console.log( this.formInvalid  ,  this.loginForm)
+      console.log( this.formInvalid)
     }
 
     else {
@@ -80,30 +87,19 @@ console.log(this._authService.currentUserValue)
 
      console.log(data)
 
-    console.log(this.f.password)
+     const rut = data.rut.replace(/["."]/g, "");
 
 
-     
-     this._authService.loginUser(data)
+  
+     this._recoverPassService.recoverPass(rut, data.email)
       .then( (res: any) => {
        console.log(res);
 
-       this._authService.isLogged = true;
+     this.successModal()
 
-     
-      if(res.data.data.changePassword){
+     // this.router.navigate(['/empresas/iniciar-sesion'])
+      
 
-      //this._loginService.changePassword = true;
-      this.router.navigate(['/empresas/cambiar-clave'])
-
-      }
-
-      else {
-       this.router.navigate(['/empresas/resumen'])
-      // this._loginService.changePassword = false;
-
-
-      }
 
 
      })

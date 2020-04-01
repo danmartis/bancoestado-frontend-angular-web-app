@@ -29,16 +29,19 @@
   
   
             <app-button size="lg" type="auto-block-min-w-x2" idName="enterprises__login__btn-submit"
-              (click)="btnSendData()">Entrar</app-button>
+              (click)="btnSendData()">Enviar</app-button>
   
   
           </form>
         </div>
       </div>
+
+
       <div class="card-page-footer">
-        <a id="enterprises__login__client" href="/empresas/#">Volver al inicio de sesión</a>
+        <a id="enterprises__login__client" routerLink="/empresas/iniciar-sesion">Volver al inicio de sesión</a>
       </div>
     </app-card-page>
+
     <app-modal [name]="modalName" [id]="modalName">
       <div class="modal_section__header"></div>
       <div class="modal_section__body">
@@ -66,4 +69,33 @@
       </div>
       <div class="modal_section__footer"></div>
     </app-modal>
+
+
+    <app-modal
+   [name]="modalNameSucces"
+    id="enterprises__register__modal"
+  >
+    <div class="modal_section__header"></div>
+    <div class="modal_section__body">
+      <div class="icon-container">
+        <img class="icon" src="/assets/imgs/svg/icon-ok.svg" alt="ok" />
+      </div>
+      <div class="text-container">
+        <h3 class="register__modal__title">
+          Contraseña enviada!
+        </h3>
+        <p class="register__modal__subtitle">
+            Se ha enviado una clave provisoria, cuando vuelvas a iniciar sesión utiliza esta como contraseña.
+        </p>
+      </div>
+      <div class="btn-container">
+        <app-link id="enterprises__register__modal__cta" [to]="'/empresas/iniciar-sesion'">
+          <div class="modal-btn">
+            Volver a iniciar sesión 
+          </div>
+        </app-link>
+      </div>
+    </div>
+    <div class="modal_section__footer"></div>
+  </app-modal>
   </div>

@@ -58,6 +58,7 @@ import { RecoverPassComponent } from './components/recover-pass/recover-pass.com
     QuestionItemsComponent,
     QuestionsMenuComponent,
     RecoverPassComponent,
+
   ],
   imports: [
     CommonModule,
