@@ -1,5 +1,4 @@
-import { Component, OnInit, Input, AfterViewInit } from '@angular/core';
-import { empty } from 'rxjs';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-card-user',
@@ -15,6 +14,12 @@ export class CardUserComponent implements OnInit {
   @Input() bottomBadgeData: string = '';
   @Input() profile: '' | 'users-list' | 'biller' | 'user' = 'user';
 
+  @Output() editUserEv = new EventEmitter();
+  @Output() deleteUserEv = new EventEmitter();
+
+  protected editUser: boolean = false;
+  protected deleteUser: boolean = false;
+
   // protected openDropDown: boolean = false;
 
 
@@ -24,16 +29,11 @@ export class CardUserComponent implements OnInit {
 
   }
 
-  /*
-  handleDropdownMenu($event: any) {
-    $event.stopPropagation();
-    this.openDropDown = !this.openDropDown;
+  handleEditUser() {
+    this.editUserEv.emit(this.editUser);
   }
-  onClick($event: any) {
-    $event.stopPropagation();
-    if (this.openDropDown) {
-      this.handleDropdownMenu($event);
-    }
+
+  handleDeleteUser() {
+    this.deleteUserEv.emit(this.deleteUser)
   }
-  */
 }
