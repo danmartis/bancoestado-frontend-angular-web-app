@@ -21,40 +21,26 @@
                   <app-info-item [info]="personalInfoItems.fixed[1]"></app-info-item>
                 </div>
               </div>
-              
-              <form [formGroup]="_personalServices.profileForm" *ngIf="_personalServices.isEditingProfile; else elseIsEditingProfile;"> 
+
+              <form [formGroup]="_personalServices.profileForm"
+                *ngIf="_personalServices.isEditingProfile; else elseIsEditingProfile;">
 
                 <div class="row">
                   <div class="col-sm-12 col-lg-6">
                     <app-input idName="personal-config__my-profile__input-{{ personalInfoItems.editable[0].id }}"
-                      placeholder="{{ personalInfoItems.editable[0].label }}"
-                     
-                      formControlName="birthday"
-                      [invalidText]="getMesaggeErrorBirthday()"
-                      icon="none"
-                      maxlength="10"
-                      [value]=" _personalServices.f.birthday.value"
-                      status="{{
+                      placeholder="{{ personalInfoItems.editable[0].label }}" formControlName="birthday"
+                      [invalidText]="getMesaggeErrorBirthday()" icon="none" maxlength="10"
+                      [value]=" _personalServices.f.birthday.value" status="{{
                         _personalServices.f.birthday.hasError('required') && _personalServices.formInvalid
                           ? 'invalid'
                           : ''
-                      }}"
-                    
-                      ngDefaultControl
-                       ></app-input>
+                      }}" ngDefaultControl></app-input>
                   </div>
                   <div class="col-sm-12 col-lg-6">
                     <app-input idName="personal-config__my-profile__input-{{ personalInfoItems.editable[1].id }}"
-                      placeholder="{{ personalInfoItems.editable[1].label }}"
-
-                      formControlName="phone"
-                      [invalidText]="getMesaggeErrorPhone()"
-                      icon="none"
-                      maxlength=12
-                      minlength=12
-                      (keypress)="phoneCharacters($event)"
-                      [value]=" _personalServices.f.phone.value"
-                      status="{{
+                      placeholder="{{ personalInfoItems.editable[1].label }}" formControlName="phone"
+                      [invalidText]="getMesaggeErrorPhone()" icon="none" maxlength=12 minlength=12
+                      (keypress)="phoneCharacters($event)" [value]=" _personalServices.f.phone.value" status="{{
                         _personalServices.f.phone.hasError('required') ||
                         _personalServices.f.phone.hasError('badFormat') ||
                         _personalServices.f.phone.hasError('badNumber') ||
@@ -62,61 +48,38 @@
                         _personalServices.formInvalid
                           ? 'invalid'
                           : ''
-                      }}"
-          
-                      ngDefaultControl
-                      ></app-input>
+                      }}" ngDefaultControl></app-input>
                   </div>
                   <div class="col-sm-12 col-lg-6">
                     <app-input idName="personal-config__my-profile__input-{{ personalInfoItems.editable[2].id }}"
-                      placeholder="{{ personalInfoItems.editable[2].label }}"
-                      
-                      formControlName="address"
-                      [invalidText]="getMesaggeErrorAddress()"
-                      icon="none"
-                      [value]=" _personalServices.f.address.value"
-                      status="{{
+                      placeholder="{{ personalInfoItems.editable[2].label }}" formControlName="address"
+                      [invalidText]="getMesaggeErrorAddress()" icon="none" maxlength=50
+                      [value]=" _personalServices.f.address.value" status="{{
                         _personalServices.f.address.hasError('required') && _personalServices.formInvalid
                           ? 'invalid'
                           : ''
-                      }}"
-          
-  
-
-                      ngDefaultControl></app-input>
+                      }}" ngDefaultControl></app-input>
 
                   </div>
                   <div class="col-sm-12 col-lg-6">
                     <app-input idName="personal-config__my-profile__input-{{ personalInfoItems.editable[3].id }}"
-                      placeholder="{{ personalInfoItems.editable[3].label }}" 
-                      
-                      formControlName="zone"
-                      [invalidText]="getMesaggeErrorZone()"
-                      icon="none"
-                      [value]=" _personalServices.f.zone.value"
+                      placeholder="{{ personalInfoItems.editable[3].label }}" formControlName="zone"
+                      [invalidText]="getMesaggeErrorZone()" icon="none" [value]=" _personalServices.f.zone.value"
                       status="{{
                         _personalServices.f.zone.hasError('required') && _personalServices.formInvalid
                           ? 'invalid'
                           : ''
-                      }}"
-
-                      ngDefaultControl></app-input>
+                      }}" ngDefaultControl></app-input>
                   </div>
                   <div class="col-sm-12 col-lg-6">
                     <app-input idName="personal-config__my-profile__input-{{ personalInfoItems.editable[4].id }}"
-                      placeholder="{{ personalInfoItems.editable[4].label }}"
-                      
-                      formControlName="city"
-                      [invalidText]="getMesaggeErrorCity()"
-                      icon="none"
-                      [value]=" _personalServices.f.city.value"
+                      placeholder="{{ personalInfoItems.editable[4].label }}" formControlName="city"
+                      [invalidText]="getMesaggeErrorCity()" icon="none" [value]=" _personalServices.f.city.value"
                       status="{{
                         _personalServices.f.city.hasError('required') && _personalServices.formInvalid
                           ? 'invalid'
                           : ''
-                      }}"
-
-                      ngDefaultControl></app-input>
+                      }}" ngDefaultControl></app-input>
                   </div>
                 </div>
               </form>
