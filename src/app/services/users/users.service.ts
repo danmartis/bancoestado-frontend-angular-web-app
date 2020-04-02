@@ -1,7 +1,7 @@
 import { BffClientService } from '../bffClient.service';
 import { Observable } from 'rxjs';
 import { DataResponse } from '../dataResponse';
-import { environment } from 'src/environments/environment.dev';
+import { environment } from 'src/environments/environment';
 import { AuthService } from '../../services/authentication/auth.service';
 import { Injectable } from '@angular/core';
 

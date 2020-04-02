@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import { User } from "src/app/enterprises/public/components/login/services/model/login.model";
-import { environment } from "src/environments/environment.dev";
+import { environment } from "src/environments/environment";
 import { HttpClient } from "@angular/common/http";
 import { BehaviorSubject, Observable } from "rxjs";
 import { BffClientService } from '../bffClient.service';
