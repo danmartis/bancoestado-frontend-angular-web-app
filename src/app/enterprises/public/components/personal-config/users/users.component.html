@@ -27,7 +27,8 @@
 
       <div class="row users__items">
         <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3" *ngFor="let user of userItems; let i = index;">
-          <app-card-user
+          
+          <app-card-user *ngIf = "_authService.currentUserValue.email === user.email"
             (editUserEv)="personalConfigService.handleEditUser(modalName)"
             (deleteUserEv)="personalConfigService.handleDeleteUser(modalName)"
             topBadge="{{ user.contact === 'Si' ? 'top-left' : '' }}"
@@ -35,7 +36,21 @@
             bottomBadge="bottom-center"
             [bottomBadgeData]="user.roles[0].role"
             profile="users-list"
-            [userData]="user"></app-card-user>
+            role = "userLogin"
+            [userData]="user">
+          </app-card-user>
+         
+          <app-card-user *ngIf = "_authService.currentUserValue.email !== user.email"
+            (editUserEv)="personalConfigService.handleEditUser(modalName)"
+            (deleteUserEv)="personalConfigService.handleDeleteUser(modalName)"
+            topBadge="{{ user.contact === 'Si' ? 'top-left' : '' }}"
+            topBadgeData="Contacto"
+            bottomBadge="bottom-center"
+            [bottomBadgeData]="user.roles[0].role"
+            profile="users-list"
+            [role] = "_authService.currentUserValue.roles[0].role"
+            [userData]="user">
+          </app-card-user>
         </div>
       </div>
 

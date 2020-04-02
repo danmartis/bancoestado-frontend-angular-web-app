@@ -8,11 +8,18 @@
         </div>
       </div>
       <div class="profile-card__menu"
-        *ngIf="profile === 'users-list'">
+        *ngIf="role === 'Administrador'">
         <span class="material-icons">more_vert</span>
         <ul class="profile-card__menu__dropdown">
           <li><a (click)="handleEditUser()">Editar</a></li>
           <li><a (click)="handleDeleteUser()">Eliminar</a></li>
+        </ul>
+      </div>
+      <div class="profile-card__menu"
+        *ngIf="role === 'userLogin'">
+        <span class="material-icons">more_vert</span>
+        <ul class="profile-card__menu__dropdown">
+          <li><a [routerLink]="['/empresas/configuracion-personal/mi-perfil']">Editar</a></li>
         </ul>
       </div>
       <div class="profile-content">

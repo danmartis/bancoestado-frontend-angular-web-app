@@ -1,7 +1,7 @@
 import { BffClientService } from '../bffClient.service';
 import { Observable } from 'rxjs';
 import { DataResponse } from '../dataResponse';
-import { environment } from 'src/environments/environment.dev';
+import { environment } from 'src/environments/environment';
 import { AuthService } from '../../services/authentication/auth.service';
 import { Injectable } from '@angular/core';
 
@@ -14,8 +14,8 @@ export class UsersService extends BffClientService {
     private _authService: AuthService;
     
     public getUsers(rut): Observable<DataResponse> {
-       // const urlApi = environment.DOMAIN_LOCAL+"maintainerUser/getUser";
-        const urlApi = "http://localhost:8080/bff/se-bff-empresas/v1/maintainerUser/getUser";
+        const urlApi = environment.DOMAIN_LOCAL+"maintainerUser/getUser";
+        //const urlApi = "http://localhost:8080/bff/se-bff-empresas/v1/maintainerUser/getUser";
         let body = {
             rut
         }
