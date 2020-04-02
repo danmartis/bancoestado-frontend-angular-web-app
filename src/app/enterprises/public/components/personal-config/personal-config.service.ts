@@ -39,6 +39,5 @@ export class PersonalConfigService {
 
   closeModal(modalName: string) {
     this.modalService.close(modalName);
-    console.log()
   }
 }
