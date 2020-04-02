@@ -2,7 +2,6 @@ import { Component, OnInit, Input } from '@angular/core';
 import { FilesService } from '../../../../../services/files/files.service';
 import { User } from '../../login/services/model/login.model';
 import { AuthService } from '../../../../../services/authentication/auth.service';
-import { FormBuilder, FormGroup, Validators, ValidatorFn, AbstractControl, ValidationErrors } from '@angular/forms';
 import { PersonalService } from '../services/personal.service';
 
 @Component({
@@ -192,7 +191,7 @@ export class MyProfileComponent implements OnInit {
 
     return this._personalServices.f.phone.getError('required') ? 'Este campo es requerido'
       : this._personalServices.f.phone.getError('minlength') ? 'El campo debe contener 12 caracteres'
-      : this._personalServices.f.phone.getError('badFormat')? 'El número debe comenzar en +569'
+      : this._personalServices.f.phone.getError('badFormat')? 'El número debe comenzar con +56 seguido del número'
       : this._personalServices.f.phone.getError('badNumber')? 'Número invalido'
       : '';
   }

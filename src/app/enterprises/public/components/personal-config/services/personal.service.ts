@@ -27,14 +27,14 @@ export class PersonalService {
     if (!control.parent || !control) {
       return null;
     }
-      const phoneFormat = "\\+569";
+      const phoneFormat = "\\+56";
       const plus = "\\+";
       const phone = control.parent.get("phone");
       const phoneNumber = phone.value;
-      if(!phoneNumber.substring(0, 4).match(phoneFormat)) {
+      if(!phoneNumber.substring(0, 3).match(phoneFormat)) {
         return { badFormat: true };
     }
-    if(phoneNumber.substring(4, phoneNumber.length).match(plus)) {
+    if(phoneNumber.substring(3, phoneNumber.length).match(plus)) {
       return { badNumber: true }
     }
     return null;
