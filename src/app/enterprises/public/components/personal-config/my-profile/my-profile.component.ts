@@ -35,7 +35,7 @@ export class MyProfileComponent implements OnInit {
       .subscribe(_user => {
         this._user = _user;
         console.log(this._user);
-        this.isAdmin(), this._personalServices.formPofile(this._user);
+        this.isAdmin(), this._personalServices.formPofile(this._user), this.setDate();
       }),
       err => {
         return err;
@@ -54,6 +54,17 @@ export class MyProfileComponent implements OnInit {
         }
       }
     }
+  }
+
+  setDate() {
+    let day = this._user.birthday.substring(0, 2);
+    let month = this._user.birthday.substring(3, 5);
+    let year = this._user.birthday.substring(6, 10);
+    console.log(day);
+
+    let date = (`${year}-${month}-${day}`);
+    console.log(date);
+    return date;
   }
 
   phoneCharacters(event): boolean {
@@ -88,14 +99,11 @@ export class MyProfileComponent implements OnInit {
         rutFormateado = letra + rutFormateado;
         if (j % 3 == 0 && j <= inicio.length - 1) {
           rutFormateado = "." + rutFormateado;
-          console.log(rutFormateado);
         }
         j++;
       }
       let dv = rutLimpio.substring(rutLimpio.length - 1);
-      console.log(dv);
       rutFormateado = rutFormateado + "-" + dv;
-      console.log(rutFormateado);
       return rutFormateado;
     }
   }
@@ -105,7 +113,6 @@ export class MyProfileComponent implements OnInit {
   }
   ngOnInit() {
     this.getCurrentUser();
-
     //this.isAdmin();
     //console.log(this.isAdmin());
     this.personalInfoItems = {

@@ -28,13 +28,8 @@
                 <div class="row">
                   <div class="col-sm-12 col-lg-6">
                     <app-input idName="personal-config__my-profile__input-{{ personalInfoItems.editable[0].id }}"
-                      placeholder="{{ personalInfoItems.editable[0].label }}" formControlName="birthday"
-                      [invalidText]="getMesaggeErrorBirthday()" icon="none" maxlength="10"
-                      [value]=" _personalServices.f.birthday.value" status="{{
-                        _personalServices.f.birthday.hasError('required') && _personalServices.formInvalid
-                          ? 'invalid'
-                          : ''
-                      }}" ngDefaultControl></app-input>
+                      type="date" formControlName="birthday" id="date" [value]="setDate()"
+                      ngDefaultControl></app-input>
                   </div>
                   <div class="col-sm-12 col-lg-6">
                     <app-input idName="personal-config__my-profile__input-{{ personalInfoItems.editable[1].id }}"
