@@ -59,10 +59,9 @@ export class MyProfileComponent implements OnInit {
   }
 
   setDate() {
-    let day = this._personalServices.f.birthday.value.substring(0, 2);
-    let month = this._personalServices.f.birthday.value.substring(3, 5);
-    let year = this._personalServices.f.birthday.value.substring(6, 10);
-    console.log(day);
+    let day = this._user.birthday.substring(0, 2);
+    let month = this._user.birthday.substring(3, 5);
+    let year = this._user.birthday.substring(6, 10);
 
     let date = (`${year}-${month}-${day}`);
     console.log(date);
