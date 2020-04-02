@@ -80,8 +80,8 @@
                 <div class="icon-container modal-user">
                   <app-avatar [userData]="{img: '', firstName: 'Nombre', lastName: 'Apellido'}"></app-avatar>
                 </div>
-                <h3 class="personal-config__users__title text-center">Nombre Apellido</h3>
-                <p class="text-center">nombreusuario@email.com</p>
+                <h3 class="personal-config__users__title text-center">Nombre y Apellido</h3>
+                <p class="text-center">correo@example.com</p>
               </div>
               <form class="modal-user__form">
                 <div class="form-group">
@@ -105,14 +105,14 @@
                   <label for="">Asignar como contacto</label>
                 </div>
                 <div class="form-group" *ngIf="assignContact">
-                  <label for="">Tipo de contacto</label>
+                  <label class="new-user__form__label--block" for="">Tipo de contacto</label>
                   <select name="" id="" class="personal-config__users__select">
                     <option value="">Contacto operacional</option>
                   </select>
                 </div>
                 <div class="form-group text-center modal-user__form__btns">
-                  <app-button type="auto-block-min-w-x2" (click)="personalConfigService.handleEditUserConf()">Crear usuario</app-button>
-                  <a (click)="personalConfigService.closeModal(modalName)">Cancelar</a>
+                  <app-button type="auto-block-min-w-x2" (click)="personalConfigService.handleNewUserConf()">Guardar cambios</app-button>
+                  <a (click)="closeModal()">Cancelar</a>
                 </div>
               </form>
             </div>
