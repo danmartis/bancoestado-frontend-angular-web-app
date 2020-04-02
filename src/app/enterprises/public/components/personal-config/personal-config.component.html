@@ -78,10 +78,10 @@
             <div class="modal-user">
               <div class="modal-user__header">
                 <div class="icon-container modal-user">
-                  <app-avatar [userData]="{img: '', firstName: 'Nombre', lastName: 'Apellido'}"></app-avatar>
+                  <app-avatar [userData]="{img: '', firstName: _personServices.dataUserEdit.firstName, lastName: _personServices.dataUserEdit.lastName}"></app-avatar>
                 </div>
-                <h3 class="personal-config__users__title text-center">Nombre y Apellido</h3>
-                <p class="text-center">correo@example.com</p>
+                <h3 class="personal-config__users__title text-center">{{_personServices.dataUserEdit.firstName}} {{_personServices.dataUserEdit.lastName}}</h3>
+                <p class="text-center">{{_personServices.dataUserEdit.email}}</p>
               </div>
               <form class="modal-user__form">
                 <div class="form-group">

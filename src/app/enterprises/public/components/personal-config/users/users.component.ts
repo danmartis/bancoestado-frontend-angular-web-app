@@ -18,7 +18,6 @@ export class UsersComponent implements OnInit {
   protected roleUser: string = '';
  
   @Output() editUserEv = new EventEmitter;
-  // @Output() deleteUserEv = new EventEmitter;
   
   constructor(private usersService: UsersService, private _authService: AuthService,protected modalService: ModalService, protected personalConfigService: PersonalConfigService) {
     this.userTypes = [
@@ -48,17 +47,13 @@ export class UsersComponent implements OnInit {
   }
 
   handleUpdateUser(editUser) {
-    console.log('handleUpdateUser()')
-    console.log(editUser);
     this.toggleModal();
   }
 
   handleDeleteUser(deleteUser) {
-    console.log(deleteUser);
     this.toggleModal();
   }
 
-  // MODAL
   toggleModal() {
     this.modalService.toggle(this.modalName);
   }
@@ -68,13 +63,12 @@ export class UsersComponent implements OnInit {
   }
 
   async getUsers() {
-    console.log("datos users" + this._authService.currentUserValue.roles[0].role)
     await this.usersService.getUsers(this._authService.currentUserValue.rut.replace('.', ''))
       .subscribe(res => {
-        console.log(res.getDetalle().data)
         this.userItems = res.getDetalle().data;
       }), err => {
         return err;
       };
   }
+
 }
