@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 // import { User } from '../login/services/model/login.model';
-// import { AuthService } from '../../../../services/authentication/auth.service';
+import { AuthService } from '../../../../services/authentication/auth.service';
 import { ModalService } from '../../../../services/modal.service';
 import { PersonalConfigService } from './personal-config.service';
 import { PersonalService } from './services/personal.service';
@@ -22,7 +22,7 @@ export class PersonalConfigComponent implements OnInit {
   protected selectedMenuItem: string = 'mi-perfil';
   protected assignContact: boolean = false;
 
-  constructor(/*private _authService: AuthService,*/ public _personServices: PersonalService, private modalService: ModalService, private router: Router, protected personalConfigService: PersonalConfigService) {
+  constructor(private _authService: AuthService, public _personServices: PersonalService, private modalService: ModalService, private router: Router, protected personalConfigService: PersonalConfigService) {
     
     this.userTypes = [
       {

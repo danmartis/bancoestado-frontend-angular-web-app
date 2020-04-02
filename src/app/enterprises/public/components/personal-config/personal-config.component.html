@@ -28,7 +28,7 @@
                 <app-button *ngIf="_personServices.isEditingProfile" type="primary-rounded" (click)="handleSaveChanges()"><span>Guardar cambios</span></app-button>
               </div>
               <div *ngSwitchCase="'usuarios'">
-                <app-button type="primary-outline-rounded" (click)="personalConfigService.handleNewUser(modalName)"><span>Nuevo usuario</span></app-button>
+                <app-button *ngIf = "_authService.currentUserValue.roles[0].role === 'Administrador'" type="primary-outline-rounded" (click)="personalConfigService.handleNewUser(modalName)"><span>Nuevo usuario</span></app-button>
               </div>
               <div *ngSwitchDefault></div>
             </div>
@@ -50,7 +50,7 @@
 
           <div *ngSwitchCase="'new-user-confirm'">
             <!-- Register New User Success -->
-            <div class="register-new-user--success">
+            <div class="modal-user--success">
               <div class="icon-container success">
                 <img style="max-width: 200px; max-height: 200px;" class="icon" src="/assets/imgs/svg/icon-ok.svg" alt="Advertencia" />
               </div>
@@ -75,15 +75,15 @@
           <div *ngSwitchCase="'edit-user'">
             <!-- Update User -->
             <!-- Register New User -->
-            <div class="update-user">
-              <div class="register-new-user__header">
-                <div class="icon-container update-user">
-                  <app-avatar [userData]="{img: '', firstname: 'Nombre', lastname: 'Apellido'}"></app-avatar>
+            <div class="modal-user">
+              <div class="modal-user__header">
+                <div class="icon-container modal-user">
+                  <app-avatar [userData]="{img: '', firstName: 'Nombre', lastName: 'Apellido'}"></app-avatar>
                 </div>
                 <h3 class="personal-config__users__title text-center">Nombre Apellido</h3>
                 <p class="text-center">nombreusuario@email.com</p>
               </div>
-              <form class="update-user__form">
+              <form class="modal-user__form">
                 <div class="form-group">
                   <label class="new-user__form__label--block" for="nombre">Perfil asignado ( Rol )</label>
                   <select name="" id="" class="personal-config__users__select">
@@ -110,7 +110,7 @@
                     <option value="">Contacto operacional</option>
                   </select>
                 </div>
-                <div class="form-group text-center register-new-user__form__btns">
+                <div class="form-group text-center modal-user__form__btns">
                   <app-button type="auto-block-min-w-x2" (click)="personalConfigService.handleEditUserConf()">Crear usuario</app-button>
                   <a (click)="personalConfigService.closeModal(modalName)">Cancelar</a>
                 </div>
@@ -118,7 +118,7 @@
             </div>
           </div>
           <div *ngSwitchCase="'edit-user-confirm'">
-            <div class="register-new-user--success">
+            <div class="modal-user--success">
               <div class="icon-container success">
                 <img style="max-width: 200px; max-height: 200px;" class="icon" src="/assets/imgs/svg/icon-ok.svg" alt="Advertencia" />
               </div>
@@ -142,15 +142,15 @@
 
           <div *ngSwitchDefault>
             <!-- Register New User -->
-            <div class="register-new-user">
-              <div class="register-new-user__header">
+            <div class="modal-user">
+              <div class="modal-user__header">
                 <div class="icon-container new-user">
                   <i class="material-icons md-36">perm_identity</i>
                 </div>
                 <h3 class="personal-config__users__title text-center">Nuevo usuario</h3>
                 <p class="text-center">Ingresa los datos requeridos para crear un nuevo usuario para tu empresa.</p>
               </div>
-              <form class="register-new-user__form">
+              <form class="modal-user__form">
                 <div class="form-group">
                   <label class="new-user__form__label--block" for="nombre">Nombre</label>
                   <app-input type="text" placeholder="Ejemplo: Juan"></app-input>
@@ -185,7 +185,7 @@
                     <option value="">Contacto operacional</option>
                   </select>
                 </div>
-                <div class="form-group text-center register-new-user__form__btns">
+                <div class="form-group text-center modal-user__form__btns">
                   <app-button type="auto-block-min-w-x2" (click)="personalConfigService.handleNewUserConf()">Crear usuario</app-button>
                   <a (click)="closeModal()">Cancelar</a>
                 </div>

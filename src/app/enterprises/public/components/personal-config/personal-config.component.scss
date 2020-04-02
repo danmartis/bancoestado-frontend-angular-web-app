@@ -79,9 +79,9 @@
     
   } // .personal-config__main-container
 
-  .register-new-user {
+  .modal-user {
 
-    .register-new-user__header {
+    .modal-user__header {
       margin-bottom: 2rem;
       .icon-container {
         &.new-user {
@@ -107,7 +107,7 @@
       }
     }
 
-    .register-new-user__form {
+    .modal-user__form {
 
       .new-user__form__label--block {
         display: block;
@@ -145,7 +145,7 @@
     
         }
       }
-      .register-new-user__form__btns {
+      .modal-user__form__btns {
         margin: 2rem 0 0;
         a {
           margin-top: 1rem;
@@ -155,7 +155,7 @@
   }
 
 
-  .register-new-user--success {
+  .modal-user--success {
     .icon-container {
       background-color: $color-action;
       border-radius: 80px;

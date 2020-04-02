@@ -14,8 +14,8 @@ export class UsersService extends BffClientService {
     private _authService: AuthService;
     
     public getUsers(rut): Observable<DataResponse> {
-       // const urlApi = environment.DOMAIN_LOCAL+"maintainerUser/getUser";
-        const urlApi = "http://localhost:8080/bff/se-bff-empresas/v1/maintainerUser/getUser";
+        const urlApi = environment.DOMAIN_LOCAL+"maintainerUser/getUser";
+        //const urlApi = "http://localhost:8080/bff/se-bff-empresas/v1/maintainerUser/getUser";
         let body = {
             rut
         }

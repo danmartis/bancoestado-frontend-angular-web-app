@@ -13,7 +13,7 @@ export class CardUserComponent implements OnInit {
   @Input() topBadgeData: string = '';
   @Input() bottomBadgeData: string = '';
   @Input() profile: '' | 'users-list' | 'biller' | 'user' = 'user';
-
+  @Input() role: '' | 'userLogin' | 'Administrador';
   @Output() editUserEv = new EventEmitter();
   @Output() deleteUserEv = new EventEmitter();
 
