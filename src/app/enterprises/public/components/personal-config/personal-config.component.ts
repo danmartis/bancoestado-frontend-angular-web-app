@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-// import { User } from '../login/services/model/login.model';
 import { AuthService } from '../../../../services/authentication/auth.service';
 import { ModalService } from '../../../../services/modal.service';
 import { PersonalConfigService } from './personal-config.service';
@@ -12,8 +11,6 @@ import { PersonalService } from './services/personal.service';
   styleUrls: ['./personal-config.component.scss']
 })
 export class PersonalConfigComponent implements OnInit {
-
-  // protected _user: User;
 
   protected userTypes: Array<any> = [];
   protected newUserRegistered: boolean = false;
@@ -41,11 +38,10 @@ export class PersonalConfigComponent implements OnInit {
   }
 
   ngOnInit() {
-    // this.getCurrentUser()
     this.menuItemSel();
     this.router.events.subscribe((val) => {
       this.menuItemSel();
-  });
+    });
   }
 
   menuItemSel() {
@@ -59,47 +55,18 @@ export class PersonalConfigComponent implements OnInit {
   }
 
   handleEditProfile() {
-
-  
     this._personServices.isEditingProfile = true;
-
-
-
   }
   
   handleSaveChanges(){
-
     if( this._personServices.profileForm.invalid){
-
-      console.log(this._personServices.profileForm.invalid)
-
       this._personServices.formInvalid = true;
-
       return;
     }
-
-    else {
-
+    else 
       this._personServices.isEditingProfile =  false;
-    }
-
   }
  
- 
-  /*
-  async getCurrentUser() {
-    await this._authService.getCurrentUser(this._authService.currentUserValue.email, this._authService.currentUserValue.rut)
-      .subscribe(_user => {
-        this._user = _user;
-        console.log(this._user)
-      }), err => {
-        return err;
-      };
-      return this._user;
-  }
-  */
-
-  // MODAL
   toggleModal() {
     this.modalService.toggle(this.modalName);
   }
@@ -120,10 +87,5 @@ export class PersonalConfigComponent implements OnInit {
   handleAssignContact() {
     this.assignContact = !this.assignContact;
   }
-
-
-  // Manejo de eventos en USERS COMPONENTS para update y delete USER
-  // (editUserEv)="handleUpdateUser($event)"
-  // (deleteUserEv)="handleDeleteUser($event)"
 
 }

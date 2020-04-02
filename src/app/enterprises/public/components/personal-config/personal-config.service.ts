@@ -8,8 +8,6 @@ export class PersonalConfigService {
 
   constructor(private modalService: ModalService) { }
 
-  
-
   protected modalType: '' | 'new-user' | 'new-user-confirm' | 'edit-user' | 'edit-user-confirm' | 'delete-user' | 'delete-user-confirm' = '';
 
   handleNewUser(modalName: string) {

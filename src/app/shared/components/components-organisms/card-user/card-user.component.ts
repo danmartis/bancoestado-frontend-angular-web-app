@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
+import { PersonalService } from 'src/app/enterprises/public/components/personal-config/services/personal.service';
 
 @Component({
   selector: 'app-card-user',
@@ -20,16 +21,13 @@ export class CardUserComponent implements OnInit {
   protected editUser: boolean = false;
   protected deleteUser: boolean = false;
 
-  // protected openDropDown: boolean = false;
-
-
-  constructor() { }
+  constructor(private personalService: PersonalService) { }
 
   ngOnInit() {
-
   }
 
-  handleEditUser() {
+  handleEditUser(data) {
+    this.personalService.dataUserEdit = data;
     this.editUserEv.emit(this.editUser);
   }
 

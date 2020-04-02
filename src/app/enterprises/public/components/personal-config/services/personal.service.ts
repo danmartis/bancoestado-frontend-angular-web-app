@@ -7,18 +7,15 @@ import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 export class PersonalService {
 
   isEditingProfile: boolean = false;
-
   profileForm: FormGroup;
   formInvalid: boolean = false;
+  public dataUserEdit: any;
 
   constructor(private _formBuilder: FormBuilder, ) { }
 
   formPofile(user){
 
- 
-    console.log('user', user)
     this.profileForm = this._formBuilder.group({
- 
      birthday:  [user.birthday, [Validators.required]],
      phone:  [user.phone, [Validators.required]],
      address:  [user.address, [Validators.required, Validators.maxLength(50)]],
@@ -26,11 +23,8 @@ export class PersonalService {
      city:  [user.city, [Validators.required, Validators.maxLength(50)]],
  
      });
-     
-   }
-
+  }
    
   get f() { return this.profileForm.controls; }
 
-  
 }

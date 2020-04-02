@@ -11,7 +11,7 @@
         *ngIf="role === 'Administrador'">
         <span class="material-icons">more_vert</span>
         <ul class="profile-card__menu__dropdown">
-          <li><a (click)="handleEditUser()">Editar</a></li>
+          <li><a (click)="handleEditUser(userData)">Editar</a></li>
           <li><a (click)="handleDeleteUser()">Eliminar</a></li>
         </ul>
       </div>
