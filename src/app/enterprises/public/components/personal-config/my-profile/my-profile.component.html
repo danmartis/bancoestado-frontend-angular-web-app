@@ -65,6 +65,8 @@
                     <app-input idName="personal-config__my-profile__input-{{ personalInfoItems.editable[3].id }}"
                       placeholder="{{ personalInfoItems.editable[3].label }}" formControlName="zone"
                       [invalidText]="getMesaggeErrorZone()" icon="none" [value]=" _personalServices.f.zone.value"
+                      maxlength=50
+                      (keypress)="onlyLetters($event)"
                       status="{{
                         _personalServices.f.zone.hasError('required') && _personalServices.formInvalid
                           ? 'invalid'
@@ -75,6 +77,8 @@
                     <app-input idName="personal-config__my-profile__input-{{ personalInfoItems.editable[4].id }}"
                       placeholder="{{ personalInfoItems.editable[4].label }}" formControlName="city"
                       [invalidText]="getMesaggeErrorCity()" icon="none" [value]=" _personalServices.f.city.value"
+                      maxlength=50
+                      (keypress)="onlyLetters($event)"
                       status="{{
                         _personalServices.f.city.hasError('required') && _personalServices.formInvalid
                           ? 'invalid'
