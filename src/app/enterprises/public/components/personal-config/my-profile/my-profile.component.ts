@@ -2,7 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { FilesService } from '../../../../../services/files/files.service';
 import { User } from '../../login/services/model/login.model';
 import { AuthService } from '../../../../../services/authentication/auth.service';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, ValidatorFn, AbstractControl, ValidationErrors } from '@angular/forms';
 import { PersonalService } from '../services/personal.service';
 
 @Component({
@@ -22,11 +22,11 @@ export class MyProfileComponent implements OnInit {
   protected userData: Object;
 
 
-  
+
 
   messageError: string = "";
 
-  constructor(private _authService: AuthService, private _fileService: FilesService ,public _personalServices: PersonalService) { }
+  constructor(private _authService: AuthService, private _fileService: FilesService, public _personalServices: PersonalService) { }
 
   async getCurrentUser() {
     await this._authService.getCurrentUser(this._authService.currentUserValue.email, this._authService.currentUserValue.rut)
@@ -34,7 +34,7 @@ export class MyProfileComponent implements OnInit {
         this._user = _user;
         console.log(this._user)
         this.isAdmin(),
-        this._personalServices.formPofile(this._user)
+          this._personalServices.formPofile(this._user)
       }), err => {
         return err;
       };
@@ -54,14 +54,46 @@ export class MyProfileComponent implements OnInit {
     }
   }
 
+  phoneCharacters(event): boolean {
+    const charCode = (event.which) ? event.which : event.keyCode;
+    if (charCode != 43 && charCode > 31 && (charCode < 48 || charCode > 57)) {
+      return false;
+    }
+    return true;
+  }
+
+  formatearRut(rut: string) {
+    var rutLimpio = rut.replace(/-/g, "");
+    if (rutLimpio != "" && rutLimpio.length > 1) {
+      let inicio = rutLimpio.substring(0, rutLimpio.length - 1);
+      let rutFormateado = "";
+      let i = 0;
+      let j = 1;
+      for (i = inicio.length - 1; i >= 0; i--) {
+        let letra = inicio.charAt(i);
+        rutFormateado = letra + rutFormateado;
+        if (j % 3 == 0 && j <= inicio.length - 1) {
+          rutFormateado = "." + rutFormateado;
+          console.log(rutFormateado)
+        }
+        j++;
+      }
+      let dv = rutLimpio.substring(rutLimpio.length - 1);
+      console.log(dv);
+      rutFormateado = rutFormateado + "-" + dv;
+      console.log(rutFormateado)
+      return rutFormateado;
+    }
+  };
+
   async downloadFile(fileName: string) {
     await this._fileService.convenantsDownload(fileName);
   }
   ngOnInit() {
     this.getCurrentUser()
 
-    
-    
+
+
     //this.isAdmin();
     //console.log(this.isAdmin());
     this.personalInfoItems = {
@@ -81,28 +113,28 @@ export class MyProfileComponent implements OnInit {
         {
           id: 'birthday',
           label: 'F. nacimiento',
-          value: 'is._user.birthday'
+          value: ''
         },
         {
           id: 'phone',
           label: 'Teléfono',
-          value:  ''
+          value: ''
         },
         {
           id: 'address',
           label: 'Dirección',
-          value:  ''
+          value: ''
         },
         {
           id: 'zone',
           label: 'Comuna',
-          value:  ''
+          value: ''
         },
         {
           id: 'city',
           label: 'Ciudad',
-          value:  ''
-          
+          value: ''
+
         }
       ]
     };
@@ -151,8 +183,6 @@ export class MyProfileComponent implements OnInit {
 
   }
 
-
-
   getMesaggeErrorBirthday() {
 
     return this._personalServices.f.birthday.getError('required') ? 'Este campo es requerido' : '';
@@ -160,7 +190,11 @@ export class MyProfileComponent implements OnInit {
 
   getMesaggeErrorPhone() {
 
-    return this._personalServices.f.phone.getError('required') ? 'Este campo es requerido' : '';
+    return this._personalServices.f.phone.getError('required') ? 'Este campo es requerido'
+      : this._personalServices.f.phone.getError('minlength') ? 'El campo debe contener 12 caracteres'
+      : this._personalServices.f.phone.getError('badFormat')? 'El número debe comenzar en +569'
+      : this._personalServices.f.phone.getError('badNumber')? 'Número invalido'
+      : '';
   }
 
   getMesaggeErrorAddress() {
@@ -183,19 +217,19 @@ export class MyProfileComponent implements OnInit {
 
   ngDoCheck() {
 
-    
 
-   
+
+
     if (this._user) {
 
-    
+
       //this._personalServices.formPofile(this._user)
       this.personalInfoItems = {
         'fixed': [
           {
             id: 'rut',
             label: 'Rut',
-            value: this._user.rut
+            value: this.formatearRut(this._user.rut)
             // value: this._user.userRut
           },
           {

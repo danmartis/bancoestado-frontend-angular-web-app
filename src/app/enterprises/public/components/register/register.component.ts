@@ -134,12 +134,7 @@ export class RegisterComponent implements OnInit {
     const div = dot.replace(/\-/g, '')
     this.f.rut.setValue(div)
     }
-
-
-
-    
   }
-
 
 }
 
