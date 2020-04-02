@@ -3,6 +3,7 @@ import { FilesService } from "../../../../../services/files/files.service";
 import { User } from "../../login/services/model/login.model";
 import { AuthService } from "../../../../../services/authentication/auth.service";
 import { PersonalService } from "../services/personal.service";
+import { RutService } from '../../../../../services/rut/rut.service';
 
 @Component({
   selector: "app-my-profile",
@@ -23,6 +24,7 @@ export class MyProfileComponent implements OnInit {
   constructor(
     private _authService: AuthService,
     private _fileService: FilesService,
+    protected _rutService: RutService,
     public _personalServices: PersonalService
   ) {}
 
@@ -85,27 +87,6 @@ export class MyProfileComponent implements OnInit {
     )
       return true;
     else return false;
-  }
-
-  formatearRut(rut: string) {
-    var rutLimpio = rut.replace(/-/g, "");
-    if (rutLimpio != "" && rutLimpio.length > 1) {
-      let inicio = rutLimpio.substring(0, rutLimpio.length - 1);
-      let rutFormateado = "";
-      let i = 0;
-      let j = 1;
-      for (i = inicio.length - 1; i >= 0; i--) {
-        let letra = inicio.charAt(i);
-        rutFormateado = letra + rutFormateado;
-        if (j % 3 == 0 && j <= inicio.length - 1) {
-          rutFormateado = "." + rutFormateado;
-        }
-        j++;
-      }
-      let dv = rutLimpio.substring(rutLimpio.length - 1);
-      rutFormateado = rutFormateado + "-" + dv;
-      return rutFormateado;
-    }
   }
 
   async downloadFile(fileName: string) {
@@ -244,7 +225,7 @@ export class MyProfileComponent implements OnInit {
           {
             id: "rut",
             label: "Rut",
-            value: this.formatearRut(this._user.rut)
+            value: this._rutService.formatearRut(this._user.rut)
             // value: this._user.userRut
           },
           {
