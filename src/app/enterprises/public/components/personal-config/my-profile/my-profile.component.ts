@@ -62,7 +62,7 @@ export class MyProfileComponent implements OnInit {
     let year = this._user.birthday.substring(6, 10);
     console.log(day);
 
-    let date = (`${year}-${month}-${day}`);
+    let date = (`${day}-${month}-${year}`);
     console.log(date);
     return date;
   }
