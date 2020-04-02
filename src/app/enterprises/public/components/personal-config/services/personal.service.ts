@@ -34,7 +34,7 @@ export class PersonalService {
       if(!phoneNumber.substring(0, 4).match(phoneFormat)) {
         return { badFormat: true };
     }
-    if(phoneNumber.substring(5, phoneNumber.length).match(plus)) {
+    if(phoneNumber.substring(4, phoneNumber.length).match(plus)) {
       return { badNumber: true }
     }
     return null;
