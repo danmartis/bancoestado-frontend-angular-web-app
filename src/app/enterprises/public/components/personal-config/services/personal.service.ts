@@ -1,30 +1,46 @@
-import { Injectable } from '@angular/core';
-import { FormGroup, Validators, FormBuilder } from '@angular/forms';
+import { Injectable } from "@angular/core";
+import { FormGroup, Validators, FormBuilder, ValidatorFn, AbstractControl, ValidationErrors } from "@angular/forms";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root"
 })
 export class PersonalService {
-
   isEditingProfile: boolean = false;
   profileForm: FormGroup;
   formInvalid: boolean = false;
   public dataUserEdit: any;
 
-  constructor(private _formBuilder: FormBuilder, ) { }
+  constructor(private _formBuilder: FormBuilder) {}
 
-  formPofile(user){
-
+  formPofile(user) {
+    console.log("user", user);
     this.profileForm = this._formBuilder.group({
-     birthday:  [user.birthday, [Validators.required]],
-     phone:  [user.phone, [Validators.required]],
-     address:  [user.address, [Validators.required, Validators.maxLength(50)]],
-     zone:  [user.commune, [Validators.required, Validators.maxLength(50)]],
-     city:  [user.city, [Validators.required, Validators.maxLength(50)]],
- 
-     });
+      birthday: [user.birthday, [Validators.required]],
+      phone: [user.phone, [Validators.required, Validators.minLength(12), this.phoneFormat]],
+      address: [user.address, [Validators.required, Validators.maxLength(50)]],
+      zone: [user.commune, [Validators.required, Validators.maxLength(50)]],
+      city: [user.city, [Validators.required, Validators.maxLength(50)]]
+    });
   }
-   
-  get f() { return this.profileForm.controls; }
 
+  phoneFormat: ValidatorFn = (control: AbstractControl): ValidationErrors | null => {
+    if (!control.parent || !control) {
+      return null;
+    }
+      const phoneFormat = "\\+56";
+      const plus = "\\+";
+      const phone = control.parent.get("phone");
+      const phoneNumber = phone.value;
+      if(!phoneNumber.substring(0, 3).match(phoneFormat)) {
+        return { badFormat: true };
+    }
+    if(phoneNumber.substring(3, phoneNumber.length).match(plus)) {
+      return { badNumber: true }
+    }
+    return null;
+  }
+
+  get f() {
+    return this.profileForm.controls;
+  }
 }

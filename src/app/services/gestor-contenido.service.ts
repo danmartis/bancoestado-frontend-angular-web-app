@@ -3,7 +3,7 @@ import { Observable } from 'rxjs/Observable'
 import { BffClientService } from './bffClient.service';
 import { DataResponse } from './dataResponse';
 import { ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
-import { environment } from 'src/environments/environment.dev';
+import { environment } from 'src/environments/environment';
 @Injectable({
     providedIn: 'root'
   })

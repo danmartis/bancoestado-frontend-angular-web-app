@@ -22,9 +22,6 @@
                 </div>
               </div>
               
-              
-              
-              
               <form [formGroup]="_personalServices.profileForm" *ngIf="_personalServices.isEditingProfile; else elseIsEditingProfile;"> 
 
                 <div class="row">
@@ -35,6 +32,7 @@
                       formControlName="birthday"
                       [invalidText]="getMesaggeErrorBirthday()"
                       icon="none"
+                      maxlength="10"
                       [value]=" _personalServices.f.birthday.value"
                       status="{{
                         _personalServices.f.birthday.hasError('required') && _personalServices.formInvalid
@@ -52,9 +50,16 @@
                       formControlName="phone"
                       [invalidText]="getMesaggeErrorPhone()"
                       icon="none"
+                      maxlength=12
+                      minlength=12
+                      (keypress)="phoneCharacters($event)"
                       [value]=" _personalServices.f.phone.value"
                       status="{{
-                        _personalServices.f.phone.hasError('required') && _personalServices.formInvalid
+                        _personalServices.f.phone.hasError('required') ||
+                        _personalServices.f.phone.hasError('badFormat') ||
+                        _personalServices.f.phone.hasError('badNumber') ||
+                        _personalServices.f.phone.hasError('minlength') && 
+                        _personalServices.formInvalid
                           ? 'invalid'
                           : ''
                       }}"
