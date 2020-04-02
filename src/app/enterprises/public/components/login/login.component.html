@@ -18,13 +18,14 @@
 
           (keyup.backspace)="onBackspace()"
           idName="enterprises__register__rut" 
-          type="text" placeholder="Rut"  
+          type="text" placeholder="Rut Empresa"  
           formControlName="rut" 
           ngDefaultControl></app-input>
           <app-input type="email" placeholder="Correo electrónico" [invalidText]="getMesaggeErrorEmail()"
             
             status="{{ ( f.email.hasError('pattern') || f.email.hasError('required') ) && formInvalid ? 'invalid' : ''  }}"
             formControlName="email" ngDefaultControl></app-input>
+
           <app-input type="password" placeholder="Contraseña" [invalidText]="getMesaggeErrorPassword()" status="{{
             f.password.hasError('required') && formInvalid
               ? 'invalid'
@@ -34,7 +35,7 @@
 
 
           <app-button size="lg" type="auto-block-min-w-x2" idName="enterprises__login__btn-submit"
-            (click)="btnSendData()">Entrar</app-button>
+            (click)="btnSendData()">Ingresar</app-button>
 
             <br>
             <p class="text-center">

@@ -123,13 +123,13 @@ console.log(this._authService.currentUserValue)
   
   getMesaggeErrorRut() {
 
-    return this.f.rut.getError('required') ? 'Este campo es requerido' : this.f.rut.getError('rutInvalid') ? 'Rut empresa invalido' : '';
+    return this.f.rut.getError('required') ? 'Este campo es requerido' : this.f.rut.getError('rutInvalid') ? 'Rut empresa inválido' : '';
   }
 
   
 
   getMesaggeErrorEmail(){
-    return this.f.email.getError('required')? 'Este campo es requerido' : this.f.email.getError('pattern')? 'Email invalido' : '';    
+    return this.f.email.getError('required')? 'Este campo es requerido' : this.f.email.getError('pattern')? 'Email inválido' : '';    
 
   }
 
