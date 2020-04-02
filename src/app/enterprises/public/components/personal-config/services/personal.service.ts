@@ -6,9 +6,9 @@ import { FormGroup, Validators, FormBuilder, ValidatorFn, AbstractControl, Valid
 })
 export class PersonalService {
   isEditingProfile: boolean = false;
-
   profileForm: FormGroup;
   formInvalid: boolean = false;
+  public dataUserEdit: any;
 
   constructor(private _formBuilder: FormBuilder) {}
 
