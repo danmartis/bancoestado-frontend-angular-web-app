@@ -1,5 +1,7 @@
-<div class="input" [ngClass]="[className, iconLeft || iconSrc ? 'input--icon-left' : '']" *ngIf="mode !== 'wrapper'" (click)="isOpenSetTrue($event)">
-    <div class="input-container" [ngClass]="[getNativeIcon() !== '' ? 'input-native-icon' : '', getStatus(), getIcon()]">
+<div class="input" [ngClass]="[className, iconLeft || iconSrc ? 'input--icon-left' : '']" *ngIf="mode !== 'wrapper'"
+    (click)="isOpenSetTrue()">
+    <div class="input-container"
+        [ngClass]="[getNativeIcon() !== '' ? 'input-native-icon' : '', getStatus(), getIcon()]">
 
         <div class="input__icon-left input__icon-left--image" *ngIf="iconSrc !== ''">
             <img [src]="iconSrc">
@@ -15,13 +17,16 @@
 
         <i *ngIf="getStatusIcon() !== ''" class="material-icons">{{getStatusIcon()}}</i>
         <i *ngIf="getIconName() !== ''" class="material-icons">{{getIconName()}}</i>
-        <input [id]="idName" [disabled]="disabled" [value]="value" [type]="type" [attr.maxlength]="maxlength" [attr.size]="size" [placeholder]="getAttribute('placeholder')"  (input)="handlerChange($event)" />
+        <!--<input [disabled]="disabled" [value]="value" [type]="type" [placeholder]="getAttribute('placeholder')" (input)="handlerChange($event)" />-->
+        <input [disabled]="disabled" [value]="value" [type]="type" [attr.maxlength]="getMaxlength()" [attr.size]="size"
+            [placeholder]="getAttribute('placeholder')" (input)="handlerChange($event)" />
     </div>
     <small *ngIf="status === 'invalid'">{{invalidText}}</small>
 </div>
 
 <div class="input" [ngClass]="[className]" *ngIf="mode === 'wrapper'">
-    <div class="input-container" [ngClass]="[getNativeIcon() !== '' ? 'input-native-icon' : '', getStatus(), getIcon()]">
+    <div class="input-container"
+        [ngClass]="[getNativeIcon() !== '' ? 'input-native-icon' : '', getStatus(), getIcon()]">
 
         <div class="input__icon-left" *ngIf="getNativeIcon() !== ''">
             <i class="material-icons">{{getNativeIcon()}}</i>
@@ -35,18 +40,21 @@
 </div>
 <!-- Lista -->
 <!-- Caso 1 -->
-<div class="input-dropdown__list" [ngClass]="isOpen ? 'open' : ''" *ngIf="isDrop && isOpen && typeOptions === 'listOrder'">
+<div class="input-dropdown__list" [ngClass]="isOpen ? 'open' : ''"
+    *ngIf="isDrop && isOpen && typeOptions === 'listOrder'">
     <div *ngFor="let items of options">
         <h5 class="input-dropdown__title-group">{{ items.tittle }}</h5>
         <ul class="input-dropdown__group" *ngIf="items !== undefined">
-            <li class="input-dropdown__item" *ngFor="let item of items.list" (click)="selectElement(item)">{{ item.servicio }}</li>
+            <li class="input-dropdown__item" *ngFor="let item of items.list" (click)="selectElement(item)">
+                {{ item.servicio }}</li>
         </ul>
     </div>
 </div>
 <!-- Caso 2 -->
 <div class="input__drop" *ngIf="isDrop && isOpen && typeOptions === 'list'">
     <ul *ngIf="options !== false">
-        <li class="input__prop__match" *ngFor="let item of options" (click)="selectElement(item)">{{ item.servicio }}</li>
+        <li class="input__prop__match" *ngFor="let item of options" (click)="selectElement(item)">{{ item.servicio }}
+        </li>
     </ul>
 </div>
 

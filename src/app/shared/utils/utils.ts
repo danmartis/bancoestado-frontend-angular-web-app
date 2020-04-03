@@ -4,9 +4,9 @@ import { IconGroup, PaymentAccount } from './types';
 import { accounts } from './mock-data';
 
 /**
- * 
+ *
  * Se debe utilizar para componentes que tengan data-parent = true
- * @param target 
+ * @param target
  */
 export const isParent = (target: any): boolean => {
     if (!target.dataset) return false;
@@ -15,10 +15,10 @@ export const isParent = (target: any): boolean => {
 
 /**
  * currentOrParentContainDataValue
- * 
- * @param target 
- * @param data 
- * @param value 
+ *
+ * @param target
+ * @param data
+ * @param value
  * @example currentOrParentContainDataValue(HTMLNode, 'type', 'card-account__context-menu');
  *          <div data-type="card-account__context-menu">
  */
@@ -108,7 +108,7 @@ export const getIsNotNull = (obj : any, prop : string) => {
 
 // List Icons
 /**
- * 
+ *
  * @param favorite {boolean} - null: return all, true: only favorite, false: non favotire
  */
 export const getIconsList = (favorite : boolean | null = null) : Array<IconGroup> => {
@@ -128,7 +128,7 @@ export const getIconByName = (name : string) : IconGroup => {
 
 // List PaymentAccount
 /**
- * 
+ *
  * @param favorite {boolean} - null: return all, true: only group, false: non group
  */
 export const getPaymentAccountList = (group : boolean | null = null) : Array<PaymentAccount> => {
@@ -144,8 +144,52 @@ export const emailValidate = (mail : string): boolean => {
     return (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(mail));
 };
 
+export const validateRut = (rut: string): boolean => {
+    return ;
+};
+
+export const rutClean = (value) => {
+    return typeof value === 'string' ? value.replace(/[^0-9kK]+/g, '').toUpperCase() : '';
+}
+
+export const rutValidate = (value, type='persona') => {
+    if (typeof value !== 'string') {
+        return false;
+    }
+    
+    let valor = rutClean(value);
+    
+    let rutDigits = parseInt(valor.slice(0, -1), 10);
+
+    if( type == "empresa" && rutDigits < 50000000 )
+        return false;
+    else if ( type == "persona" && rutDigits > 50000000 )
+        return false;
+    
+    let m = 0;
+    let s = 1;
+    while (rutDigits > 0) {
+        s = (s + rutDigits % 10 * (9 - m++ % 6)) % 11;
+        rutDigits = Math.floor(rutDigits / 10);
+    }
+    let checkDigit = (s > 0) ? String((s - 1)) : 'K';
+    return (checkDigit === valor.slice(-1));
+}
+
+export const rutFormat = (value) => {
+    let valor = rutClean(value);
+    if (valor.length <= 1) {
+        return valor;
+    }
+    let result = valor.slice(-4, -1) + "-" + valor.substr(valor.length - 1);
+    for (let i = 4; i < valor.length; i += 3) {
+        result = valor.slice(-3 - i, -i) + "." + result;
+    }
+    return result;
+}
+
 export const isSpecialCharacterEmail = (key: string): boolean => {
-    return (/^[a-zA-Z0-9_@\\.\\-]+$/i).test(key);
+    return (/^[a-zA-Z0-9_@\.\-]+$/i).test(key);
 };
 
 export const isLetter = (str: string) => {
@@ -165,6 +209,14 @@ export const validatePassSE = (str: string) => {
 
 export const validateNameRegSE = (str: string): boolean => {
     return (/^[a-zA-ZÀ-ÿ\s]+$/i).test(str);
+}
+
+export const validarNumeroCliente = (str: string) : boolean => {
+    return (/^[a-zA-Z0-9\s\-]+$/i).test(str);
+}
+
+export const isSpecialCharacterRut = (key: string) : boolean => {
+    return (/^[0-9\k\K]*$/).test(key);
 }
 
 export const introOptions = (title = '', subtitle = '', element = '#step1', buttonText = 'Entendido') => ({

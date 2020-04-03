@@ -1,16 +1,16 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { ComponentsModule } from './components/components.module';
-import { DirectivesModule } from './directives/directives.module';
+import { NgModule } from "@angular/core";
+import { CommonModule } from "@angular/common";
+import { ComponentsModule } from "./components/components.module";
+import { DirectivesModule } from "./directives/directives.module";
+import { RutPipe } from "./pipe/rut.pipe";
 
 @NgModule({
-  declarations: [],
-  imports: [
-    CommonModule
-  ],
+  declarations: [RutPipe],
+  imports: [CommonModule],
   exports: [
     ComponentsModule,
-    DirectivesModule
+    DirectivesModule,
+    RutPipe,
   ]
 })
-export class SharedModule { }
+export class SharedModule {}
