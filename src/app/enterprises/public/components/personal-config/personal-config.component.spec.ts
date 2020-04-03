@@ -45,8 +45,9 @@ describe('PersonalConfigComponent', () => {
       imports: [ 
         RouterTestingModule,
         HttpClientTestingModule,
+        FormsModule,
         ReactiveFormsModule, 
-        FormsModule
+        
       ]
       // providers: [
       //   { provide: AuthService, useValue: mockUser }
