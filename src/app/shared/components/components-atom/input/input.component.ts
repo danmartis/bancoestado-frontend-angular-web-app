@@ -1,4 +1,5 @@
-import { Component, OnInit, Input, Output, EventEmitter, OnChanges } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, OnChanges, SimpleChanges } from '@angular/core';
+import { rutClean, rutValidate } from 'src/app/shared/utils/utils';
 
 @Component({
   selector: 'app-input',
@@ -9,9 +10,8 @@ export class InputComponent implements OnInit, OnChanges {
   @Input() isOpen: boolean = false;
   @Input() isDrop: boolean = false;
   @Input() mode: '' | 'wrapper' = '';
-  @Input() type: '' | 'text' | 'email' | 'password' = 'text';
+  @Input() type: '' | 'text' | 'email' | 'rut'| 'rut-empresa' | 'password' = 'text';
   @Input() icon: string;
-  
   @Input() iconSrc: string = '';
   @Input() iconLeft: string;
   @Input() placeholder: string;
@@ -22,7 +22,6 @@ export class InputComponent implements OnInit, OnChanges {
   @Input() typeOptions: '' | 'listOrder' | 'list' = '';
 
   @Input() className: string = '';
-  @Input() idName: string = '';
 
   @Input() status: 'valid' | 'invalid' | '' = '';
   @Input() invalidText: string = 'Tienes un error';
@@ -37,8 +36,20 @@ export class InputComponent implements OnInit, OnChanges {
 
   ngOnInit() {
   }
-
-  ngOnChanges() {
+  
+  ngOnChanges(changes: SimpleChanges) {
+    if (this.type == "rut" || this.type == "rut-empresa") {
+      let tmpRut = changes.value.currentValue;
+      if (tmpRut === "") {
+        this.status = "";
+      } else{
+        let tipoRut = ( this.type == "rut" )? "persona" : "empresa";
+        if (rutValidate(tmpRut, tipoRut)) {
+          this.status = "valid";
+        } else
+          this.status = "invalid";
+      }
+    }
   }
 
   getStatus() {
@@ -61,15 +72,13 @@ export class InputComponent implements OnInit, OnChanges {
   }
 
   getStatusIcon() {
-    if(this.icon != 'none') {
-      switch (this.status) {
-        case 'valid':
-          return 'check_circle';
-        case 'invalid':
-          return 'cancel';
-        default:
-          return '';
-      }
+    switch (this.status) {
+      case 'valid':
+        return 'check_circle';
+      case 'invalid':
+        return 'cancel';
+      default:
+        return '';
     }
   }
 
@@ -79,8 +88,21 @@ export class InputComponent implements OnInit, OnChanges {
         return 'email';
       case 'password':
         return 'lock';
+      case 'rut-empresa':
+      case 'rut':
+        return 'person'
       default:
         return '';
+    }
+  }
+
+  getMaxlength() {
+    switch (this.type) {
+      case 'rut-empresa':
+      case 'rut':
+        return 12
+      default:
+        return this.maxlength;
     }
   }
 
@@ -93,7 +115,7 @@ export class InputComponent implements OnInit, OnChanges {
   }
 
   selectElement(value) {
-    console.log(value);
+    // console.log("value", value);
     this.value = value.servicio;
     this.options = [];
     this.onChangeConvenio.emit(value);
