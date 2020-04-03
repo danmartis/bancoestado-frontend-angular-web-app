@@ -13,9 +13,7 @@
            
             status="{{ ( f.rut.hasError('required') || f.rut.hasError('rutInvalid') ) && formInvalid ? 'invalid' :  ( !f.rut.hasError('required') || !f.rut.hasError('rutInvalid') ) && formInvalid? 'valid': ''  }}" 
             maxlength="12"
-            rutMaskInput
-            [value]="f.rut.value"
-  
+            rutMaskInput 
             (keyup.backspace)="onBackspace()"
             idName="enterprises__register__rut" 
             type="text" placeholder="Rut"  
