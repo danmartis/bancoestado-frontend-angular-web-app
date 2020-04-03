@@ -8,7 +8,7 @@ import { PersonalService } from 'src/app/enterprises/public/components/personal-
 })
 export class CardUserComponent implements OnInit {
 
-  @Input() protected userData: any;
+  @Input() userData: any;
   @Input() topBadge: '' | 'top-left' | 'top-center' | 'top-right' | 'none' = '';
   @Input() bottomBadge: '' | 'bottom-left' | 'bottom-center' | 'bottom-right' | 'none' = '';
   @Input() topBadgeData: string = '';
@@ -18,8 +18,8 @@ export class CardUserComponent implements OnInit {
   @Output() editUserEv = new EventEmitter();
   @Output() deleteUserEv = new EventEmitter();
 
-  protected editUser: boolean = false;
-  protected deleteUser: boolean = false;
+  editUser: boolean = false;
+  deleteUser: boolean = false;
 
   constructor(private personalService: PersonalService) { }
 
