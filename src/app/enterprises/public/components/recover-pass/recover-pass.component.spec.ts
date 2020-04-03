@@ -2,6 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { RecoverPassComponent } from './recover-pass.component';
 import { ComponentsModule } from 'src/app/shared/components/components.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 describe('RecoverPassComponent', () => {
   let component: RecoverPassComponent;
@@ -10,7 +11,8 @@ describe('RecoverPassComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ RecoverPassComponent ],
-      imports: [ComponentsModule]
+      imports: [ComponentsModule, FormsModule,
+        ReactiveFormsModule,]
     })
     .compileComponents();
   }));

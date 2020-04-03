@@ -7,6 +7,7 @@ import { InputComponent } from 'src/app/shared/components/components-atom/input/
 import { ParagraphComponent } from 'src/app/shared/components/components-atom/paragraph/paragraph.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterTestingModule } from '@angular/router/testing';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
 
 describe('ResetPasswordComponent', () => {
   let component: ResetPasswordComponent;
@@ -18,7 +19,9 @@ describe('ResetPasswordComponent', () => {
         FormsModule,
         ReactiveFormsModule,
         RouterTestingModule
+        
       ],
+      schemas: [NO_ERRORS_SCHEMA],
       declarations: [ 
         ResetPasswordComponent,
         CardPageComponent,
