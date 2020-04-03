@@ -7,7 +7,7 @@ import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { FormsModule } from '@angular/forms'  
 import { ReactiveFormsModule} from '@angular/forms'
 
-fdescribe('CardUserComponent', () => {
+describe('CardUserComponent', () => {
   let component: CardUserComponent;
   let fixture: ComponentFixture<CardUserComponent>;
 
