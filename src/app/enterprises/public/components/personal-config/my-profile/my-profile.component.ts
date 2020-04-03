@@ -36,7 +36,6 @@ export class MyProfileComponent implements OnInit {
       )
       .subscribe(_user => {
         this._user = _user;
-        console.log(this._user);
         this.isAdmin(), this._personalServices.formPofile(this._user), this.setDate();
       }),
       err => {
@@ -45,7 +44,7 @@ export class MyProfileComponent implements OnInit {
     return this._user;
   }
 
-  isAdmin() {
+  isAdmin(): boolean {
     if (this._user) {
       for (let roles of this._user.roles) {
         const admin = "Administrador";
@@ -64,7 +63,6 @@ export class MyProfileComponent implements OnInit {
     let year = this._user.birthday.substring(6, 10);
 
     let date = (`${year}-${month}-${day}`);
-    console.log(date);
     return date;
   }
 
@@ -89,8 +87,10 @@ export class MyProfileComponent implements OnInit {
   }
 
   async downloadFile(fileName: string) {
-    await this._fileService.convenantsDownload(fileName);
+    await this._fileService.convenantsDownload(fileName)
+    .catch(err => err)
   }
+  
   ngOnInit() {
     this.getCurrentUser();
     //this.isAdmin();
@@ -177,7 +177,6 @@ export class MyProfileComponent implements OnInit {
       img: "",
       email: "this._user.email"
     };
-    console.log(this.contractInfoItems);
   }
 
   getMesaggeErrorBirthday() {
