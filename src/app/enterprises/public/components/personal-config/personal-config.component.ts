@@ -4,6 +4,7 @@ import { AuthService } from '../../../../services/authentication/auth.service';
 import { ModalService } from '../../../../services/modal.service';
 import { PersonalConfigService } from './personal-config.service';
 import { PersonalService } from './services/personal.service';
+import { UsersService } from 'src/app/services/users/users.service';
 
 @Component({
   selector: 'app-personal-config',
@@ -17,9 +18,8 @@ export class PersonalConfigComponent implements OnInit {
   protected updateUser: boolean = false;
   protected modalName: string = 'personal-config__modal';
   protected selectedMenuItem: string = 'mi-perfil';
-  protected assignContact: boolean = false;
 
-  constructor(private _authService: AuthService, public _personServices: PersonalService, private modalService: ModalService, private router: Router, protected personalConfigService: PersonalConfigService) {
+  constructor(private _authService: AuthService, public _personServices: PersonalService, private modalService: ModalService, private router: Router, protected personalConfigService: PersonalConfigService,private usersService: UsersService) {
     
     this.userTypes = [
       {
@@ -42,6 +42,7 @@ export class PersonalConfigComponent implements OnInit {
     this.router.events.subscribe((val) => {
       this.menuItemSel();
     });
+    
   }
 
   menuItemSel() {
@@ -85,7 +86,22 @@ export class PersonalConfigComponent implements OnInit {
   }
 
   handleAssignContact() {
-    this.assignContact = !this.assignContact;
+    if(this._personServices.dataUserEdit.contact === 'No')
+      this._personServices.dataUserEdit.contact = 'Si'
+    else
+      this._personServices.dataUserEdit.contact = 'No';
+  
+  }
+
+  async updateUsers(dataUser) {
+    await this.usersService.updateUsers(dataUser)
+      .subscribe(res => {
+        if(res.getDetalle().code === "OK.000")
+          this.personalConfigService.handleNewUserConf();
+        console.log(dataUser);
+      }), err => {
+        return err;
+      };
   }
 
 }

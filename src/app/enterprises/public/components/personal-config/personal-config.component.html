@@ -89,29 +89,23 @@
                   <select name="" id="" class="personal-config__users__select">
                     <option
                       id="personal-config__users__new-user__val-all"
-                      value="all">
-                      Todos los usuarios
-                    </option>
-                    <option
-                      *ngFor="let option of userTypes; let i = index;"
-                      id="personal-config__users__new-user__val-{{ option.value }}"
-                      [value]="option.value">
-                      {{ option.name }}
+                      value="_personServices.dataUserEdit.roles[0].id">
+                      {{_personServices.dataUserEdit.roles[0].role}}
                     </option>
                   </select>
                 </div>
                 <div class="form-group assign-contact">
-                  <input type="checkbox" name="" id="" class="" [value]="assignContact" (click)="handleAssignContact()">
+                  <input type="checkbox" [checked]= "_personServices.dataUserEdit.contact === 'Si'" id="" class="" (click)="handleAssignContact()">
                   <label for="">Asignar como contacto</label>
                 </div>
-                <div class="form-group" *ngIf="assignContact">
+                <div class="form-group" *ngIf="_personServices.dataUserEdit.contact === 'Si'">
                   <label class="new-user__form__label--block" for="">Tipo de contacto</label>
                   <select name="" id="" class="personal-config__users__select">
                     <option value="">Contacto operacional</option>
                   </select>
                 </div>
                 <div class="form-group text-center modal-user__form__btns">
-                  <app-button type="auto-block-min-w-x2" (click)="personalConfigService.handleNewUserConf()">Guardar cambios</app-button>
+                  <app-button type="auto-block-min-w-x2" (click)="updateUsers(_personServices.dataUserEdit)">Guardar cambios</app-button>
                   <a (click)="closeModal()">Cancelar</a>
                 </div>
               </form>
