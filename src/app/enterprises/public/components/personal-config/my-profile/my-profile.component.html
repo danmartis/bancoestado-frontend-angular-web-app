@@ -4,7 +4,7 @@
       <div class="col-sm-12 col-lg-4 panel__left">
         <app-card-user topBadge="{{ true ? 'top-left' : '' }}" topBadgeData="Contacto"
           bottomBadge="{{ true ? 'bottom-center' : '' }}" bottomBadgeData="Administrador" profile="user"
-          [userData]="_user"></app-card-user>
+          *ngIf="_user" [userData]="_user"></app-card-user>
       </div>
       <div class="col-sm-12 col-lg-8 panel__right">
         <div class="personal-config__card-item">
