@@ -102,7 +102,7 @@ export class RegisterComponent implements OnInit {
   }
 
   getMesaggeErrorEmail() {
-    return this.f.email.getError('required') ? 'Este campo es requerido' : this.f.email.getError('pattern') ? 'Email invalido' : '';
+    return this.f.email.getError('required') ? 'Este campo es requerido' : this.f.email.getError('pattern') ? 'Correo electrónico invalido' : '';
 
   }
 

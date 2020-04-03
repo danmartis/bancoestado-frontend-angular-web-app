@@ -57,7 +57,6 @@
                     maxlength="12"
                     rutMaskInput
                     [value]="f.rut.value"
-
                     (keyup.backspace)="onBackspace()"
                     idName="enterprises__register__rut" 
                     type="text" placeholder="Rut"  
@@ -77,6 +76,7 @@
                   <app-input
                     [invalidText]="getMesaggeErrorName()"
                     icon="none"
+                    maxlength="50"
                     status="{{
                       f.name.hasError('required') && formInvalid
                         ? 'invalid'
@@ -94,6 +94,7 @@
                   <app-input
                     [invalidText]="getMesaggeErrorLastName()"
                     icon="none"
+                    maxlength="50"
                     status="{{
                       f.last_name.hasError('required') && formInvalid
                         ? 'invalid'
@@ -111,7 +112,6 @@
                   <app-input
                     [invalidText]="getMesaggeErrorEmail()"
                     icon="none"
-
                     status="{{ ( f.email.hasError('pattern') || f.email.hasError('required') ) && formInvalid ? 'invalid' : ''  }}"
                     idName="enterprises__register__person-email"
                     type="email"

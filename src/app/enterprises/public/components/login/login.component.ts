@@ -129,7 +129,7 @@ console.log(this._authService.currentUserValue)
   
 
   getMesaggeErrorEmail(){
-    return this.f.email.getError('required')? 'Este campo es requerido' : this.f.email.getError('pattern')? 'Email inválido' : '';    
+    return this.f.email.getError('required')? 'Este campo es requerido' : this.f.email.getError('pattern')? 'Correo electrónico inválido' : '';    
 
   }
 

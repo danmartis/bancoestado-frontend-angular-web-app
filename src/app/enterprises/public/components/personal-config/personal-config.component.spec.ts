@@ -3,6 +3,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { PersonalConfigComponent } from './personal-config.component';
 import { RouterTestingModule } from '@angular/router/testing';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { FormGroup, FormBuilder, Validators, ReactiveFormsModule, FormsModule } from '@angular/forms';
 //Components
 import { MyProfileComponent } from './my-profile/my-profile.component';
 import { ButtonComponent } from 'src/app/shared/components/components-atom/button/button.component';
@@ -13,6 +14,10 @@ import { InfoItemComponent } from './info-item/info-item.component';
 import { CardDefaultComponent } from 'src/app/shared/components/components-atom/card-default/card-default.component';
 //Services
 import { AuthService } from 'src/app/services/authentication/auth.service';
+import { UsersService } from '../../../../services/users/users.service';
+import { ModalComponent } from 'src/app/shared/components/components-organisms/modal/modal.component';
+import { AvatarComponent } from 'src/app/shared/components/components-organisms/card-user/avatar/avatar.component';
+import { IconComponent } from 'src/app/shared/components/components-atom/icon/icon.component';
 
 describe('PersonalConfigComponent', () => {
   let component: PersonalConfigComponent;
@@ -32,11 +37,17 @@ describe('PersonalConfigComponent', () => {
         InputComponent,
         CardUserComponent,
         InfoItemComponent,
-        CardDefaultComponent
+        CardDefaultComponent,
+        ModalComponent,
+        AvatarComponent,
+        IconComponent
        ],
       imports: [ 
         RouterTestingModule,
-        HttpClientTestingModule
+        HttpClientTestingModule,
+        FormsModule,
+        ReactiveFormsModule, 
+        
       ]
       // providers: [
       //   { provide: AuthService, useValue: mockUser }
@@ -53,5 +64,29 @@ describe('PersonalConfigComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('btnSendNewUser Test', () => {
+    component.btnSendNewUser();
+  });
+
+  it('toggleModal', () => {
+    component.toggleModal();
+  });
+
+  it('closeModal', () => {
+    component.closeModal();
+  });
+
+  it('handleCreateUser', () => {
+    component.handleCreateUser();
+  });
+
+  it('handleUserRegCompleted', () => {
+    component.handleUserRegCompleted();
+  });
+
+  it('handleAssignContactNewUser', () => {
+    component.handleAssignContactNewUser();
   });
 });

@@ -42,4 +42,18 @@ export class UsersService extends BffClientService {
       .finally(() => {});
   }
 
+  public registerNewUser(data): Observable<DataResponse> {
+      const urlApi = environment.DOMAIN_LOCAL+"maintainerUser/registerNewUser";
+     //const urlApi = "http://localhost:8080/bff/se-bff-empresas/v1/maintainerUser/registerNewUser";
+     let body = {
+         data
+     }
+     console.log( "url",urlApi );
+     console.log( "body",body );
+     return this.http.post(urlApi, body, { headers: this.getHeaders(), observe: 'response' })
+       .map(this.okData)
+       .catch(this.errorData)
+       .finally(() => {});
+   }
+
 }

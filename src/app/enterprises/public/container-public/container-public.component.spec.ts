@@ -5,6 +5,7 @@ import { HeaderLandingComponent } from 'src/app/shared/components/header-landing
 import { RouterTestingModule } from '@angular/router/testing';
 
 import { ComponentsModule } from 'src/app/shared/components/components.module';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 
 describe('ContainerPublicComponent', () => {
@@ -15,6 +16,7 @@ describe('ContainerPublicComponent', () => {
     TestBed.configureTestingModule({
       imports: [
         RouterTestingModule,
+        HttpClientTestingModule,
         ComponentsModule
       ],
       declarations: [ 
