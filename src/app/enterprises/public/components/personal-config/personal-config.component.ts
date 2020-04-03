@@ -5,6 +5,7 @@ import { ModalService } from '../../../../services/modal.service';
 import { PersonalConfigService } from './personal-config.service';
 import { PersonalService } from './services/personal.service';
 import { UsersService } from 'src/app/services/users/users.service';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-personal-config',
@@ -18,8 +19,23 @@ export class PersonalConfigComponent implements OnInit {
   protected updateUser: boolean = false;
   protected modalName: string = 'personal-config__modal';
   protected selectedMenuItem: string = 'mi-perfil';
+  protected assignContact: boolean = false;
+  protected tipoContacto: string = 'null'
 
-  constructor(private _authService: AuthService, public _personServices: PersonalService, private modalService: ModalService, private router: Router, protected personalConfigService: PersonalConfigService,private usersService: UsersService) {
+  newUserForm: FormGroup;
+  emailPattern = "[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}";
+  get f() { return this.newUserForm.controls; }
+  formInvalid: boolean = false;
+  public validaEmail: string;
+
+  constructor(
+    private _authService: AuthService, 
+    public _personServices: PersonalService, 
+    private modalService: ModalService, 
+    private router: Router, 
+    protected personalConfigService: PersonalConfigService,
+    private usersService: UsersService,
+    private _formBuilder: FormBuilder) {
     
     this.userTypes = [
       {
@@ -42,7 +58,13 @@ export class PersonalConfigComponent implements OnInit {
     this.router.events.subscribe((val) => {
       this.menuItemSel();
     });
-    
+
+    this.newUserForm = this._formBuilder.group({
+      name: [ '', [Validators.required]], 
+      email:  ['', [Validators.required, Validators.pattern(this.emailPattern)]], 
+      perfil: [ '', [Validators.required]],
+      tipoContacto: [''],
+    });
   }
 
   menuItemSel() {
@@ -55,6 +77,45 @@ export class PersonalConfigComponent implements OnInit {
     }
   }
 
+  async btnSendNewUser(){
+    this.getMesaggeErrorEmail();
+    if(this.newUserForm.invalid){
+      this.formInvalid = true;
+      console.log( this.formInvalid, this.newUserForm)
+    }
+    else {
+      this.formInvalid = false;
+      const dataForm = this.newUserForm.getRawValue();
+      if(dataForm.tipoContacto != "") this.tipoContacto = dataForm.tipoContacto;
+      const data = {
+        "name": dataForm.name,
+        "email":dataForm.email,
+        "perfil":dataForm.perfil,
+        "asignarContacto":this.assignContact,
+        "tipoContacto": this.tipoContacto
+      }
+      console.log('dataForm', dataForm);
+      console.log('data', data);
+      await this.usersService.registerNewUser(data)
+      .subscribe(res => {
+        console.log(res.getDetalle().data);
+        this.personalConfigService.handleNewUserConf()
+      }), err => {
+        return err;
+      };
+      console.log('btnSendNewUser', data);
+    } 
+  }
+
+  getMesaggeErrorEmail(){
+    return this.f.email.getError('required')? 'Este campo es requerido' : this.f.email.getError('pattern')? 'Email invalido' : '';    
+  }
+  getMesaggeErrorNombre() {
+    return this.f.name.getError('required') ? 'Este campo es requerido' : '';
+  }
+  getMesaggeErrorPerfil() {
+    return this.f.perfil.getError('required') ? 'Tienes un error' : '';
+  }
   handleEditProfile() {
     this._personServices.isEditingProfile = true;
   }
@@ -91,6 +152,10 @@ export class PersonalConfigComponent implements OnInit {
     else
       this._personServices.dataUserEdit.contact = 'No';
   
+  }
+
+  handleAssignContactNewUser() {
+    this.assignContact = !this.assignContact;
   }
 
   async updateUsers(dataUser) {

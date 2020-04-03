@@ -144,23 +144,41 @@
                 <h3 class="personal-config__users__title text-center">Nuevo usuario</h3>
                 <p class="text-center">Ingresa los datos requeridos para crear un nuevo usuario para tu empresa.</p>
               </div>
-              <form class="modal-user__form">
+              <form class="modal-user__form" [formGroup]="newUserForm">
                 <div class="form-group">
                   <label class="new-user__form__label--block" for="nombre">Nombre</label>
-                  <app-input type="text" placeholder="Ejemplo: Juan"></app-input>
+                  <app-input type="text" placeholder="Ejemplo: Juan" 
+                  formControlName="name" 
+                  [value]="f.name.value"
+                  ngDefaultControl
+                  [invalidText]="getMesaggeErrorNombre()"
+                  status="{{ ( f.name.hasError('required') ) && formInvalid ? 'invalid' : ''  }}"></app-input>
                 </div>
                 <div class="form-group">
                   <label class="new-user__form__label--block" for="email">Correo electrónico</label>
-                  <app-input type="text" placeholder="Ejemplo: micorreo@email.com"></app-input>
+                  <app-input type="text" placeholder="Ejemplo: micorreo@email.com"
+                  formControlName="email" 
+                  [value]="f.email.value"
+                  ngDefaultControl
+                  [invalidText]="getMesaggeErrorEmail()"
+                  status="{{ ( f.email.hasError('pattern') || f.email.hasError('required') ) && formInvalid ? 'invalid' : ''  }}"></app-input>
                 </div>
                 <div class="form-group">
                   <label class="new-user__form__label--block" for="nombre">Perfil asignado ( Rol )</label>
-                  <select name="" id="" class="personal-config__users__select">
-                    <option
-                      id="personal-config__users__new-user__val-all"
-                      value="all">
-                      Todos los usuarios
-                    </option>
+
+                  <!--<app-select-se label="Selecciona una opción" 
+                  formControlName="perfil" 
+                  [value]="f.perfil.value"
+                  [items]="userTypes"
+                  [invalidText]="getMesaggeErrorPerfil()"
+                  status="{{ ( f.perfil.hasError('required') ) && formInvalid ? 'invalid' : ''  }}"
+                  ngDefaultControl
+                  ></app-select-se>-->
+
+                  <select name="" id="" class="personal-config__users__select"
+                  formControlName="perfil"
+                  [value]="f.perfil.value"
+                  ngDefaultControl>
                     <option
                       *ngFor="let option of userTypes; let i = index;"
                       id="personal-config__users__new-user__val-{{ option.value }}"
@@ -168,19 +186,23 @@
                       {{ option.name }}
                     </option>
                   </select>
+
                 </div>
                 <div class="form-group assign-contact">
-                  <input type="checkbox" name="" id="" class="" [value]="assignContact" (click)="handleAssignContact()">
+                  <input type="checkbox" name="" id="" class="" [value]="assignContact" (click)="handleAssignContactNewUser()">
                   <label for="">Asignar como contacto</label>
                 </div>
                 <div class="form-group" *ngIf="assignContact">
                   <label for="">Tipo de contacto</label>
-                  <select name="" id="" class="personal-config__users__select">
-                    <option value="">Contacto operacional</option>
+                  <select name="" id="" class="personal-config__users__select"
+                  formControlName="tipoContacto" 
+                    [value]="f.tipoContacto.value"
+                    ngDefaultControl>
+                    <option>Contacto operacional</option>
                   </select>
                 </div>
                 <div class="form-group text-center modal-user__form__btns">
-                  <app-button type="auto-block-min-w-x2" (click)="personalConfigService.handleNewUserConf()">Crear usuario</app-button>
+                  <app-button type="auto-block-min-w-x2" (click)="btnSendNewUser()">Crear usuario</app-button>
                   <a (click)="closeModal()">Cancelar</a>
                 </div>
               </form>
@@ -188,16 +210,7 @@
           </div>
 
         </div>
-
-
-        
-
-        
-
-
       </div> <!-- /.modal_section__body -->
-
     </app-modal>
-    
   </div> <!-- /#personal-config -->
 </app-page>
