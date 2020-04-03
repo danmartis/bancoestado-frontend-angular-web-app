@@ -48,7 +48,7 @@
                   <div class="col-sm-12 col-lg-6">
                     <app-input idName="personal-config__my-profile__input-{{ personalInfoItems.editable[2].id }}"
                       placeholder="{{ personalInfoItems.editable[2].label }}" formControlName="address"
-                      [invalidText]="getMesaggeErrorAddress()" icon="none" maxlength=50
+                      [invalidText]="getMesaggeErrorAddress()" icon="none" maxlength=100
                       [value]=" _personalServices.f.address.value" status="{{
                         _personalServices.f.address.hasError('required') && _personalServices.formInvalid
                           ? 'invalid'
