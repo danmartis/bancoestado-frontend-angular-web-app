@@ -144,10 +144,6 @@ export const emailValidate = (mail : string): boolean => {
     return (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(mail));
 };
 
-export const validateRut = (rut: string): boolean => {
-    return ;
-};
-
 export const rutClean = (value) => {
     return typeof value === 'string' ? value.replace(/[^0-9kK]+/g, '').toUpperCase() : '';
 }

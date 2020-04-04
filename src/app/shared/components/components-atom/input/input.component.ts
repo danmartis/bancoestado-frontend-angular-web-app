@@ -1,30 +1,39 @@
-import { Component, OnInit, Input, Output, EventEmitter, OnChanges, SimpleChanges } from '@angular/core';
-import { rutClean, rutValidate } from 'src/app/shared/utils/utils';
+import {
+  Component,
+  OnInit,
+  Input,
+  Output,
+  EventEmitter,
+  OnChanges,
+  SimpleChanges,
+} from "@angular/core";
+import { rutValidate } from "src/app/shared/utils/utils";
 
 @Component({
-  selector: 'app-input',
-  templateUrl: './input.component.html',
-  styleUrls: ['./input.component.scss']
+  selector: "app-input",
+  templateUrl: "./input.component.html",
+  styleUrls: ["./input.component.scss"],
 })
-export class InputComponent implements OnInit, OnChanges {
+export class InputComponent {
   @Input() isOpen: boolean = false;
   @Input() isDrop: boolean = false;
-  @Input() mode: '' | 'wrapper' = '';
-  @Input() type: '' | 'text' | 'email' | 'rut'| 'rut-empresa' | 'password' = 'text';
+  @Input() mode: "" | "wrapper" = "";
+  @Input() type: "" | "text" | "email" | "rut-persona" | "rut-empresa" | "password" =
+    "text";
   @Input() icon: string;
-  @Input() iconSrc: string = '';
+  @Input() iconSrc: string = "";
   @Input() iconLeft: string;
   @Input() placeholder: string;
-  @Input() value: string = '';
+  @Input() value: string = "";
   @Input() maxlength: number;
   @Input() size: number;
   @Input() options: boolean | Array<any> = false;
-  @Input() typeOptions: '' | 'listOrder' | 'list' = '';
+  @Input() typeOptions: "" | "listOrder" | "list" = "";
 
-  @Input() className: string = '';
+  @Input() className: string = "";
 
-  @Input() status: 'valid' | 'invalid' | '' = '';
-  @Input() invalidText: string = 'Tienes un error';
+  @Input() status: "valid" | "invalid" | "" = "";
+  @Input() invalidText: string = "Tienes un error";
 
   @Input() disabled: boolean = false;
 
@@ -32,82 +41,60 @@ export class InputComponent implements OnInit, OnChanges {
 
   @Output() public onChangeConvenio = new EventEmitter<any>();
 
-  constructor() { }
-
-  ngOnInit() {
-  }
-  
-  ngOnChanges(changes: SimpleChanges) {
-    if (this.type == "rut" || this.type == "rut-empresa") {
-      let tmpRut = changes.value.currentValue;
-      if (tmpRut === "") {
-        this.status = "";
-      } else{
-        let tipoRut = ( this.type == "rut" )? "persona" : "empresa";
-        if (rutValidate(tmpRut, tipoRut)) {
-          this.status = "valid";
-        } else
-          this.status = "invalid";
-      }
-    }
-  }
+  constructor() {}
 
   getStatus() {
-    return this.status ? `input--${this.status}` : '';
+    return this.status ? `input--${this.status}` : "";
   }
 
   getAttribute(key: string): string {
-    return this[key] ? this[key] : '';
+    return this[key] ? this[key] : "";
   }
 
   getIcon() {
-    return this.icon ? `input--icon` : '';
+    return this.icon ? `input--icon` : "";
   }
 
   getIconName() {
-    if (this.status === '') {
+    if (this.status === "") {
       if (this.icon) return this.icon;
     }
-    return '';
+    return "";
   }
 
   getStatusIcon() {
     switch (this.status) {
-      case 'valid':
-        return 'check_circle';
-      case 'invalid':
-        return 'cancel';
+      case "valid":
+        return "check_circle";
+      case "invalid":
+        return "cancel";
       default:
-        return '';
+        return "";
     }
   }
 
   getNativeIcon() {
     switch (this.type) {
-      case 'email':
-        return 'email';
-      case 'password':
-        return 'lock';
-      case 'rut-empresa':
-      case 'rut':
-        return 'person'
+      case "email":
+        return "email";
+      case "password":
+        return "lock";
+      case "rut-empresa":
+      case "rut-persona":
+        return "person";
       default:
-        return '';
+        return "";
     }
   }
 
   getMaxlength() {
     switch (this.type) {
-      case 'rut-empresa':
-      case 'rut':
-        return 12
+      case "rut-empresa":
+      case "rut-persona":
+        return 12;
       default:
         return this.maxlength;
     }
-  }
-
-  handlerChange(event) {
-    this.onChange.emit(event.target.value);
   }
 
   isOpenSetTrue() {
@@ -119,5 +106,29 @@ export class InputComponent implements OnInit, OnChanges {
     this.value = value.servicio;
     this.options = [];
     this.onChangeConvenio.emit(value);
+  }
+
+  handlerChange(event) {
+    let inputValue = event.target.value;
+    this.validateInputValue(inputValue);
+    this.onChange.emit(inputValue);
+  }
+
+  private validateInputValue(inputValue: string): void {
+    if (this.type == "rut-persona" || this.type == "rut-empresa") {
+      this.validateRut(inputValue);
+    }
+  }
+  private validateRut(rut: string): void {
+    if (rut === "") {
+      this.status = "";
+    } else {
+      let tipoRut = this.type == "rut-persona" ? "persona" : "empresa";
+      if (rutValidate(rut, tipoRut)) {
+        this.status = "valid";
+      } else {
+        this.status = "invalid";
+      }
+    }
   }
 }
