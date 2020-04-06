@@ -71,10 +71,10 @@ describe('FaqComponent', () => {
     expect(component.closeListOpenSingle).not.toBeNull();
   });
 
-  it('Test ngAfterViewInit', () => {
+ /* it('Test ngAfterViewInit', () => {
     component.questionsData = 'Question Test';
     expect(component.ngAfterViewInit()).not.toBeNull();
-  });
+  });*/
 
   it('Test handleGroupDetail', () => {
     let item = {
