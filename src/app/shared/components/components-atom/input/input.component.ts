@@ -1,11 +1,8 @@
 import {
   Component,
-  OnInit,
   Input,
   Output,
   EventEmitter,
-  OnChanges,
-  SimpleChanges,
 } from "@angular/core";
 import { rutValidate } from "src/app/shared/utils/utils";
 
@@ -31,6 +28,7 @@ export class InputComponent {
   @Input() typeOptions: "" | "listOrder" | "list" = "";
 
   @Input() className: string = "";
+  @Input() idName: string = '';
 
   @Input() status: "valid" | "invalid" | "" = "";
   @Input() invalidText: string = "Tienes un error";
