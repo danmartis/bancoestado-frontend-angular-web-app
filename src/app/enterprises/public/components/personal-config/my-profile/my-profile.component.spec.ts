@@ -7,7 +7,8 @@ import { HttpClientTestingModule } from "@angular/common/http/testing";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
 //services
-import { FilesService } from '../../../../../services/files/files.service';;
+import { FilesService } from '../../../../../services/files/files.service';import { SharedModule } from 'src/app/shared/shared.module';
+;
 
 describe("MyProfileComponent", () => {
   let component: MyProfileComponent;
@@ -17,10 +18,11 @@ describe("MyProfileComponent", () => {
     TestBed.configureTestingModule({
       declarations: [MyProfileComponent, InfoItemComponent],
       imports: [
-        ComponentsModule,
+        SharedModule,
         FormsModule,
         ReactiveFormsModule,
-        HttpClientTestingModule
+        HttpClientTestingModule,
+        
       ], 
       providers: [
           { provide: FilesService }

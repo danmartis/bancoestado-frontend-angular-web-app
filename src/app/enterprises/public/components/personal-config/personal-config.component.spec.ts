@@ -18,6 +18,8 @@ import { UsersService } from '../../../../services/users/users.service';
 import { ModalComponent } from 'src/app/shared/components/components-organisms/modal/modal.component';
 import { AvatarComponent } from 'src/app/shared/components/components-organisms/card-user/avatar/avatar.component';
 import { IconComponent } from 'src/app/shared/components/components-atom/icon/icon.component';
+import { SharedModule } from 'src/app/shared/shared.module';
+import { ComponentsModule } from 'src/app/shared/components/components.module';
 
 describe('PersonalConfigComponent', () => {
   let component: PersonalConfigComponent;
@@ -32,7 +34,6 @@ describe('PersonalConfigComponent', () => {
       declarations: [ 
         PersonalConfigComponent,
         MyProfileComponent,
-        ButtonComponent,
         PageComponent,
         InputComponent,
         CardUserComponent,
@@ -43,6 +44,7 @@ describe('PersonalConfigComponent', () => {
         IconComponent
        ],
       imports: [ 
+        ComponentsModule,
         RouterTestingModule,
         HttpClientTestingModule,
         FormsModule,
