@@ -16,6 +16,11 @@ describe('AvatarComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(AvatarComponent);
     component = fixture.componentInstance;
+    component.userData = {
+      'firstName' : 'Juan',
+      'lastName' :'Lugo',
+      'img' : '',
+    }
     fixture.detectChanges();
   });
 

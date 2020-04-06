@@ -16,6 +16,9 @@ describe('QuestionItemsComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(QuestionItemsComponent);
     component = fixture.componentInstance;
+    component.item = {
+      'category' : ''
+    }
     fixture.detectChanges();
   });
 

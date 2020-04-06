@@ -16,6 +16,10 @@ describe('InfoItemComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(InfoItemComponent);
     component = fixture.componentInstance;
+    component.info = {
+      'label' : '',
+      'value': ''
+    }
     fixture.detectChanges();
   });
 
