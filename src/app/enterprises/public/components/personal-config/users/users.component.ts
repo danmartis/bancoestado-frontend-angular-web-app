@@ -46,11 +46,11 @@ export class UsersComponent implements OnInit {
     this.updateUser = true;
   }
 
-  handleUpdateUser(editUser) {
+  handleUpdateUser() {
     this.toggleModal();
   }
 
-  handleDeleteUser(deleteUser) {
+  handleDeleteUser() {
     this.toggleModal();
   }
 
