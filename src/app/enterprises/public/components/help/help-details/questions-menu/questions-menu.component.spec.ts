@@ -18,6 +18,10 @@ describe('QuestionsMenuComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(QuestionsMenuComponent);
     component = fixture.componentInstance;
+    component.item = {
+      'icon' : '',
+      'category' :'' 
+    }
     fixture.detectChanges();
   });
 
