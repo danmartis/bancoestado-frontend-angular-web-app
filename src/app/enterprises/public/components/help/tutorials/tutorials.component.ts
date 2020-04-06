@@ -39,7 +39,6 @@ export class TutorialsComponent implements OnInit {
       this.title = res.getDetalle()['titleMain'];
     }),
     (err: any) => {
-      console.log('err', err);
       return err;
     }
   }
