@@ -33,18 +33,11 @@ describe('PersonalConfigComponent', () => {
     TestBed.configureTestingModule({
       declarations: [ 
         PersonalConfigComponent,
-        MyProfileComponent,
-        PageComponent,
-        InputComponent,
-        CardUserComponent,
         InfoItemComponent,
-        CardDefaultComponent,
-        ModalComponent,
-        AvatarComponent,
-        IconComponent
+
        ],
       imports: [ 
-        ComponentsModule,
+        SharedModule,
         RouterTestingModule,
         HttpClientTestingModule,
         FormsModule,

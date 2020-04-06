@@ -8,6 +8,7 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
 //services
 import { FilesService } from '../../../../../services/files/files.service';import { SharedModule } from 'src/app/shared/shared.module';
+import { Component } from '@angular/core';
 ;
 
 describe("MyProfileComponent", () => {
@@ -18,7 +19,7 @@ describe("MyProfileComponent", () => {
     TestBed.configureTestingModule({
       declarations: [MyProfileComponent, InfoItemComponent],
       imports: [
-        SharedModule,
+        ComponentsModule,
         FormsModule,
         ReactiveFormsModule,
         HttpClientTestingModule,
