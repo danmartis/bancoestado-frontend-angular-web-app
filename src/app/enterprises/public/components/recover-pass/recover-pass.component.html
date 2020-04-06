@@ -10,11 +10,10 @@
           <form [formGroup]="loginForm">
             <app-input 
             [invalidText]="getMesaggeErrorRut()" 
-           
-            status="{{ ( f.rut.hasError('required') || f.rut.hasError('rutInvalid') ) && formInvalid ? 'invalid' :  ( !f.rut.hasError('required') || !f.rut.hasError('rutInvalid') ) && formInvalid? 'valid': ''  }}" 
+            id="rutEmpresa" type="rut-empresa" formatRut
+            status="{{ statusValidRut() }}" 
             maxlength="12"
-            rutMaskInput 
-            (keyup.backspace)="onBackspace()"
+             
             idName="enterprises__register__rut" 
             type="text" placeholder="Rut"  
             formControlName="rut" 

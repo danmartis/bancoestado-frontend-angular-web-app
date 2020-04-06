@@ -10,15 +10,18 @@
         <form [formGroup]="loginForm">
           <app-input 
           [invalidText]="getMesaggeErrorRut()" 
-         
-          status="{{ ( f.rut.hasError('required') || f.rut.hasError('rutInvalid') ) && formInvalid ? 'invalid' :  ( !f.rut.hasError('required') || !f.rut.hasError('rutInvalid') ) && formInvalid? 'valid': ''  }}" 
-          maxlength="12"
-          rutMaskInput
-          [value]="f.rut.value"
+          id="rutEmpresa"
+          type="rut-empresa"
+          formatRut
 
-          (keyup.backspace)="onBackspace()"
+          status="{{ statusValidRut() }}" 
+          maxlength="12"
+          
+          [value]="f.rut.value"
+          
+  
           idName="enterprises__register__rut" 
-          type="text" placeholder="Rut Empresa"  
+          placeholder="Rut Empresa"  
           formControlName="rut" 
           ngDefaultControl></app-input>
           <app-input type="email" placeholder="Correo electrónico" [invalidText]="getMesaggeErrorEmail()"

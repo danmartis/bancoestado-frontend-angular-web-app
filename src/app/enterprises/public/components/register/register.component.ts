@@ -123,18 +123,10 @@ export class RegisterComponent implements OnInit {
     return true;
   }
 
-  onBackspace(){
+  statusValidRut(){
 
-
-    const value =  this.f.rut.value;
-
-    if  (value.match(/\./g, '')) {
-     
-    const dot = this.f.rut.value.replace(/\./g, '');
-    const div = dot.replace(/\-/g, '')
-    this.f.rut.setValue(div)
-    }
-  }
+    return (this.f.rut.hasError('required') || this.f.rut.hasError('rutInvalid'))  && this.formInvalid ? 'invalid' : ( !this.f.rut.hasError('required') || !this.f.rut.hasError('rutInvalid') ) && this.formInvalid? 'valid': '' 
+   }
 
 }
 

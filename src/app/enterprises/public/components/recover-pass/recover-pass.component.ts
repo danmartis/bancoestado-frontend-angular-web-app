@@ -131,6 +131,11 @@ console.log(this._authService.currentUserValue)
 
   }
 
+  statusValidRut(){
+
+   return (this.f.rut.hasError('required') || this.f.rut.hasError('rutInvalid'))  && this.formInvalid ? 'invalid' : ( !this.f.rut.hasError('required') || !this.f.rut.hasError('rutInvalid') ) && this.formInvalid? 'valid': '' 
+  }
+
 
 
   onBackspace(){
