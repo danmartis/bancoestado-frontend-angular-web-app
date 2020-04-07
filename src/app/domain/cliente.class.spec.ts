@@ -2,7 +2,7 @@ import { Cliente } from './cliente.class';
 
 let cliente: Cliente;
 
-fdescribe('ClienteClass', () => {
+describe('ClienteClass', () => {
     let dataEncoded = {
         _token: '123asd',
         _codigosesion: '1234',
