@@ -98,12 +98,9 @@ describe('PaymentMethodComponent', () => {
   });
 
   it('goToHome', () => {
-   
-
     const router: Router = TestBed.get(Router);
     spyOn(router, 'navigate');
     component.goToHome();
-
     expect(router.navigate).toHaveBeenCalledWith(['home-account/home']);
 
   });
