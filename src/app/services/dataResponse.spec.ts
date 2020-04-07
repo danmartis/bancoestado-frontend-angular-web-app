@@ -20,7 +20,8 @@ describe('saldoResponse', () => {
   });
 
   it('Funcion getCodigo', () => {
-      dataResponse.getCodigo();
-  });
+      dataResponse = new DataResponse(true, 'CODIGO', '', '');
+      expect(dataResponse.getCodigo()).toBe('CODIGO');
+    });
 
 });
