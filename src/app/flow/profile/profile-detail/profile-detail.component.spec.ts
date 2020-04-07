@@ -60,4 +60,8 @@ describe('ProfileDetailComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('Test toggleMode', () => {
+    expect(component.toggleMode()).not.toBeNull();
+  });
 });

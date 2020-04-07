@@ -22,4 +22,16 @@ describe('CardAccountHistoryGroupComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('toggleType() - close', () => {
+    component.type = 'close';
+    component.toggleType();
+    expect(component.type).toEqual('open');
+  });
+
+  it('toggleType() - open', () => {
+    component.type = 'open';
+    component.toggleType();
+    expect(component.type).toEqual('close');
+  });
 });
