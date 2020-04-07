@@ -15,6 +15,8 @@ export class LoginFlowComponent implements OnInit {
   constructor(protected modalService:ModalService) { }
 
   ngOnInit() {
+
+    
   }
 
   emailValidate(email) {

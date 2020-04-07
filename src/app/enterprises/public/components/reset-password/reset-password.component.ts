@@ -10,6 +10,7 @@ import {
 import { Router } from '@angular/router';
 import { DashboardService } from '../dashboard/services/dashboard.service';
 import { typeWithParameters } from '@angular/compiler/src/render3/util';
+import { onlyLettersAndNumbers } from 'src/app/shared/utils/utils';
 
 @Component({
   selector: "app-reset-password",
@@ -36,15 +37,13 @@ export class ResetPasswordComponent implements OnInit {
     return this.resetPassForm.controls;
   }
 
-  public inputValidator(event: any) {
-    //console.log(event.target.value);
-    const pattern = /^[a-zA-Z0-9]*$/;
-    //let inputChar = String.fromCharCode(event.charCode)
-    if (!pattern.test(event.target.value)) {
-      event.target.value = event.target.value.replace(/[^0-9\k\K]/g, "");
-      // invalid character, prevent input
-    }
+  onlyLettersAndNumbers(event): boolean {
+
+    const res = onlyLettersAndNumbers(event);
+    return res? true: false;
   }
+
+
 
   getMesaggeErrorPassword() {
     return this.f.password.getError("required")

@@ -144,6 +144,21 @@ export const emailValidate = (mail : string): boolean => {
     return (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(mail));
 };
 
+export const onlyLettersAndNumbers = (event: any): any => {
+
+    const charCode = event.which ? event.which : event.keyCode;
+    if (
+      (charCode > 64 && charCode < 91) ||
+      (charCode > 96 && charCode < 123) ||
+      (charCode >= 48 && charCode <= 57) ||
+      charCode == 32 ||
+      charCode == 8
+    )
+      return true;
+    else return false;
+
+  };
+
 export const rutClean = (value) => {
     return typeof value === 'string' ? value.replace(/[^0-9kK]+/g, '').toUpperCase() : '';
 }
