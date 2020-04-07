@@ -30,4 +30,10 @@ describe('HelpSearchComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('Test changeQuestion', () => {
+    let question = 'question';
+    component.changeQuestion(question);
+    expect(component.question).toBe('question');
+  });
 });

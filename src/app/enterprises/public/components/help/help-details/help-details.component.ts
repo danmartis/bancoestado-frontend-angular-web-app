@@ -14,7 +14,7 @@ export class HelpDetailsComponent implements OnInit {
   protected bannerContent = new Array();
   // Abre en mínimo de preguntas a mostrar
   protected show = 5;
-  protected showMenuCatMobile : boolean = false;
+  public showMenuCatMobile : boolean = false;
 
   constructor(private gestorContenido: GestorContenidoService) { }
 
@@ -31,12 +31,7 @@ export class HelpDetailsComponent implements OnInit {
   
   async contenido() {
     await this.gestorContenido.getQuestions().subscribe(res => {
-
       this.faqItems = res.getDetalle()["content"];
-
-      console.log( this.faqItems)
-
-      console.log()
       this.bannerContent = res.getDetalle();
     }),
       (err: { message: any; }) => {
