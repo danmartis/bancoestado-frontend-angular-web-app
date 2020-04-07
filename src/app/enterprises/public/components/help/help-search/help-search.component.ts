@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HelpSearchComponent implements OnInit {
 
-  protected question : string = '';
+  public question : string = '';
 
   constructor() { }
 

@@ -19,10 +19,6 @@ export class Button2Component implements OnInit {
   ngOnInit() {
   }
 
-  getPro(prop : string) : string {
-    return `button--${this[prop]}`;
-  }
-
   getAuto() {
     return this.auto ? 'button--auto' : '';
   }

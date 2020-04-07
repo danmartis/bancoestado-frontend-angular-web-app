@@ -22,4 +22,10 @@ describe('CardAccountDetailComponentNew', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('openEdit', () => {
+    spyOn(component.openEditAccount, 'emit');
+    component.openEdit();
+    expect(component.openEditAccount.emit).toHaveBeenCalled();
+  });
 });

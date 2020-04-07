@@ -27,9 +27,9 @@ export class FaqComponent implements OnInit, AfterViewInit {
   // https://www.npmjs.com/package/ngx-tiny-slider
   public tinySliderConfig: any; // NgxTinySliderSettingsInterface;
   @ViewChildren("carouselItemList")
-  private carouselItemList: QueryList<any>;
+  public carouselItemList: QueryList<any>;
   @ViewChild("ngxSlider", { static: false })
-  private ngxSlider: any;
+  public ngxSlider: any;
 
   constructor(protected modalService: ModalService, private router: Router, private gestorContenidoService: GestorContenidoService) { }
 
@@ -66,20 +66,17 @@ export class FaqComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit(): void {
     this.carouselItemList.changes.subscribe(() =>
-      //this.ngxSlider.domReady.next()
       this.questionsData != null && this.ngxSlider.domReady.next()
     );
   }
 
   handleFaqDetail(item) {
-    console.log('item', item);
     this.gestorContenidoService.selectItem = item.idGroup;
     this.gestorContenidoService.selectQuestion = item.id
     this.router.navigate([`/empresas/ayuda/detalles/categoria/${this.gestorContenidoService.selectItem}/pregunta/${this.gestorContenidoService.selectQuestion}`]);
   }
 
   handleGroupDetail(item) {
-    console.log('item', item);
     this.gestorContenidoService.selectItem = item.id;
     this.router.navigate([`/empresas/ayuda/detalles/categoria/${this.gestorContenidoService.selectItem}`]);
   }

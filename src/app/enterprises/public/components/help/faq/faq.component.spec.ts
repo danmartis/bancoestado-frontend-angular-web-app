@@ -1,13 +1,13 @@
-import { async, ComponentFixture, TestBed, tick } from '@angular/core/testing';
-
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { FaqComponent } from './faq.component';
 import { NgxTinySliderModule } from 'ngx-tiny-slider';
-import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, OnChanges } from '@angular/core';
 import { PageTitleComponent } from 'src/app/shared/components/components-atom/page-title/page-title.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { GestorContenidoService } from 'src/app/services/gestor-contenido.service';
 import { RouterTestingModule } from '@angular/router/testing';
+import { Router } from '@angular/router';
 
 describe('FaqComponent', () => {
   let component: FaqComponent;
@@ -37,6 +37,15 @@ describe('FaqComponent', () => {
   }));
 
   beforeEach(() => {
+    const originalNavigate = TestBed.get(Router).navigate;
+    spyOn(TestBed.get(Router), 'navigate').and.callFake((...options) => {
+      fixture.ngZone.run(() => {
+        originalNavigate.apply(TestBed.get(Router), options);
+      });
+    });
+  });
+
+  beforeEach(() => {
     fixture = TestBed.createComponent(FaqComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
@@ -58,10 +67,27 @@ describe('FaqComponent', () => {
   });
 
   it('the closeListOpenSingle method should have been called with an array & a string', () => {
-    spyOn(component, "closeListOpenSingle")
     component.closeListOpenSingle(['testStringArray'], 'testString');
-    expect(component.closeListOpenSingle).toHaveBeenCalledWith(['testStringArray'], 'testString');
-  
-    
+    expect(component.closeListOpenSingle).not.toBeNull();
+  });
+
+ /* it('Test ngAfterViewInit', () => {
+    component.questionsData = 'Question Test';
+    expect(component.ngAfterViewInit()).not.toBeNull();
+  });*/
+
+  it('Test handleGroupDetail', () => {
+    let item = {
+      'id' : '1'
+    }
+    expect(component.handleGroupDetail(item)).not.toBeNull();
+  });
+
+  it('Test handleFaqDetail', () => {
+    let item = {
+      'id' : '1',
+      'idGroup' : '1'
+    }
+    expect(component.handleFaqDetail(item)).not.toBeNull();
   });
 });

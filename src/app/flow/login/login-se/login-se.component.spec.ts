@@ -20,6 +20,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { ModalIconComponent } from 'src/app/shared/components/modal-icon/modal-icon.component';
 import { Button2Component } from 'src/app/shared/components/button/button2/button2.component';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { Router } from '@angular/router';
 
 describe('LoginSeComponent', () => {
   let component: LoginSeComponent;
@@ -61,7 +62,20 @@ describe('LoginSeComponent', () => {
     fixture.detectChanges();
   });
 
+  beforeEach(() => {
+    const originalNavigate = TestBed.get(Router).navigate;
+    spyOn(TestBed.get(Router), 'navigate').and.callFake((...options) => {
+      fixture.ngZone.run(() => {
+        originalNavigate.apply(TestBed.get(Router), options);
+      });
+    });
+  });
+
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('Test goToHome', () => {
+    expect(component.goToHome()).toBe();
   });
 });

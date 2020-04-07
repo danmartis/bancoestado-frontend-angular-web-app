@@ -1,5 +1,4 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { QuestionComponent } from './question.component';
 
 describe('QuestionComponent', () => {
@@ -22,7 +21,15 @@ describe('QuestionComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  it('test openQuestion', () => {
+    let id = 1;
+    component.questionOpen = 1;
+    expect(component.openQuestion(id)).not.toBeNull();
+  });
+
+  it('test openQuestion 2', () => {
+    let id = 0;
+    component.questionOpen = 1;
+    expect(component.openQuestion(id)).not.toBeNull();
   });
 });

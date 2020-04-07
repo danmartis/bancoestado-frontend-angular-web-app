@@ -75,7 +75,8 @@ describe('PaymentsComponent', () => {
       imports: [
         NgbModule,
         FormsModule,
-        RouterTestingModule
+        RouterTestingModule,
+        
       ],
       providers: [
         ParametroService

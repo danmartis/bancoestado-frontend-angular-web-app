@@ -26,4 +26,24 @@ describe('CardAccountTypeAComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('getEditable() - editable false', () => {
+    component.editable = 'false';
+    expect(component.getEditable()).toBeFalsy();
+  });
+
+  it('getEditable() - editable true', () => {
+    component.editable = 'true';
+    expect(component.getEditable()).toBeTruthy();
+  });
+
+  it('getContextMenu() - editable false', () => {
+    component.contextMenu = 'false';
+    expect(component.getContextMenu()).toBeFalsy();
+  });
+
+  it('getContextMenu() - editable true', () => {
+    component.contextMenu = 'true';
+    expect(component.getContextMenu()).toBeTruthy();
+  });
 });

@@ -18,7 +18,6 @@ export class QuestionComponent implements OnInit {
   }
 
   openQuestion(id){
-    console.log(id);
     if(this.questionOpen === id){
       this.questionOpen = 0;
     } else {
